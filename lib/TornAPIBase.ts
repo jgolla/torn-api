@@ -24,13 +24,14 @@ export abstract class TornAPIBase {
         if (response.data.error) {
             return response.data.error;
         } else {
-            let jsonSelection = params.jsonOverride ? response.data[params.jsonOverride] : response.data[params.selection];
+            const jsonSelection = params.jsonOverride ? response.data[params.jsonOverride] : response.data[params.selection];
             return this.fixStringMap(jsonSelection);
         }
     }
 
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/no-explicit-any
     protected fixStringMap<V>(mapLike: any): Map<string, V> {
-        let returnMap = new Map<string, V>();
+        const returnMap = new Map<string, V>();
 
         const ids = Object.keys(mapLike);
         for (let i = 0; i < ids.length; i++) {

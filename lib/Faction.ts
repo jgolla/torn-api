@@ -13,7 +13,7 @@ export class Faction extends TornAPIBase {
         if (response.data.error) {
             return response.data.error;
         } else {
-            let factionReturn: IFaction = response.data;
+            const factionReturn: IFaction = response.data;
             factionReturn.members = this.fixStringMap(factionReturn.members);
             return factionReturn;
         }
@@ -84,19 +84,18 @@ export class Faction extends TornAPIBase {
     }
 
     async crimes(): Promise<Map<string, ICrime> | ITornApiError> {
-        let crimeMap = await this.apiQueryToMap<ICrime>({ route: 'faction', selection: 'crimes' });
+        const crimeMap = await this.apiQueryToMap<ICrime>({ route: 'faction', selection: 'crimes' });
 
-        if ('error' in crimeMap) {
-        } else {
+        if (!('error' in crimeMap)) {
             crimeMap.forEach(value => {
-                let internalParticipants = value.participants;
-                let participants: ICrimeParticipant[] = [];
+                const internalParticipants = value.participants;
+                const participants: ICrimeParticipant[] = [];
                 for (let i = 0; i < internalParticipants.length; i++) {
                     const participantMap = this.fixStringMap<IInternalCrimeParticipant>(internalParticipants[i]);
                     const id = participantMap.keys().next().value;
                     const value = participantMap.get(id);
 
-                    let participant: ICrimeParticipant = {
+                    const participant: ICrimeParticipant = {
                         id: id
                     };
 

@@ -78,7 +78,7 @@ export interface IUser {
     player_id: number;
     name: string;
     property_id: number;
-    competition?: any;
+    competition?: unknown;
     life: ILife;
     status: IStatus;
     job: IJob;
@@ -129,19 +129,10 @@ export interface IFaction {
     respect: number;
     age: number;
     best_chain: number;
-    territory_wars: ITerritoryWars;
-    raid_wars: IRaidWars;
-    peace: IPeace;
+    territory_wars: unknown;
+    raid_wars: unknown;
+    peace: unknown;
     members: Map<string, IMember>;
-}
-
-export interface ITerritoryWars {
-}
-
-export interface IRaidWars {
-}
-
-export interface IPeace {
 }
 
 export interface IMember {
@@ -165,11 +156,11 @@ export interface IArmor extends IArmoryBase {
     loaned_to?: string;
 }
 
-export interface IWeapon extends IArmor { }
+export type IWeapon = IArmor
 
-export interface IDrug extends IArmoryBase { }
+export type IDrug = IArmoryBase
 
-export interface IMedical extends IArmoryBase { }
+export type IMedical = IArmoryBase
 
 export interface IStats {
     drugsused: number;
@@ -218,12 +209,12 @@ interface INews {
     news: string;
 }
 
-export interface IArmoryNews extends INews { }
-export interface IAttackNews extends INews { }
-export interface ICrimeNews extends INews { }
-export interface IFundsNews extends INews { }
-export interface IMainNews extends INews { }
-export interface IMembershipNews extends INews { }
+export type IArmoryNews = INews
+export type IAttackNews = INews
+export type ICrimeNews = INews
+export type IFundsNews = INews
+export type IMainNews = INews
+export type IMembershipNews = INews
 
 export interface IAttackFull {
     code: string;
