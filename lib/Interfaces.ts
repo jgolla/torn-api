@@ -11,89 +11,7 @@ export interface IBank {
     '3m': string;
 }
 
-export interface ILife {
-    current: number;
-    maximum: number;
-    increment: number;
-    interval: number;
-    ticktime: number;
-    fulltime: number;
-}
-
-export interface IStatus {
-    description: string;
-    details: string;
-    state: string;
-    color: string;
-    until: number;
-}
-
-export interface IJob {
-    position: string;
-    company_id: number;
-    company_name: string;
-    company_type: number;
-}
-
-export interface IMarried {
-    spouse_id: number;
-    spouse_name: string;
-    duration: number;
-}
-
-export interface IBasicicons {
-    icon7: string;
-    icon4: string;
-    icon8: string;
-    icon27: string;
-    icon9: string;
-    icon71: string;
-}
-
-export interface IStates {
-    hospital_timestamp: number;
-    jail_timestamp: number;
-}
-
-export interface ILastAction {
-    status: string;
-    timestamp: number;
-    relative: string;
-}
-
-export interface IUser {
-    rank: string;
-    level: number;
-    gender: string;
-    property: string;
-    signup: string;
-    awards: number;
-    friends: number;
-    enemies: number;
-    forum_posts: number;
-    karma: number;
-    age: number;
-    role: string;
-    donator: number;
-    player_id: number;
-    name: string;
-    property_id: number;
-    competition?: unknown;
-    life: ILife;
-    status: IStatus;
-    job: IJob;
-    faction: {
-        position: string;
-        faction_id: number;
-        days_in_faction: number;
-        faction_name: string;
-        faction_tag: string;
-    };
-    married: IMarried;
-    basicicons: IBasicicons;
-    states: IStates;
-    last_action: ILastAction;
-}
+// /faction/
 
 export interface IAmmo {
     ammoID: number;
@@ -341,4 +259,176 @@ export interface IUpgrade {
     basecost: number;
     ability: string;
     unlocked: string;
+}
+
+// /User/
+
+export interface IStatus {
+    description: string;
+    details: string;
+    state: string;
+    color: string;
+    until: number;
+}
+
+export interface IJob {
+    position: string;
+    company_id: number;
+    company_name: string;
+    company_type: number;
+}
+
+export interface IMarried {
+    spouse_id: number;
+    spouse_name: string;
+    duration: number;
+}
+
+export interface IBasicicons {
+    icon7: string;
+    icon4: string;
+    icon8: string;
+    icon27: string;
+    icon9: string;
+    icon71: string;
+}
+
+export interface IStates {
+    hospital_timestamp: number;
+    jail_timestamp: number;
+}
+
+export interface ILastAction {
+    status: string;
+    timestamp: number;
+    relative: string;
+}
+
+export interface IBasicUser {
+    level: number;
+    gender: string;
+    player_id: number;
+    name: string;
+    status: IStatus;
+}
+
+export interface IUser extends IBasicUser {
+    rank: string;
+    property: string;
+    signup: string;
+    awards: number;
+    friends: number;
+    enemies: number;
+    forum_posts: number;
+    karma: number;
+    age: number;
+    role: string;
+    donator: number;
+    property_id: number;
+    competition?: unknown;
+    life: IUserBar;
+    job: IJob;
+    faction: {
+        position: string;
+        faction_id: number;
+        days_in_faction: number;
+        faction_name: string;
+        faction_tag: string;
+    };
+    married: IMarried;
+    basicicons: IBasicicons;
+    states: IStates;
+    last_action: ILastAction;
+}
+
+export interface IAttacksFull {
+    code: string;
+    timestamp_started: number;
+    timestamp_ended: number;
+    attacker_id: number;
+    attacker_faction: number;
+    defender_id: number;
+    defender_faction: number;
+    result: string;
+    stealthed: number;
+    respect_gain: number;
+}
+
+export interface IAttacks extends IAttacksFull {
+    attacker_name: string;
+    attacker_factionname: string;
+    defender_name: string;
+    defender_factionname?: string;
+    chain: number;
+    modifiers: {
+        fairFight: number;
+        war: number;
+        retaliation: number;
+        groupAttack: number;
+        overseas: number;
+        chainBonus: number;
+    };
+}
+
+export interface IUserBar {
+    current: number;
+    maximum: number;
+    increment: number;
+    interval: number;
+    ticktime: number;
+    fulltime: number;
+}
+
+export interface IBars {
+    server_time: number;
+    happy: IUserBar;
+    life: IUserBar;
+    energy: IUserBar;
+    nerve: IUserBar;
+    chain: {
+        current: number;
+        maximum: number;
+        timeout: number;
+        modifier: number;
+        cooldown: number;
+    };
+}
+
+export interface IBattleStats {
+    strength: number;
+    speed: number;
+    dexterity: number;
+    defense: number;
+    total: number;
+    strength_modifier: number;
+    defense_modifier: number;
+    speed_modifier: number;
+    dexterity_modifier: number;
+    strength_info: string[];
+    defense_info: string[];
+    speed_info: string[];
+    dexterity_info: string[];
+}
+
+export interface ICooldowns {
+    drug: number;
+    medical: number;
+    booster: number;
+}
+
+export interface ICrimes {
+    selling_illegal_products: number;
+    theft: number;
+    auto_theft: number;
+    drug_deals: number;
+    computer_crimes: number;
+    murder: number;
+    fraud_crimes: number;
+    other: number;
+    total: number;
+}
+
+export interface IDiscord {
+    userID: number;
+    discordID: string;
 }
