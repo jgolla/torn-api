@@ -1,4 +1,5 @@
 import { Faction } from './Faction';
+import { ITornApiError } from './Interfaces';
 import { Torn } from './Torn';
 import { User } from './User';
 
@@ -32,6 +33,11 @@ class TornAPI {
         }
 
         return this._faction;
+    }
+
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/no-explicit-any
+    public isError(input: any): input is ITornApiError {
+        return (input as ITornApiError).error !== undefined;
     }
 }
 

@@ -15,7 +15,13 @@ export abstract class TornAPIBase {
         if (response.data.error) {
             return response.data.error;
         } else {
-            return response.data[params.selection];
+            if (params.jsonOverride === '') {
+                return response.data;
+            } else if (params.jsonOverride) {
+                return response.data[params.jsonOverride]
+            } else {
+                return response.data[params.selection];
+            }
         }
     }
 
@@ -24,8 +30,30 @@ export abstract class TornAPIBase {
         if (response.data.error) {
             return response.data.error;
         } else {
-            const jsonSelection = params.jsonOverride ? response.data[params.jsonOverride] : response.data[params.selection];
+            let jsonSelection = response.data;
+            if (params.jsonOverride) {
+                jsonSelection = response.data[params.jsonOverride]
+            } else {
+                jsonSelection = response.data[params.selection];
+            }
+
             return this.fixStringMap(jsonSelection);
+        }
+    }
+
+    protected async apiQueryToArray<T>(params: QueryParams): Promise<T[] | ITornApiError> {
+        const response = await axios.get(this.buildUri(params));
+        if (response.data.error) {
+            return response.data.error;
+        } else {
+            let jsonSelection = response.data;
+            if (params.jsonOverride) {
+                jsonSelection = response.data[params.jsonOverride]
+            } else {
+                jsonSelection = response.data[params.selection];
+            }
+
+            return Object.values(jsonSelection);
         }
     }
 
