@@ -70,16 +70,21 @@ export abstract class TornAPIBase {
     }
 
     protected buildUri(params: QueryParams): string {
-        let uri = `https://api.torn.com/${params.route}/${params.id}?selections=${params.selection}&key=${this.apiKey}`;
+        let id = '', from = '', to = '';
+
+        if (params.id) {
+            id = params.id;
+        }
+
         if (params.from) {
-            uri += `&from=${params.from}`;
+            from = `&from=${params.from}`;
         }
 
         if (params.to) {
-            uri += `&to=${params.to}`;
+            to = `&to=${params.to}`;
         }
 
-        return uri;
+        return `https://api.torn.com/${params.route}/${id}?selections=${params.selection}&key=${this.apiKey}${from}${to}`;
     }
 }
 

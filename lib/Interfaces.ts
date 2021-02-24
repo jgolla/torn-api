@@ -263,14 +263,6 @@ export interface IUpgrade {
 
 // /User/
 
-export interface IStatus {
-    description: string;
-    details: string;
-    state: string;
-    color: string;
-    until: number;
-}
-
 export interface IJob {
     position: string;
     company_id: number;
@@ -776,41 +768,6 @@ export interface IPersonalStats {
     jobpointsused: number;
 }
 
-export interface IPropertyModifications {
-    interior: number;
-    hot_tub: number;
-    sauna: number;
-    pool: number;
-    open_bar: number;
-    shooting_range: number;
-    vault: number;
-    medical_facility: number;
-    airstrip: number;
-    yacht: number;
-}
-
-export interface IPropertyStaff {
-    maid: number;
-    guard: number;
-    pilot: number;
-    butler: number;
-    doctor: number;
-}
-
-export interface IProperty {
-    owner_id: number;
-    property_type: number;
-    property: string;
-    status: string;
-    happy: number;
-    upkeep: number;
-    staff_cost: number;
-    cost: number;
-    marketprice: number;
-    modifications: IPropertyModifications;
-    staff: IPropertyStaff;
-}
-
 export interface IRefills {
     energy_refill_used: boolean;
     nerve_refill_used: boolean;
@@ -859,4 +816,106 @@ export interface IWorkStats {
     manual_labor: number;
     intelligence: number;
     endurance: number;
+}
+
+export interface Rented {
+    user_id: number;
+    days_left: number;
+    total_cost: number;
+    cost_per_day: number;
+}
+
+export interface IPropertyBase {
+    owner_id: number;
+    property_type: number;
+    happy: number;
+    upkeep: number;
+}
+
+export interface IProperty extends IPropertyBase {
+    upgrades: string[];
+    staff: string[];
+    rented: Rented;
+    users_living: string;
+}
+
+export interface IPropertyModifications {
+    interior: number;
+    hot_tub: number;
+    sauna: number;
+    pool: number;
+    open_bar: number;
+    shooting_range: number;
+    vault: number;
+    medical_facility: number;
+    airstrip: number;
+    yacht: number;
+}
+
+export interface IPropertyStaff {
+    maid: number;
+    guard: number;
+    pilot: number;
+    butler: number;
+    doctor: number;
+}
+
+export interface IUserProperty extends IPropertyBase {
+    property: string;
+    status: string;
+    staff_cost: number;
+    cost: number;
+    marketprice: number;
+    modifications: IPropertyModifications;
+    staff: IPropertyStaff;
+}
+
+export interface ITerritory {
+    sector: number;
+    size: number;
+    density: number;
+    daily_respect: number;
+    faction: number;
+    coordinate_x: string;
+    coordinate_y: string;
+}
+
+export interface IEffectiveness {
+    working_stats: number;
+    settled_in: number;
+    merits: number;
+    director_education: number;
+    addiction: number;
+    total: number;
+}
+
+export interface ICompanyEmployee extends IEmployee {
+    manual_labor: number;
+    intelligence: number;
+    endurance: number;
+    effectiveness: IEffectiveness;
+}
+
+export interface IEmployee {
+    name: string;
+    position: string;
+    days_in_company: number;
+    last_action: ILastAction;
+    status: IStatus;
+}
+
+export interface ICompanyProfile {
+    ID: number;
+    company_type: number;
+    rating: number;
+    name: string;
+    director: number;
+    employees_hired: number;
+    employees_capacity: number;
+    daily_income: number;
+    daily_customers: number;
+    weekly_income: number;
+    weekly_customers: number;
+    days_old: number;
+    employees: Map<string, IEmployee>;
 }

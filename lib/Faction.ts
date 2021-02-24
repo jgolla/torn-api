@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import { TornAPIBase } from './TornAPIBase';
-import { IApplication, IArmor, IArmoryNews, IAttack, IAttackFull, IAttackNews, IChain, ICompleteChain, ICrime, ICrimeNews, ICrimeParticipant, ICurrency, IDonation, IDrug, IFaction, IFundsNews, IMainNews, IMedical, IMembershipNews, IRevives, IRevivesFull, IStats, ITornApiError, IUpgrade, IWeapon } from './Interfaces';
+import { IApplication, IArmor, IArmoryNews, IAttack, IAttackFull, IAttackNews, IChain, ICompleteChain, ICrime, ICrimeNews, ICrimeParticipant, ICurrency, IDonation, IDrug, IFaction, IFundsNews, IMainNews, IMedical, IMembershipNews, IRevives, IRevivesFull, IStats, ITerritory, ITornApiError, IUpgrade, IWeapon } from './Interfaces';
 
 export class Faction extends TornAPIBase {
     constructor(apiKey: string) {
@@ -173,8 +173,8 @@ export class Faction extends TornAPIBase {
         throw new Error('Method not implemented.');
     }
 
-    async territory(): Promise<undefined> {
-        throw new Error('Method not implemented.');
+    async territory(): Promise<Map<string, ITerritory> | ITornApiError> {
+        return this.apiQueryToMap({ route: 'faction', selection: 'territory' })
     }
 
     async upgrades(): Promise<Map<string, IUpgrade> | ITornApiError> {

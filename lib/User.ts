@@ -1,5 +1,5 @@
 import { TornAPIBase } from './TornAPIBase';
-import { ITornApiError, IUser, IAmmo, IAttacks, IAttacksFull, IBars, IBasicUser, IBattleStats, ICooldowns, ICrimes, IDiscord, IEducation, IEvents, IGym, IHOF, IIcon, IInventory, IJobPoints, IJobs, ICompany, IMedals, IMerits, IMessage, IMoney, INetworth, INotifications, IPerks, IPersonalStats, IProperty, IRefills, IRevives, IRevivesFull, IStocks, ITravel, IWorkStats } from './Interfaces';
+import { ITornApiError, IUser, IAmmo, IAttacks, IAttacksFull, IBars, IBasicUser, IBattleStats, ICooldowns, ICrimes, IDiscord, IEducation, IEvents, IGym, IHOF, IIcon, IInventory, IJobPoints, IJobs, ICompany, IMedals, IMerits, IMessage, IMoney, INetworth, INotifications, IPerks, IPersonalStats, IRefills, IRevives, IRevivesFull, IStocks, ITravel, IWorkStats, IUserProperty } from './Interfaces';
 
 export class User extends TornAPIBase {
     constructor(apiKey: string) {
@@ -140,7 +140,7 @@ export class User extends TornAPIBase {
         return this.user(id);
     }
 
-    async properties(): Promise<IProperty[] | ITornApiError> {
+    async properties(): Promise<IUserProperty[] | ITornApiError> {
         return this.apiQueryToArray({ route: 'user', selection: 'properties' });
     }
 

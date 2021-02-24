@@ -1,5 +1,7 @@
+import { Company } from './Company';
 import { Faction } from './Faction';
 import { ITornApiError } from './Interfaces';
+import { Property } from './Property';
 import { Torn } from './Torn';
 import { User } from './User';
 
@@ -33,6 +35,24 @@ class TornAPI {
         }
 
         return this._faction;
+    }
+
+    private _property: Property | null = null;
+    get property(): Property {
+        if (!this._property) {
+            this._property = new Property(this.apiKey);
+        }
+
+        return this._property;
+    }
+
+    private _company: Company | null = null;
+    get company(): Company {
+        if (!this._company) {
+            this._company = new Company(this.apiKey);
+        }
+
+        return this._company;
     }
 
     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/no-explicit-any
