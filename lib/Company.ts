@@ -1,5 +1,5 @@
 import { TornAPIBase } from './TornAPIBase';
-import { ICompanyEmployee, ICompanyProfile, IProperty, ITornApiError } from './Interfaces';
+import { ICompanyEmployee, ICompanyProfile, ITornApiError } from './Interfaces';
 import axios from 'axios';
 
 export class Company extends TornAPIBase {

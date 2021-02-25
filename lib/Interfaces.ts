@@ -919,3 +919,101 @@ export interface ICompanyProfile {
     days_old: number;
     employees: Map<string, IEmployee>;
 }
+
+export interface IItem {
+    name: string;
+    description: string;
+    effect: string;
+    requirement: string;
+    type: string;
+    weapon_type: string;
+    buy_price: number;
+    sell_price: number;
+    market_value: number;
+    circulation: number;
+    image: string;
+}
+
+export interface ICompanyPosition {
+    man_required: number;
+    int_required: number;
+    end_required: number;
+    man_gain: number;
+    int_gain: number;
+    end_gain: number;
+    special_ability: string;
+    description: string;
+}
+
+export interface ICompanyStock {
+    cost: string;
+    rrp: number;
+}
+
+export interface ICompanySpecial {
+    effect: string;
+    cost: number;
+    rating_required: number;
+}
+
+export interface ITornCompany {
+    name: string;
+    cost: number;
+    default_employees: number;
+    positions: Map<string, ICompanyPosition>;
+    stock: Map<string, ICompanyStock>;
+    specials: Map<string, ICompanySpecial>;
+}
+
+export interface IEducationResults {
+    perk?: string[];
+    manual_labor?: string[];
+    intelligence?: string[];
+    endurance?: string[];
+}
+
+export interface IEducation {
+    name: string;
+    description: string;
+    money_cost: number;
+    tier: number;
+    duration: number;
+    results: IEducationResults;
+    prerequisites: number[];
+}
+
+export interface IFactionTree {
+    branch: string;
+    name: string;
+    ability: string;
+    challenge: string;
+    base_cost: number;
+}
+
+export interface IGym {
+    name: string;
+    stage: number;
+    cost: number;
+    energy: number;
+    strength: number;
+    speed: number;
+    defense: number;
+    dexterity: number;
+    note: string;
+}
+
+export interface IHonor {
+    name: string;
+    description: string;
+    type: number;
+    circulation: number;
+    rarity: string;
+}
+
+export interface IMedal {
+    name: string;
+    description: string;
+    type: string;
+    circulation: number;
+    rarity: string;
+}
