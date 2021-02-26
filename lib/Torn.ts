@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { IBank, IEducation, IFactionTree, IGym, IHonor, IItem, IMedal, ITornApiError, ITornCompany } from './Interfaces';
+import { IBank, IEducation, IFactionTree, IGym, IHonor, IItem, IMedal, IOrganizedCrime, IPawnshop, IRacket, IRaid, IStock, ITerritory, ITerritoryWar, ITornApiError, ITornCompany, ITornProperty, ITornStats } from './Interfaces';
 import { TornAPIBase } from './TornAPIBase';
 
 export class Torn extends TornAPIBase {
@@ -63,5 +63,41 @@ export class Torn extends TornAPIBase {
 
     async medals(): Promise<Map<string, IMedal> | ITornApiError> {
         return this.apiQueryToMap({ route: 'torn', selection: 'medals' });
+    }
+
+    async organizedcrimes(): Promise<Map<string, IOrganizedCrime> | ITornApiError> {
+        return this.apiQueryToMap({ route: 'torn', selection: 'organizedcrimes' });
+    }
+
+    async pawnshop(): Promise<IPawnshop | ITornApiError> {
+        return this.apiQuery({ route: 'torn', selection: 'pawnshop' });
+    }
+
+    async properties(): Promise<Map<string, ITornProperty> | ITornApiError> {
+        return this.apiQueryToMap({ route: 'torn', selection: 'properties' });
+    }
+
+    async rackets(): Promise<Map<string, IRacket> | ITornApiError> {
+        return this.apiQueryToMap({ route: 'torn', selection: 'rackets' });
+    }
+
+    async raids(): Promise<Map<string, IRaid> | ITornApiError> {
+        return this.apiQueryToMap({ route: 'torn', selection: 'raids' });
+    }
+
+    async stats(): Promise<ITornStats | ITornApiError> {
+        return this.apiQuery({ route: 'torn', selection: 'stats' });
+    }
+
+    async stocks(): Promise<Map<string, IStock> | ITornApiError> {
+        return this.apiQueryToMap({ route: 'torn', selection: 'stocks' });
+    }
+
+    async territory(): Promise<Map<string, ITerritory> | ITornApiError> {
+        return this.apiQueryToMap({ route: 'torn', selection: 'territory' });
+    }
+
+    async territorywars(): Promise<Map<string, ITerritoryWar> | ITornApiError> {
+        return this.apiQueryToMap({ route: 'torn', selection: 'territorywars' });
     }
 }

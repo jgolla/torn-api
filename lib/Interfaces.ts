@@ -1017,3 +1017,158 @@ export interface IMedal {
     circulation: number;
     rarity: string;
 }
+
+export interface IOrganizedCrime {
+    name: string;
+    members: number;
+    time: number;
+    min_cash: number;
+    max_cash: number;
+    min_respect: number;
+    max_respect: number;
+}
+
+export interface IPawnshop {
+    points_value: number;
+    donatorpack_value: number;
+}
+
+export interface ITornProperty {
+    name: string;
+    cost: number;
+    happy: number;
+    upkeep: number;
+    upgrades_available: string[];
+    staff_available: string[];
+}
+
+export interface IRacket {
+    name: string;
+    level: number;
+    reward: string;
+    created: number;
+    changed: number;
+    faction: number;
+}
+
+export interface IRaid {
+    assaulting_faction: number;
+    defending_faction: number;
+    assaulting_score: number;
+    defending_score: number;
+    started: number;
+}
+
+export interface ITornStats {
+    timestamp: number;
+    users_total: number;
+    users_male: number;
+    users_female: number;
+    users_marriedcouples: number;
+    users_daily: number;
+    total_users_logins: number;
+    total_users_playtime: string;
+    job_army: number;
+    job_grocer: number;
+    job_medical: number;
+    job_casino: number;
+    job_education: number;
+    job_law: number;
+    job_company: number;
+    job_none: number;
+    crimes: number;
+    jailed: number;
+    money_onhand: number;
+    money_average: number;
+    money_citybank: number;
+    items: number;
+    events: number;
+    points_total: number;
+    points_market: number;
+    points_averagecost: number;
+    points_bought: number;
+    total_points_boughttotal: number;
+    total_attacks_won: number;
+    total_attacks_lost: number;
+    total_attacks_stalemated: number;
+    total_attacks_runaway: number;
+    total_attacks_hits: number;
+    total_attacks_misses: number;
+    total_attacks_criticalhits: number;
+    total_attacks_roundsfired: number;
+    total_attacks_stealthed: number;
+    total_attacks_moneymugged: number;
+    total_attacks_respectgained: number;
+    total_items_marketbought: number;
+    total_items_bazaarbought: number;
+    total_items_auctionswon: number;
+    total_items_sent: number;
+    total_trades: number;
+    total_items_bazaarincome: number;
+    total_items_cityfinds: number;
+    total_items_dumpfinds: number;
+    total_items_dumped: number;
+    total_jail_jailed: number;
+    total_jail_busted: number;
+    total_jail_busts: number;
+    total_jail_bailed: number;
+    total_jail_bailcosts: number;
+    total_hospital_trips: number;
+    total_hospital_medicalitemsused: number;
+    total_hospital_revived: number;
+    total_mails_sent: number;
+    total_mails_sent_friends: number;
+    total_mails_sent_faction: number;
+    total_mails_sent_company: number;
+    total_mails_sent_spouse: number;
+    total_classifiedads_placed: number;
+    total_bounty_placed: number;
+    total_bounty_rewards: number;
+    total_travel_all: number;
+    total_travel_argentina: number;
+    total_travel_mexico: number;
+    total_travel_dubai: number;
+    total_travel_hawaii: number;
+    total_travel_japan: number;
+    total_travel_unitedkingdom: number;
+    total_travel_southafrica: number;
+    total_travel_switzerland: number;
+    total_travel_china: number;
+    total_travel_canada: number;
+    total_travel_caymanislands: number;
+    total_drugs_used: number;
+    total_drugs_overdosed: number;
+    total_drugs_cannabis: number;
+    total_drugs_ecstacy: number;
+    total_drugs_ketamine: number;
+    total_drugs_lsd: number;
+    total_drugs_opium: number;
+    total_drugs_shrooms: number;
+    total_drugs_speed: number;
+    total_drugs_pcp: number;
+    total_drugs_xanax: number;
+    total_drugs_vicodin: number;
+    total_merits_bought: number;
+    total_refills_bought: number;
+    total_company_trains: number;
+    total_statenhancers_used: number;
+}
+
+export interface IStock {
+    name: string;
+    acronym: string;
+    director: string;
+    current_price: number;
+    market_cap: number;
+    total_shares: number;
+    available_shares: number;
+    forecast: string;
+    demand: string;
+}
+
+export interface ITerritoryWar {
+    assaulting_faction: number;
+    defending_faction: number;
+    started: number;
+    ends: number;
+}
