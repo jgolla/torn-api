@@ -921,6 +921,7 @@ export interface ICompanyProfile {
 }
 
 export interface IItem {
+    id: string;
     name: string;
     description: string;
     effect: string;
@@ -1155,6 +1156,7 @@ export interface ITornStats {
 }
 
 export interface IStock {
+    id: string;
     name: string;
     acronym: string;
     director: string;
@@ -1164,6 +1166,10 @@ export interface IStock {
     available_shares: number;
     forecast: string;
     demand: string;
+    benefit: {
+        requirement: number;
+        description: string;
+    };
 }
 
 export interface ITerritoryWar {

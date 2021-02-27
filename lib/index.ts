@@ -56,7 +56,7 @@ class TornAPI {
     }
 
     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/no-explicit-any
-    public isError(input: any): input is ITornApiError {
+    public static isError(input: any): input is ITornApiError {
         return (input as ITornApiError).error !== undefined;
     }
 }

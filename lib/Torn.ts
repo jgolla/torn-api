@@ -57,8 +57,8 @@ export class Torn extends TornAPIBase {
         return this.apiQueryToMap({ route: 'torn', selection: 'honors' });
     }
 
-    async items(): Promise<Map<string, IItem> | ITornApiError> {
-        return this.apiQueryToMap({ route: 'torn', selection: 'items' });
+    async items(): Promise<IItem[] | ITornApiError> {
+        return this.apiQueryToArray({ route: 'torn', selection: 'items' }, 'id');
     }
 
     async medals(): Promise<Map<string, IMedal> | ITornApiError> {
@@ -89,8 +89,8 @@ export class Torn extends TornAPIBase {
         return this.apiQuery({ route: 'torn', selection: 'stats' });
     }
 
-    async stocks(): Promise<Map<string, IStock> | ITornApiError> {
-        return this.apiQueryToMap({ route: 'torn', selection: 'stocks' });
+    async stocks(): Promise<IStock[] | ITornApiError> {
+        return this.apiQueryToArray({ route: 'torn', selection: 'stocks' }, 'id');
     }
 
     async territory(): Promise<Map<string, ITerritory> | ITornApiError> {

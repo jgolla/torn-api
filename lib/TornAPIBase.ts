@@ -41,7 +41,7 @@ export abstract class TornAPIBase {
         }
     }
 
-    protected async apiQueryToArray<T>(params: QueryParams): Promise<T[] | ITornApiError> {
+    protected async apiQueryToArray<T>(params: QueryParams, keyField?: string): Promise<T[] | ITornApiError> {
         const response = await axios.get(this.buildUri(params));
         if (response.data.error) {
             return response.data.error;
@@ -53,7 +53,21 @@ export abstract class TornAPIBase {
                 jsonSelection = response.data[params.selection];
             }
 
-            return Object.values(jsonSelection);
+            if (keyField) {
+                const returnArray: T[] = [];
+                const ids = Object.keys(jsonSelection);
+                for (let i = 0; i < ids.length; i++) {
+                    const id = ids[i];
+                    const field = jsonSelection[id];
+                    field[keyField] = id;
+                    returnArray.push(field)
+                }
+
+                return returnArray;
+
+            } else {
+                return Object.values(jsonSelection);
+            }
         }
     }
 
