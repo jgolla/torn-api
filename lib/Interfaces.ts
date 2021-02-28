@@ -50,10 +50,11 @@ export interface IFaction {
     territory_wars: unknown;
     raid_wars: unknown;
     peace: unknown;
-    members: Map<string, IMember>;
+    members: IMember[];
 }
 
 export interface IMember {
+    id: string;
     name: string;
     days_in_faction: number;
     last_action: ILastAction;
@@ -123,6 +124,7 @@ export interface IStats {
 }
 
 interface INews {
+    id: string;
     timestamp: number;
     news: string;
 }
@@ -173,6 +175,7 @@ export interface IChain {
 }
 
 export interface ICompleteChain {
+    id: string;
     chain: number;
     respect: string;
     start: number;
@@ -203,6 +206,7 @@ export interface ICrimeParticipant {
 }
 
 export interface ICrime {
+    id: string;
     crime_id: number;
     crime_name: string;
     participants: ICrimeParticipant[];
@@ -225,12 +229,14 @@ export interface ICurrency {
 }
 
 export interface IDonation {
+    id: string;
     name: string;
     money_balance: number;
     points_balance: number;
 }
 
 export interface IRevivesFull {
+    id: string;
     timestamp: number;
     reviver_id: number;
     reviver_faction: number;
@@ -251,6 +257,7 @@ export interface IRevives extends IRevivesFull {
 }
 
 export interface IUpgrade {
+    id: string;
     branch: string;
     branchorder: number;
     branchmultiplier: number;
@@ -871,6 +878,7 @@ export interface IUserProperty extends IPropertyBase {
 }
 
 export interface ITerritory {
+    id: string;
     sector: number;
     size: number;
     density: number;

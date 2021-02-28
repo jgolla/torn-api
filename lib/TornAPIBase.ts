@@ -54,21 +54,25 @@ export abstract class TornAPIBase {
             }
 
             if (keyField) {
-                const returnArray: T[] = [];
-                const ids = Object.keys(jsonSelection);
-                for (let i = 0; i < ids.length; i++) {
-                    const id = ids[i];
-                    const field = jsonSelection[id];
-                    field[keyField] = id;
-                    returnArray.push(field)
-                }
-
-                return returnArray;
-
+                return this.fixStringArray(jsonSelection, keyField);
             } else {
                 return Object.values(jsonSelection);
             }
         }
+    }
+
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/no-explicit-any
+    protected fixStringArray<T>(mapLike: any, keyField: string): T[] {
+        const returnArray: T[] = [];
+        const ids = Object.keys(mapLike);
+        for (let i = 0; i < ids.length; i++) {
+            const id = ids[i];
+            const field = mapLike[id];
+            field[keyField] = id;
+            returnArray.push(field)
+        }
+
+        return returnArray;
     }
 
     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/no-explicit-any

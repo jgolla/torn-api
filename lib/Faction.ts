@@ -14,7 +14,7 @@ export class Faction extends TornAPIBase {
             return response.data.error;
         } else {
             const factionReturn: IFaction = response.data;
-            factionReturn.members = this.fixStringMap(factionReturn.members);
+            factionReturn.members = this.fixStringArray(factionReturn.members, 'id');
             return factionReturn;
         }
     }
@@ -28,19 +28,19 @@ export class Faction extends TornAPIBase {
     }
 
     async armorynews(): Promise<IArmoryNews[] | ITornApiError> {
-        return this.apiQueryToArray({ route: 'faction', selection: 'armorynews' });
+        return this.apiQueryToArray({ route: 'faction', selection: 'armorynews' }, 'id');
     }
 
     async armorynewsfull(): Promise<IArmoryNews[] | ITornApiError> {
-        return this.apiQueryToArray({ route: 'faction', selection: 'armorynewsfull', jsonOverride: 'armorynews' });
+        return this.apiQueryToArray({ route: 'faction', selection: 'armorynewsfull', jsonOverride: 'armorynews' }, 'id');
     }
 
     async attacknews(): Promise<IAttackNews[] | ITornApiError> {
-        return this.apiQueryToArray({ route: 'faction', selection: 'attacknews' });
+        return this.apiQueryToArray({ route: 'faction', selection: 'attacknews' }, 'id');
     }
 
     async attacknewsfull(): Promise<IAttackNews[] | ITornApiError> {
-        return this.apiQueryToArray({ route: 'faction', selection: 'attacknewsfull', jsonOverride: 'attacknews' });
+        return this.apiQueryToArray({ route: 'faction', selection: 'attacknewsfull', jsonOverride: 'attacknews' }, 'id');
     }
 
     async attacks(from?: number, to?: number): Promise<IAttack[] | ITornApiError> {
@@ -67,8 +67,8 @@ export class Faction extends TornAPIBase {
         return this.apiQuery({ route: 'faction', selection: 'chain' });
     }
 
-    async chains(): Promise<Map<string, ICompleteChain> | ITornApiError> {
-        return this.apiQueryToMap({ route: 'faction', selection: 'chains' });
+    async chains(): Promise<ICompleteChain[] | ITornApiError> {
+        return this.apiQueryToArray({ route: 'faction', selection: 'chains' }, 'id');
     }
 
     async contributors(): Promise<undefined> {
@@ -76,18 +76,18 @@ export class Faction extends TornAPIBase {
     }
 
     async crimenews(): Promise<ICrimeNews[] | ITornApiError> {
-        return this.apiQueryToArray({ route: 'faction', selection: 'crimenews' });
+        return this.apiQueryToArray({ route: 'faction', selection: 'crimenews' }, 'id');
     }
 
     async crimenewsfull(): Promise<ICrimeNews[] | ITornApiError> {
-        return this.apiQueryToArray({ route: 'faction', selection: 'crimenewsfull', jsonOverride: 'crimenews' });
+        return this.apiQueryToArray({ route: 'faction', selection: 'crimenewsfull', jsonOverride: 'crimenews' }, 'id');
     }
 
-    async crimes(): Promise<Map<string, ICrime> | ITornApiError> {
-        const crimeMap = await this.apiQueryToMap<ICrime>({ route: 'faction', selection: 'crimes' });
+    async crimes(): Promise<ICrime[] | ITornApiError> {
+        const crimes = await this.apiQueryToArray<ICrime>({ route: 'faction', selection: 'crimes' }, 'id');
 
-        if (!('error' in crimeMap)) {
-            crimeMap.forEach(value => {
+        if (!('error' in crimes)) {
+            crimes.forEach(value => {
                 const internalParticipants = value.participants;
                 const participants: ICrimeParticipant[] = [];
                 for (let i = 0; i < internalParticipants.length; i++) {
@@ -114,15 +114,15 @@ export class Faction extends TornAPIBase {
             });
         }
 
-        return crimeMap;
+        return crimes;
     }
 
     async currency(): Promise<ICurrency | ITornApiError> {
         return this.apiQuery({ route: 'faction', selection: 'currency' });
     }
 
-    async donations(): Promise<Map<string, IDonation> | ITornApiError> {
-        return this.apiQueryToMap({ route: 'faction', selection: 'donations' });
+    async donations(): Promise<IDonation[] | ITornApiError> {
+        return this.apiQueryToArray({ route: 'faction', selection: 'donations' }, 'id');
     }
 
     async drugs(): Promise<IDrug[] | ITornApiError> {
@@ -130,19 +130,19 @@ export class Faction extends TornAPIBase {
     }
 
     async fundsnews(): Promise<IFundsNews[] | ITornApiError> {
-        return this.apiQueryToArray({ route: 'faction', selection: 'fundsnews' });
+        return this.apiQueryToArray({ route: 'faction', selection: 'fundsnews' }, 'id');
     }
 
     async fundsnewsfull(): Promise<IFundsNews[] | ITornApiError> {
-        return this.apiQueryToArray({ route: 'faction', selection: 'fundsnewsfull', jsonOverride: 'fundsnews' });
+        return this.apiQueryToArray({ route: 'faction', selection: 'fundsnewsfull', jsonOverride: 'fundsnews' }, 'id');
     }
 
     async mainnews(): Promise<IMainNews[] | ITornApiError> {
-        return this.apiQueryToArray({ route: 'faction', selection: 'mainnews' });
+        return this.apiQueryToArray({ route: 'faction', selection: 'mainnews' }, 'id');
     }
 
     async mainnewsfull(): Promise<IMainNews[] | ITornApiError> {
-        return this.apiQueryToArray({ route: 'faction', selection: 'mainnewsfull', jsonOverride: 'mainnews' });
+        return this.apiQueryToArray({ route: 'faction', selection: 'mainnewsfull', jsonOverride: 'mainnews' }, 'id');
     }
 
     async medical(): Promise<IMedical[] | ITornApiError> {
@@ -150,19 +150,19 @@ export class Faction extends TornAPIBase {
     }
 
     async membershipnews(): Promise<IMembershipNews[] | ITornApiError> {
-        return this.apiQueryToArray({ route: 'faction', selection: 'membershipnews' });
+        return this.apiQueryToArray({ route: 'faction', selection: 'membershipnews' }, 'id');
     }
 
     async membershipnewsfull(): Promise<IMembershipNews[] | ITornApiError> {
-        return this.apiQueryToArray({ route: 'faction', selection: 'membershipnewsfull', jsonOverride: 'membershipnews' });
+        return this.apiQueryToArray({ route: 'faction', selection: 'membershipnewsfull', jsonOverride: 'membershipnews' }, 'id');
     }
 
     async revives(): Promise<IRevives[] | ITornApiError> {
-        return this.apiQueryToArray({ route: 'faction', selection: 'revives' });
+        return this.apiQueryToArray({ route: 'faction', selection: 'revives' }, 'id');
     }
 
     async revivesfull(): Promise<IRevivesFull[] | ITornApiError> {
-        return this.apiQueryToArray({ route: 'faction', selection: 'revivesfull', jsonOverride: 'revives' });
+        return this.apiQueryToArray({ route: 'faction', selection: 'revivesfull', jsonOverride: 'revives' }, 'id');
     }
 
     async stats(): Promise<IStats | ITornApiError> {
@@ -173,12 +173,12 @@ export class Faction extends TornAPIBase {
         throw new Error('Method not implemented.');
     }
 
-    async territory(): Promise<Map<string, ITerritory> | ITornApiError> {
-        return this.apiQueryToMap({ route: 'faction', selection: 'territory' })
+    async territory(): Promise<ITerritory[] | ITornApiError> {
+        return this.apiQueryToArray({ route: 'faction', selection: 'territory' }, 'id')
     }
 
-    async upgrades(): Promise<Map<string, IUpgrade> | ITornApiError> {
-        return this.apiQueryToMap({ route: 'faction', selection: 'upgrades' });
+    async upgrades(): Promise<IUpgrade[] | ITornApiError> {
+        return this.apiQueryToArray({ route: 'faction', selection: 'upgrades' }, 'id');
     }
 
     async weapons(): Promise<IWeapon[] | ITornApiError> {
