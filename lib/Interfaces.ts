@@ -433,6 +433,7 @@ export interface IDiscord {
 }
 
 export interface IEducation {
+    id: string;
     education_current: number;
     education_timeleft: number;
     education_completed: number[];
@@ -944,6 +945,7 @@ export interface IItem {
 }
 
 export interface ICompanyPosition {
+    name: string;
     man_required: number;
     int_required: number;
     end_required: number;
@@ -955,23 +957,26 @@ export interface ICompanyPosition {
 }
 
 export interface ICompanyStock {
+    name: string;
     cost: string;
     rrp: number;
 }
 
 export interface ICompanySpecial {
+    name: string;
     effect: string;
     cost: number;
     rating_required: number;
 }
 
 export interface ITornCompany {
+    id: string;
     name: string;
     cost: number;
     default_employees: number;
-    positions: Map<string, ICompanyPosition>;
-    stock: Map<string, ICompanyStock>;
-    specials: Map<string, ICompanySpecial>;
+    positions: ICompanyPosition[];
+    stock: ICompanyStock[];
+    specials: ICompanySpecial[];
 }
 
 export interface IEducationResults {
@@ -992,6 +997,12 @@ export interface IEducation {
 }
 
 export interface IFactionTree {
+    id: string;
+    branch: IFactionBranch[];
+}
+
+export interface IFactionBranch {
+    id: string;
     branch: string;
     name: string;
     ability: string;
@@ -999,7 +1010,8 @@ export interface IFactionTree {
     base_cost: number;
 }
 
-export interface IGym {
+export interface ITornGym {
+    id: string;
     name: string;
     stage: number;
     cost: number;
@@ -1012,6 +1024,7 @@ export interface IGym {
 }
 
 export interface IHonor {
+    id: string;
     name: string;
     description: string;
     type: number;
@@ -1020,6 +1033,7 @@ export interface IHonor {
 }
 
 export interface IMedal {
+    id: string;
     name: string;
     description: string;
     type: string;
@@ -1028,6 +1042,7 @@ export interface IMedal {
 }
 
 export interface IOrganizedCrime {
+    id: string;
     name: string;
     members: number;
     time: number;
@@ -1043,6 +1058,7 @@ export interface IPawnshop {
 }
 
 export interface ITornProperty {
+    id: string;
     name: string;
     cost: number;
     happy: number;
@@ -1052,6 +1068,7 @@ export interface ITornProperty {
 }
 
 export interface IRacket {
+    id: string;
     name: string;
     level: number;
     reward: string;
@@ -1061,6 +1078,7 @@ export interface IRacket {
 }
 
 export interface IRaid {
+    id: string;
     assaulting_faction: number;
     defending_faction: number;
     assaulting_score: number;
@@ -1181,6 +1199,7 @@ export interface IStock {
 }
 
 export interface ITerritoryWar {
+    id: string;
     assaulting_faction: number;
     defending_faction: number;
     started: number;

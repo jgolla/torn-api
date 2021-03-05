@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { IBank, IEducation, IFactionTree, IGym, IHonor, IItem, IMedal, IOrganizedCrime, IPawnshop, IRacket, IRaid, IStock, ITerritory, ITerritoryWar, ITornApiError, ITornCompany, ITornProperty, ITornStats } from './Interfaces';
+import { IBank, IEducation, ITornGym, IHonor, IItem, IMedal, IOrganizedCrime, IPawnshop, IRacket, IRaid, IStock, ITerritory, ITerritoryWar, ITornApiError, ITornCompany, ITornProperty, ITornStats, IFactionBranch, IFactionTree } from './Interfaces';
 import { TornAPIBase } from './TornAPIBase';
 
 export class Torn extends TornAPIBase {
@@ -13,76 +13,75 @@ export class Torn extends TornAPIBase {
         return this.apiQuery({ route: 'torn', selection: 'bank' });
     }
 
-    async companies(): Promise<Map<string, ITornCompany> | ITornApiError> {
+    async companies(): Promise<ITornCompany[] | ITornApiError> {
         const response = await axios.get(this.buildUri({ route: 'torn', selection: 'companies' }));
         if (response.data.error) {
             return response.data.error;
         } else {
-            const tornCompany: Map<string, ITornCompany> = this.fixStringMap(response.data['companies']);
+            const tornCompany: ITornCompany[] = this.fixStringArray(response.data['companies'], 'id');
 
             tornCompany.forEach(company => {
-                company.positions = this.fixStringMap(company.positions);
-                company.specials = this.fixStringMap(company.specials);
-                company.stock = this.fixStringMap(company.stock);
+                company.positions = this.fixStringArray(company.positions, 'name');
+                company.specials = this.fixStringArray(company.specials, 'name');
+                company.stock = this.fixStringArray(company.stock, 'name');
             });
 
             return tornCompany;
         }
     }
 
-    async education(): Promise<Map<string, IEducation> | ITornApiError> {
-        return this.apiQueryToMap({ route: 'torn', selection: 'education' });
+    async education(): Promise<IEducation[] | ITornApiError> {
+        return this.apiQueryToArray({ route: 'torn', selection: 'education' }, 'id');
     }
 
-    async factiontree(): Promise<Map<string, Map<string, IFactionTree>> | ITornApiError> {
+    async factiontree(): Promise<IFactionTree[] | ITornApiError> {
         const response = await axios.get(this.buildUri({ route: 'torn', selection: 'factiontree' }));
         if (response.data.error) {
             return response.data.error;
         } else {
-            const returnTree = new Map<string, Map<string, IFactionTree>>();
-            const factionTree: Map<string, unknown> = this.fixStringMap(response.data['factiontree']);
-            factionTree.forEach((value, key) => {
-                returnTree.set(key, this.fixStringMap(value));
+            const returnTree: IFactionTree[] = this.fixStringArray(response.data['factiontree'], 'id');
+            returnTree.forEach(item => {
+                item.branch = this.fixStringArray(item, 'id');
             });
 
             return returnTree;
         }
     }
 
-    async gyms(): Promise<Map<string, IGym> | ITornApiError> {
-        return this.apiQueryToMap({ route: 'torn', selection: 'gyms' });
+    async gyms(): Promise<ITornGym[] | ITornApiError> {
+        return this.apiQueryToArray({ route: 'torn', selection: 'gyms' }, 'id');
     }
 
-    async honors(): Promise<Map<string, IHonor> | ITornApiError> {
-        return this.apiQueryToMap({ route: 'torn', selection: 'honors' });
+    async honors(): Promise<IHonor[] | ITornApiError> {
+        return this.apiQueryToArray({ route: 'torn', selection: 'honors' }, 'id');
     }
 
     async items(): Promise<IItem[] | ITornApiError> {
         return this.apiQueryToArray({ route: 'torn', selection: 'items' }, 'id');
     }
 
-    async medals(): Promise<Map<string, IMedal> | ITornApiError> {
-        return this.apiQueryToMap({ route: 'torn', selection: 'medals' });
+    async medals(): Promise<IMedal[] | ITornApiError> {
+        return this.apiQueryToArray({ route: 'torn', selection: 'medals' }, 'id');
     }
 
-    async organizedcrimes(): Promise<Map<string, IOrganizedCrime> | ITornApiError> {
-        return this.apiQueryToMap({ route: 'torn', selection: 'organizedcrimes' });
+    async organizedcrimes(): Promise<IOrganizedCrime[] | ITornApiError> {
+        return this.apiQueryToArray({ route: 'torn', selection: 'organizedcrimes' }, 'id');
     }
 
     async pawnshop(): Promise<IPawnshop | ITornApiError> {
         return this.apiQuery({ route: 'torn', selection: 'pawnshop' });
     }
 
-    async properties(): Promise<Map<string, ITornProperty> | ITornApiError> {
-        return this.apiQueryToMap({ route: 'torn', selection: 'properties' });
+    async properties(): Promise<ITornProperty[] | ITornApiError> {
+        return this.apiQueryToArray({ route: 'torn', selection: 'properties' }, 'id');
     }
 
-    async rackets(): Promise<Map<string, IRacket> | ITornApiError> {
-        return this.apiQueryToMap({ route: 'torn', selection: 'rackets' });
+    async rackets(): Promise<IRacket[] | ITornApiError> {
+        return this.apiQueryToArray({ route: 'torn', selection: 'rackets' }, 'id');
     }
 
-    async raids(): Promise<Map<string, IRaid> | ITornApiError> {
-        return this.apiQueryToMap({ route: 'torn', selection: 'raids' });
+    async raids(): Promise<IRaid[] | ITornApiError> {
+        return this.apiQueryToArray({ route: 'torn', selection: 'raids' }, 'id');
     }
 
     async stats(): Promise<ITornStats | ITornApiError> {
@@ -93,11 +92,11 @@ export class Torn extends TornAPIBase {
         return this.apiQueryToArray({ route: 'torn', selection: 'stocks' }, 'id');
     }
 
-    async territory(): Promise<Map<string, ITerritory> | ITornApiError> {
-        return this.apiQueryToMap({ route: 'torn', selection: 'territory' });
+    async territory(): Promise<ITerritory[] | ITornApiError> {
+        return this.apiQueryToArray({ route: 'torn', selection: 'territory' }, 'id');
     }
 
-    async territorywars(): Promise<Map<string, ITerritoryWar> | ITornApiError> {
-        return this.apiQueryToMap({ route: 'torn', selection: 'territorywars' });
+    async territorywars(): Promise<ITerritoryWar[] | ITornApiError> {
+        return this.apiQueryToArray({ route: 'torn', selection: 'territorywars' }, 'id');
     }
 }

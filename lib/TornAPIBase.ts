@@ -68,8 +68,10 @@ export abstract class TornAPIBase {
         for (let i = 0; i < ids.length; i++) {
             const id = ids[i];
             const field = mapLike[id];
-            field[keyField] = id;
-            returnArray.push(field)
+            if (typeof field === 'object') {
+                field[keyField] = id;
+                returnArray.push(field);
+            }
         }
 
         return returnArray;
