@@ -50,10 +50,11 @@ export interface IFaction {
     territory_wars: unknown;
     raid_wars: unknown;
     peace: unknown;
-    members: Map<string, IMember>;
+    members: IMember[];
 }
 
 export interface IMember {
+    id: string;
     name: string;
     days_in_faction: number;
     last_action: ILastAction;
@@ -123,6 +124,7 @@ export interface IStats {
 }
 
 interface INews {
+    id: string;
     timestamp: number;
     news: string;
 }
@@ -173,6 +175,7 @@ export interface IChain {
 }
 
 export interface ICompleteChain {
+    id: string;
     chain: number;
     respect: string;
     start: number;
@@ -203,6 +206,7 @@ export interface ICrimeParticipant {
 }
 
 export interface ICrime {
+    id: string;
     crime_id: number;
     crime_name: string;
     participants: ICrimeParticipant[];
@@ -225,12 +229,14 @@ export interface ICurrency {
 }
 
 export interface IDonation {
+    id: string;
     name: string;
     money_balance: number;
     points_balance: number;
 }
 
 export interface IRevivesFull {
+    id: string;
     timestamp: number;
     reviver_id: number;
     reviver_faction: number;
@@ -251,6 +257,7 @@ export interface IRevives extends IRevivesFull {
 }
 
 export interface IUpgrade {
+    id: string;
     branch: string;
     branchorder: number;
     branchmultiplier: number;
@@ -426,6 +433,7 @@ export interface IDiscord {
 }
 
 export interface IEducation {
+    id: string;
     education_current: number;
     education_timeleft: number;
     education_completed: number[];
@@ -871,6 +879,7 @@ export interface IUserProperty extends IPropertyBase {
 }
 
 export interface ITerritory {
+    id: string;
     sector: number;
     size: number;
     density: number;
@@ -897,6 +906,7 @@ export interface ICompanyEmployee extends IEmployee {
 }
 
 export interface IEmployee {
+    id: string;
     name: string;
     position: string;
     days_in_company: number;
@@ -917,7 +927,7 @@ export interface ICompanyProfile {
     weekly_income: number;
     weekly_customers: number;
     days_old: number;
-    employees: Map<string, IEmployee>;
+    employees: IEmployee[];
 }
 
 export interface IItem {
@@ -936,6 +946,7 @@ export interface IItem {
 }
 
 export interface ICompanyPosition {
+    name: string;
     man_required: number;
     int_required: number;
     end_required: number;
@@ -947,23 +958,26 @@ export interface ICompanyPosition {
 }
 
 export interface ICompanyStock {
+    name: string;
     cost: string;
     rrp: number;
 }
 
 export interface ICompanySpecial {
+    name: string;
     effect: string;
     cost: number;
     rating_required: number;
 }
 
 export interface ITornCompany {
+    id: string;
     name: string;
     cost: number;
     default_employees: number;
-    positions: Map<string, ICompanyPosition>;
-    stock: Map<string, ICompanyStock>;
-    specials: Map<string, ICompanySpecial>;
+    positions: ICompanyPosition[];
+    stock: ICompanyStock[];
+    specials: ICompanySpecial[];
 }
 
 export interface IEducationResults {
@@ -984,6 +998,12 @@ export interface IEducation {
 }
 
 export interface IFactionTree {
+    id: string;
+    branch: IFactionBranch[];
+}
+
+export interface IFactionBranch {
+    id: string;
     branch: string;
     name: string;
     ability: string;
@@ -991,7 +1011,8 @@ export interface IFactionTree {
     base_cost: number;
 }
 
-export interface IGym {
+export interface ITornGym {
+    id: string;
     name: string;
     stage: number;
     cost: number;
@@ -1004,6 +1025,7 @@ export interface IGym {
 }
 
 export interface IHonor {
+    id: string;
     name: string;
     description: string;
     type: number;
@@ -1012,6 +1034,7 @@ export interface IHonor {
 }
 
 export interface IMedal {
+    id: string;
     name: string;
     description: string;
     type: string;
@@ -1020,6 +1043,7 @@ export interface IMedal {
 }
 
 export interface IOrganizedCrime {
+    id: string;
     name: string;
     members: number;
     time: number;
@@ -1035,6 +1059,7 @@ export interface IPawnshop {
 }
 
 export interface ITornProperty {
+    id: string;
     name: string;
     cost: number;
     happy: number;
@@ -1044,6 +1069,7 @@ export interface ITornProperty {
 }
 
 export interface IRacket {
+    id: string;
     name: string;
     level: number;
     reward: string;
@@ -1053,6 +1079,7 @@ export interface IRacket {
 }
 
 export interface IRaid {
+    id: string;
     assaulting_faction: number;
     defending_faction: number;
     assaulting_score: number;
@@ -1173,6 +1200,7 @@ export interface IStock {
 }
 
 export interface ITerritoryWar {
+    id: string;
     assaulting_faction: number;
     defending_faction: number;
     started: number;

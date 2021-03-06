@@ -25,22 +25,6 @@ export abstract class TornAPIBase {
         }
     }
 
-    protected async apiQueryToMap<T>(params: QueryParams): Promise<Map<string, T> | ITornApiError> {
-        const response = await axios.get(this.buildUri(params));
-        if (response.data.error) {
-            return response.data.error;
-        } else {
-            let jsonSelection = response.data;
-            if (params.jsonOverride) {
-                jsonSelection = response.data[params.jsonOverride]
-            } else {
-                jsonSelection = response.data[params.selection];
-            }
-
-            return this.fixStringMap(jsonSelection);
-        }
-    }
-
     protected async apiQueryToArray<T>(params: QueryParams, keyField?: string): Promise<T[] | ITornApiError> {
         const response = await axios.get(this.buildUri(params));
         if (response.data.error) {
@@ -54,17 +38,7 @@ export abstract class TornAPIBase {
             }
 
             if (keyField) {
-                const returnArray: T[] = [];
-                const ids = Object.keys(jsonSelection);
-                for (let i = 0; i < ids.length; i++) {
-                    const id = ids[i];
-                    const field = jsonSelection[id];
-                    field[keyField] = id;
-                    returnArray.push(field)
-                }
-
-                return returnArray;
-
+                return this.fixStringArray(jsonSelection, keyField);
             } else {
                 return Object.values(jsonSelection);
             }
@@ -72,15 +46,19 @@ export abstract class TornAPIBase {
     }
 
     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/no-explicit-any
-    protected fixStringMap<V>(mapLike: any): Map<string, V> {
-        const returnMap = new Map<string, V>();
-
+    protected fixStringArray<T>(mapLike: any, keyField: string): T[] {
+        const returnArray: T[] = [];
         const ids = Object.keys(mapLike);
         for (let i = 0; i < ids.length; i++) {
-            returnMap.set(ids[i], mapLike[ids[i]]);
+            const id = ids[i];
+            const field = mapLike[id];
+            if (typeof field === 'object') {
+                field[keyField] = id;
+                returnArray.push(field);
+            }
         }
 
-        return returnMap;
+        return returnArray;
     }
 
     protected buildUri(params: QueryParams): string {

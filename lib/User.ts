@@ -1,5 +1,6 @@
 import { TornAPIBase } from './TornAPIBase';
 import { ITornApiError, IUser, IAmmo, IAttacks, IAttacksFull, IBars, IBasicUser, IBattleStats, ICooldowns, ICrimes, IDiscord, IEducation, IEvents, IGym, IHOF, IIcon, IInventory, IJobPoints, IJobs, ICompany, IMedals, IMerits, IMessage, IMoney, INetworth, INotifications, IPerks, IPersonalStats, IRefills, IRevives, IRevivesFull, IStocks, ITravel, IWorkStats, IUserProperty } from './Interfaces';
+import axios from 'axios';
 
 export class User extends TornAPIBase {
     constructor(apiKey: string) {
@@ -73,15 +74,17 @@ export class User extends TornAPIBase {
     }
 
     async icons(id?: string): Promise<IIcon[] | ITornApiError> {
-        const response = await this.apiQueryToMap<string>({ route: 'user', selection: 'icons', id: id });
-
-        if ('error' in response) {
-            return response;
+        const response = await axios.get(this.buildUri({ route: 'user', selection: 'icons', id: id }));
+        if (response.data.error) {
+            return response.data.error;
         } else {
             const icons: IIcon[] = [];
-            response.forEach((value, key) => {
-                icons.push({ name: key, value: value });
-            });
+            const iconNames = Object.keys(response.data.icons);
+            for (let i = 0; i < iconNames.length; i++) {
+                const name = iconNames[i];
+                const value = response.data.icons[name];
+                icons.push({ name: name, value: value });
+            }
 
             return icons;
         }
