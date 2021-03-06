@@ -1,5 +1,5 @@
 import { TornAPIBase } from './TornAPIBase';
-import { ITornApiError, IUser, IAmmo, IAttacks, IAttacksFull, IBars, IBasicUser, IBattleStats, ICooldowns, ICrimes, IDiscord, IEducation, IEvents, IGym, IHOF, IIcon, IInventory, IJobPoints, IJobs, ICompany, IMedals, IMerits, IMessage, IMoney, INetworth, INotifications, IPerks, IPersonalStats, IRefills, IRevives, IRevivesFull, IStocks, ITravel, IWorkStats, IUserProperty } from './Interfaces';
+import { ITornApiError, IUser, IAmmo, IAttacks, IAttacksFull, IBars, IBasicUser, IBattleStats, ICooldowns, ICrimes, IDiscord, IEducation, IEvents, IGym, IHOF, IIcon, IInventory, IJobPoints, IJobs, ICompany, IMedals, IMerits, IMessage, IMoney, INetworth, INotifications, IPerks, IPersonalStats, IRefills, IRevives, IRevivesFull, IStocks, ITravel, IWorkStats, IUserProperty, IUserSkill } from './Interfaces';
 import axios from 'axios';
 
 export class User extends TornAPIBase {
@@ -157,6 +157,10 @@ export class User extends TornAPIBase {
 
     async revivesfull(): Promise<IRevivesFull[] | ITornApiError> {
         return this.apiQueryToArray({ route: 'user', selection: 'revives', jsonOverride: 'revivesfull' });
+    }
+
+    async skills(): Promise<IUserSkill | ITornApiError> {
+        return this.apiQuery({ route: 'user', selection: 'skills', jsonOverride: '' });
     }
 
     async stocks(): Promise<IStocks[] | ITornApiError> {

@@ -1206,3 +1206,8 @@ export interface ITerritoryWar {
     started: number;
     ends: number;
 }
+
+export interface IUserSkill {
+    hunting: string;
+    racing: string;
+}
