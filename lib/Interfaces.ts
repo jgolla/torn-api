@@ -906,6 +906,7 @@ export interface ICompanyEmployee extends IEmployee {
 }
 
 export interface IEmployee {
+    id: string;
     name: string;
     position: string;
     days_in_company: number;
@@ -926,7 +927,7 @@ export interface ICompanyProfile {
     weekly_income: number;
     weekly_customers: number;
     days_old: number;
-    employees: Map<string, IEmployee>;
+    employees: IEmployee[];
 }
 
 export interface IItem {

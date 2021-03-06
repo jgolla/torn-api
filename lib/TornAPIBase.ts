@@ -25,22 +25,6 @@ export abstract class TornAPIBase {
         }
     }
 
-    protected async apiQueryToMap<T>(params: QueryParams): Promise<Map<string, T> | ITornApiError> {
-        const response = await axios.get(this.buildUri(params));
-        if (response.data.error) {
-            return response.data.error;
-        } else {
-            let jsonSelection = response.data;
-            if (params.jsonOverride) {
-                jsonSelection = response.data[params.jsonOverride]
-            } else {
-                jsonSelection = response.data[params.selection];
-            }
-
-            return this.fixStringMap(jsonSelection);
-        }
-    }
-
     protected async apiQueryToArray<T>(params: QueryParams, keyField?: string): Promise<T[] | ITornApiError> {
         const response = await axios.get(this.buildUri(params));
         if (response.data.error) {
@@ -75,18 +59,6 @@ export abstract class TornAPIBase {
         }
 
         return returnArray;
-    }
-
-    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/no-explicit-any
-    protected fixStringMap<V>(mapLike: any): Map<string, V> {
-        const returnMap = new Map<string, V>();
-
-        const ids = Object.keys(mapLike);
-        for (let i = 0; i < ids.length; i++) {
-            returnMap.set(ids[i], mapLike[ids[i]]);
-        }
-
-        return returnMap;
     }
 
     protected buildUri(params: QueryParams): string {

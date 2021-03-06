@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { IBank, IEducation, ITornGym, IHonor, IItem, IMedal, IOrganizedCrime, IPawnshop, IRacket, IRaid, IStock, ITerritory, ITerritoryWar, ITornApiError, ITornCompany, ITornProperty, ITornStats, IFactionBranch, IFactionTree } from './Interfaces';
+import { IBank, IEducation, ITornGym, IHonor, IItem, IMedal, IOrganizedCrime, IPawnshop, IRacket, IRaid, IStock, ITerritory, ITerritoryWar, ITornApiError, ITornCompany, ITornProperty, ITornStats, IFactionTree } from './Interfaces';
 import { TornAPIBase } from './TornAPIBase';
 
 export class Torn extends TornAPIBase {

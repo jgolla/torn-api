@@ -184,4 +184,16 @@ export class Faction extends TornAPIBase {
     async weapons(): Promise<IWeapon[] | ITornApiError> {
         return this.apiQuery({ route: 'faction', selection: 'weapons' });
     }
+
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/no-explicit-any
+    private fixStringMap<V>(mapLike: any): Map<string, V> {
+        const returnMap = new Map<string, V>();
+
+        const ids = Object.keys(mapLike);
+        for (let i = 0; i < ids.length; i++) {
+            returnMap.set(ids[i], mapLike[ids[i]]);
+        }
+
+        return returnMap;
+    }
 }

@@ -7,8 +7,8 @@ export class Company extends TornAPIBase {
         super(apiKey);
     }
 
-    async employees(): Promise<Map<string, ICompanyEmployee> | ITornApiError> {
-        return this.apiQueryToMap({ route: 'company', selection: 'employees', jsonOverride: 'company_employees' });
+    async employees(): Promise<ICompanyEmployee[] | ITornApiError> {
+        return this.apiQueryToArray({ route: 'company', selection: 'employees', jsonOverride: 'company_employees' }, 'id');
     }
 
     async profile(id?: string): Promise<ICompanyProfile | ITornApiError> {
@@ -17,7 +17,7 @@ export class Company extends TornAPIBase {
             return response.data.error;
         } else {
             const companyProfile: ICompanyProfile = response.data['company'];
-            companyProfile.employees = this.fixStringMap(companyProfile.employees);
+            companyProfile.employees = this.fixStringArray(companyProfile.employees, 'id');
             return companyProfile;
         }
     }
