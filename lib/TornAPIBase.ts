@@ -20,7 +20,11 @@ export abstract class TornAPIBase {
             } else if (params.jsonOverride) {
                 return response.data[params.jsonOverride]
             } else {
-                return response.data[params.selection];
+                if (params.selection === '') {
+                    return response.data;
+                } else {
+                    return response.data[params.selection];
+                }
             }
         }
     }
