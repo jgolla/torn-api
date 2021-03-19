@@ -6,8 +6,15 @@ import { Torn } from './Torn';
 import { User } from './User';
 
 class TornAPI {
+    constructor(apiKey?: string) {
+        if (apiKey) {
+            this.setKey(apiKey);
+        }
+    }
 
-    constructor(private apiKey: string) {
+    private apiKey = '';
+    public setKey(apiKey: string): void {
+        this.apiKey = apiKey;
     }
 
     private _torn: Torn | null = null;

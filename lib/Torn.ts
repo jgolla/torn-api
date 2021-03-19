@@ -92,6 +92,10 @@ export class Torn extends TornAPIBase {
         return this.apiQueryToArray({ route: 'torn', selection: 'stocks' }, 'id');
     }
 
+    async timestamp(): Promise<number | ITornApiError> {
+        return this.apiQuery({ route: 'torn', selection: 'timestamp' });
+    }
+
     async territory(): Promise<ITerritory[] | ITornApiError> {
         return this.apiQueryToArray({ route: 'torn', selection: 'territory' }, 'id');
     }

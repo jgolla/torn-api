@@ -25,7 +25,7 @@ export class User extends TornAPIBase {
     }
 
     async bars(): Promise<IBars | ITornApiError> {
-        return this.apiQuery({ route: 'user', selection: 'bars' });
+        return this.apiQuery({ route: 'user', selection: 'bars', jsonOverride: '' });
     }
 
     async basic(id?: string): Promise<IBasicUser | ITornApiError> {
@@ -34,7 +34,7 @@ export class User extends TornAPIBase {
     }
 
     async battlestats(): Promise<IBattleStats | ITornApiError> {
-        return this.apiQuery({ route: 'user', selection: 'battlestats' });
+        return this.apiQuery({ route: 'user', selection: 'battlestats', jsonOverride: '' });
     }
 
     async bazaar(): Promise<unknown | ITornApiError> {
