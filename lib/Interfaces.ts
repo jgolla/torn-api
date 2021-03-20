@@ -1193,7 +1193,7 @@ export interface IStock {
     available_shares: number;
     forecast: string;
     demand: string;
-    benefit: {
+    benefit?: {
         requirement: number;
         description: string;
     };
