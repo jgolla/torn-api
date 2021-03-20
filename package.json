@@ -1,19 +1,24 @@
 {
-  "name": "torn-api",
-  "version": "1.0.0",
-  "description": "",
+  "name": "ts-torn-api",
+  "version": "0.1.0",
+  "description": "Typescript wrapper for the Torn.com API.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "lint": "eslint ./lib/ --ext .ts --fix",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run lint",
+    "preversion": "npm run lint",
+    "version": "git add -A src",
+    "postversion": "git push && git push --tags"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jgolla/torn-api.git"
   },
-  "author": "",
+  "author": "JGolla",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/jgolla/torn-api/issues"
