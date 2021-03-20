@@ -4,6 +4,7 @@ import { ITornApiError } from './Interfaces';
 import { Property } from './Property';
 import { Torn } from './Torn';
 import { User } from './User';
+import * as TornInterfaces from './Interfaces';
 
 class TornAPI {
     constructor(apiKey?: string) {
@@ -68,4 +69,4 @@ class TornAPI {
     }
 }
 
-export { TornAPI };
+export { TornAPI, TornInterfaces };
