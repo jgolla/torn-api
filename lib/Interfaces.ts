@@ -155,13 +155,16 @@ export interface IAttack extends IAttackFull {
     defender_name: string;
     defender_factionname: string;
     chain: number;
+    raid: number;
+    respect_gain: number;
+    respect_loss: number;
     modifiers: {
-        fairFight: number;
+        fair_fight: number;
         war: number;
         retaliation: number;
-        groupAttack: number;
+        group_attack: number;
         overseas: number;
-        chainBonus: number;
+        chain_bonus: number;
     };
 }
 
@@ -338,35 +341,6 @@ export interface IUser extends IBasicUser {
     basicicons: IBasicicons;
     states: IStates;
     last_action: ILastAction;
-}
-
-export interface IAttacksFull {
-    code: string;
-    timestamp_started: number;
-    timestamp_ended: number;
-    attacker_id: number;
-    attacker_faction: number;
-    defender_id: number;
-    defender_faction: number;
-    result: string;
-    stealthed: number;
-    respect_gain: number;
-}
-
-export interface IAttacks extends IAttacksFull {
-    attacker_name: string;
-    attacker_factionname: string;
-    defender_name: string;
-    defender_factionname?: string;
-    chain: number;
-    modifiers: {
-        fairFight: number;
-        war: number;
-        retaliation: number;
-        groupAttack: number;
-        overseas: number;
-        chainBonus: number;
-    };
 }
 
 export interface IUserBar {
