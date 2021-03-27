@@ -286,15 +286,6 @@ export interface IMarried {
     duration: number;
 }
 
-export interface IBasicicons {
-    icon7: string;
-    icon4: string;
-    icon8: string;
-    icon27: string;
-    icon9: string;
-    icon71: string;
-}
-
 export interface IStates {
     hospital_timestamp: number;
     jail_timestamp: number;
@@ -338,7 +329,7 @@ export interface IUser extends IBasicUser {
         faction_tag: string;
     };
     married: IMarried;
-    basicicons: IBasicicons;
+    basicicons: IIcon[];
     states: IStates;
     last_action: ILastAction;
 }

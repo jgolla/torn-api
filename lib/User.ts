@@ -8,8 +8,23 @@ export class User extends TornAPIBase {
     }
 
     async user(id?: string): Promise<IUser | ITornApiError> {
-        // todo: fix icons to IIcon[]
-        return this.apiQuery({ route: 'user', selection: '', id: id });
+        const response = await axios.get(this.buildUri({ route: 'user', selection: '', id: id }));
+        if (response.data.error) {
+            return response.data.error;
+        } else {
+            const user = response.data;
+
+            const icons: IIcon[] = [];
+            const iconNames = Object.keys(user.basicicons);
+            for (let i = 0; i < iconNames.length; i++) {
+                const name = iconNames[i];
+                const value = user.basicicons[name];
+                icons.push({ name: name, value: value });
+            }
+
+            user.basicicons = icons;
+            return user;
+        }
     }
 
     async ammo(): Promise<IAmmo[] | ITornApiError> {
@@ -29,7 +44,6 @@ export class User extends TornAPIBase {
     }
 
     async basic(id?: string): Promise<IBasicUser | ITornApiError> {
-        // todo: fix icons to IIcon[]
         return this.apiQuery({ route: 'user', selection: 'basic', id: id });
     }
 
