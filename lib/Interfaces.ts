@@ -739,6 +739,8 @@ export interface IPersonalStats {
     activestreak: number;
     bestactivestreak: number;
     jobpointsused: number;
+    reviveskill: number;
+    itemslooted: number;
 }
 
 export interface IRefills {
