@@ -165,6 +165,10 @@ export class User extends TornAPIBase {
         return this.apiQuery({ route: 'user', selection: 'refills' });
     }
 
+    async reports(): Promise<undefined> {
+        throw new Error('Method not implemented.');
+    }
+
     async revives(): Promise<IRevives[] | ITornApiError> {
         return this.apiQueryToArray({ route: 'user', selection: 'revives' });
     }

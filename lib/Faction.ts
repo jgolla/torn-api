@@ -27,16 +27,16 @@ export class Faction extends TornAPIBase {
         return this.apiQuery({ route: 'faction', selection: 'armor' });
     }
 
-    async armorynews(): Promise<IArmoryNews[] | ITornApiError> {
-        return this.apiQueryToArray({ route: 'faction', selection: 'armorynews' }, 'id');
+    async armorynews(from?: number, to?: number): Promise<IArmoryNews[] | ITornApiError> {
+        return this.apiQueryToArray({ route: 'faction', selection: 'armorynews', from: from, to: to }, 'id');
     }
 
-    async armorynewsfull(): Promise<IArmoryNews[] | ITornApiError> {
-        return this.apiQueryToArray({ route: 'faction', selection: 'armorynewsfull', jsonOverride: 'armorynews' }, 'id');
+    async armorynewsfull(from?: number, to?: number): Promise<IArmoryNews[] | ITornApiError> {
+        return this.apiQueryToArray({ route: 'faction', selection: 'armorynewsfull', jsonOverride: 'armorynews', from: from, to: to }, 'id');
     }
 
-    async attacknews(): Promise<IAttackNews[] | ITornApiError> {
-        return this.apiQueryToArray({ route: 'faction', selection: 'attacknews' }, 'id');
+    async attacknews(from?: number, to?: number): Promise<IAttackNews[] | ITornApiError> {
+        return this.apiQueryToArray({ route: 'faction', selection: 'attacknews', from: from, to: to }, 'id');
     }
 
     async attacknewsfull(): Promise<IAttackNews[] | ITornApiError> {
@@ -75,12 +75,12 @@ export class Faction extends TornAPIBase {
         throw new Error('Method not implemented.');
     }
 
-    async crimenews(): Promise<ICrimeNews[] | ITornApiError> {
-        return this.apiQueryToArray({ route: 'faction', selection: 'crimenews' }, 'id');
+    async crimenews(from?: number, to?: number): Promise<ICrimeNews[] | ITornApiError> {
+        return this.apiQueryToArray({ route: 'faction', selection: 'crimenews', from: from, to: to }, 'id');
     }
 
-    async crimenewsfull(): Promise<ICrimeNews[] | ITornApiError> {
-        return this.apiQueryToArray({ route: 'faction', selection: 'crimenewsfull', jsonOverride: 'crimenews' }, 'id');
+    async crimenewsfull(from?: number, to?: number): Promise<ICrimeNews[] | ITornApiError> {
+        return this.apiQueryToArray({ route: 'faction', selection: 'crimenewsfull', jsonOverride: 'crimenews', from: from, to: to }, 'id');
     }
 
     async crimes(): Promise<ICrime[] | ITornApiError> {
@@ -129,32 +129,36 @@ export class Faction extends TornAPIBase {
         return this.apiQuery({ route: 'faction', selection: 'drugs' });
     }
 
-    async fundsnews(): Promise<IFundsNews[] | ITornApiError> {
-        return this.apiQueryToArray({ route: 'faction', selection: 'fundsnews' }, 'id');
+    async fundsnews(from?: number, to?: number): Promise<IFundsNews[] | ITornApiError> {
+        return this.apiQueryToArray({ route: 'faction', selection: 'fundsnews', from: from, to: to }, 'id');
     }
 
-    async fundsnewsfull(): Promise<IFundsNews[] | ITornApiError> {
-        return this.apiQueryToArray({ route: 'faction', selection: 'fundsnewsfull', jsonOverride: 'fundsnews' }, 'id');
+    async fundsnewsfull(from?: number, to?: number): Promise<IFundsNews[] | ITornApiError> {
+        return this.apiQueryToArray({ route: 'faction', selection: 'fundsnewsfull', jsonOverride: 'fundsnews', from: from, to: to }, 'id');
     }
 
-    async mainnews(): Promise<IMainNews[] | ITornApiError> {
-        return this.apiQueryToArray({ route: 'faction', selection: 'mainnews' }, 'id');
+    async mainnews(from?: number, to?: number): Promise<IMainNews[] | ITornApiError> {
+        return this.apiQueryToArray({ route: 'faction', selection: 'mainnews', from: from, to: to }, 'id');
     }
 
-    async mainnewsfull(): Promise<IMainNews[] | ITornApiError> {
-        return this.apiQueryToArray({ route: 'faction', selection: 'mainnewsfull', jsonOverride: 'mainnews' }, 'id');
+    async mainnewsfull(from?: number, to?: number): Promise<IMainNews[] | ITornApiError> {
+        return this.apiQueryToArray({ route: 'faction', selection: 'mainnewsfull', jsonOverride: 'mainnews', from: from, to: to }, 'id');
     }
 
     async medical(): Promise<IMedical[] | ITornApiError> {
         return this.apiQuery({ route: 'faction', selection: 'medical' });
     }
 
-    async membershipnews(): Promise<IMembershipNews[] | ITornApiError> {
-        return this.apiQueryToArray({ route: 'faction', selection: 'membershipnews' }, 'id');
+    async membershipnews(from?: number, to?: number): Promise<IMembershipNews[] | ITornApiError> {
+        return this.apiQueryToArray({ route: 'faction', selection: 'membershipnews', from: from, to: to }, 'id');
     }
 
-    async membershipnewsfull(): Promise<IMembershipNews[] | ITornApiError> {
-        return this.apiQueryToArray({ route: 'faction', selection: 'membershipnewsfull', jsonOverride: 'membershipnews' }, 'id');
+    async membershipnewsfull(from?: number, to?: number): Promise<IMembershipNews[] | ITornApiError> {
+        return this.apiQueryToArray({ route: 'faction', selection: 'membershipnewsfull', jsonOverride: 'membershipnews', from: from, to: to }, 'id');
+    }
+
+    async reports(): Promise<undefined> {
+        throw new Error('Method not implemented.');
     }
 
     async revives(): Promise<IRevives[] | ITornApiError> {
