@@ -69,4 +69,4 @@ class TornAPI {
     }
 }
 
-export { TornAPI, TornInterfaces };
+export { TornAPI, TornInterfaces, Torn, Company, Faction, Property, User };
