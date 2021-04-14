@@ -772,7 +772,7 @@ export interface IRevives extends IRevivesFull {
     target_factionname: string;
 }
 
-export interface IStocks {
+export interface IUserStock {
     stock_id: number;
     shares: number;
     bought_price: number;
@@ -1150,17 +1150,10 @@ export interface ITornStats {
 }
 
 export interface IStock {
-    id: string;
     name: string;
     acronym: string;
-    director: string;
     current_price: number;
-    market_cap: number;
-    total_shares: number;
-    available_shares: number;
-    forecast: string;
-    demand: string;
-    benefit?: {
+    benefit: {
         requirement: number;
         description: string;
     };
