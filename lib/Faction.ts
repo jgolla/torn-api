@@ -31,16 +31,8 @@ export class Faction extends TornAPIBase {
         return this.apiQueryToArray({ route: 'faction', selection: 'armorynews', from: from, to: to }, 'id');
     }
 
-    async armorynewsfull(from?: number, to?: number): Promise<IArmoryNews[] | ITornApiError> {
-        return this.apiQueryToArray({ route: 'faction', selection: 'armorynewsfull', jsonOverride: 'armorynews', from: from, to: to }, 'id');
-    }
-
     async attacknews(from?: number, to?: number): Promise<IAttackNews[] | ITornApiError> {
         return this.apiQueryToArray({ route: 'faction', selection: 'attacknews', from: from, to: to }, 'id');
-    }
-
-    async attacknewsfull(): Promise<IAttackNews[] | ITornApiError> {
-        return this.apiQueryToArray({ route: 'faction', selection: 'attacknewsfull', jsonOverride: 'attacknews' }, 'id');
     }
 
     async attacks(from?: number, to?: number): Promise<IAttack[] | ITornApiError> {
@@ -77,10 +69,6 @@ export class Faction extends TornAPIBase {
 
     async crimenews(from?: number, to?: number): Promise<ICrimeNews[] | ITornApiError> {
         return this.apiQueryToArray({ route: 'faction', selection: 'crimenews', from: from, to: to }, 'id');
-    }
-
-    async crimenewsfull(from?: number, to?: number): Promise<ICrimeNews[] | ITornApiError> {
-        return this.apiQueryToArray({ route: 'faction', selection: 'crimenewsfull', jsonOverride: 'crimenews', from: from, to: to }, 'id');
     }
 
     async crimes(): Promise<ICrime[] | ITornApiError> {
@@ -133,16 +121,8 @@ export class Faction extends TornAPIBase {
         return this.apiQueryToArray({ route: 'faction', selection: 'fundsnews', from: from, to: to }, 'id');
     }
 
-    async fundsnewsfull(from?: number, to?: number): Promise<IFundsNews[] | ITornApiError> {
-        return this.apiQueryToArray({ route: 'faction', selection: 'fundsnewsfull', jsonOverride: 'fundsnews', from: from, to: to }, 'id');
-    }
-
     async mainnews(from?: number, to?: number): Promise<IMainNews[] | ITornApiError> {
         return this.apiQueryToArray({ route: 'faction', selection: 'mainnews', from: from, to: to }, 'id');
-    }
-
-    async mainnewsfull(from?: number, to?: number): Promise<IMainNews[] | ITornApiError> {
-        return this.apiQueryToArray({ route: 'faction', selection: 'mainnewsfull', jsonOverride: 'mainnews', from: from, to: to }, 'id');
     }
 
     async medical(): Promise<IMedical[] | ITornApiError> {
@@ -151,10 +131,6 @@ export class Faction extends TornAPIBase {
 
     async membershipnews(from?: number, to?: number): Promise<IMembershipNews[] | ITornApiError> {
         return this.apiQueryToArray({ route: 'faction', selection: 'membershipnews', from: from, to: to }, 'id');
-    }
-
-    async membershipnewsfull(from?: number, to?: number): Promise<IMembershipNews[] | ITornApiError> {
-        return this.apiQueryToArray({ route: 'faction', selection: 'membershipnewsfull', jsonOverride: 'membershipnews', from: from, to: to }, 'id');
     }
 
     async reports(): Promise<undefined> {
