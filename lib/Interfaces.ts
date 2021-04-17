@@ -1171,3 +1171,16 @@ export interface IUserSkill {
     hunting: string;
     racing: string;
 }
+
+export interface IMarketItem {
+    ID: number;
+    cost: number;
+    quantity: number;
+}
+
+export interface IPointsMarket {
+    id: string;
+    cost: number;
+    quantity: number;
+    total_cost: number;
+}

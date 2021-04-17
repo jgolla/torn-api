@@ -1,5 +1,6 @@
 import { Company } from './Company';
 import { Faction } from './Faction';
+import { ItemMarket } from './ItemMarket';
 import { ITornApiError } from './Interfaces';
 import { Property } from './Property';
 import { Torn } from './Torn';
@@ -61,6 +62,15 @@ class TornAPI {
         }
 
         return this._company;
+    }
+
+    private _itemmarket: ItemMarket | null = null;
+    get itemmarket(): ItemMarket {
+        if (!this._itemmarket) {
+            this._itemmarket = new ItemMarket(this.apiKey);
+        }
+
+        return this._itemmarket;
     }
 
     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/no-explicit-any
