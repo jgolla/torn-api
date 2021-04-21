@@ -569,6 +569,8 @@ export interface IPersonalStats {
     bazaarsales: number;
     bazaarprofit: number;
     useractivity: number;
+    activestreak: number;
+    bestactivestreak: number;
     itemsbought: number;
     pointsbought: number;
     itemsboughtabroad: number;
@@ -687,6 +689,8 @@ export interface IPersonalStats {
     territorytime: number;
     territoryjoins: number;
     stockpayouts: number;
+    stockprofits: number;
+    stocklosses: number;
     arrestsmade: number;
     tokenrefills: number;
     booksread: number;
@@ -708,9 +712,11 @@ export interface IPersonalStats {
     networthbazaar: number;
     networthproperties: number;
     networthstockmarket: number;
+    networthitemmarket: number;
     networthauctionhouse: number;
     networthcompany: number;
     networthbookie: number;
+    networthenlistedcars: number;
     networthloan: number;
     networthunpaidfees: number;
     racingskill: number;
@@ -736,8 +742,6 @@ export interface IPersonalStats {
     intelligence: number;
     endurance: number;
     totalworkingstats: number;
-    activestreak: number;
-    bestactivestreak: number;
     jobpointsused: number;
     reviveskill: number;
     itemslooted: number;
@@ -1150,10 +1154,14 @@ export interface ITornStats {
 }
 
 export interface IStock {
+    stock_id: number;
     name: string;
     acronym: string;
     current_price: number;
+    market_cap: number;
+    total_shares: number;
     benefit: {
+        frequency: number;
         requirement: number;
         description: string;
     };
@@ -1170,6 +1178,7 @@ export interface ITerritoryWar {
 export interface IUserSkill {
     hunting: string;
     racing: string;
+    player_id: number;
 }
 
 export interface IMarketItem {
