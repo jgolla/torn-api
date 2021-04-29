@@ -8,7 +8,23 @@ import { User } from './User';
 import * as TornInterfaces from './Interfaces';
 
 class TornAPI {
-    constructor(private apiKey: string) {
+    constructor(apiKey?: string) {
+        if (apiKey) {
+            this.setKey(apiKey);
+        }
+    }
+
+    private apiKey = '';
+    public setKey(apiKey: string): void {
+        this.apiKey = apiKey;
+
+        // when the key changes, reset all the internals
+        this._torn = null;
+        this._user = null;
+        this._faction = null;
+        this._property = null;
+        this._itemmarket = null;
+        this._company = null;
     }
 
     private _torn: Torn | null = null;
