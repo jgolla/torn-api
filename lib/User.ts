@@ -80,7 +80,7 @@ export class User extends TornAPIBase {
     }
 
     async gym(): Promise<IGym | ITornApiError> {
-        return this.apiQuery({ route: 'user', selection: 'gym', jsonOverride: '' });
+        return this.apiQuery({ route: 'user', selection: 'gym', jsonOverride: 'active_gym' });
     }
 
     async hof(): Promise<IHOF | ITornApiError> {
