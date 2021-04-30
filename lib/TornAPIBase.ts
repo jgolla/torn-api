@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { ITornApiError } from './Interfaces';
+import { IKeyValue, ITornApiError } from './Interfaces';
 
 export abstract class TornAPIBase {
 
@@ -46,6 +46,23 @@ export abstract class TornAPIBase {
             } else {
                 return Object.values(jsonSelection);
             }
+        }
+    }
+
+    protected async apiQueryToKeyValueArray(params: QueryParams): Promise<IKeyValue[] | ITornApiError> {
+        const response = await axios.get(this.buildUri(params));
+        if (response.data.error) {
+            return response.data.error;
+        } else {
+            const types: IKeyValue[] = [];
+            const ids = Object.keys(response.data.logtypes);
+            for (let i = 0; i < ids.length; i++) {
+                const id = ids[i];
+                const name = response.data.logtypes[id];
+                types.push({ key: id, value: name });
+            }
+
+            return types;
         }
     }
 

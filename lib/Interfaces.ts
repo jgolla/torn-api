@@ -1193,3 +1193,16 @@ export interface IPointsMarket {
     quantity: number;
     total_cost: number;
 }
+
+export interface IKeyValue {
+    key: string;
+    value: string;
+}
+
+export interface ILog {
+    id: string;
+    log: number;
+    title: string;
+    timestamp: number;
+    data: Record<string, number | string>;
+}
