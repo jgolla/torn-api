@@ -1,5 +1,5 @@
 import { TornAPIBase } from './TornAPIBase';
-import { ITornApiError, IUser, IAmmo, IAttack, IBars, IBasicUser, IBattleStats, ICooldowns, ICrimes, IDiscord, IEducation, IEvents, IGym, IHOF, IIcon, IInventory, IJobPoints, IJobs, ICompany, IMedals, IMerits, IMessage, IMoney, INetworth, INotifications, IPerks, IPersonalStats, IRefills, IRevives, IRevivesFull, IUserStock, ITravel, IWorkStats, IUserProperty, IUserSkill, IAttackFull } from './Interfaces';
+import { ITornApiError, IUser, IAmmo, IAttack, IBars, IBasicUser, IBattleStats, ICooldowns, ICrimes, IDiscord, IEducation, IEvents, IGym, IHOF, IIcon, IInventory, IJobPoints, IJobs, ICompany, IMedals, IMerits, IMessage, IMoney, INetworth, INotifications, IPerks, IPersonalStats, IRefills, IRevives, IRevivesFull, IUserStock, ITravel, IWorkStats, IUserProperty, IUserSkill, IAttackFull, ILog } from './Interfaces';
 import axios from 'axios';
 
 export class User extends TornAPIBase {
@@ -119,6 +119,10 @@ export class User extends TornAPIBase {
             }
             return returnPoints;
         }
+    }
+
+    async log(): Promise<ILog[] | ITornApiError> {
+        return this.apiQueryToArray({ route: 'user', selection: 'log' }, 'id');
     }
 
     async medals(): Promise<IMedals | ITornApiError> {
