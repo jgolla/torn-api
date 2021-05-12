@@ -16,15 +16,18 @@ class TornAPI {
 
     private apiKey = '';
     public setKey(apiKey: string): void {
-        this.apiKey = apiKey;
+        // only reset if the key has changed
+        if (this.apiKey !== apiKey) {
+            this.apiKey = apiKey;
 
-        // when the key changes, reset all the internals
-        this._torn = null;
-        this._user = null;
-        this._faction = null;
-        this._property = null;
-        this._itemmarket = null;
-        this._company = null;
+            // when the key changes, reset all the internals
+            this._torn = null;
+            this._user = null;
+            this._faction = null;
+            this._property = null;
+            this._itemmarket = null;
+            this._company = null;
+        }
     }
 
     private _torn: Torn | null = null;
