@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { IBank, IEducation, ITornGym, IHonor, IItem, IMedal, IOrganizedCrime, IPawnshop, IRacket, IRaid, IStock, ITerritory, ITerritoryWar, ITornApiError, ITornCompany, ITornProperty, ITornStats, IFactionTree, IKeyValue } from './Interfaces';
+import { IBank, IEducation, ITornGym, IHonor, IItem, IMedal, IOrganizedCrime, IPawnshop, IRacket, IRaid, IStock, ITerritory, ITerritoryWar, ITornApiError, ITornCompany, ITornProperty, ITornStats, IFactionTree, IKeyValue, ICard } from './Interfaces';
 import { TornAPIBase } from './TornAPIBase';
 
 export class Torn extends TornAPIBase {
@@ -11,6 +11,10 @@ export class Torn extends TornAPIBase {
 
     async bank(): Promise<IBank | ITornApiError> {
         return this.apiQuery({ route: 'torn', selection: 'bank' });
+    }
+
+    async cards(): Promise<ICard[] | ITornApiError> {
+        return this.apiQueryToArray({ route: 'torn', selection: 'cards' }, 'id');
     }
 
     async companies(): Promise<ITornCompany[] | ITornApiError> {

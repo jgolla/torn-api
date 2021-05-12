@@ -1,5 +1,5 @@
 import { TornAPIBase } from './TornAPIBase';
-import { ITornApiError, IUser, IAmmo, IAttack, IBars, IBasicUser, IBattleStats, ICooldowns, ICrimes, IDiscord, IEducation, IEvents, IGym, IHOF, IIcon, IInventory, IJobPoints, IJobs, ICompany, IMedals, IMerits, IMessage, IMoney, INetworth, INotifications, IPerks, IPersonalStats, IRefills, IRevives, IRevivesFull, IUserStock, ITravel, IWorkStats, IUserProperty, IUserSkill, IAttackFull, ILog } from './Interfaces';
+import { ITornApiError, IUser, IAmmo, IAttack, IBars, IBasicUser, IBattleStats, ICooldowns, ICrimes, IDiscord, IEducation, IEvents, IGym, IHOF, IIcon, IInventory, IJobPoints, IJobs, ICompany, IMedals, IMerits, IMessage, IMoney, INetworth, INotifications, IPerks, IPersonalStats, IRefills, IRevives, IRevivesFull, IUserStock, ITravel, IWorkStats, IUserProperty, IUserSkill, IAttackFull, ILog, IUserStockTransaction } from './Interfaces';
 import axios from 'axios';
 
 export class User extends TornAPIBase {
@@ -186,7 +186,23 @@ export class User extends TornAPIBase {
     }
 
     async stocks(): Promise<IUserStock[] | ITornApiError> {
-        return this.apiQueryToArray({ route: 'user', selection: 'stocks' });
+        const response = await this.apiQueryToArray<IInternalUserStock>({ route: 'user', selection: 'stocks' });
+        if ('error' in response) {
+            return response;
+        } else {
+            const retArray: IUserStock[] = [];
+            for (let i = 0; i < response.length; i++) {
+                const tempStock = response[i];
+                retArray.push({
+                    stock_id: tempStock.stock_id,
+                    total_shares: tempStock.total_shares,
+                    dividend: tempStock.dividend,
+                    transactions: this.fixStringArray(tempStock.transactions, 'id')
+                });
+            }
+
+            return retArray;
+        }
     }
 
     async travel(): Promise<ITravel | ITornApiError> {
@@ -205,4 +221,16 @@ export class User extends TornAPIBase {
 interface IInternalJobPoints {
     jobs: IJobs;
     companies: Map<string, ICompany>;
+}
+
+interface IInternalUserStock {
+    stock_id: number;
+    total_shares: number;
+    dividend?: {
+        ready: number;
+        increment: number;
+        progress: number;
+        frequency: number;
+    };
+    transactions: Map<string, IUserStockTransaction>;
 }
