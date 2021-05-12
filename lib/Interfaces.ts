@@ -241,11 +241,14 @@ export interface IDonation {
 export interface IRevivesFull {
     id: string;
     timestamp: number;
+    result: string;
+    chance: number;
     reviver_id: number;
     reviver_faction: number;
     target_id: number;
     target_faction: number;
     target_hospital_reason: string;
+    target_early_discharge: number;
     target_last_action: {
         status: string;
         timestamp: number;
@@ -776,16 +779,28 @@ export interface IRevives extends IRevivesFull {
     target_factionname: string;
 }
 
-export interface IUserStock {
-    stock_id: number;
+export interface IUserStockTransaction {
+    id: string;
     shares: number;
     bought_price: number;
     time_bought: number;
-    time_listed: number;
+}
+
+export interface IUserStock {
+    stock_id: number;
+    total_shares: number;
+    dividend?: {
+        ready: number;
+        increment: number;
+        progress: number;
+        frequency: number;
+    };
+    transactions: IUserStockTransaction[];
 }
 
 export interface ITravel {
     destination: string;
+    method: string;
     timestamp: number;
     departed: number;
     time_left: number;
@@ -1205,4 +1220,13 @@ export interface ILog {
     title: string;
     timestamp: number;
     data: Record<string, number | string>;
+}
+
+export interface ICard {
+    id: string;
+    name: string;
+    value: number;
+    short: number;
+    color: string;
+    suit: string;
 }
