@@ -1230,3 +1230,29 @@ export interface ICard {
     color: string;
     suit: string;
 }
+
+export interface IFactionPosition {
+    title: string;
+    default: number;
+    canUseMedicalItem: number;
+    canUseBoosterItem: number;
+    canUseDragItem: number;
+    canUseEnergyRefill: number;
+    canLoanTemporaryItem: number;
+    canLoanWeaponAndArmory: number;
+    canRetrieveLoanedArmory: number;
+    canPlanAndInitiateOrganisedCrime: number;
+    canAccessFactionApi: number;
+    canGiveItem: number;
+    canGiveMoney: number;
+    canGivePoints: number;
+    canManageForum: number;
+    canManageApplications: number;
+    canKickMembers: number;
+    canAdjustMemberBalance: number;
+    canManageWars: number;
+    canManageUpgrades: number;
+    canSendNewsletter: number;
+    canChangeAnnouncement: number;
+    canChangeDescription: number;
+}
