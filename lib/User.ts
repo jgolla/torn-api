@@ -125,8 +125,8 @@ export class User extends TornAPIBase {
         return this.apiQueryToArray({ route: 'user', selection: 'log' }, 'id');
     }
 
-    async medals(): Promise<IMedals | ITornApiError> {
-        return this.apiQuery({ route: 'user', selection: 'medals', jsonOverride: '' });
+    async medals(id?: string): Promise<IMedals | ITornApiError> {
+        return this.apiQuery({ route: 'user', selection: 'medals', jsonOverride: '', id: id });
     }
 
     async merits(): Promise<IMerits | ITornApiError> {
