@@ -46,6 +46,7 @@ export interface IFaction {
     'co-leader': number;
     respect: number;
     age: number;
+    capacity: number;
     best_chain: number;
     territory_wars: unknown;
     raid_wars: unknown;
