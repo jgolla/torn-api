@@ -1237,7 +1237,7 @@ export interface IFactionPosition {
     default: number;
     canUseMedicalItem: number;
     canUseBoosterItem: number;
-    canUseDragItem: number;
+    canUseDrugItem: number;
     canUseEnergyRefill: number;
     canLoanTemporaryItem: number;
     canLoanWeaponAndArmory: number;
