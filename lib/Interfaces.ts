@@ -1183,6 +1183,30 @@ export interface IStock {
     };
 }
 
+export interface IStockDetail extends IStock {
+    last_hour: IStockPeriod;
+    last_day: IStockPeriod;
+    last_week: IStockPeriod;
+    last_month: IStockPeriod;
+    last_year: IStockPeriod;
+    history: IStockHistory[];
+}
+
+interface IStockPeriod {
+    change: number;
+    change_percentage: number;
+    start: number;
+    end: number;
+    high: number;
+    low: number;
+}
+
+interface IStockHistory {
+    timestamp: number;
+    price: number;
+    change: number;
+}
+
 export interface ITerritoryWar {
     id: string;
     assaulting_faction: number;
