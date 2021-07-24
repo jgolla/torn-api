@@ -519,6 +519,7 @@ export interface IMoney {
     points: number;
     cayman_bank: number;
     vault_amount: number;
+    company_funds: number;
     daily_networth: number;
     money_onhand: number;
     city_bank: {
