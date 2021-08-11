@@ -56,6 +56,7 @@ export interface IFaction {
 
 export interface IMember {
     id: string;
+    level: number;
     name: string;
     days_in_faction: number;
     last_action: ILastAction;
@@ -460,14 +461,14 @@ export interface IJobs {
     grocer: number;
 }
 
-export interface ICompany {
+export interface IUserCompany {
     name: string;
     jobpoints: number;
 }
 
 export interface IJobPoints {
     jobs: IJobs;
-    companies: ICompany[];
+    companies: IUserCompany[];
 }
 
 export interface IMedals {
@@ -902,7 +903,7 @@ export interface IEmployee {
     status: IStatus;
 }
 
-export interface ICompanyProfile {
+export interface ICompany {
     ID: number;
     company_type: number;
     rating: number;
@@ -915,6 +916,9 @@ export interface ICompanyProfile {
     weekly_income: number;
     weekly_customers: number;
     days_old: number;
+}
+
+export interface ICompanyProfile extends ICompany {
     employees: IEmployee[];
 }
 

@@ -1,5 +1,5 @@
 import { TornAPIBase } from './TornAPIBase';
-import { ITornApiError, IUser, IAmmo, IAttack, IBars, IBasicUser, IBattleStats, ICooldowns, ICrimes, IDiscord, IEducation, IEvents, IGym, IHOF, IIcon, IInventory, IJobPoints, IJobs, ICompany, IMedals, IMerits, IMessage, IMoney, INetworth, INotifications, IPerks, IPersonalStats, IRefills, IRevives, IRevivesFull, IUserStock, ITravel, IWorkStats, IUserProperty, IUserSkill, IAttackFull, ILog, IUserStockTransaction } from './Interfaces';
+import { ITornApiError, IUser, IAmmo, IAttack, IBars, IBasicUser, IBattleStats, ICooldowns, ICrimes, IDiscord, IEducation, IEvents, IGym, IHOF, IIcon, IInventory, IJobPoints, IJobs, IUserCompany, IMedals, IMerits, IMessage, IMoney, INetworth, INotifications, IPerks, IPersonalStats, IRefills, IRevives, IRevivesFull, IUserStock, ITravel, IWorkStats, IUserProperty, IUserSkill, IAttackFull, ILog, IUserStockTransaction } from './Interfaces';
 import axios from 'axios';
 
 export class User extends TornAPIBase {
@@ -75,8 +75,8 @@ export class User extends TornAPIBase {
         return this.apiQuery({ route: 'user', selection: 'education', jsonOverride: '' });
     }
 
-    async events(): Promise<IEvents[] | ITornApiError> {
-        return this.apiQueryToArray({ route: 'user', selection: 'events' });
+    async events(limit?: number): Promise<IEvents[] | ITornApiError> {
+        return this.apiQueryToArray({ route: 'user', selection: 'events', limit: limit });
     }
 
     async gym(): Promise<IGym | ITornApiError> {
@@ -133,8 +133,8 @@ export class User extends TornAPIBase {
         return this.apiQuery({ route: 'user', selection: 'merits' });
     }
 
-    async messages(): Promise<IMessage[] | ITornApiError> {
-        return this.apiQueryToArray({ route: 'user', selection: 'messages' });
+    async messages(limit?: number): Promise<IMessage[] | ITornApiError> {
+        return this.apiQueryToArray({ route: 'user', selection: 'messages', limit: limit });
     }
 
     async money(): Promise<IMoney | ITornApiError> {
@@ -143,6 +143,14 @@ export class User extends TornAPIBase {
 
     async networth(): Promise<INetworth | ITornApiError> {
         return this.apiQuery({ route: 'user', selection: 'networth' });
+    }
+
+    async newevents(): Promise<IEvents[] | ITornApiError> {
+        return this.apiQueryToArray({ route: 'user', selection: 'newevents', jsonOverride: 'events' });
+    }
+
+    async newmessages(): Promise<IMessage[] | ITornApiError> {
+        return this.apiQueryToArray({ route: 'user', selection: 'newmessages', jsonOverride: 'messages' });
     }
 
     async notifications(): Promise<INotifications | ITornApiError> {
@@ -220,7 +228,7 @@ export class User extends TornAPIBase {
 
 interface IInternalJobPoints {
     jobs: IJobs;
-    companies: Map<string, ICompany>;
+    companies: Map<string, IUserCompany>;
 }
 
 interface IInternalUserStock {
