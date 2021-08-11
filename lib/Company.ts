@@ -1,10 +1,14 @@
 import { TornAPIBase } from './TornAPIBase';
-import { ICompanyEmployee, ICompanyProfile, ITornApiError } from './Interfaces';
+import { ICompany, ICompanyEmployee, ICompanyProfile, ITornApiError } from './Interfaces';
 import axios from 'axios';
 
 export class Company extends TornAPIBase {
     constructor(apiKey: string) {
         super(apiKey);
+    }
+
+    async companies(id: string): Promise<ICompany[] | ITornApiError> {
+        return this.apiQueryToArray({ route: 'company', selection: 'companies', jsonOverride: 'company', id: id });
     }
 
     async employees(): Promise<ICompanyEmployee[] | ITornApiError> {

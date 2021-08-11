@@ -83,7 +83,7 @@ export abstract class TornAPIBase {
     }
 
     protected buildUri(params: QueryParams): string {
-        let id = '', from = '', to = '';
+        let id = '', from = '', to = '', limit = '';
 
         if (params.id) {
             id = params.id;
@@ -97,7 +97,11 @@ export abstract class TornAPIBase {
             to = `&to=${params.to}`;
         }
 
-        return `https://api.torn.com/${params.route}/${id}?selections=${params.selection}&key=${this.apiKey}${from}${to}`;
+        if (params.limit) {
+            limit = `&limit=${params.limit}`;
+        }
+
+        return `https://api.torn.com/${params.route}/${id}?selections=${params.selection}&key=${this.apiKey}${from}${to}${limit}`;
     }
 }
 
@@ -108,4 +112,5 @@ interface QueryParams {
     jsonOverride?: string;
     from?: number;
     to?: number;
+    limit?: number;
 }
