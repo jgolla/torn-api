@@ -3,18 +3,12 @@ import { expect } from 'chai';
 import sinon = require('sinon');
 
 import { ItemMarket, TornAPI, Torn, Company, Faction, Property, User } from '../lib';
+import { TestHelper } from './utils/TestUtils';
 
 describe('Check error handling', () => {
 
     beforeEach(() => {
-        sinon.stub(axios, 'get').resolves(JSON.parse(`{
-            "data": {                
-                    "error": {
-                        "code": 2,
-                        "error": "Incorrect key"
-                    }               
-            }
-        }`));
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('errorTest'));
     });
 
     afterEach(sinon.restore);
