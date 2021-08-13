@@ -7,7 +7,7 @@
   "scripts": {
     "build": "tsc",
     "lint": "eslint ./lib/ --ext .ts --fix",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha -r ts-node/register --recursive \"test/**/*.test.ts\"",
     "prepare": "npm run build",
     "prepublishOnly": "npm run lint",
     "preversion": "npm run lint",
@@ -25,9 +25,16 @@
   },
   "homepage": "https://github.com/jgolla/torn-api#readme",
   "devDependencies": {
+    "@types/chai": "^4.2.21",
+    "@types/mocha": "^9.0.0",
+    "@types/sinon": "^10.0.2",
     "@typescript-eslint/eslint-plugin": "^4.15.1",
     "@typescript-eslint/parser": "^4.15.1",
+    "chai": "^4.3.4",
     "eslint": "^7.20.0",
+    "mocha": "^9.0.3",
+    "sinon": "^11.1.2",
+    "ts-node": "^10.2.0",
     "typescript": "^4.1.5"
   },
   "dependencies": {
