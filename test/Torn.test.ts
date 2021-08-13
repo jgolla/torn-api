@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import sinon = require('sinon');
 
 import { TornAPI } from '../lib';
-import { IBank, ICard, ICompany, ITornCompany } from '../lib/Interfaces';
+import { IBank, ICard, ICompany, IEducation, IFactionTree, IHonor, ITornCompany, ITornEducation, ITornGym } from '../lib/Interfaces';
 import { TestHelper } from './utils/TestUtils';
 
 describe('Torn API', () => {
@@ -70,5 +70,70 @@ describe('Torn API', () => {
         //spot check one
         const special = company?.specials.find(x => x.name === 'High-fidelity');
         expect(special?.effect).to.equal('Reduced enemy stealth');
+    });
+
+    it('education', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('education'));
+
+        const initialReturn = await torn.torn.education();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as ITornEducation[];
+
+        // spot check one
+        const education = castedReturn.find(x => x.id === '28');
+        expect(education?.name).to.equal('Probability');
+
+        // spot check one
+        expect(education?.results?.perk).to.have.members(['Gain 1% productivity for your company']);
+        expect(education?.prerequisites).to.have.members([22]);
+    });
+
+    it('factiontree', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('factiontree'));
+
+        const initialReturn = await torn.torn.factiontree();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as IFactionTree[];
+
+        // spot check one
+        const factiontree = castedReturn.find(x => x.id === '23');
+        expect(factiontree?.branch.length).to.equal(10);
+
+        // spot check one
+        const branch = factiontree?.branch.filter(x => x.id === '6')[0];
+        expect(branch?.branch).to.equal('Voracity');
+        expect(branch?.name).to.equal('Candy effect VI');
+        expect(branch?.challenge).to.equal('Use 2,000 bags of candy');
+    });
+
+    it('gyms', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('gyms'));
+
+        const initialReturn = await torn.torn.gyms();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as ITornGym[];
+
+        // spot check one
+        const gym = castedReturn.find(x => x.id === '28');
+        expect(gym?.name).to.equal('Mr. Isoyamas');
+        expect(gym?.note).to.equal('Requirements must be maintained to preserve access to this gym');
+        expect(gym?.defense).to.equal(80);
+    });
+
+    it('honors', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('honors'));
+
+        const initialReturn = await torn.torn.honors();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as IHonor[];
+
+        // spot check one
+        const honor = castedReturn.find(x => x.id === '28');
+        expect(honor?.name).to.equal('Machinist');
+        expect(honor?.description).to.equal('Achieve 100 finishing hits with mechanical weapons');
     });
 });

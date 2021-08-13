@@ -979,7 +979,8 @@ export interface IEducationResults {
     endurance?: string[];
 }
 
-export interface IEducation {
+export interface ITornEducation {
+    id: string;
     name: string;
     description: string;
     money_cost: number;
