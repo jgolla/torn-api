@@ -21,6 +21,7 @@ describe('Check error handling', () => {
         const methods = Object.getOwnPropertyNames(className).filter(x => !igores.includes(x));
         methods.forEach(method => {
             it(`${method} handles error`, async () => {
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 const retValue = await ((torn as any)[name] as any)[method]();
                 expect(TornAPI.isError(retValue)).to.be.true;
             });
@@ -29,6 +30,7 @@ describe('Check error handling', () => {
         unimplementedList.forEach(method => {
             it(`${method} should not be implemented`, async () => {
                 try {
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     await ((torn as any)[name] as any)[method]();
                     // shouldn't get here
                     expect(false).to.be.true;

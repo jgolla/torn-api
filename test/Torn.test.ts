@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import sinon = require('sinon');
 
 import { TornAPI } from '../lib';
-import { IBank, ICard, ICompany, IEducation, IFactionTree, IHonor, ITornCompany, ITornEducation, ITornGym } from '../lib/Interfaces';
+import { IBank, ICard, IFactionTree, IHonor, ITornCompany, ITornEducation, ITornGym } from '../lib/Interfaces';
 import { TestHelper } from './utils/TestUtils';
 
 describe('Torn API', () => {
