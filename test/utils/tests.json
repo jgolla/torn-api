@@ -16390,5 +16390,38 @@
                 "rarity": "Unknown Rarity"
             }
         }
+    },
+    "property": {
+        "property": {
+            "owner_id": 1948203,
+            "property_type": 13,
+            "happy": 4500,
+            "upkeep": 100000,
+            "upgrades": [
+                "Superior interior",
+                "Large pool",
+                "Large vault",
+                "Hottub",
+                "Sauna",
+                "Bar",
+                "Shooting range",
+                "Medical facility",
+                "Airstrip"
+            ],
+            "staff": [
+                "5x Maid service",
+                "3x Butler service",
+                "10x Guards",
+                "Doctor",
+                "Pilot"
+            ],
+            "rented": {
+                "user_id": 2487726,
+                "days_left": 54,
+                "total_cost": 42000000,
+                "cost_per_day": 420000
+            },
+            "users_living": "2487726,2491575"
+        }
     }
 }
