@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import sinon = require('sinon');
 
 import { TornAPI } from '../lib';
-import { IBank, ICard, IFactionTree, IHonor, IItem, IKeyValue, IMedal, IOrganizedCrime, ITornCompany, ITornEducation, ITornGym } from '../lib/Interfaces';
+import { IBank, ICard, IFactionTree, IHonor, IItem, IKeyValue, IMedal, IOrganisedCrime, IPawnshop, IRacket, IRaid, IStock, IStockDetail, ITerritory, ITerritoryWar, ITornCompany, ITornEducation, ITornGym, ITornProperty, ITornStats } from '../lib/Interfaces';
 import { TestHelper } from './utils/TestUtils';
 
 describe('Torn API', () => {
@@ -192,17 +192,158 @@ describe('Torn API', () => {
         expect(medal?.description).to.equal('Commit 4,000 Computer crimes');
     });
 
-    // it('organizedcrimes', async () => {
-    //     sinon.stub(axios, 'get').resolves(TestHelper.getJSON('organizedcrimes'));
+    it('organisedcrimes', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('organisedcrimes'));
 
-    //     const initialReturn = await torn.torn.organizedcrimes();
-    //     expect(TornAPI.isError(initialReturn)).to.be.false;
+        const initialReturn = await torn.torn.organisedcrimes();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
 
-    //     const castedReturn = initialReturn as IOrganizedCrime[];
+        const castedReturn = initialReturn as IOrganisedCrime[];
 
-    //     // spot check one
-    //     const medal = castedReturn.find(x => x.id === '6');
-    //     expect(medal?.name).to.equal('Taking over a cruise liner');
-    //     expect(medal?.members).to.equal(15);
-    // });
+        // spot check one
+        const medal = castedReturn.find(x => x.id === '6');
+        expect(medal?.name).to.equal('Taking over a cruise liner');
+        expect(medal?.members).to.equal(15);
+    });
+
+    it('pawnshop', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('pawnshop'));
+
+        const initialReturn = await torn.torn.pawnshop();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as IPawnshop;
+        expect(castedReturn.points_value).to.equal(45000);
+        expect(castedReturn.donatorpack_value).to.equal(22600000);
+    });
+
+    it('properties', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('properties'));
+
+        const initialReturn = await torn.torn.properties();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as ITornProperty[];
+
+        // spot check one
+        const property = castedReturn.find(x => x.id === '16');
+        expect(property?.name).to.equal('Drakkar Sea Fort');
+        expect(property?.staff_available).to.have.members([
+            "Maid",
+            "Butler",
+            "Guard",
+            "Doctor"
+        ]);
+    });
+
+    it('rackets', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('rackets'));
+
+        const initialReturn = await torn.torn.rackets();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as IRacket[];
+
+        // spot check one
+        const racket = castedReturn.find(x => x.id === 'QZG');
+        expect(racket?.name).to.equal('Truck Stop I');
+        expect(racket?.reward).to.equal('10x Can of Red Cow daily');
+    });
+
+    it('raids', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('raids'));
+
+        const initialReturn = await torn.torn.raids();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as IRaid[];
+
+        // spot check one
+        const raid = castedReturn.find(x => x.id === '2727');
+        expect(raid?.assaulting_faction).to.equal(46270);
+        expect(raid?.defending_faction).to.equal(44416);
+    });
+
+    it('stats', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('stats'));
+
+        const initialReturn = await torn.torn.stats();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as ITornStats;
+        expect(castedReturn.total_items_dumpfinds).to.equal(47461648);
+        expect(castedReturn.total_jail_busted).to.equal(29748557);
+    });
+
+    it('stocks', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('stocks'));
+
+        const initialReturn = await torn.torn.stocks();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as IStock[];
+
+        // spot check one
+        const stock = castedReturn.find(x => x.stock_id === 16);
+        expect(stock?.name).to.equal('Symbiotic Ltd.');
+        expect(stock?.benefit.description).to.equal('1x Drug Pack');
+    });
+
+    it('stocks by id', async () => {
+        const stub = sinon.stub(axios, 'get').resolves(TestHelper.getJSON('stocks_by_id'));
+
+        const initialReturn = await torn.torn.stocks('16');
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+        expect(stub.args[0][0]).to.include('/16?');
+
+        const castedReturn = initialReturn as IStockDetail;
+
+        // spot check one
+        expect(castedReturn.name).to.equal('Symbiotic Ltd.');
+        expect(castedReturn.benefit.description).to.equal('1x Drug Pack');
+        expect(castedReturn.last_week.change).to.equal(-3.8);
+
+        // spot check one
+        const history = castedReturn.history.find(x => x.timestamp === 1628943960);
+        expect(history?.change).to.equal(-0.07);
+        expect(history?.price).to.equal(695.19);
+    });
+
+    it('territory', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('territory'));
+
+        const initialReturn = await torn.torn.territory();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as ITerritory[];
+
+        // spot check one
+        const territory = castedReturn.find(x => x.id === 'HYB');
+        expect(territory?.sector).to.equal(5);
+        expect(territory?.coordinate_x).to.equal('855.33');
+    });
+
+    it('territorywars', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('territorywars'));
+
+        const initialReturn = await torn.torn.territorywars();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as ITerritoryWar[];
+
+        // spot check one
+        const territory = castedReturn.find(x => x.id === 'AMF');
+        expect(territory?.assaulting_faction).to.equal(11559);
+        expect(territory?.defending_faction).to.equal(15256);
+    });
+
+    it('timestamp', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('timestamp'));
+
+        const initialReturn = await torn.torn.timestamp();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as number;
+        expect(castedReturn).to.equal(1628945289);
+    });
 });

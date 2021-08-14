@@ -1035,7 +1035,7 @@ export interface IMedal {
     rarity: string;
 }
 
-export interface IOrganizedCrime {
+export interface IOrganisedCrime {
     id: string;
     name: string;
     members: number;
