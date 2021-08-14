@@ -46,7 +46,7 @@ describe('Check error handling', () => {
     });
 
     describe('faction', () => {
-        testErrors('faction', Faction.prototype, ['constructor', 'fixStringMap'], ['boosters', 'cesium', 'contributors', 'reports', 'temporary']);
+        testErrors('faction', Faction.prototype, ['constructor', 'fixStringMap'], ['boosters', 'cesium', 'contributors', 'temporary']);
     });
 
     describe('item market', () => {
