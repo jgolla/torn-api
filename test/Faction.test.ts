@@ -43,7 +43,7 @@ describe('Faction API', () => {
         expect(report?.target).to.equal(4);
         expect(report?.type).to.equal('stats');
 
-        let stats = report?.report as IReport;
+        const stats = report?.report as IReport;
         expect(stats.manual_labor).to.equal(11271);
         expect(stats.speed).to.be.undefined;
 
