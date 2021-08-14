@@ -16,7 +16,7 @@ describe('Torn API', () => {
     afterEach(sinon.restore);
 
     it('bank', async () => {
-        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('bank'));
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('torn_bank'));
 
         const initialReturn = await torn.torn.bank();
         expect(TornAPI.isError(initialReturn)).to.be.false;
@@ -30,7 +30,7 @@ describe('Torn API', () => {
     });
 
     it('cards', async () => {
-        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('cards'));
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('torn_cards'));
 
         const initialReturn = await torn.torn.cards();
         expect(TornAPI.isError(initialReturn)).to.be.false;
@@ -47,7 +47,7 @@ describe('Torn API', () => {
     });
 
     it('companies', async () => {
-        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('companies'));
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('torn_companies'));
 
         const initialReturn = await torn.torn.companies();
         expect(TornAPI.isError(initialReturn)).to.be.false;
@@ -73,7 +73,7 @@ describe('Torn API', () => {
     });
 
     it('education', async () => {
-        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('education'));
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('torn_education'));
 
         const initialReturn = await torn.torn.education();
         expect(TornAPI.isError(initialReturn)).to.be.false;
@@ -90,7 +90,7 @@ describe('Torn API', () => {
     });
 
     it('factiontree', async () => {
-        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('factiontree'));
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('torn_factiontree'));
 
         const initialReturn = await torn.torn.factiontree();
         expect(TornAPI.isError(initialReturn)).to.be.false;
@@ -109,7 +109,7 @@ describe('Torn API', () => {
     });
 
     it('gyms', async () => {
-        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('gyms'));
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('torn_gyms'));
 
         const initialReturn = await torn.torn.gyms();
         expect(TornAPI.isError(initialReturn)).to.be.false;
@@ -124,7 +124,7 @@ describe('Torn API', () => {
     });
 
     it('honors', async () => {
-        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('honors'));
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('torn_honors'));
 
         const initialReturn = await torn.torn.honors();
         expect(TornAPI.isError(initialReturn)).to.be.false;
@@ -138,7 +138,7 @@ describe('Torn API', () => {
     });
 
     it('items', async () => {
-        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('items'));
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('torn_items'));
 
         const initialReturn = await torn.torn.items();
         expect(TornAPI.isError(initialReturn)).to.be.false;
@@ -153,7 +153,7 @@ describe('Torn API', () => {
     });
 
     it('logcategories', async () => {
-        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('logcategories'));
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('torn_logcategories'));
 
         const initialReturn = await torn.torn.logcategories();
         expect(TornAPI.isError(initialReturn)).to.be.false;
@@ -166,7 +166,7 @@ describe('Torn API', () => {
     });
 
     it('logtypes', async () => {
-        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('logtypes'));
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('torn_logtypes'));
 
         const initialReturn = await torn.torn.logtypes();
         expect(TornAPI.isError(initialReturn)).to.be.false;
@@ -179,7 +179,7 @@ describe('Torn API', () => {
     });
 
     it('medals', async () => {
-        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('medals'));
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('torn_medals'));
 
         const initialReturn = await torn.torn.medals();
         expect(TornAPI.isError(initialReturn)).to.be.false;
@@ -193,7 +193,7 @@ describe('Torn API', () => {
     });
 
     it('organisedcrimes', async () => {
-        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('organisedcrimes'));
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('torn_organisedcrimes'));
 
         const initialReturn = await torn.torn.organisedcrimes();
         expect(TornAPI.isError(initialReturn)).to.be.false;
@@ -207,7 +207,7 @@ describe('Torn API', () => {
     });
 
     it('pawnshop', async () => {
-        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('pawnshop'));
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('torn_pawnshop'));
 
         const initialReturn = await torn.torn.pawnshop();
         expect(TornAPI.isError(initialReturn)).to.be.false;
@@ -218,7 +218,7 @@ describe('Torn API', () => {
     });
 
     it('properties', async () => {
-        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('properties'));
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('torn_properties'));
 
         const initialReturn = await torn.torn.properties();
         expect(TornAPI.isError(initialReturn)).to.be.false;
@@ -237,7 +237,7 @@ describe('Torn API', () => {
     });
 
     it('rackets', async () => {
-        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('rackets'));
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('torn_rackets'));
 
         const initialReturn = await torn.torn.rackets();
         expect(TornAPI.isError(initialReturn)).to.be.false;
@@ -251,7 +251,7 @@ describe('Torn API', () => {
     });
 
     it('raids', async () => {
-        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('raids'));
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('torn_raids'));
 
         const initialReturn = await torn.torn.raids();
         expect(TornAPI.isError(initialReturn)).to.be.false;
@@ -265,7 +265,7 @@ describe('Torn API', () => {
     });
 
     it('stats', async () => {
-        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('stats'));
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('torn_stats'));
 
         const initialReturn = await torn.torn.stats();
         expect(TornAPI.isError(initialReturn)).to.be.false;
@@ -276,7 +276,7 @@ describe('Torn API', () => {
     });
 
     it('stocks', async () => {
-        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('stocks'));
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('torn_stocks'));
 
         const initialReturn = await torn.torn.stocks();
         expect(TornAPI.isError(initialReturn)).to.be.false;
@@ -290,7 +290,7 @@ describe('Torn API', () => {
     });
 
     it('stocks by id', async () => {
-        const stub = sinon.stub(axios, 'get').resolves(TestHelper.getJSON('stocks_by_id'));
+        const stub = sinon.stub(axios, 'get').resolves(TestHelper.getJSON('torn_stocks_by_id'));
 
         const initialReturn = await torn.torn.stocks('16');
         expect(TornAPI.isError(initialReturn)).to.be.false;
@@ -310,7 +310,7 @@ describe('Torn API', () => {
     });
 
     it('territory', async () => {
-        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('territory'));
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('torn_territory'));
 
         const initialReturn = await torn.torn.territory();
         expect(TornAPI.isError(initialReturn)).to.be.false;
@@ -324,7 +324,7 @@ describe('Torn API', () => {
     });
 
     it('territorywars', async () => {
-        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('territorywars'));
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('torn_territorywars'));
 
         const initialReturn = await torn.torn.territorywars();
         expect(TornAPI.isError(initialReturn)).to.be.false;
@@ -338,7 +338,7 @@ describe('Torn API', () => {
     });
 
     it('timestamp', async () => {
-        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('timestamp'));
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('torn_timestamp'));
 
         const initialReturn = await torn.torn.timestamp();
         expect(TornAPI.isError(initialReturn)).to.be.false;

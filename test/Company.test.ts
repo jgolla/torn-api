@@ -16,7 +16,7 @@ describe('Company API', () => {
     afterEach(sinon.restore);
 
     it('employees', async () => {
-        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('employees'));
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('company_employees'));
 
         const initialReturn = await torn.company.employees();
         expect(TornAPI.isError(initialReturn)).to.be.false;
@@ -30,7 +30,7 @@ describe('Company API', () => {
     });
 
     it('employees with id', async () => {
-        const stub = sinon.stub(axios, 'get').resolves(TestHelper.getJSON('employees'));
+        const stub = sinon.stub(axios, 'get').resolves(TestHelper.getJSON('company_employees'));
 
         const initialReturn = await torn.company.employees('1234');
         expect(TornAPI.isError(initialReturn)).to.be.false;
@@ -38,7 +38,7 @@ describe('Company API', () => {
     });
 
     it('profile', async () => {
-        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('profile'));
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('company_profile'));
 
         const initialReturn = await torn.company.profile();
         expect(TornAPI.isError(initialReturn)).to.be.false;
@@ -53,7 +53,7 @@ describe('Company API', () => {
     });
 
     it('profile with id', async () => {
-        const stub = sinon.stub(axios, 'get').resolves(TestHelper.getJSON('profile'));
+        const stub = sinon.stub(axios, 'get').resolves(TestHelper.getJSON('company_profile'));
 
         const initialReturn = await torn.company.profile('1234');
         expect(TornAPI.isError(initialReturn)).to.be.false;

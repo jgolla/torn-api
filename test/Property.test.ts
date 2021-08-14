@@ -16,7 +16,7 @@ describe('Property API', () => {
     afterEach(sinon.restore);
 
     it('property', async () => {
-        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('property'));
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('property_property'));
 
         const initialReturn = await torn.property.property();
         expect(TornAPI.isError(initialReturn)).to.be.false;
@@ -28,7 +28,7 @@ describe('Property API', () => {
     });
 
     it('property with id', async () => {
-        const stub = sinon.stub(axios, 'get').resolves(TestHelper.getJSON('property'));
+        const stub = sinon.stub(axios, 'get').resolves(TestHelper.getJSON('property_property'));
         await torn.property.property('123456');
         expect(stub.args[0][0]).to.equal('https://api.torn.com/property/123456?selections=property&key=key');
     });
