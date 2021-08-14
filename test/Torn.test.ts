@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import sinon = require('sinon');
 
 import { TornAPI } from '../lib';
-import { IBank, ICard, IFactionTree, IHonor, ITornCompany, ITornEducation, ITornGym } from '../lib/Interfaces';
+import { IBank, ICard, IFactionTree, IHonor, IItem, IKeyValue, IMedal, IOrganizedCrime, ITornCompany, ITornEducation, ITornGym } from '../lib/Interfaces';
 import { TestHelper } from './utils/TestUtils';
 
 describe('Torn API', () => {
@@ -136,4 +136,73 @@ describe('Torn API', () => {
         expect(honor?.name).to.equal('Machinist');
         expect(honor?.description).to.equal('Achieve 100 finishing hits with mechanical weapons');
     });
+
+    it('items', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('items'));
+
+        const initialReturn = await torn.torn.items();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as IItem[];
+
+        // spot check one
+        const item = castedReturn.find(x => x.id === '61');
+        expect(item?.name).to.equal('Personal Computer');
+        expect(item?.description).to.equal('A high-tech personal computer. Can be used to program viruses.');
+        expect(item?.weapon_type).to.be.null;
+    });
+
+    it('logcategories', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('logcategories'));
+
+        const initialReturn = await torn.torn.logcategories();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as IKeyValue[];
+
+        // spot check one
+        const item = castedReturn.find(x => x.key === '61');
+        expect(item?.value).to.equal('Drugs');
+    });
+
+    it('logtypes', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('logtypes'));
+
+        const initialReturn = await torn.torn.logtypes();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as IKeyValue[];
+
+        // spot check one
+        const item = castedReturn.find(x => x.key === '361');
+        expect(item?.value).to.equal('Personal details real name change');
+    });
+
+    it('medals', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('medals'));
+
+        const initialReturn = await torn.torn.medals();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as IMedal[];
+
+        // spot check one
+        const medal = castedReturn.find(x => x.id === '61');
+        expect(medal?.name).to.equal('Ub3r Hacker');
+        expect(medal?.description).to.equal('Commit 4,000 Computer crimes');
+    });
+
+    // it('organizedcrimes', async () => {
+    //     sinon.stub(axios, 'get').resolves(TestHelper.getJSON('organizedcrimes'));
+
+    //     const initialReturn = await torn.torn.organizedcrimes();
+    //     expect(TornAPI.isError(initialReturn)).to.be.false;
+
+    //     const castedReturn = initialReturn as IOrganizedCrime[];
+
+    //     // spot check one
+    //     const medal = castedReturn.find(x => x.id === '6');
+    //     expect(medal?.name).to.equal('Taking over a cruise liner');
+    //     expect(medal?.members).to.equal(15);
+    // });
 });
