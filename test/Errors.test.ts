@@ -42,7 +42,7 @@ describe('Check error handling', () => {
     }
 
     describe('company', () => {
-        testErrors('company', Company.prototype, ['constructor']);
+        testErrors('company', Company.prototype, ['constructor'], ['applications', 'detailed', 'news', 'newsfull', 'stock']);
     });
 
     describe('faction', () => {

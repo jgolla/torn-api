@@ -75138,5 +75138,367 @@
     },
     "timestamp": {
         "timestamp": 1628945289
+    },
+    "profile": {
+        "company": {
+            "ID": 89826,
+            "company_type": 8,
+            "rating": 6,
+            "name": "Shepherds of Fire",
+            "director": 2486344,
+            "employees_hired": 9,
+            "employees_capacity": 10,
+            "daily_income": 695186,
+            "daily_customers": 1653,
+            "weekly_income": 5231358,
+            "weekly_customers": 11525,
+            "days_old": 162,
+            "employees": {
+                "2488292": {
+                    "name": "Broadway",
+                    "position": "Salesperson",
+                    "days_in_company": 155,
+                    "last_action": {
+                        "status": "Offline",
+                        "timestamp": 1628744042,
+                        "relative": "2 days ago"
+                    },
+                    "status": {
+                        "description": "Okay",
+                        "details": "",
+                        "state": "Okay",
+                        "color": "green",
+                        "until": 0
+                    }
+                },
+                "2490695": {
+                    "name": "Qazzian",
+                    "position": "Chandler",
+                    "days_in_company": 162,
+                    "last_action": {
+                        "status": "Offline",
+                        "timestamp": 1628938567,
+                        "relative": "2 hours ago"
+                    },
+                    "status": {
+                        "description": "Okay",
+                        "details": "",
+                        "state": "Okay",
+                        "color": "green",
+                        "until": 0
+                    }
+                },
+                "2488331": {
+                    "name": "yfel",
+                    "position": "Salesperson",
+                    "days_in_company": 160,
+                    "last_action": {
+                        "status": "Idle",
+                        "timestamp": 1628942234,
+                        "relative": "1 hour ago"
+                    },
+                    "status": {
+                        "description": "Traveling to Switzerland",
+                        "details": "",
+                        "state": "Traveling",
+                        "color": "blue",
+                        "until": 0
+                    }
+                },
+                "2486344": {
+                    "name": "Synyster_Gates",
+                    "position": "Director",
+                    "days_in_company": 162,
+                    "last_action": {
+                        "status": "Idle",
+                        "timestamp": 1628919450,
+                        "relative": "7 hours ago"
+                    },
+                    "status": {
+                        "description": "Okay",
+                        "details": "",
+                        "state": "Okay",
+                        "color": "green",
+                        "until": 0
+                    }
+                },
+                "2486892": {
+                    "name": "Entropi",
+                    "position": "Chandler",
+                    "days_in_company": 82,
+                    "last_action": {
+                        "status": "Offline",
+                        "timestamp": 1628932821,
+                        "relative": "3 hours ago"
+                    },
+                    "status": {
+                        "description": "Okay",
+                        "details": "",
+                        "state": "Okay",
+                        "color": "green",
+                        "until": 0
+                    }
+                },
+                "2491575": {
+                    "name": "jgolla",
+                    "position": "Salesperson",
+                    "days_in_company": 28,
+                    "last_action": {
+                        "status": "Idle",
+                        "timestamp": 1628945462,
+                        "relative": "9 minutes ago"
+                    },
+                    "status": {
+                        "description": "Traveling to Mexico",
+                        "details": "",
+                        "state": "Traveling",
+                        "color": "blue",
+                        "until": 0
+                    }
+                },
+                "1504179": {
+                    "name": "RChristopher",
+                    "position": "Salesperson",
+                    "days_in_company": 151,
+                    "last_action": {
+                        "status": "Offline",
+                        "timestamp": 1628890930,
+                        "relative": "15 hours ago"
+                    },
+                    "status": {
+                        "description": "Okay",
+                        "details": "",
+                        "state": "Okay",
+                        "color": "green",
+                        "until": 0
+                    }
+                },
+                "2625022": {
+                    "name": "Velystryx",
+                    "position": "Salesperson",
+                    "days_in_company": 97,
+                    "last_action": {
+                        "status": "Offline",
+                        "timestamp": 1628903189,
+                        "relative": "11 hours ago"
+                    },
+                    "status": {
+                        "description": "Okay",
+                        "details": "",
+                        "state": "Okay",
+                        "color": "green",
+                        "until": 0
+                    }
+                },
+                "2494583": {
+                    "name": "mouseman490",
+                    "position": "Salesperson",
+                    "days_in_company": 127,
+                    "last_action": {
+                        "status": "Offline",
+                        "timestamp": 1628909872,
+                        "relative": "10 hours ago"
+                    },
+                    "status": {
+                        "description": "Okay",
+                        "details": "",
+                        "state": "Okay",
+                        "color": "green",
+                        "until": 0
+                    }
+                },
+                "2674183": {
+                    "name": "sngg",
+                    "position": "Salesperson",
+                    "days_in_company": 100,
+                    "last_action": {
+                        "status": "Offline",
+                        "timestamp": 1628929876,
+                        "relative": "4 hours ago"
+                    },
+                    "status": {
+                        "description": "Okay",
+                        "details": "",
+                        "state": "Okay",
+                        "color": "green",
+                        "until": 0
+                    }
+                }
+            }
+        }
+    },
+    "employees": {
+        "company_employees": {
+            "1089809": {
+                "name": "malikhera",
+                "position": "Sexpert",
+                "days_in_company": 19,
+                "last_action": {
+                    "status": "Offline",
+                    "timestamp": 1628859740,
+                    "relative": "1 day ago"
+                },
+                "status": {
+                    "description": "Okay",
+                    "details": "",
+                    "state": "Okay",
+                    "color": "green",
+                    "until": 0
+                }
+            },
+            "1965301": {
+                "name": "chakku",
+                "position": "Sexpert",
+                "days_in_company": 48,
+                "last_action": {
+                    "status": "Offline",
+                    "timestamp": 1628891576,
+                    "relative": "15 hours ago"
+                },
+                "status": {
+                    "description": "Okay",
+                    "details": "",
+                    "state": "Okay",
+                    "color": "green",
+                    "until": 0
+                }
+            },
+            "327721": {
+                "name": "NUMB3R7",
+                "position": "Sales Assistant",
+                "days_in_company": 58,
+                "last_action": {
+                    "status": "Offline",
+                    "timestamp": 1628945421,
+                    "relative": "19 minutes ago"
+                },
+                "status": {
+                    "description": "Okay",
+                    "details": "",
+                    "state": "Okay",
+                    "color": "green",
+                    "until": 0
+                }
+            },
+            "1819862": {
+                "name": "AbsoluteQueen",
+                "position": "Sales Assistant",
+                "days_in_company": 5,
+                "last_action": {
+                    "status": "Offline",
+                    "timestamp": 1628943518,
+                    "relative": "51 minutes ago"
+                },
+                "status": {
+                    "description": "Okay",
+                    "details": "",
+                    "state": "Okay",
+                    "color": "green",
+                    "until": 0
+                }
+            },
+            "2634385": {
+                "name": "BUNBUNLOVE",
+                "position": "Sales Assistant",
+                "days_in_company": 1,
+                "last_action": {
+                    "status": "Offline",
+                    "timestamp": 1628945794,
+                    "relative": "13 minutes ago"
+                },
+                "status": {
+                    "description": "Returning to Torn from Switzerland",
+                    "details": "",
+                    "state": "Traveling",
+                    "color": "blue",
+                    "until": 0
+                }
+            },
+            "2044436": {
+                "name": "morilee",
+                "position": "Store Manager",
+                "days_in_company": 22,
+                "last_action": {
+                    "status": "Offline",
+                    "timestamp": 1628861547,
+                    "relative": "23 hours ago"
+                },
+                "status": {
+                    "description": "Okay",
+                    "details": "",
+                    "state": "Okay",
+                    "color": "green",
+                    "until": 0
+                }
+            },
+            "2672598": {
+                "name": "DamnedLynx",
+                "position": "Sales Assistant",
+                "days_in_company": 18,
+                "last_action": {
+                    "status": "Offline",
+                    "timestamp": 1628944404,
+                    "relative": "36 minutes ago"
+                },
+                "status": {
+                    "description": "Okay",
+                    "details": "",
+                    "state": "Okay",
+                    "color": "green",
+                    "until": 0
+                }
+            },
+            "1870766": {
+                "name": "_Dabs",
+                "position": "Sexpert",
+                "days_in_company": 1,
+                "last_action": {
+                    "status": "Offline",
+                    "timestamp": 1628929543,
+                    "relative": "4 hours ago"
+                },
+                "status": {
+                    "description": "Okay",
+                    "details": "",
+                    "state": "Okay",
+                    "color": "green",
+                    "until": 0
+                }
+            },
+            "2552638": {
+                "name": "TokD",
+                "position": "Sales Assistant",
+                "days_in_company": 1,
+                "last_action": {
+                    "status": "Offline",
+                    "timestamp": 1628891122,
+                    "relative": "15 hours ago"
+                },
+                "status": {
+                    "description": "Okay",
+                    "details": "",
+                    "state": "Okay",
+                    "color": "green",
+                    "until": 0
+                }
+            },
+            "2309227": {
+                "name": "_sd1a",
+                "position": "Sales Assistant",
+                "days_in_company": 6,
+                "last_action": {
+                    "status": "Offline",
+                    "timestamp": 1628882193,
+                    "relative": "17 hours ago"
+                },
+                "status": {
+                    "description": "Okay",
+                    "details": "",
+                    "state": "Okay",
+                    "color": "green",
+                    "until": 0
+                }
+            }
+        }
     }
 }
