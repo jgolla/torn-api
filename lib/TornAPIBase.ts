@@ -55,10 +55,10 @@ export abstract class TornAPIBase {
             return response.data.error;
         } else {
             const types: IKeyValue[] = [];
-            const ids = Object.keys(response.data.logtypes);
+            const ids = Object.keys(response.data[params.selection]);
             for (let i = 0; i < ids.length; i++) {
                 const id = ids[i];
-                const name = response.data.logtypes[id];
+                const name = response.data[params.selection][id];
                 types.push({ key: id, value: name });
             }
 

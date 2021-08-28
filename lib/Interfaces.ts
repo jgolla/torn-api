@@ -240,6 +240,27 @@ export interface IDonation {
     points_balance: number;
 }
 
+export interface IReport {
+    strength?: number;
+    speed?: number;
+    defense?: number;
+    dexterity?: number;
+    total_battlestats?: number;
+    manual_labor?: number;
+    intelligence?: number;
+    endurance?: number;
+    total_workstats?: number;
+}
+
+export interface IFactionReport {
+    id: string;
+    user_id: number;
+    target: number;
+    type: string;
+    report: IReport | string[];
+    timestamp: number;
+}
+
 export interface IRevivesFull {
     id: string;
     timestamp: number;
@@ -979,7 +1000,8 @@ export interface IEducationResults {
     endurance?: string[];
 }
 
-export interface IEducation {
+export interface ITornEducation {
+    id: string;
     name: string;
     description: string;
     money_cost: number;
@@ -1034,7 +1056,7 @@ export interface IMedal {
     rarity: string;
 }
 
-export interface IOrganizedCrime {
+export interface IOrganisedCrime {
     id: string;
     name: string;
     members: number;
