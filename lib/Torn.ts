@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { IBank, IEducation, ITornGym, IHonor, IItem, IMedal, IOrganizedCrime, IPawnshop, IRacket, IRaid, IStock, ITerritory, ITerritoryWar, ITornApiError, ITornCompany, ITornProperty, ITornStats, IFactionTree, IKeyValue, ICard, IStockDetail } from './Interfaces';
+import { IBank, ITornGym, IHonor, IItem, IMedal, IOrganisedCrime as IOrganisedCrime, IPawnshop, IRacket, IRaid, IStock, ITerritory, ITerritoryWar, ITornApiError, ITornCompany, ITornProperty, ITornStats, IFactionTree, IKeyValue, ICard, IStockDetail, ITornEducation } from './Interfaces';
 import { TornAPIBase } from './TornAPIBase';
 
 export class Torn extends TornAPIBase {
@@ -34,7 +34,7 @@ export class Torn extends TornAPIBase {
         }
     }
 
-    async education(): Promise<IEducation[] | ITornApiError> {
+    async education(): Promise<ITornEducation[] | ITornApiError> {
         return this.apiQueryToArray({ route: 'torn', selection: 'education' }, 'id');
     }
 
@@ -76,8 +76,8 @@ export class Torn extends TornAPIBase {
         return this.apiQueryToArray({ route: 'torn', selection: 'medals' }, 'id');
     }
 
-    async organizedcrimes(): Promise<IOrganizedCrime[] | ITornApiError> {
-        return this.apiQueryToArray({ route: 'torn', selection: 'organizedcrimes' }, 'id');
+    async organisedcrimes(): Promise<IOrganisedCrime[] | ITornApiError> {
+        return this.apiQueryToArray({ route: 'torn', selection: 'organisedcrimes' }, 'id');
     }
 
     async pawnshop(): Promise<IPawnshop | ITornApiError> {
@@ -102,7 +102,12 @@ export class Torn extends TornAPIBase {
 
     async stocks(id?: string): Promise<IStock[] | IStockDetail | ITornApiError> {
         if (id) {
-            return this.apiQuery({ route: 'torn', selection: 'stocks', id: id });
+            const response = await axios.get(this.buildUri({ route: 'torn', selection: 'stocks', id: id }));
+            if (response.data.error) {
+                return response.data.error;
+            } else {
+                return response.data['stocks'][id];
+            }
         } else {
             return this.apiQueryToArray({ route: 'torn', selection: 'stocks' });
         }

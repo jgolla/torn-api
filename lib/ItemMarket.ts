@@ -8,7 +8,7 @@ export class ItemMarket extends TornAPIBase {
         super(apiKey);
     }
 
-    async all(id?: string): Promise<IMarketItem[] | ITornApiError> {
+    async all(id: string): Promise<IMarketItem[] | ITornApiError> {
         const response = await axios.get(this.buildUri({ route: 'market', selection: 'bazaar,itemmarket', id: id }));
         if (response.data.error) {
             return response.data.error;
@@ -17,11 +17,11 @@ export class ItemMarket extends TornAPIBase {
         }
     }
 
-    async bazaar(id?: string): Promise<IMarketItem[] | ITornApiError> {
+    async bazaar(id: string): Promise<IMarketItem[] | ITornApiError> {
         return this.apiQuery({ route: 'market', selection: 'bazaar', id: id });
     }
 
-    async itemmarket(id?: string): Promise<IMarketItem[] | ITornApiError> {
+    async itemmarket(id: string): Promise<IMarketItem[] | ITornApiError> {
         return this.apiQuery({ route: 'market', selection: 'itemmarket', id: id });
     }
 
