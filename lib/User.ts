@@ -116,7 +116,7 @@ export class User extends TornAPIBase {
             const returnPoints: IJobPoints = {
                 jobs: response.jobs,
                 companies: Object.values(response.companies)
-            }
+            };
             return returnPoints;
         }
     }
