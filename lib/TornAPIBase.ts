@@ -18,7 +18,7 @@ export abstract class TornAPIBase {
             if (params.jsonOverride === '') {
                 return response.data;
             } else if (params.jsonOverride) {
-                return response.data[params.jsonOverride]
+                return response.data[params.jsonOverride];
             } else {
                 if (params.selection === '') {
                     return response.data;
@@ -36,7 +36,7 @@ export abstract class TornAPIBase {
         } else {
             let jsonSelection = response.data;
             if (params.jsonOverride) {
-                jsonSelection = response.data[params.jsonOverride]
+                jsonSelection = response.data[params.jsonOverride];
             } else {
                 jsonSelection = response.data[params.selection];
             }

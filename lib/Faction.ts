@@ -158,7 +158,7 @@ export class Faction extends TornAPIBase {
     }
 
     async territory(): Promise<ITerritory[] | ITornApiError> {
-        return this.apiQueryToArray({ route: 'faction', selection: 'territory' }, 'id')
+        return this.apiQueryToArray({ route: 'faction', selection: 'territory' }, 'id');
     }
 
     async upgrades(): Promise<IUpgrade[] | ITornApiError> {
