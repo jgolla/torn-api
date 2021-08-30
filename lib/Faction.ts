@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import { TornAPIBase } from './TornAPIBase';
-import { IApplication, IArmor, IArmoryNews, IAttack, IAttackFull, IAttackNews, IChain, ICompleteChain, ICrime, ICrimeNews, ICrimeParticipant, ICurrency, IDonation, IDrug, IFaction, IFactionPosition, IFactionReport, IFundsNews, IMainNews, IMedical, IMembershipNews, IRevives, IRevivesFull, IStats, ITerritory, ITornApiError, IUpgrade, IWeapon } from './Interfaces';
+import { IApplication, IArmor, IAttack, IAttackFull, IChain, ICompleteChain, ICrime, ICrimeParticipant, ICurrency, IDonation, IDrug, IFaction, IFactionPosition, IFactionReport, IMedical, INews, IRevives, IRevivesFull, IStats, ITerritory, ITornApiError, IUpgrade, IWeapon } from './Interfaces';
 
 export class Faction extends TornAPIBase {
     constructor(apiKey: string) {
@@ -27,11 +27,11 @@ export class Faction extends TornAPIBase {
         return this.apiQuery({ route: 'faction', selection: 'armor' });
     }
 
-    async armorynews(from?: number, to?: number): Promise<IArmoryNews[] | ITornApiError> {
+    async armorynews(from?: number, to?: number): Promise<INews[] | ITornApiError> {
         return this.apiQueryToArray({ route: 'faction', selection: 'armorynews', from: from, to: to }, 'id');
     }
 
-    async attacknews(from?: number, to?: number): Promise<IAttackNews[] | ITornApiError> {
+    async attacknews(from?: number, to?: number): Promise<INews[] | ITornApiError> {
         return this.apiQueryToArray({ route: 'faction', selection: 'attacknews', from: from, to: to }, 'id');
     }
 
@@ -67,7 +67,7 @@ export class Faction extends TornAPIBase {
         throw new Error('Method not implemented.');
     }
 
-    async crimenews(from?: number, to?: number): Promise<ICrimeNews[] | ITornApiError> {
+    async crimenews(from?: number, to?: number): Promise<INews[] | ITornApiError> {
         return this.apiQueryToArray({ route: 'faction', selection: 'crimenews', from: from, to: to }, 'id');
     }
 
@@ -117,11 +117,11 @@ export class Faction extends TornAPIBase {
         return this.apiQuery({ route: 'faction', selection: 'drugs' });
     }
 
-    async fundsnews(from?: number, to?: number): Promise<IFundsNews[] | ITornApiError> {
+    async fundsnews(from?: number, to?: number): Promise<INews[] | ITornApiError> {
         return this.apiQueryToArray({ route: 'faction', selection: 'fundsnews', from: from, to: to }, 'id');
     }
 
-    async mainnews(from?: number, to?: number): Promise<IMainNews[] | ITornApiError> {
+    async mainnews(from?: number, to?: number): Promise<INews[] | ITornApiError> {
         return this.apiQueryToArray({ route: 'faction', selection: 'mainnews', from: from, to: to }, 'id');
     }
 
@@ -129,7 +129,7 @@ export class Faction extends TornAPIBase {
         return this.apiQuery({ route: 'faction', selection: 'medical' });
     }
 
-    async membershipnews(from?: number, to?: number): Promise<IMembershipNews[] | ITornApiError> {
+    async membershipnews(from?: number, to?: number): Promise<INews[] | ITornApiError> {
         return this.apiQueryToArray({ route: 'faction', selection: 'membershipnews', from: from, to: to }, 'id');
     }
 

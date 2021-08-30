@@ -125,18 +125,11 @@ export interface IStats {
     revives: number;
 }
 
-interface INews {
+export interface INews {
     id: string;
     timestamp: number;
     news: string;
 }
-
-export type IArmoryNews = INews
-export type IAttackNews = INews
-export type ICrimeNews = INews
-export type IFundsNews = INews
-export type IMainNews = INews
-export type IMembershipNews = INews
 
 export interface IAttackFull {
     code: string;
