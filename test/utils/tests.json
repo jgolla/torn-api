@@ -35005,6 +35005,226 @@
             "donatorpack_value": 22600000
         }
     },
+    "torn_pokertables": {
+        "pokertables": {
+            "2": {
+                "name": "Newbie Corner",
+                "big_blind": 10,
+                "small_blind": 5,
+                "speed": 60,
+                "current_players": 0,
+                "maximum_players": 9
+            },
+            "3": {
+                "name": "Hobo Holdem",
+                "big_blind": 25,
+                "small_blind": 13,
+                "speed": 30,
+                "current_players": 0,
+                "maximum_players": 9
+            },
+            "4": {
+                "name": "Five Star Man",
+                "big_blind": 100,
+                "small_blind": 50,
+                "speed": 30,
+                "current_players": 0,
+                "maximum_players": 5
+            },
+            "5": {
+                "name": "Sprinkles",
+                "big_blind": 250,
+                "small_blind": 125,
+                "speed": 30,
+                "current_players": 0,
+                "maximum_players": 9
+            },
+            "6": {
+                "name": "Gatling Gun",
+                "big_blind": 1000,
+                "small_blind": 500,
+                "speed": 15,
+                "current_players": 7,
+                "maximum_players": 9
+            },
+            "7": {
+                "name": "Quickdraw",
+                "big_blind": 2500,
+                "small_blind": 1250,
+                "speed": 30,
+                "current_players": 0,
+                "maximum_players": 9
+            },
+            "8": {
+                "name": "Tight Knit",
+                "big_blind": 5000,
+                "small_blind": 2500,
+                "speed": 30,
+                "current_players": 0,
+                "maximum_players": 6
+            },
+            "9": {
+                "name": "Ballsy",
+                "big_blind": 25000,
+                "small_blind": 12500,
+                "speed": 15,
+                "current_players": 5,
+                "maximum_players": 9
+            },
+            "10": {
+                "name": "Pound It",
+                "big_blind": 250000,
+                "small_blind": 125000,
+                "speed": 30,
+                "current_players": 4,
+                "maximum_players": 9
+            },
+            "11": {
+                "name": "Old 'n Slow",
+                "big_blind": 100000,
+                "small_blind": 50000,
+                "speed": 60,
+                "current_players": 0,
+                "maximum_players": 6
+            },
+            "12": {
+                "name": "Tripod",
+                "big_blind": 1000000,
+                "small_blind": 500000,
+                "speed": 30,
+                "current_players": 0,
+                "maximum_players": 3
+            },
+            "13": {
+                "name": "Slow Cooker",
+                "big_blind": 5000000,
+                "small_blind": 2500000,
+                "speed": 60,
+                "current_players": 0,
+                "maximum_players": 9
+            },
+            "14": {
+                "name": "Fire Pit",
+                "big_blind": 25000000,
+                "small_blind": 12500000,
+                "speed": 15,
+                "current_players": 0,
+                "maximum_players": 9
+            },
+            "15": {
+                "name": "High Rollers",
+                "big_blind": 10000000,
+                "small_blind": 5000000,
+                "speed": 30,
+                "current_players": 0,
+                "maximum_players": 9
+            },
+            "16": {
+                "name": "Oligarch",
+                "big_blind": 100000000,
+                "small_blind": 50000000,
+                "speed": 60,
+                "current_players": 0,
+                "maximum_players": 5
+            },
+            "17": {
+                "name": "Fourplay",
+                "big_blind": 100000,
+                "small_blind": 50000,
+                "speed": 30,
+                "current_players": 0,
+                "maximum_players": 4
+            },
+            "18": {
+                "name": "Duel at Dawn",
+                "big_blind": 100000,
+                "small_blind": 50000,
+                "speed": 30,
+                "current_players": 0,
+                "maximum_players": 2
+            },
+            "19": {
+                "name": "Juan on Juan",
+                "big_blind": 5000000,
+                "small_blind": 2500000,
+                "speed": 60,
+                "current_players": 0,
+                "maximum_players": 2
+            },
+            "20": {
+                "name": "Boom or Bust",
+                "big_blind": 50000,
+                "small_blind": 25000,
+                "speed": 30,
+                "current_players": 0,
+                "maximum_players": 9
+            },
+            "21": {
+                "name": "Old Folks Home",
+                "big_blind": 500000,
+                "small_blind": 250000,
+                "speed": 60,
+                "current_players": 0,
+                "maximum_players": 6
+            },
+            "22": {
+                "name": "Comatose Cove",
+                "big_blind": 1000000,
+                "small_blind": 500000,
+                "speed": 60,
+                "current_players": 0,
+                "maximum_players": 6
+            },
+            "23": {
+                "name": "Periodic",
+                "big_blind": 100000,
+                "small_blind": 50000,
+                "speed": 60,
+                "current_players": 0,
+                "maximum_players": 9
+            },
+            "24": {
+                "name": "E-asy Street",
+                "big_blind": 500,
+                "small_blind": 250,
+                "speed": 30,
+                "current_players": 0,
+                "maximum_players": 9
+            },
+            "25": {
+                "name": "Cat's Chance",
+                "big_blind": 2500000,
+                "small_blind": 1250000,
+                "speed": 30,
+                "current_players": 0,
+                "maximum_players": 9
+            },
+            "26": {
+                "name": "Broke Jokes",
+                "big_blind": 50,
+                "small_blind": 25,
+                "speed": 30,
+                "current_players": 0,
+                "maximum_players": 9
+            },
+            "27": {
+                "name": "Six of the Best",
+                "big_blind": 10000,
+                "small_blind": 5000,
+                "speed": 30,
+                "current_players": 0,
+                "maximum_players": 6
+            },
+            "28": {
+                "name": "River Wizard",
+                "big_blind": 1000000,
+                "small_blind": 500000,
+                "speed": 30,
+                "current_players": 0,
+                "maximum_players": 9
+            }
+        }
+    },
     "torn_properties": {
         "properties": {
             "1": {
