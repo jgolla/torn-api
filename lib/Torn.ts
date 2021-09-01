@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { IBank, ITornGym, IHonor, IItem, IMedal, IOrganisedCrime as IOrganisedCrime, IPawnshop, IRacket, IRaid, IStock, ITerritory, ITerritoryWar, ITornApiError, ITornCompany, ITornProperty, ITornStats, IFactionTree, IKeyValue, ICard, IStockDetail, ITornEducation } from './Interfaces';
+import { IBank, ITornGym, IHonor, IItem, IMedal, IOrganisedCrime as IOrganisedCrime, IPawnshop, IRacket, IRaid, IStock, ITerritory, ITerritoryWar, ITornApiError, ITornCompany, ITornProperty, ITornStats, IFactionTree, IKeyValue, ICard, IStockDetail, ITornEducation, IPokerTable } from './Interfaces';
 import { TornAPIBase } from './TornAPIBase';
 
 export class Torn extends TornAPIBase {
@@ -86,6 +86,10 @@ export class Torn extends TornAPIBase {
 
     async properties(): Promise<ITornProperty[] | ITornApiError> {
         return this.apiQueryToArray({ route: 'torn', selection: 'properties' }, 'id');
+    }
+
+    async pokertables(): Promise<IPokerTable[] | ITornApiError> {
+        return this.apiQueryToArray({ route: 'torn', selection: 'pokertables' }, 'id');
     }
 
     async rackets(): Promise<IRacket[] | ITornApiError> {

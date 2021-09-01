@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import sinon = require('sinon');
 
 import { TornAPI } from '../lib';
-import { IBank, ICard, IFactionTree, IHonor, IItem, IKeyValue, IMedal, IOrganisedCrime, IPawnshop, IRacket, IRaid, IStock, IStockDetail, ITerritory, ITerritoryWar, ITornCompany, ITornEducation, ITornGym, ITornProperty, ITornStats } from '../lib/Interfaces';
+import { IBank, ICard, IFactionTree, IHonor, IItem, IKeyValue, IMedal, IOrganisedCrime, IPawnshop, IPokerTable, IRacket, IRaid, IStock, IStockDetail, ITerritory, ITerritoryWar, ITornCompany, ITornEducation, ITornGym, ITornProperty, ITornStats } from '../lib/Interfaces';
 import { TestHelper } from './utils/TestUtils';
 
 describe('Torn API', () => {
@@ -215,6 +215,20 @@ describe('Torn API', () => {
         const castedReturn = initialReturn as IPawnshop;
         expect(castedReturn.points_value).to.equal(45000);
         expect(castedReturn.donatorpack_value).to.equal(22600000);
+    });
+
+    it('pokertables', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('torn_pokertables'));
+
+        const initialReturn = await torn.torn.pokertables();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as IPokerTable[];
+
+        // spot check one
+        const table = castedReturn.find(x => x.id === '16');
+        expect(table?.name).to.equal('Oligarch');
+        expect(table?.big_blind).to.equal(100000000);
     });
 
     it('properties', async () => {

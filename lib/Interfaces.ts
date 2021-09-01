@@ -1301,3 +1301,13 @@ export interface IFactionPosition {
     canChangeAnnouncement: number;
     canChangeDescription: number;
 }
+
+export interface IPokerTable {
+    id: string;
+    name: string;
+    big_blind: number;
+    small_blind: number;
+    speed: number;
+    current_players: number;
+    maximum_players: number;
+}
