@@ -3,8 +3,12 @@
     "target": "ES2019",
     "module": "commonjs",
     "declaration": true,
-    "outDir": "./dist",
+    "outDir": "dist",
     "strict": true,
-    "resolveJsonModule": true
-  }
+    "resolveJsonModule": true,
+    "rootDir": "lib"
+  },
+  "include": [
+    "lib/**/*"
+  ]
 }
