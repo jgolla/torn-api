@@ -48,10 +48,33 @@ export interface IFaction {
     age: number;
     capacity: number;
     best_chain: number;
-    territory_wars: unknown;
-    raid_wars: unknown;
-    peace: unknown;
+    territory_wars: IFactionTerritoryWar[];
+    raid_wars: IFactionRaid[];
+    peace: IPeace[];
     members: IMember[];
+}
+
+export interface IPeace {
+    faction_id: number;
+    until: number;
+}
+
+export interface IFactionTerritoryWar {
+    territory: string;
+    assaulting_faction: number;
+    defending_faction: number;
+    score: number;
+    required_score: number;
+    start_time: number;
+    end_time: number;
+}
+
+export interface IFactionRaid {
+    raiding_faction: number;
+    defending_faction: number;
+    raider_score: string;
+    defender_score: string;
+    start_time: number;
 }
 
 export interface IMember {
@@ -74,7 +97,7 @@ interface IArmoryBase {
 export interface IArmor extends IArmoryBase {
     available: number;
     loaned: number;
-    loaned_to?: string;
+    loaned_to?: string | number;
 }
 
 export type IWeapon = IArmor
