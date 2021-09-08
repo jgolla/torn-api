@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import { TornAPIBase } from './TornAPIBase';
-import { IApplication, IArmor, IAttack, IAttackFull, IChain, ICompleteChain, ICrime, ICrimeParticipant, ICurrency, IDonation, IDrug, IFaction, IFactionPosition, IFactionReport, IMedical, INews, IRevives, IRevivesFull, IStats, ITerritory, ITornApiError, IUpgrade, IWeapon } from './Interfaces';
+import { IApplication, IArmor, IAttack, IAttackFull, IChain, ICompleteChain, ICrime, ICrimeParticipant, ICurrency, IDonation, IDrug, IFaction, IFactionPosition, IFactionReport, IMedical, INews, IPeace, IRevives, IRevivesFull, IStats, ITerritory, ITornApiError, IUpgrade, IWeapon } from './Interfaces';
 
 export class Faction extends TornAPIBase {
     constructor(apiKey: string) {
@@ -15,6 +15,17 @@ export class Faction extends TornAPIBase {
         } else {
             const factionReturn: IFaction = response.data;
             factionReturn.members = this.fixStringArray(factionReturn.members, 'id');
+
+            const peaceArray: IPeace[] = [];
+            const ids = Object.keys(factionReturn.peace);
+            for (let i = 0; i < ids.length; i++) {
+                const id = ids[i];
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                const field = (factionReturn.peace as any)[id];
+                peaceArray.push({ faction_id: Number(id), until: field });
+            }
+            factionReturn.peace = peaceArray;
+
             return factionReturn;
         }
     }

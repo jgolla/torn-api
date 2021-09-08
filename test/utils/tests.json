@@ -77954,5 +77954,719 @@
                 "timestamp": 1625514913
             }
         ]
+    },
+    "faction_armor": {
+        "armor": [
+            {
+                "ID": 34,
+                "name": "Bulletproof Vest",
+                "type": "Defensive",
+                "quantity": 1,
+                "available": 1,
+                "loaned": 0,
+                "loaned_to": null
+            },
+            {
+                "ID": 653,
+                "name": "Combat Boots",
+                "type": "Defensive",
+                "quantity": 13,
+                "available": 2,
+                "loaned": 11,
+                "loaned_to": null
+            },
+            {
+                "ID": 654,
+                "name": "Combat Gloves",
+                "type": "Defensive",
+                "quantity": 15,
+                "available": 3,
+                "loaned": 12,
+                "loaned_to": null
+            },
+            {
+                "ID": 651,
+                "name": "Combat Helmet",
+                "type": "Defensive",
+                "quantity": 11,
+                "available": 1,
+                "loaned": 10,
+                "loaned_to": null
+            },
+            {
+                "ID": 652,
+                "name": "Combat Pants",
+                "type": "Defensive",
+                "quantity": 10,
+                "available": 3,
+                "loaned": 7,
+                "loaned_to": null
+            },
+            {
+                "ID": 332,
+                "name": "Combat Vest",
+                "type": "Defensive",
+                "quantity": 15,
+                "available": 2,
+                "loaned": 13,
+                "loaned_to": null
+            },
+            {
+                "ID": 643,
+                "name": "Construction Helmet",
+                "type": "Defensive",
+                "quantity": 2,
+                "available": 0,
+                "loaned": 2,
+                "loaned_to": null
+            },
+            {
+                "ID": 49,
+                "name": "Full Body Armor",
+                "type": "Defensive",
+                "quantity": 4,
+                "available": 3,
+                "loaned": 1,
+                "loaned_to": null
+            },
+            {
+                "ID": 646,
+                "name": "Hiking Boots",
+                "type": "Defensive",
+                "quantity": 1,
+                "available": 1,
+                "loaned": 0,
+                "loaned_to": null
+            },
+            {
+                "ID": 640,
+                "name": "Kevlar Gloves",
+                "type": "Defensive",
+                "quantity": 2,
+                "available": 0,
+                "loaned": 2,
+                "loaned_to": null
+            },
+            {
+                "ID": 649,
+                "name": "Leather Boots",
+                "type": "Defensive",
+                "quantity": 2,
+                "available": 2,
+                "loaned": 0,
+                "loaned_to": null
+            },
+            {
+                "ID": 650,
+                "name": "Leather Gloves",
+                "type": "Defensive",
+                "quantity": 2,
+                "available": 2,
+                "loaned": 0,
+                "loaned_to": null
+            },
+            {
+                "ID": 647,
+                "name": "Leather Helmet",
+                "type": "Defensive",
+                "quantity": 2,
+                "available": 2,
+                "loaned": 0,
+                "loaned_to": null
+            },
+            {
+                "ID": 648,
+                "name": "Leather Pants",
+                "type": "Defensive",
+                "quantity": 1,
+                "available": 0,
+                "loaned": 1,
+                "loaned_to": null
+            },
+            {
+                "ID": 32,
+                "name": "Leather Vest",
+                "type": "Defensive",
+                "quantity": 1,
+                "available": 1,
+                "loaned": 0,
+                "loaned_to": null
+            },
+            {
+                "ID": 333,
+                "name": "Liquid Body Armor",
+                "type": "Defensive",
+                "quantity": 1,
+                "available": 0,
+                "loaned": 1,
+                "loaned_to": 123456
+            },
+            {
+                "ID": 50,
+                "name": "Outer Tactical Vest",
+                "type": "Defensive",
+                "quantity": 3,
+                "available": 3,
+                "loaned": 0,
+                "loaned_to": "1,2"
+            },
+            {
+                "ID": 33,
+                "name": "Police Vest",
+                "type": "Defensive",
+                "quantity": 1,
+                "available": 1,
+                "loaned": 0,
+                "loaned_to": null
+            },
+            {
+                "ID": 645,
+                "name": "Safety Boots",
+                "type": "Defensive",
+                "quantity": 3,
+                "available": 2,
+                "loaned": 1,
+                "loaned_to": null
+            },
+            {
+                "ID": 641,
+                "name": "WWII Helmet",
+                "type": "Defensive",
+                "quantity": 2,
+                "available": 1,
+                "loaned": 1,
+                "loaned_to": null
+            }
+        ]
+    },
+    "faction_armorynews": {
+        "armorynews": {
+            "OzFHrqHqTME5NyRdwxnB": {
+                "news": "<a href = \"http://www.torn.com/profiles.php?XID=1\">1</a> used one of the faction's Cannabis items.",
+                "timestamp": 1630778472
+            },
+            "QnzHSbp0kEExZcGQIXix": {
+                "news": "<a href = \"http://www.torn.com/profiles.php?XID=2\">2</a> used one of the faction's Xanax items.",
+                "timestamp": 1630776810
+            },
+            "A2hyHtHNOBUuUDL5l6q0": {
+                "news": "<a href = \"http://www.torn.com/profiles.php?XID=3\">3</a> used one of the faction's Cannabis items.",
+                "timestamp": 1630773492
+            }
+        }
+    },
+    "faction_attacknews": {
+        "attacknews": {
+            "lbPbrHEAp5nrt5LWj8FQ": {
+                "news": "Someone mugged <a href = \"http://www.torn.com/profiles.php?XID=1\">1</a> (-0.38) [<a href = \"http://www.torn.com/loader.php?sid=attackLog&ID=1e510314729445af866db566d10\">view</a>]",
+                "timestamp": 1630780192
+            },
+            "aCH8lutlieq8OFQKct8n": {
+                "news": "Someone attacked <a href = \"http://www.torn.com/profiles.php?XID=2\">2</a> (-1.41) [<a href = \"http://www.torn.com/loader.php?sid=attackLog&ID=2941beff17ac4263211be06\">view</a>]",
+                "timestamp": 1630777690
+            },
+            "ZDuZJGW0xroVpNdG817F": {
+                "news": "Someone mugged <a href = \"http://www.torn.com/profiles.php?XID=3\">3</a> [<a href = \"http://www.torn.com/loader.php?sid=attackLog&ID=edad5c98bfa9ed01756\">view</a>]",
+                "timestamp": 1630777177
+            }
+        }
+    },
+    "faction_attacks": {
+        "attacks": {
+            "162362961": {
+                "code": "a1871b8cb5666ed",
+                "timestamp_started": 1630785239,
+                "timestamp_ended": 1630785244,
+                "attacker_id": "",
+                "attacker_name": "N/A",
+                "attacker_faction": "",
+                "attacker_factionname": "N/A",
+                "defender_id": 1,
+                "defender_name": "1",
+                "defender_faction": 44758,
+                "defender_factionname": "NPO - Strength",
+                "result": "Lost",
+                "stealthed": 1,
+                "respect": 1.27,
+                "chain": 3,
+                "raid": 0,
+                "respect_gain": 1.27,
+                "respect_loss": 0.32,
+                "modifiers": {
+                    "fair_fight": 1.12,
+                    "war": 1,
+                    "retaliation": 1,
+                    "group_attack": 1,
+                    "overseas": 1.25,
+                    "chain_bonus": 1
+                }
+            },
+            "162363666": {
+                "code": "0923d3d4ef3d7ac",
+                "timestamp_started": 1630785657,
+                "timestamp_ended": 1630785661,
+                "attacker_id": "",
+                "attacker_name": "N/A",
+                "attacker_faction": "",
+                "attacker_factionname": "N/A",
+                "defender_id": 5,
+                "defender_name": "5",
+                "defender_faction": 44758,
+                "defender_factionname": "NPO - Strength",
+                "result": "Mugged",
+                "stealthed": 1,
+                "respect": 1.5,
+                "chain": 4,
+                "raid": 0,
+                "respect_gain": 1.5,
+                "respect_loss": 0.38,
+                "modifiers": {
+                    "fair_fight": 1.37,
+                    "war": 1,
+                    "retaliation": 1,
+                    "group_attack": 1,
+                    "overseas": 1.25,
+                    "chain_bonus": 1
+                }
+            },
+            "162371534": {
+                "code": "699dcb358de09a826f78b5",
+                "timestamp_started": 1630790205,
+                "timestamp_ended": 1630790237,
+                "attacker_id": 2488823,
+                "attacker_name": "1",
+                "attacker_faction": 1,
+                "attacker_factionname": "NPO - Strength",
+                "defender_id": 2,
+                "defender_name": "2",
+                "defender_faction": 44751,
+                "defender_factionname": "NPO - Prosperity",
+                "result": "Mugged",
+                "stealthed": 1,
+                "respect": 1.53,
+                "chain": 1,
+                "raid": 0,
+                "respect_gain": 1.53,
+                "respect_loss": 0.38,
+                "modifiers": {
+                    "fair_fight": 1.63,
+                    "war": 1,
+                    "retaliation": 1,
+                    "group_attack": 1,
+                    "overseas": 1.25,
+                    "chain_bonus": 1
+                }
+            }
+        }
+    },
+    "faction_attacksfull": {
+        "attacks": {
+            "161361873": {
+                "code": "99de25a7e17edb43c07",
+                "timestamp_started": 1629987805,
+                "timestamp_ended": 1629987811,
+                "attacker_id": 1,
+                "attacker_faction": 44758,
+                "defender_id": 2,
+                "defender_faction": 0,
+                "result": "Attacked",
+                "stealthed": 1,
+                "respect": 3.81
+            },
+            "161361898": {
+                "code": "c86335015dd94227ebcc",
+                "timestamp_started": 1629987829,
+                "timestamp_ended": 1629987832,
+                "attacker_id": 3,
+                "attacker_faction": 44758,
+                "defender_id": 4,
+                "defender_faction": 5,
+                "result": "Lost",
+                "stealthed": 0,
+                "respect": 0
+            },
+            "161365056": {
+                "code": "3c07df411ddf86ab4628c32c8246ad8b",
+                "timestamp_started": 1629990208,
+                "timestamp_ended": 1629990246,
+                "attacker_id": 6,
+                "attacker_faction": 44758,
+                "defender_id": 7,
+                "defender_faction": 0,
+                "result": "Escape",
+                "stealthed": 0,
+                "respect": 0
+            }
+        }
+    },
+    "faction_basic": {
+        "ID": 39894,
+        "name": "Synthetic Kingdom Recluse",
+        "tag": "SK",
+        "leader": 1361985,
+        "co-leader": 2390523,
+        "respect": 92969,
+        "age": 1397,
+        "capacity": 40,
+        "best_chain": 100,
+        "members": {
+            "65658": {
+                "name": "evility",
+                "level": 42,
+                "days_in_faction": 221,
+                "last_action": {
+                    "status": "Offline",
+                    "timestamp": 1630894986,
+                    "relative": "10 hours ago"
+                },
+                "status": {
+                    "description": "Okay",
+                    "details": "",
+                    "state": "Okay",
+                    "color": "green",
+                    "until": 0
+                },
+                "position": "Comrades"
+            },
+            "177489": {
+                "name": "LanCel0t",
+                "level": 45,
+                "days_in_faction": 221,
+                "last_action": {
+                    "status": "Offline",
+                    "timestamp": 1630928912,
+                    "relative": "1 hour ago"
+                },
+                "status": {
+                    "description": "Okay",
+                    "details": "",
+                    "state": "Okay",
+                    "color": "green",
+                    "until": 0
+                },
+                "position": "Comrades"
+            },
+            "207023": {
+                "name": "Fraer",
+                "level": 71,
+                "days_in_faction": 221,
+                "last_action": {
+                    "status": "Offline",
+                    "timestamp": 1630930715,
+                    "relative": "35 minutes ago"
+                },
+                "status": {
+                    "description": "Okay",
+                    "details": "",
+                    "state": "Okay",
+                    "color": "green",
+                    "until": 0
+                },
+                "position": "Comrades"
+            },
+            "360582": {
+                "name": "Liz-",
+                "level": 54,
+                "days_in_faction": 9,
+                "last_action": {
+                    "status": "Offline",
+                    "timestamp": 1630929717,
+                    "relative": "52 minutes ago"
+                },
+                "status": {
+                    "description": "Traveling to Switzerland",
+                    "details": "",
+                    "state": "Traveling",
+                    "color": "blue",
+                    "until": 0
+                },
+                "position": "Comrades"
+            },
+            "377579": {
+                "name": "crater",
+                "level": 29,
+                "days_in_faction": 221,
+                "last_action": {
+                    "status": "Offline",
+                    "timestamp": 1630923061,
+                    "relative": "2 hours ago"
+                },
+                "status": {
+                    "description": "Okay",
+                    "details": "",
+                    "state": "Okay",
+                    "color": "green",
+                    "until": 0
+                },
+                "position": "Comrades"
+            },
+            "436409": {
+                "name": "lavster",
+                "level": 30,
+                "days_in_faction": 505,
+                "last_action": {
+                    "status": "Offline",
+                    "timestamp": 1629239067,
+                    "relative": "19 days ago"
+                },
+                "status": {
+                    "description": "Okay",
+                    "details": "",
+                    "state": "Okay",
+                    "color": "green",
+                    "until": 0
+                },
+                "position": "Lord"
+            },
+            "526521": {
+                "name": "sLeePyEd",
+                "level": 30,
+                "days_in_faction": 222,
+                "last_action": {
+                    "status": "Idle",
+                    "timestamp": 1630930025,
+                    "relative": "47 minutes ago"
+                },
+                "status": {
+                    "description": "Okay",
+                    "details": "",
+                    "state": "Okay",
+                    "color": "green",
+                    "until": 0
+                },
+                "position": "Comrades"
+            },
+            "722921": {
+                "name": "Chilli_Crab",
+                "level": 51,
+                "days_in_faction": 221,
+                "last_action": {
+                    "status": "Offline",
+                    "timestamp": 1630919614,
+                    "relative": "3 hours ago"
+                },
+                "status": {
+                    "description": "Okay",
+                    "details": "",
+                    "state": "Okay",
+                    "color": "green",
+                    "until": 0
+                },
+                "position": "Comrades"
+            },
+            "1272125": {
+                "name": "Sleepingfox",
+                "level": 30,
+                "days_in_faction": 213,
+                "last_action": {
+                    "status": "Offline",
+                    "timestamp": 1630285539,
+                    "relative": "7 days ago"
+                },
+                "status": {
+                    "description": "Okay",
+                    "details": "",
+                    "state": "Okay",
+                    "color": "green",
+                    "until": 0
+                },
+                "position": "Comrades"
+            },
+            "1274944": {
+                "name": "trigger11",
+                "level": 22,
+                "days_in_faction": 195,
+                "last_action": {
+                    "status": "Offline",
+                    "timestamp": 1630382893,
+                    "relative": "6 days ago"
+                },
+                "status": {
+                    "description": "Okay",
+                    "details": "",
+                    "state": "Okay",
+                    "color": "green",
+                    "until": 0
+                },
+                "position": "Comrades"
+            },
+            "1361985": {
+                "name": "Jobsworth",
+                "level": 60,
+                "days_in_faction": 507,
+                "last_action": {
+                    "status": "Offline",
+                    "timestamp": 1630660264,
+                    "relative": "3 days ago"
+                },
+                "status": {
+                    "description": "Okay",
+                    "details": "",
+                    "state": "Okay",
+                    "color": "green",
+                    "until": 0
+                },
+                "position": "Leader"
+            },
+            "2114430": {
+                "name": "BubbleVanilla",
+                "level": 45,
+                "days_in_faction": 221,
+                "last_action": {
+                    "status": "Offline",
+                    "timestamp": 1630918434,
+                    "relative": "4 hours ago"
+                },
+                "status": {
+                    "description": "Okay",
+                    "details": "",
+                    "state": "Okay",
+                    "color": "green",
+                    "until": 0
+                },
+                "position": "Vice Co Leader"
+            },
+            "2390523": {
+                "name": "Timbits",
+                "level": 69,
+                "days_in_faction": 147,
+                "last_action": {
+                    "status": "Offline",
+                    "timestamp": 1627816450,
+                    "relative": "36 days ago"
+                },
+                "status": {
+                    "description": "Okay",
+                    "details": "",
+                    "state": "Okay",
+                    "color": "green",
+                    "until": 0
+                },
+                "position": "Co-leader"
+            },
+            "2429761": {
+                "name": "dez433",
+                "level": 26,
+                "days_in_faction": 216,
+                "last_action": {
+                    "status": "Idle",
+                    "timestamp": 1630932113,
+                    "relative": "12 minutes ago"
+                },
+                "status": {
+                    "description": "Returning to Torn from UAE",
+                    "details": "",
+                    "state": "Traveling",
+                    "color": "blue",
+                    "until": 0
+                },
+                "position": "Boss"
+            },
+            "2496911": {
+                "name": "Emily_Hatake",
+                "level": 18,
+                "days_in_faction": 43,
+                "last_action": {
+                    "status": "Offline",
+                    "timestamp": 1630886418,
+                    "relative": "12 hours ago"
+                },
+                "status": {
+                    "description": "Okay",
+                    "details": "",
+                    "state": "Okay",
+                    "color": "green",
+                    "until": 0
+                },
+                "position": "Comrades"
+            },
+            "2516881": {
+                "name": "ED-E_Fisto",
+                "level": 32,
+                "days_in_faction": 41,
+                "last_action": {
+                    "status": "Idle",
+                    "timestamp": 1630930015,
+                    "relative": "47 minutes ago"
+                },
+                "status": {
+                    "description": "Okay",
+                    "details": "",
+                    "state": "Okay",
+                    "color": "green",
+                    "until": 0
+                },
+                "position": "Comrades"
+            },
+            "2642809": {
+                "name": "Maling",
+                "level": 23,
+                "days_in_faction": 221,
+                "last_action": {
+                    "status": "Offline",
+                    "timestamp": 1630931369,
+                    "relative": "24 minutes ago"
+                },
+                "status": {
+                    "description": "Okay",
+                    "details": "",
+                    "state": "Okay",
+                    "color": "green",
+                    "until": 0
+                },
+                "position": "Comrades"
+            },
+            "2651160": {
+                "name": "Agathon",
+                "level": 18,
+                "days_in_faction": 221,
+                "last_action": {
+                    "status": "Offline",
+                    "timestamp": 1630914115,
+                    "relative": "5 hours ago"
+                },
+                "status": {
+                    "description": "Okay",
+                    "details": "",
+                    "state": "Okay",
+                    "color": "green",
+                    "until": 0
+                },
+                "position": "Comrades"
+            }
+        },
+        "peace": {
+            "8795": 1630951833,
+            "8938": 1630951296
+        },
+        "territory_wars": [
+            {
+                "territory": "JGB",
+                "assaulting_faction": 355,
+                "defending_faction": 8422,
+                "score": 0,
+                "required_score": 950000,
+                "start_time": 1630685472,
+                "end_time": 1630944672
+            },
+            {
+                "territory": "MGB",
+                "assaulting_faction": 8422,
+                "defending_faction": 355,
+                "score": 328003,
+                "required_score": 1100000,
+                "start_time": 1630864183,
+                "end_time": 1631123383
+            }
+        ],
+        "raid_wars": [
+            {
+                "raiding_faction": 30695,
+                "defending_faction": 40256,
+                "raider_score": "3273.81",
+                "defender_score": 0,
+                "start_time": 1586959630
+            }
+        ]
     }
 }
