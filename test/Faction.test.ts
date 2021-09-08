@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import sinon = require('sinon');
 
 import { TornAPI } from '../lib';
-import { IApplication, IArmor, IAttack, IAttackFull, IFaction, IFactionReport, INews, IReport } from '../lib/Interfaces';
+import { IApplication, IArmor, IAttack, IAttackFull, IChainReport, IFaction, IFactionReport, INews, IReport } from '../lib/Interfaces';
 import { TestHelper } from './utils/TestUtils';
 
 describe('Faction API', () => {
@@ -127,6 +127,28 @@ describe('Faction API', () => {
         expect(member?.last_action.status).to.equal('Offline');
     });
 
+    it('chainreport', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('faction_chainreport'));
+
+        const initialReturn = await torn.faction.chainreport();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as IChainReport;
+        expect(castedReturn?.chain).to.equal(250);
+        expect(castedReturn?.leave).to.equal(244);
+        expect(castedReturn?.respect).to.equal(1089.36);
+
+        // spot check one member
+        const member = castedReturn.members.find(x => x.userID === 2556388);
+        expect(member?.respect).to.equal(36.33);
+        expect(member?.attacks).to.equal(14);
+
+        //spot check one bonus
+        const bonus = castedReturn.bonuses.find(x => x.chain === 25);
+        expect(bonus?.attacker).to.equal(2488990);
+        expect(bonus?.respect).to.equal(20);
+    });
+
     it('reports', async () => {
         sinon.stub(axios, 'get').resolves(TestHelper.getJSON('faction_reports'));
 
@@ -154,5 +176,19 @@ describe('Faction API', () => {
         const bounties = report?.report as string[];
         expect(bounties.length).to.equal(19);
         expect(bounties).to.include('Name4 [4] @ $1');
+    });
+
+    it('territorynews', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('faction_territorynews'));
+
+        const initialReturn = await torn.faction.territorynews();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as INews[];
+
+        // spot check one
+        const news = castedReturn.find(x => x.id === 'cwdXodZ93txRCl74YcIm');
+        expect(news?.news).to.equal(`<a class="t-green bold" href = "http://www.torn.com/factions.php?step=profile&ID=1">NPO - Strength</a> gained 2 respect from their 2 territories.`);
+        expect(news?.timestamp).to.equal(1630972889);
     });
 });

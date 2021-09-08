@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import { TornAPIBase } from './TornAPIBase';
-import { IApplication, IArmor, IAttack, IAttackFull, IChain, ICompleteChain, ICrime, ICrimeParticipant, ICurrency, IDonation, IDrug, IFaction, IFactionPosition, IFactionReport, IMedical, INews, IPeace, IRevives, IRevivesFull, IStats, ITerritory, ITornApiError, IUpgrade, IWeapon } from './Interfaces';
+import { IApplication, IArmor, IAttack, IAttackFull, IChain, IChainReport, ICompleteChain, ICrime, ICrimeParticipant, ICurrency, IDonation, IDrug, IFaction, IFactionPosition, IFactionReport, IMedical, INews, IPeace, IRevives, IRevivesFull, IStats, ITerritory, ITornApiError, IUpgrade, IWeapon } from './Interfaces';
 
 export class Faction extends TornAPIBase {
     constructor(apiKey: string) {
@@ -70,6 +70,17 @@ export class Faction extends TornAPIBase {
         return this.apiQuery({ route: 'faction', selection: 'chain' });
     }
 
+    async chainreport(): Promise<IChainReport | ITornApiError> {
+        const response = await axios.get(this.buildUri({ route: 'faction', selection: 'chainreport' }));
+        if (response.data.error) {
+            return response.data.error;
+        } else {
+            const factionReturn: IChainReport = response.data.chainreport;
+            factionReturn.members = this.fixStringArray(factionReturn.members, '');
+            return factionReturn;
+        }
+    }
+
     async chains(): Promise<ICompleteChain[] | ITornApiError> {
         return this.apiQueryToArray({ route: 'faction', selection: 'chains' }, 'id');
     }
@@ -82,8 +93,8 @@ export class Faction extends TornAPIBase {
         return this.apiQueryToArray({ route: 'faction', selection: 'crimenews', from: from, to: to }, 'id');
     }
 
-    async crimes(): Promise<ICrime[] | ITornApiError> {
-        const crimes = await this.apiQueryToArray<ICrime>({ route: 'faction', selection: 'crimes' }, 'id');
+    async crimes(from?: number, to?: number): Promise<ICrime[] | ITornApiError> {
+        const crimes = await this.apiQueryToArray<ICrime>({ route: 'faction', selection: 'crimes', from: from, to: to }, 'id');
 
         if (!('error' in crimes)) {
             crimes.forEach(value => {
@@ -170,6 +181,10 @@ export class Faction extends TornAPIBase {
 
     async territory(): Promise<ITerritory[] | ITornApiError> {
         return this.apiQueryToArray({ route: 'faction', selection: 'territory' }, 'id');
+    }
+
+    async territorynews(from?: number, to?: number): Promise<INews[] | ITornApiError> {
+        return this.apiQueryToArray({ route: 'faction', selection: 'territorynews', from: from, to: to }, 'id');
     }
 
     async upgrades(): Promise<IUpgrade[] | ITornApiError> {

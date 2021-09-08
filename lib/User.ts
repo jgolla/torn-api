@@ -161,8 +161,8 @@ export class User extends TornAPIBase {
         return this.apiQuery({ route: 'user', selection: 'perks', jsonOverride: '' });
     }
 
-    async perpersonalstatsks(): Promise<IPersonalStats | ITornApiError> {
-        return this.apiQuery({ route: 'user', selection: 'personalstats' });
+    async personalstats(timestamp?: number): Promise<IPersonalStats | ITornApiError> {
+        return this.apiQuery({ route: 'user', selection: 'personalstats', timestamp: timestamp });
     }
 
     async profile(id?: string): Promise<IUser | ITornApiError> {
