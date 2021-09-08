@@ -661,13 +661,11 @@ export interface IPersonalStats {
     revivesreceived: number;
     medicalitemsused: number;
     statenhancersused: number;
-    refills: number;
     trainsreceived: number;
     totalbountyspent: number;
     drugsused: number;
     overdosed: number;
     meritsbought: number;
-    timesloggedin: number;
     personalsplaced: number;
     classifiedadsplaced: number;
     mailssent: number;
@@ -734,6 +732,7 @@ export interface IPersonalStats {
     stockpayouts: number;
     stockprofits: number;
     stocklosses: number;
+    stockfees: number;
     arrestsmade: number;
     tokenrefills: number;
     booksread: number;
@@ -788,6 +787,7 @@ export interface IPersonalStats {
     jobpointsused: number;
     reviveskill: number;
     itemslooted: number;
+    refills: number;
 }
 
 export interface IRefills {
@@ -1333,4 +1333,53 @@ export interface IPokerTable {
     speed: number;
     current_players: number;
     maximum_players: number;
+}
+
+export interface IChainMemberAttack {
+    userID: number;
+    respect: number;
+    attacks: number;
+    overseas: number;
+    factionID: number;
+    level: number;
+    avg: number;
+    leave: number;
+    mug: number;
+    hosp: number;
+    war: number;
+    bonus: number;
+    assist: number;
+    retal: number;
+    draw: number;
+    escape: number;
+    loss: number;
+}
+
+export interface IChainBonus {
+    chain: number;
+    attacker: number;
+    defender: number;
+    respect: number;
+}
+
+export interface IChainReport {
+    factionID: number;
+    chain: number;
+    start: number;
+    end: number;
+    leave: number;
+    mug: number;
+    hospitalize: number;
+    assists: number;
+    overseas: number;
+    draws: number;
+    escapes: number;
+    losses: number;
+    respect: number;
+    targets: number;
+    warhits: number;
+    besthit: number;
+    retaliations: number;
+    members: IChainMemberAttack[];
+    bonuses: IChainBonus[];
 }

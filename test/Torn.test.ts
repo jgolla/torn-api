@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import sinon = require('sinon');
 
 import { TornAPI } from '../lib';
-import { IBank, ICard, IFactionTree, IHonor, IItem, IKeyValue, IMedal, IOrganisedCrime, IPawnshop, IPokerTable, IRacket, IRaid, IStock, IStockDetail, ITerritory, ITerritoryWar, ITornCompany, ITornEducation, ITornGym, ITornProperty, ITornStats } from '../lib/Interfaces';
+import { IBank, ICard, IChainReport, IFactionTree, IHonor, IItem, IKeyValue, IMedal, IOrganisedCrime, IPawnshop, IPokerTable, IRacket, IRaid, IStock, IStockDetail, ITerritory, ITerritoryWar, ITornCompany, ITornEducation, ITornGym, ITornProperty, ITornStats } from '../lib/Interfaces';
 import { TestHelper } from './utils/TestUtils';
 
 describe('Torn API', () => {
@@ -44,6 +44,30 @@ describe('Torn API', () => {
         expect(card?.short).to.equal(7);
         expect(card?.color).to.equal('Black');
         expect(card?.suit).to.equal('Clubs');
+    });
+
+    it('chainreport', async () => {
+        const stub = sinon.stub(axios, 'get').resolves(TestHelper.getJSON('faction_chainreport'));
+
+        const initialReturn = await torn.torn.chainreport(1234);
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        expect(stub.args[0][0]).to.equal('https://api.torn.com/torn/1234?selections=chainreport&key=key');
+
+        const castedReturn = initialReturn as IChainReport;
+        expect(castedReturn?.chain).to.equal(250);
+        expect(castedReturn?.leave).to.equal(244);
+        expect(castedReturn?.respect).to.equal(1089.36);
+
+        // spot check one member
+        const member = castedReturn.members.find(x => x.userID === 2556388);
+        expect(member?.respect).to.equal(36.33);
+        expect(member?.attacks).to.equal(14);
+
+        //spot check one bonus
+        const bonus = castedReturn.bonuses.find(x => x.chain === 25);
+        expect(bonus?.attacker).to.equal(2488990);
+        expect(bonus?.respect).to.equal(20);
     });
 
     it('companies', async () => {

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { IBank, ITornGym, IHonor, IItem, IMedal, IOrganisedCrime as IOrganisedCrime, IPawnshop, IRacket, IRaid, IStock, ITerritory, ITerritoryWar, ITornApiError, ITornCompany, ITornProperty, ITornStats, IFactionTree, IKeyValue, ICard, IStockDetail, ITornEducation, IPokerTable } from './Interfaces';
+import { IBank, ITornGym, IHonor, IItem, IMedal, IOrganisedCrime as IOrganisedCrime, IPawnshop, IRacket, IRaid, IStock, ITerritory, ITerritoryWar, ITornApiError, ITornCompany, ITornProperty, ITornStats, IFactionTree, IKeyValue, ICard, IStockDetail, ITornEducation, IPokerTable, IChainReport } from './Interfaces';
 import { TornAPIBase } from './TornAPIBase';
 
 export class Torn extends TornAPIBase {
@@ -15,6 +15,17 @@ export class Torn extends TornAPIBase {
 
     async cards(): Promise<ICard[] | ITornApiError> {
         return this.apiQueryToArray({ route: 'torn', selection: 'cards' }, 'id');
+    }
+
+    async chainreport(id: number): Promise<IChainReport | ITornApiError> {
+        const response = await axios.get(this.buildUri({ route: 'torn', selection: 'chainreport', id: id ? id.toString() : '' }));
+        if (response.data.error) {
+            return response.data.error;
+        } else {
+            const factionReturn: IChainReport = response.data.chainreport;
+            factionReturn.members = this.fixStringArray(factionReturn.members, '');
+            return factionReturn;
+        }
     }
 
     async companies(): Promise<ITornCompany[] | ITornApiError> {

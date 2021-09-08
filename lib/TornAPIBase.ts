@@ -74,7 +74,9 @@ export abstract class TornAPIBase {
             const id = ids[i];
             const field = mapLike[id];
             if (typeof field === 'object') {
-                field[keyField] = id;
+                if (keyField) {
+                    field[keyField] = id;
+                }
                 returnArray.push(field);
             }
         }
@@ -83,7 +85,7 @@ export abstract class TornAPIBase {
     }
 
     protected buildUri(params: QueryParams): string {
-        let id = '', from = '', to = '', limit = '';
+        let id = '', from = '', to = '', limit = '', timestamp = '';
 
         if (params.id) {
             id = params.id;
@@ -101,7 +103,11 @@ export abstract class TornAPIBase {
             limit = `&limit=${params.limit}`;
         }
 
-        return `https://api.torn.com/${params.route}/${id}?selections=${params.selection}&key=${this.apiKey}${from}${to}${limit}`;
+        if (params.timestamp) {
+            timestamp = `&timestamp=${params.timestamp}`;
+        }
+
+        return `https://api.torn.com/${params.route}/${id}?selections=${params.selection}&key=${this.apiKey}${from}${to}${limit}${timestamp}`;
     }
 }
 
@@ -113,4 +119,5 @@ interface QueryParams {
     from?: number;
     to?: number;
     limit?: number;
+    timestamp?: number;
 }
