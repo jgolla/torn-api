@@ -20,8 +20,9 @@ export class Faction extends TornAPIBase {
             const ids = Object.keys(factionReturn.peace);
             for (let i = 0; i < ids.length; i++) {
                 const id = ids[i];
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 const field = (factionReturn.peace as any)[id];
-                peaceArray.push({ faction_id: Number(id), until: field })
+                peaceArray.push({ faction_id: Number(id), until: field });
             }
             factionReturn.peace = peaceArray;
 

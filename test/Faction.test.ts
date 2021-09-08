@@ -57,8 +57,8 @@ describe('Faction API', () => {
         const castedReturn = initialReturn as INews[];
 
         // spot check one
-        let armor = castedReturn.find(x => x.id === 'QnzHSbp0kEExZcGQIXix');
-        expect(armor?.news).to.equal(`<a href = \"http://www.torn.com/profiles.php?XID=2\">2</a> used one of the faction's Xanax items.`);
+        const armor = castedReturn.find(x => x.id === 'QnzHSbp0kEExZcGQIXix');
+        expect(armor?.news).to.equal(`<a href = "http://www.torn.com/profiles.php?XID=2">2</a> used one of the faction's Xanax items.`);
         expect(armor?.timestamp).to.equal(1630776810);
     });
 
@@ -71,8 +71,8 @@ describe('Faction API', () => {
         const castedReturn = initialReturn as INews[];
 
         // spot check one
-        let news = castedReturn.find(x => x.id === 'ZDuZJGW0xroVpNdG817F');
-        expect(news?.news).to.equal(`Someone mugged <a href = \"http://www.torn.com/profiles.php?XID=3\">3</a> [<a href = \"http://www.torn.com/loader.php?sid=attackLog&ID=edad5c98bfa9ed01756\">view</a>]`);
+        const news = castedReturn.find(x => x.id === 'ZDuZJGW0xroVpNdG817F');
+        expect(news?.news).to.equal(`Someone mugged <a href = "http://www.torn.com/profiles.php?XID=3">3</a> [<a href = "http://www.torn.com/loader.php?sid=attackLog&ID=edad5c98bfa9ed01756">view</a>]`);
         expect(news?.timestamp).to.equal(1630777177);
     });
 
@@ -85,7 +85,7 @@ describe('Faction API', () => {
         const castedReturn = initialReturn as IAttack[];
 
         // spot check one
-        let attack = castedReturn.find(x => x.code === '0923d3d4ef3d7ac');
+        const attack = castedReturn.find(x => x.code === '0923d3d4ef3d7ac');
         expect(attack?.attacker_id).to.equal(``);
         expect(attack?.attacker_name).to.equal(`N/A`);
         expect(attack?.defender_id).to.equal(5);
@@ -101,7 +101,7 @@ describe('Faction API', () => {
         const castedReturn = initialReturn as IAttackFull[];
 
         // spot check one
-        let attack = castedReturn.find(x => x.code === 'c86335015dd94227ebcc');
+        const attack = castedReturn.find(x => x.code === 'c86335015dd94227ebcc');
         expect(attack?.attacker_id).to.equal(3);
         expect(attack?.defender_id).to.equal(4);
         expect(attack?.result).to.equal('Lost');
@@ -122,11 +122,10 @@ describe('Faction API', () => {
         expect(castedReturn?.raid_wars[0].raider_score).to.equal('3273.81');
 
         // spot check one member
-        let member = castedReturn.members.find(x => x.id === '177489');
+        const member = castedReturn.members.find(x => x.id === '177489');
         expect(member?.name).to.equal('LanCel0t');
         expect(member?.last_action.status).to.equal('Offline');
     });
-
 
     it('reports', async () => {
         sinon.stub(axios, 'get').resolves(TestHelper.getJSON('faction_reports'));
