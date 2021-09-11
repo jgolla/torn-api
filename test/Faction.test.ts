@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import sinon = require('sinon');
 
 import { TornAPI } from '../lib';
-import { IApplication, IArmor, IAttack, IAttackFull, IChainReport, IFaction, IFactionReport, INews, IReport } from '../lib/Interfaces';
+import { IApplication, IArmor, IAttack, IAttackFull, IChain, IChainReport, ICompleteChain, ICrime, ICurrency, IDonation, IFaction, IFactionReport, INews, IReport } from '../lib/Interfaces';
 import { TestHelper } from './utils/TestUtils';
 
 describe('Faction API', () => {
@@ -14,6 +14,9 @@ describe('Faction API', () => {
     });
 
     afterEach(sinon.restore);
+
+    // Remaining Tests: boosters, cesium, contributors, donations, drugs, 
+    //  fundsnews, mainnews, medical, membershipnews, positions, revives, revivesfull, stats, temporary, territory, upgrades, weapons
 
     it('applications', async () => {
         sinon.stub(axios, 'get').resolves(TestHelper.getJSON('faction_applications'));
@@ -127,6 +130,26 @@ describe('Faction API', () => {
         expect(member?.last_action.status).to.equal('Offline');
     });
 
+    it('basic with id', async () => {
+        const stub = sinon.stub(axios, 'get').resolves(TestHelper.getJSON('faction_basic'));
+
+        const initialReturn = await torn.faction.basic('1234');
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+        expect(stub.args[0][0]).to.equal('https://api.torn.com/faction/1234?selections=&key=key');
+    });
+
+    it('chain', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('faction_chain'));
+
+        const initialReturn = await torn.faction.chain();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as IChain;
+        expect(castedReturn?.current).to.equal(0);
+        expect(castedReturn?.max).to.equal(8795);
+        expect(castedReturn?.start).to.equal(1630951833);
+    });
+
     it('chainreport', async () => {
         sinon.stub(axios, 'get').resolves(TestHelper.getJSON('faction_chainreport'));
 
@@ -147,6 +170,95 @@ describe('Faction API', () => {
         const bonus = castedReturn.bonuses.find(x => x.chain === 25);
         expect(bonus?.attacker).to.equal(2488990);
         expect(bonus?.respect).to.equal(20);
+    });
+
+    it('chains', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('faction_chains'));
+
+        const initialReturn = await torn.faction.chains();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as ICompleteChain[];
+        const chain = castedReturn.find(x => x.id === '9690493');
+
+        expect(chain?.chain).to.equal(10);
+        expect(chain?.respect).to.equal("20.6923");
+        expect(chain?.start).to.equal(1582544410);
+        expect(chain?.end).to.equal(1582544451);
+    });
+
+    it('crimenews', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('faction_crimenews'));
+
+        const initialReturn = await torn.faction.crimenews();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as INews[];
+
+        // spot check one
+        const news = castedReturn.find(x => x.id === 'e9zYGYSy4MWpb8VEARZP');
+        expect(news?.news).to.equal(`The faction successfully initiated a planned robbery! [<a href = "http://www.torn.com/organisedcrimes.php?step=log&ID=555">Details</a>]`);
+        expect(news?.timestamp).to.equal(1631334048);
+    });
+
+    it('crimes', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('faction_crimes'));
+
+        const initialReturn = await torn.faction.crimes();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as ICrime[];
+
+        // spot check one
+        let crime = castedReturn.find(x => x.id === '9311663');
+        expect(crime?.time_started).to.equal(1629533679);
+        expect(crime?.time_left).to.equal(0);
+
+        let member = crime?.participants.find(x => x.id = '1');
+        expect(member?.state).to.be.undefined;
+        expect(member?.details).to.be.undefined;
+
+        crime = castedReturn.find(x => x.id === '9373151');
+        expect(crime?.time_started).to.equal(1631157703);
+        expect(crime?.time_left).to.equal(143180);
+
+        member = crime?.participants.find(x => x.id = '4');
+        expect(member?.state).to.equal('Okay');
+        expect(member?.color).to.equal('green');
+
+    });
+
+    it('currency', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('faction_currency'));
+
+        const initialReturn = await torn.faction.currency();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as ICurrency;
+        expect(castedReturn?.faction_id).to.equal(44);
+        expect(castedReturn?.points).to.equal(0);
+        expect(castedReturn?.money).to.equal(654321);
+    });
+
+    it('donations', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('faction_donations'));
+
+        const initialReturn = await torn.faction.donations();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as IDonation[];
+
+        // spot check one
+        let crime = castedReturn.find(x => x.id === '1');
+        expect(crime?.name).to.equal('a');
+        expect(crime?.money_balance).to.equal(310435970);
+        expect(crime?.points_balance).to.equal(0);
+
+
+        crime = castedReturn.find(x => x.id === '2');
+        expect(crime?.name).to.equal('b');
+        expect(crime?.money_balance).to.equal(0);
+        expect(crime?.points_balance).to.equal(5000);
     });
 
     it('reports', async () => {
