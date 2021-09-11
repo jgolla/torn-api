@@ -79598,6 +79598,168 @@
             ]
         }
     },
+    "faction_chain": {
+        "chain": {
+            "current": 0,
+            "max": 8795,
+            "timeout": 0,
+            "modifier": 1,
+            "cooldown": 0,
+            "start": 1630951833
+        }
+    },
+    "faction_chains": {
+        "chains": {
+            "9680981": {
+                "chain": 10,
+                "respect": "20.5648",
+                "start": 1582495009,
+                "end": 1582495048
+            },
+            "9690493": {
+                "chain": 10,
+                "respect": "20.6923",
+                "start": 1582544410,
+                "end": 1582544451
+            },
+            "9693206": {
+                "chain": 10,
+                "respect": "21.7194",
+                "start": 1582558244,
+                "end": 1582558408
+            }
+        }
+    },
+    "faction_crimenews": {
+        "crimenews": {
+            "1ky0s9lwslAQ2TAG5oos": {
+                "news": "<a href = \"http://www.torn.com/profiles.php?XID=123\" class=\"h\">Q</a>, <a href = \"http://www.torn.com/profiles.php?XID=1234\" class=\"h\">da</a>, <a href = \"http://www.torn.com/profiles.php?XID=1\" class=\"h\">u</a>, <a href = \"http://www.torn.com/profiles.php?XID=3\" class=\"h\">I</a>, and <a href = \"http://www.torn.com/profiles.php?XID=4\" class=\"h\">4</a> have been selected by <a href = \"http://www.torn.com/profiles.php?XID=5\" class=\"h\">5</a> to undertake a planned robbery in 96 hours.",
+                "timestamp": 1631334051
+            },
+            "e9zYGYSy4MWpb8VEARZP": {
+                "news": "The faction successfully initiated a planned robbery! [<a href = \"http://www.torn.com/organisedcrimes.php?step=log&ID=555\">Details</a>]",
+                "timestamp": 1631334048
+            },
+            "WYqxrIGprnl0jVqJXX1W": {
+                "news": "<a href = \"http://www.torn.com/profiles.php?XID=333\">D111</a> initiated the Planned robbery crime.",
+                "timestamp": 1631334048
+            }
+        }
+    },
+    "faction_crimes": {
+        "crimes": {
+            "9311663": {
+                "crime_id": 3,
+                "crime_name": "Bomb threat",
+                "participants": [
+                    {
+                        "1": null
+                    },
+                    {
+                        "2": null
+                    },
+                    {
+                        "3": null
+                    }
+                ],
+                "time_started": 1629533679,
+                "time_ready": 1629792879,
+                "time_left": 0,
+                "time_completed": 1629793701,
+                "initiated": 1,
+                "initiated_by": 8,
+                "planned_by": 9,
+                "success": 1,
+                "money_gain": 50000,
+                "respect_gain": 7
+            },
+            "9373151": {
+                "crime_id": 4,
+                "crime_name": "Planned robbery",
+                "participants": [
+                    {
+                        "4": {
+                            "description": "Okay",
+                            "details": "",
+                            "state": "Okay",
+                            "color": "green",
+                            "until": 0
+                        }
+                    },
+                    {
+                        "5": {
+                            "description": "In Switzerland",
+                            "details": "",
+                            "state": "Abroad",
+                            "color": "blue",
+                            "until": 0
+                        }
+                    },
+                    {
+                        "6": {
+                            "description": "In United Kingdom",
+                            "details": "",
+                            "state": "Abroad",
+                            "color": "blue",
+                            "until": 0
+                        }
+                    },
+                    {
+                        "7": {
+                            "description": "Okay",
+                            "details": "",
+                            "state": "Okay",
+                            "color": "green",
+                            "until": 0
+                        }
+                    },
+                    {
+                        "8": {
+                            "description": "Returning to Torn from China",
+                            "details": "",
+                            "state": "Traveling",
+                            "color": "blue",
+                            "until": 0
+                        }
+                    }
+                ],
+                "time_started": 1631157703,
+                "time_ready": 1631503303,
+                "time_left": 143180,
+                "time_completed": 0,
+                "initiated": 0,
+                "initiated_by": 0,
+                "planned_by": 4,
+                "success": 0,
+                "money_gain": 0,
+                "respect_gain": 0
+            }
+        }
+    },
+    "faction_currency": {
+        "faction_id": 44,
+        "points": 0,
+        "money": 654321
+    },
+    "faction_donations": {
+        "donations": {
+            "1": {
+                "name": "a",
+                "money_balance": 310435970,
+                "points_balance": 0
+            },
+            "2": {
+                "name": "b",
+                "money_balance": 0,
+                "points_balance": 5000
+            },
+            "3": {
+                "name": "c",
+                "money_balance": 0,
+                "points_balance": 0
+            }
+        }
+    },
     "faction_territorynews": {
         "territorynews": {
             "0GYMS1i0UhpNM6oMBu7A": {

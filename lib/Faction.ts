@@ -128,7 +128,7 @@ export class Faction extends TornAPIBase {
     }
 
     async currency(): Promise<ICurrency | ITornApiError> {
-        return this.apiQuery({ route: 'faction', selection: 'currency' });
+        return this.apiQuery({ route: 'faction', selection: 'currency', jsonOverride: '' });
     }
 
     async donations(): Promise<IDonation[] | ITornApiError> {
