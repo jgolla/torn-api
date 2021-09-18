@@ -311,6 +311,7 @@ export interface IUpgrade {
     basecost: number;
     ability: string;
     unlocked: string;
+    unsets_completed?: number;
 }
 
 // /User/
