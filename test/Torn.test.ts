@@ -302,6 +302,16 @@ describe('Torn API', () => {
         expect(raid?.defending_faction).to.equal(44416);
     });
 
+    it('raids null', async () => {
+        sinon.stub(axios, 'get').resolves({ data: { 'raids': null } });
+
+        const initialReturn = await torn.torn.raids();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as IRaid[];
+        expect(castedReturn.length).to.equal(0);
+    });
+
     it('stats', async () => {
         sinon.stub(axios, 'get').resolves(TestHelper.getJSON('torn_stats'));
 
@@ -373,6 +383,16 @@ describe('Torn API', () => {
         const territory = castedReturn.find(x => x.id === 'AMF');
         expect(territory?.assaulting_faction).to.equal(11559);
         expect(territory?.defending_faction).to.equal(15256);
+    });
+
+    it('territorywars null', async () => {
+        sinon.stub(axios, 'get').resolves({ data: { 'territorywars': null } });
+
+        const initialReturn = await torn.torn.territorywars();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as ITerritoryWar[];
+        expect(castedReturn.length).to.equal(0);
     });
 
     it('timestamp', async () => {

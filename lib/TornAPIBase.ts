@@ -41,6 +41,10 @@ export abstract class TornAPIBase {
                 jsonSelection = response.data[params.selection];
             }
 
+            if (!jsonSelection) {
+                return [];
+            }
+
             if (keyField) {
                 return this.fixStringArray(jsonSelection, keyField);
             } else {
