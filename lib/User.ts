@@ -8,7 +8,8 @@ export class User extends TornAPIBase {
     }
 
     async user(id?: string): Promise<IUser | ITornApiError> {
-        const response = await axios.get(this.buildUri({ route: 'user', selection: '', id: id }));
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const response = await axios.get<any>(this.buildUri({ route: 'user', selection: '', id: id }));
         if (response.data.error) {
             return response.data.error;
         } else {
@@ -88,7 +89,7 @@ export class User extends TornAPIBase {
     }
 
     async icons(id?: string): Promise<IIcon[] | ITornApiError> {
-        const response = await axios.get(this.buildUri({ route: 'user', selection: 'icons', id: id }));
+        const response = await axios.get<{ error?: ITornApiError, icons: Record<string, string> }>(this.buildUri({ route: 'user', selection: 'icons', id: id }));
         if (response.data.error) {
             return response.data.error;
         } else {

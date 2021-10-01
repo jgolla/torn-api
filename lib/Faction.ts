@@ -9,7 +9,8 @@ export class Faction extends TornAPIBase {
     }
 
     async faction(id?: string): Promise<IFaction | ITornApiError> {
-        const response = await axios.get(this.buildUri({ route: 'faction', selection: '', id: id }));
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const response = await axios.get<any>(this.buildUri({ route: 'faction', selection: '', id: id }));
         if (response.data.error) {
             return response.data.error;
         } else {
@@ -71,7 +72,7 @@ export class Faction extends TornAPIBase {
     }
 
     async chainreport(): Promise<IChainReport | ITornApiError> {
-        const response = await axios.get(this.buildUri({ route: 'faction', selection: 'chainreport' }));
+        const response = await axios.get<{ error?: ITornApiError, chainreport: IChainReport }>(this.buildUri({ route: 'faction', selection: 'chainreport' }));
         if (response.data.error) {
             return response.data.error;
         } else {
