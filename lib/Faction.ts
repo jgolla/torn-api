@@ -9,6 +9,7 @@ export class Faction extends TornAPIBase {
     }
 
     async faction(id?: string): Promise<IFaction | ITornApiError> {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const response = await axios.get<any>(this.buildUri({ route: 'faction', selection: '', id: id }));
         if (response.data.error) {
             return response.data.error;

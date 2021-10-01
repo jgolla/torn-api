@@ -11,6 +11,7 @@ export abstract class TornAPIBase {
     }
 
     protected async apiQuery<T>(params: QueryParams): Promise<T | ITornApiError> {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const response = await axios.get<any>(this.buildUri(params));
         if (response.data.error) {
             return response.data.error;
@@ -30,6 +31,7 @@ export abstract class TornAPIBase {
     }
 
     protected async apiQueryToArray<T>(params: QueryParams, keyField?: string): Promise<T[] | ITornApiError> {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const response = await axios.get<any>(this.buildUri(params));
         if (response.data.error) {
             return response.data.error;
@@ -54,6 +56,7 @@ export abstract class TornAPIBase {
     }
 
     protected async apiQueryToKeyValueArray(params: QueryParams): Promise<IKeyValue[] | ITornApiError> {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const response = await axios.get<any>(this.buildUri(params));
         if (response.data.error) {
             return response.data.error;

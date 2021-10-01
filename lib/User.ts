@@ -8,6 +8,7 @@ export class User extends TornAPIBase {
     }
 
     async user(id?: string): Promise<IUser | ITornApiError> {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const response = await axios.get<any>(this.buildUri({ route: 'user', selection: '', id: id }));
         if (response.data.error) {
             return response.data.error;
