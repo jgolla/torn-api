@@ -11,7 +11,7 @@ export abstract class TornAPIBase {
     }
 
     protected async apiQuery<T>(params: QueryParams): Promise<T | ITornApiError> {
-        const response = await axios.get(this.buildUri(params));
+        const response = await axios.get<any>(this.buildUri(params));
         if (response.data.error) {
             return response.data.error;
         } else {
@@ -30,7 +30,7 @@ export abstract class TornAPIBase {
     }
 
     protected async apiQueryToArray<T>(params: QueryParams, keyField?: string): Promise<T[] | ITornApiError> {
-        const response = await axios.get(this.buildUri(params));
+        const response = await axios.get<any>(this.buildUri(params));
         if (response.data.error) {
             return response.data.error;
         } else {
@@ -54,7 +54,7 @@ export abstract class TornAPIBase {
     }
 
     protected async apiQueryToKeyValueArray(params: QueryParams): Promise<IKeyValue[] | ITornApiError> {
-        const response = await axios.get(this.buildUri(params));
+        const response = await axios.get<any>(this.buildUri(params));
         if (response.data.error) {
             return response.data.error;
         } else {

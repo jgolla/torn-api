@@ -32,11 +32,11 @@ export class Company extends TornAPIBase {
     }
 
     async profile(id?: string): Promise<ICompanyProfile | ITornApiError> {
-        const response = await axios.get(this.buildUri({ route: 'company', selection: 'profile', id: id }));
+        const response = await axios.get<{ error?: ITornApiError, company: ICompanyProfile }>(this.buildUri({ route: 'company', selection: 'profile', id: id }));
         if (response.data.error) {
             return response.data.error;
         } else {
-            const companyProfile: ICompanyProfile = response.data['company'];
+            const companyProfile: ICompanyProfile = response.data.company;
             companyProfile.employees = this.fixStringArray(companyProfile.employees, 'id');
             return companyProfile;
         }

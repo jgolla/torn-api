@@ -9,11 +9,11 @@ export class ItemMarket extends TornAPIBase {
     }
 
     async all(id: string): Promise<IMarketItem[] | ITornApiError> {
-        const response = await axios.get(this.buildUri({ route: 'market', selection: 'bazaar,itemmarket', id: id }));
+        const response = await axios.get<{ error?: ITornApiError, bazaar: IMarketItem[], itemmarket: IMarketItem[] }>(this.buildUri({ route: 'market', selection: 'bazaar,itemmarket', id: id }));
         if (response.data.error) {
             return response.data.error;
         } else {
-            return [...response.data['bazaar'], ...response.data['itemmarket']];
+            return [...response.data.bazaar, ...response.data.itemmarket];
         }
     }
 
