@@ -75359,6 +75359,41 @@
             "users_living": "2487726,2491575"
         }
     },
+    "company_detailed": {
+        "company_detailed": {
+            "ID": 1234,
+            "company_funds": 5678,
+            "company_bank": 987456,
+            "popularity": 33,
+            "efficiency": 100,
+            "environment": 100,
+            "trains_available": 10,
+            "advertising_budget": 558899,
+            "upgrades": {
+                "company_size": 10,
+                "staffroom_size": "Colossal staff room",
+                "storage_size": "Huge warehouse",
+                "storage_space": 250000
+            },
+            "value": 666666
+        }
+    },
+    "company_news": {
+        "news": {
+            "51955616": {
+                "timestamp": 1633603422,
+                "news": "Chandler <a href = http://www.torn.com/profiles.php?XID=111>111</a> has been trained by the director."
+            },
+            "51955618": {
+                "timestamp": 1633603424,
+                "news": "Quality Controller <a href = http://www.torn.com/profiles.php?XID=222>222</a> has been trained by the director."
+            },
+            "51955619": {
+                "timestamp": 1633603426,
+                "news": "Salesperson <a href = http://www.torn.com/profiles.php?XID=333>333</a> has been trained by the director."
+            }
+        }
+    },
     "company_profile": {
         "company": {
             "ID": 89826,
@@ -75718,6 +75753,55 @@
                     "color": "green",
                     "until": 0
                 }
+            }
+        }
+    },
+    "company_stock": {
+        "company_stock": {
+            "Scented Candle": {
+                "cost": 19,
+                "rrp": 40,
+                "price": 33,
+                "in_stock": 10786,
+                "on_order": 3733,
+                "sold_amount": 4305,
+                "sold_worth": 142065
+            },
+            "Pillar Candle": {
+                "cost": 12,
+                "rrp": 25,
+                "price": 17,
+                "in_stock": 12345,
+                "on_order": 5169,
+                "sold_amount": 6082,
+                "sold_worth": 103394
+            },
+            "Tealight": {
+                "cost": 2,
+                "rrp": 4,
+                "price": 3,
+                "in_stock": 77456,
+                "on_order": 18178,
+                "sold_amount": 20552,
+                "sold_worth": 61656
+            },
+            "Dinner Candle": {
+                "cost": 4,
+                "rrp": 10,
+                "price": 6,
+                "in_stock": 50489,
+                "on_order": 16857,
+                "sold_amount": 18298,
+                "sold_worth": 109788
+            },
+            "Holder": {
+                "cost": 10,
+                "rrp": 80,
+                "price": 54,
+                "in_stock": 3314,
+                "on_order": 2626,
+                "sold_amount": 2936,
+                "sold_worth": 158544
             }
         }
     },
