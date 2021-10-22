@@ -987,9 +987,9 @@ export interface ICompanyPosition {
     description: string;
 }
 
-export interface ICompanyStock {
+export interface ICompanyStockSummary {
     name: string;
-    cost: string;
+    cost: number;
     rrp: number;
 }
 
@@ -1006,7 +1006,7 @@ export interface ITornCompany {
     cost: number;
     default_employees: number;
     positions: ICompanyPosition[];
-    stock: ICompanyStock[];
+    stock: ICompanyStockSummary[];
     specials: ICompanySpecial[];
 }
 
@@ -1383,4 +1383,30 @@ export interface IChainReport {
     retaliations: number;
     members: IChainMemberAttack[];
     bonuses: IChainBonus[];
+}
+
+export interface ICompanyDetailed {
+    ID: number;
+    company_funds: number;
+    company_bank: number;
+    popularity: number;
+    efficiency: number;
+    environment: number;
+    trains_available: number;
+    advertising_budget: number;
+    upgrades: {
+        company_size: number;
+        staffroom_size: string;
+        storage_size: string;
+        storage_space: number;
+    };
+    value: number;
+}
+
+export interface ICompanyStock extends ICompanyStockSummary {
+    price: number;
+    in_stock: number;
+    on_order: number;
+    sold_amount: number;
+    sold_worth: number;
 }
