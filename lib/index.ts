@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 import { Company } from './Company';
 import { Faction } from './Faction';
 import { ItemMarket } from './ItemMarket';
@@ -12,6 +14,17 @@ class TornAPI {
         if (apiKey) {
             this.setKey(apiKey);
         }
+
+        // Add a response interceptor
+        axios.interceptors.response.use(response => {
+            // Any status code that lie within the range of 2xx cause this function to trigger
+            // just pass thru
+            return response;
+        }, error => {
+            // Any status codes that falls outside the range of 2xx cause this function to trigger
+            // return in the form of ITornApiError
+            return { data: { error: { code: error.response.status, error: error.response.statusText } } };
+        });
     }
 
     private apiKey = '';
