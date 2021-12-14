@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import sinon = require('sinon');
 
 import { TornAPI } from '../lib';
-import { IBank, ICard, IChainReport, IFactionTree, IHonor, IItem, IKeyValue, IMedal, IOrganisedCrime, IPawnshop, IPokerTable, IRacket, IRaid, IStock, IStockDetail, ITerritory, ITerritoryWar, ITornCompany, ITornEducation, ITornGym, ITornProperty, ITornStats } from '../lib/Interfaces';
+import { IBank, ICard, IChainReport, IFactionTree, IHonor, IItem, IKeyValue, IMedal, IOrganisedCrime, IPawnshop, IPokerTable, IRacket, IRaid, IRankedWar, IStock, IStockDetail, ITerritory, ITerritoryWar, ITornCompany, ITornEducation, ITornGym, ITornProperty, ITornStats } from '../lib/Interfaces';
 import { TestHelper } from './utils/TestUtils';
 
 describe('Torn API', () => {
@@ -310,6 +310,23 @@ describe('Torn API', () => {
 
         const castedReturn = initialReturn as IRaid[];
         expect(castedReturn.length).to.equal(0);
+    });
+
+    it('rankedwarks', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('torn_rankedwars'));
+
+        const initialReturn = await torn.torn.rankedwars();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as IRankedWar[];
+
+        // spot check one
+        const rankedwar = castedReturn.find(x => x.id === '140');
+        expect(rankedwar?.war.start).to.equal(1639666800);
+
+        const faction = rankedwar?.factions.find(x => x.id === '38887');
+        expect(faction?.name).to.equal('Medics');
+        expect(faction?.score).to.equal(1);
     });
 
     it('stats', async () => {

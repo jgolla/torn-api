@@ -37342,6 +37342,50 @@
             }
         }
     },
+    "torn_rankedwars": {
+        "rankedwars": {
+            "139": {
+                "factions": {
+                    "7935": {
+                        "name": "The Collective",
+                        "score": 0,
+                        "chain": 0
+                    },
+                    "35739": {
+                        "name": "Kingsmen",
+                        "score": 0,
+                        "chain": 0
+                    }
+                },
+                "war": {
+                    "start": 1639666800,
+                    "end": 0,
+                    "target": 7400,
+                    "winner": 0
+                }
+            },
+            "140": {
+                "factions": {
+                    "8437": {
+                        "name": "The Mile High Clinic",
+                        "score": 0,
+                        "chain": 0
+                    },
+                    "38887": {
+                        "name": "Medics",
+                        "score": 1,
+                        "chain": 0
+                    }
+                },
+                "war": {
+                    "start": 1639666800,
+                    "end": 0,
+                    "target": 3100,
+                    "winner": 0
+                }
+            }
+        }
+    },
     "torn_stats": {
         "stats": {
             "timestamp": 1628912947,
@@ -78387,6 +78431,7 @@
         "ID": 39894,
         "name": "Synthetic Kingdom Recluse",
         "tag": "SK",
+        "tag_image": "123-234.png",
         "leader": 1361985,
         "co-leader": 2390523,
         "respect": 92969,

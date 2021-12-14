@@ -42,6 +42,7 @@ export interface IFaction {
     ID: number;
     name: string;
     tag: string;
+    tag_image: string;
     leader: number;
     'co-leader': number;
     respect: number;
@@ -1116,6 +1117,22 @@ export interface IRaid {
     assaulting_score: number;
     defending_score: number;
     started: number;
+}
+
+export interface IRankedWar {
+    id: string;
+    factions: {
+        id: string;
+        name: string;
+        score: number;
+        chain: number
+    }[];
+    war: {
+        start: number;
+        end: number;
+        target: number;
+        winner: number;
+    }
 }
 
 export interface ITornStats {
