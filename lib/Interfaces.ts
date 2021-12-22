@@ -1427,3 +1427,13 @@ export interface ICompanyStock extends ICompanyStockSummary {
     sold_amount: number;
     sold_worth: number;
 }
+
+export interface IMissions {
+    id: string;
+    missions: IMissionStatus[];
+}
+
+export interface IMissionStatus {
+    title: string;
+    status: string;
+}

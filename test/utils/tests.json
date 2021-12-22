@@ -80691,5 +80691,47 @@
             "itemslooted": 0,
             "refills": 245
         }
+    },
+    "user_missions": {
+        "missions": {
+            "Duke": [
+                {
+                    "title": "Inside Job",
+                    "status": "completed"
+                },
+                {
+                    "title": "An Honorary Degree",
+                    "status": "completed"
+                },
+                {
+                    "title": "Kiss of Death",
+                    "status": "failed"
+                },
+                {
+                    "title": "Party Tricks",
+                    "status": "failed"
+                },
+                {
+                    "title": "Fireworks",
+                    "status": "completed"
+                },
+                {
+                    "title": "Drug Problem",
+                    "status": "completed"
+                },
+                {
+                    "title": "Batshit Crazy",
+                    "status": "notAccepted"
+                },
+                {
+                    "title": "Candy From Babies",
+                    "status": "notAccepted"
+                },
+                {
+                    "title": "Sellout Slayer",
+                    "status": "notAccepted"
+                }
+            ]
+        }
     }
 }
