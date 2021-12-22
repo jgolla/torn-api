@@ -37386,6 +37386,367 @@
             }
         }
     },
+    "torn_rankedwarreports": {
+        "rankedwarreport": {
+            "factions": {
+                "46529": {
+                    "name": "Human Instinct",
+                    "score": 3523,
+                    "rewards": {
+                        "respect": 1060,
+                        "points": 350,
+                        "items": {
+                            "1121": {
+                                "name": "Medium Arms Cache",
+                                "quantity": 1
+                            }
+                        }
+                    }
+                },
+                "46763": {
+                    "name": "Mama Bears Den",
+                    "score": 3362,
+                    "rewards": {
+                        "respect": 579,
+                        "points": 191,
+                        "items": {
+                            "1120": {
+                                "name": "Small Arms Cache",
+                                "quantity": 1
+                            }
+                        }
+                    }
+                }
+            },
+            "members": {
+                "1663574": {
+                    "name": "Ringo_Mandingo",
+                    "war_faction_id": 46763,
+                    "faction_id": 46763,
+                    "level": 57,
+                    "attacks": 49,
+                    "score": 97.37
+                },
+                "1811598": {
+                    "name": "Bazzo",
+                    "war_faction_id": 46763,
+                    "faction_id": 46763,
+                    "level": 50,
+                    "attacks": 147,
+                    "score": 614.72
+                },
+                "1866272": {
+                    "name": "Tempest43",
+                    "war_faction_id": 46763,
+                    "faction_id": 46763,
+                    "level": 25,
+                    "attacks": 6,
+                    "score": 13.66
+                },
+                "2134302": {
+                    "name": "Drakkhen83",
+                    "war_faction_id": 46529,
+                    "faction_id": 46529,
+                    "level": 26,
+                    "attacks": 16,
+                    "score": 34.68
+                },
+                "2223170": {
+                    "name": "MrShae",
+                    "war_faction_id": 46763,
+                    "faction_id": 46763,
+                    "level": 25,
+                    "attacks": 133,
+                    "score": 312.45
+                },
+                "2296292": {
+                    "name": "friendlyhands",
+                    "war_faction_id": 46529,
+                    "faction_id": 46529,
+                    "level": 67,
+                    "attacks": 399,
+                    "score": 1168.47
+                },
+                "2405179": {
+                    "name": "Ishhy",
+                    "war_faction_id": 46529,
+                    "faction_id": 46529,
+                    "level": 30,
+                    "attacks": 206,
+                    "score": 843.14
+                },
+                "2451806": {
+                    "name": "Aubergin3",
+                    "war_faction_id": 46529,
+                    "faction_id": 46529,
+                    "level": 32,
+                    "attacks": 75,
+                    "score": 205.94
+                },
+                "2624447": {
+                    "name": "Azzy_7",
+                    "war_faction_id": 46763,
+                    "faction_id": 46763,
+                    "level": 26,
+                    "attacks": 0,
+                    "score": 0
+                },
+                "2645743": {
+                    "name": "Crea",
+                    "war_faction_id": 46763,
+                    "faction_id": 46763,
+                    "level": 35,
+                    "attacks": 161,
+                    "score": 498.13
+                },
+                "2650801": {
+                    "name": "DocPain",
+                    "war_faction_id": 46529,
+                    "faction_id": 46529,
+                    "level": 35,
+                    "attacks": 80,
+                    "score": 252.57
+                },
+                "2669681": {
+                    "name": "Marshmallows59",
+                    "war_faction_id": 46763,
+                    "faction_id": 46763,
+                    "level": 10,
+                    "attacks": 0,
+                    "score": 0
+                },
+                "2677348": {
+                    "name": "Turtlebonkers",
+                    "war_faction_id": 46763,
+                    "faction_id": 46763,
+                    "level": 19,
+                    "attacks": 40,
+                    "score": 119.99
+                },
+                "2682496": {
+                    "name": "TechNasty1997",
+                    "war_faction_id": 46763,
+                    "faction_id": 46763,
+                    "level": 25,
+                    "attacks": 129,
+                    "score": 319.1
+                },
+                "2690631": {
+                    "name": "GraziellaLlama",
+                    "war_faction_id": 46763,
+                    "faction_id": 46763,
+                    "level": 22,
+                    "attacks": 34,
+                    "score": 156.4
+                },
+                "2701115": {
+                    "name": "Hitmany1",
+                    "war_faction_id": 46763,
+                    "faction_id": 46763,
+                    "level": 15,
+                    "attacks": 50,
+                    "score": 106.8
+                },
+                "2702930": {
+                    "name": "Voice4Vision",
+                    "war_faction_id": 46763,
+                    "faction_id": 46763,
+                    "level": 22,
+                    "attacks": 56,
+                    "score": 145.39
+                },
+                "2709901": {
+                    "name": "Ayoose",
+                    "war_faction_id": 46763,
+                    "faction_id": 46763,
+                    "level": 20,
+                    "attacks": 274,
+                    "score": 757.73
+                },
+                "2718187": {
+                    "name": "cyberpinoy",
+                    "war_faction_id": 46529,
+                    "faction_id": 46529,
+                    "level": 15,
+                    "attacks": 88,
+                    "score": 376.93
+                },
+                "2721355": {
+                    "name": "thebruh420",
+                    "war_faction_id": 46763,
+                    "faction_id": 46763,
+                    "level": 13,
+                    "attacks": 13,
+                    "score": 23.34
+                },
+                "2722475": {
+                    "name": "ArtGain",
+                    "war_faction_id": 46529,
+                    "faction_id": 46529,
+                    "level": 7,
+                    "attacks": 2,
+                    "score": 14.94
+                },
+                "2723788": {
+                    "name": "EzraMartin",
+                    "war_faction_id": 46529,
+                    "faction_id": 46529,
+                    "level": 12,
+                    "attacks": 15,
+                    "score": 59.26
+                },
+                "2724864": {
+                    "name": "--Flash--",
+                    "war_faction_id": 46529,
+                    "faction_id": 46529,
+                    "level": 17,
+                    "attacks": 87,
+                    "score": 372.09
+                },
+                "2725117": {
+                    "name": "Demonikus",
+                    "war_faction_id": 46763,
+                    "faction_id": 0,
+                    "level": 9,
+                    "attacks": 0,
+                    "score": 0
+                },
+                "2725155": {
+                    "name": "ZagleZigawa",
+                    "war_faction_id": 46763,
+                    "faction_id": 46763,
+                    "level": 10,
+                    "attacks": 43,
+                    "score": 136.45
+                },
+                "2727663": {
+                    "name": "jacksin125",
+                    "war_faction_id": 46529,
+                    "faction_id": 0,
+                    "level": 8,
+                    "attacks": 0,
+                    "score": 0
+                },
+                "2728556": {
+                    "name": "AjTheKing91011",
+                    "war_faction_id": 46529,
+                    "faction_id": 46529,
+                    "level": 8,
+                    "attacks": 1,
+                    "score": 4.16
+                },
+                "2731217": {
+                    "name": "Esdeath2887",
+                    "war_faction_id": 46529,
+                    "faction_id": 46529,
+                    "level": 8,
+                    "attacks": 11,
+                    "score": 36.8
+                },
+                "2731326": {
+                    "name": "KyleStoned",
+                    "war_faction_id": 46763,
+                    "faction_id": 46763,
+                    "level": 7,
+                    "attacks": 0,
+                    "score": 0
+                },
+                "2732921": {
+                    "name": "Luckyboxers",
+                    "war_faction_id": 46763,
+                    "faction_id": 46763,
+                    "level": 13,
+                    "attacks": 25,
+                    "score": 61.11
+                },
+                "2733272": {
+                    "name": "Torn_warrior",
+                    "war_faction_id": 46529,
+                    "faction_id": 46529,
+                    "level": 5,
+                    "attacks": 0,
+                    "score": 0
+                },
+                "2734434": {
+                    "name": "Cronosoul",
+                    "war_faction_id": 46529,
+                    "faction_id": 46529,
+                    "level": 5,
+                    "attacks": 0,
+                    "score": 0
+                },
+                "2735902": {
+                    "name": "FreshVince",
+                    "war_faction_id": 46529,
+                    "faction_id": 46529,
+                    "level": 15,
+                    "attacks": 18,
+                    "score": 97.25
+                },
+                "2736117": {
+                    "name": "CorruptSoul",
+                    "war_faction_id": 46529,
+                    "faction_id": 0,
+                    "level": 5,
+                    "attacks": 0,
+                    "score": 0
+                },
+                "2737345": {
+                    "name": "AdmiralAngel",
+                    "war_faction_id": 46529,
+                    "faction_id": 46529,
+                    "level": 3,
+                    "attacks": 0,
+                    "score": 0
+                },
+                "2737586": {
+                    "name": "Odin-Warwolf",
+                    "war_faction_id": 46529,
+                    "faction_id": 46529,
+                    "level": 7,
+                    "attacks": 11,
+                    "score": 57.51
+                },
+                "2737587": {
+                    "name": "Dennis08838",
+                    "war_faction_id": 46529,
+                    "faction_id": 46529,
+                    "level": 9,
+                    "attacks": 0,
+                    "score": 0
+                },
+                "2737591": {
+                    "name": "Dercon0307",
+                    "war_faction_id": 46529,
+                    "faction_id": 46529,
+                    "level": 7,
+                    "attacks": 0,
+                    "score": 0
+                },
+                "2737602": {
+                    "name": "Bachchan",
+                    "war_faction_id": 46529,
+                    "faction_id": 46529,
+                    "level": 9,
+                    "attacks": 0,
+                    "score": 0
+                },
+                "2738410": {
+                    "name": "Csball66",
+                    "war_faction_id": 46529,
+                    "faction_id": 46529,
+                    "level": 4,
+                    "attacks": 0,
+                    "score": 0
+                }
+            },
+            "war": {
+                "start": 1639242000,
+                "end": 1639666810,
+                "winner": 46529
+            }
+        }
+    },
     "torn_stats": {
         "stats": {
             "timestamp": 1628912947,
@@ -80690,6 +81051,48 @@
             "reviveskill": 245,
             "itemslooted": 0,
             "refills": 245
+        }
+    },
+    "user_missions": {
+        "missions": {
+            "Duke": [
+                {
+                    "title": "Inside Job",
+                    "status": "completed"
+                },
+                {
+                    "title": "An Honorary Degree",
+                    "status": "completed"
+                },
+                {
+                    "title": "Kiss of Death",
+                    "status": "failed"
+                },
+                {
+                    "title": "Party Tricks",
+                    "status": "failed"
+                },
+                {
+                    "title": "Fireworks",
+                    "status": "completed"
+                },
+                {
+                    "title": "Drug Problem",
+                    "status": "completed"
+                },
+                {
+                    "title": "Batshit Crazy",
+                    "status": "notAccepted"
+                },
+                {
+                    "title": "Candy From Babies",
+                    "status": "notAccepted"
+                },
+                {
+                    "title": "Sellout Slayer",
+                    "status": "notAccepted"
+                }
+            ]
         }
     }
 }

@@ -1427,3 +1427,54 @@ export interface ICompanyStock extends ICompanyStockSummary {
     sold_amount: number;
     sold_worth: number;
 }
+
+export interface IMissions {
+    id: string;
+    missions: IMissionStatus[];
+}
+
+export interface IMissionStatus {
+    title: string;
+    status: string;
+}
+
+export interface IRankedWarReport {
+    factions: IRWFaction[];
+    members: IRWMember[];
+    war: IRWWar;
+}
+
+export interface IRWWar {
+    start: number;
+    end: number;
+    winner: number;
+}
+
+export interface IRWMember {
+    id: string;
+    name: string;
+    war_faction_id: number;
+    faction_id: number;
+    level: number;
+    attacks: number;
+    score: number;
+}
+
+export interface IRWFaction {
+    id: string;
+    name: string;
+    score: number;
+    rewards: IRWRewards;
+}
+
+export interface IRWRewards {
+    respect: number;
+    points: number;
+    items: IRWItem[];
+}
+
+export interface IRWItem {
+    id: string;
+    name: string;
+    quantity: number;
+}

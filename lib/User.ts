@@ -1,5 +1,5 @@
 import { TornAPIBase } from './TornAPIBase';
-import { ITornApiError, IUser, IAmmo, IAttack, IBars, IBasicUser, IBattleStats, ICooldowns, ICrimes, IDiscord, IEducation, IEvents, IGym, IHOF, IIcon, IInventory, IJobPoints, IJobs, IUserCompany, IMedals, IMerits, IMessage, IMoney, INetworth, INotifications, IPerks, IPersonalStats, IRefills, IRevives, IRevivesFull, IUserStock, ITravel, IWorkStats, IUserProperty, IUserSkill, IAttackFull, ILog, IUserStockTransaction } from './Interfaces';
+import { ITornApiError, IUser, IAmmo, IAttack, IBars, IBasicUser, IBattleStats, ICooldowns, ICrimes, IDiscord, IEducation, IEvents, IGym, IHOF, IIcon, IInventory, IJobPoints, IJobs, IUserCompany, IMedals, IMerits, IMessage, IMoney, INetworth, INotifications, IPerks, IPersonalStats, IRefills, IRevives, IRevivesFull, IUserStock, ITravel, IWorkStats, IUserProperty, IUserSkill, IAttackFull, ILog, IUserStockTransaction, IMissions, IMissionStatus } from './Interfaces';
 import axios from 'axios';
 
 export class User extends TornAPIBase {
@@ -136,6 +136,21 @@ export class User extends TornAPIBase {
 
     async messages(limit?: number): Promise<IMessage[] | ITornApiError> {
         return this.apiQueryToArray({ route: 'user', selection: 'messages', limit: limit });
+    }
+
+    async missions(): Promise<IMissions[] | ITornApiError> {
+        const response = await axios.get<{ error?: ITornApiError, missions: Record<string, IMissionStatus[]> }>(this.buildUri({ route: 'user', selection: 'missions' }));
+        if (response.data.error) {
+            return response.data.error;
+        } else {
+            const missionReturn: IMissions[] = [];
+            const keys = Object.keys(response.data.missions);
+            for (let i = 0; i < keys.length; i++) {
+                missionReturn.push({ id: keys[i], missions: response.data.missions[keys[i]] });
+            }
+
+            return missionReturn;
+        }
     }
 
     async money(): Promise<IMoney | ITornApiError> {

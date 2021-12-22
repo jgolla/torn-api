@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { IBank, ITornGym, IHonor, IItem, IMedal, IOrganisedCrime, IPawnshop, IRacket, IRaid, IStock, ITerritory, ITerritoryWar, ITornApiError, ITornCompany, ITornProperty, ITornStats, IFactionTree, IKeyValue, ICard, IStockDetail, ITornEducation, IPokerTable, IChainReport, IRankedWar } from './Interfaces';
+import { IBank, ITornGym, IHonor, IItem, IMedal, IOrganisedCrime, IPawnshop, IRacket, IRaid, IStock, ITerritory, ITerritoryWar, ITornApiError, ITornCompany, ITornProperty, ITornStats, IFactionTree, IKeyValue, ICard, IStockDetail, ITornEducation, IPokerTable, IChainReport, IRankedWar, IRankedWarReport } from './Interfaces';
 import { TornAPIBase } from './TornAPIBase';
 
 export class Torn extends TornAPIBase {
@@ -122,6 +122,21 @@ export class Torn extends TornAPIBase {
             });
 
             return rankedWar;
+        }
+    }
+
+    async rankedwarreport(id: string): Promise<IRankedWarReport | ITornApiError> {
+        const response = await axios.get<{ error?: ITornApiError, rankedwarreport: IRankedWarReport }>(this.buildUri({ route: 'torn', selection: 'rankedwarreports', id: id }));
+        if (response.data.error) {
+            return response.data.error;
+        } else {
+            const rw = response.data.rankedwarreport as IRankedWarReport;
+            rw.factions = this.fixStringArray(rw.factions, 'id');
+            for (let i = 0; i < rw.factions.length; i++) {
+                rw.factions[i].rewards.items = this.fixStringArray(rw.factions[i].rewards.items, 'id');
+            }
+            rw.members = this.fixStringArray(rw.members, 'id');
+            return rw;
         }
     }
 

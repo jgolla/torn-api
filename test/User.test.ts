@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import sinon = require('sinon');
 
 import { TornAPI } from '../lib';
-import { IPersonalStats } from '../lib/Interfaces';
+import { IMissions, IPersonalStats } from '../lib/Interfaces';
 import { TestHelper } from './utils/TestUtils';
 
 describe('User API', () => {
@@ -14,6 +14,24 @@ describe('User API', () => {
     });
 
     afterEach(sinon.restore);
+
+    it('missions', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('user_missions'));
+
+        const initialReturn = await torn.user.missions();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as IMissions[];
+        expect(castedReturn.length).to.equal(1);
+        expect(castedReturn[0].id).to.equal('Duke');
+
+        const missionStatus = castedReturn[0].missions;
+        expect(missionStatus).not.to.be.undefined;
+
+        expect(missionStatus?.length).to.equal(9);
+        const singleMission = missionStatus?.find(x => x.title === 'Party Tricks');
+        expect(singleMission?.status).to.equal('failed');
+    });
 
     it('personalstats', async () => {
         sinon.stub(axios, 'get').resolves(TestHelper.getJSON('user_personalstats'));
