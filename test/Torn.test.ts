@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import sinon = require('sinon');
 
 import { TornAPI } from '../lib';
-import { IBank, ICard, IChainReport, IFactionTree, IHonor, IItem, IKeyValue, IMedal, IOrganisedCrime, IPawnshop, IPokerTable, IRacket, IRaid, IRankedWar, IStock, IStockDetail, ITerritory, ITerritoryWar, ITornCompany, ITornEducation, ITornGym, ITornProperty, ITornStats } from '../lib/Interfaces';
+import { IBank, ICard, IChainReport, IFactionTree, IHonor, IItem, IKeyValue, IMedal, IOrganisedCrime, IPawnshop, IPokerTable, IRacket, IRaid, IRankedWar, IRankedWarReport, IStock, IStockDetail, ITerritory, ITerritoryWar, ITornCompany, ITornEducation, ITornGym, ITornProperty, ITornStats } from '../lib/Interfaces';
 import { TestHelper } from './utils/TestUtils';
 
 describe('Torn API', () => {
@@ -312,7 +312,7 @@ describe('Torn API', () => {
         expect(castedReturn.length).to.equal(0);
     });
 
-    it('rankedwarks', async () => {
+    it('rankedwars', async () => {
         sinon.stub(axios, 'get').resolves(TestHelper.getJSON('torn_rankedwars'));
 
         const initialReturn = await torn.torn.rankedwars();
@@ -327,6 +327,24 @@ describe('Torn API', () => {
         const faction = rankedwar?.factions.find(x => x.id === '38887');
         expect(faction?.name).to.equal('Medics');
         expect(faction?.score).to.equal(1);
+    });
+
+    it('rankedwarkreport', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('torn_rankedwarreports'));
+
+        const initialReturn = await torn.torn.rankedwarreport('111');
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as IRankedWarReport;
+        expect(castedReturn.war.winner).to.equal(46529);
+
+        const rwFaction = castedReturn.factions.find(x => x.id === '46763');
+        expect(rwFaction?.name).to.equal('Mama Bears Den');
+        expect(rwFaction?.rewards.items[0].name).to.equal('Small Arms Cache');
+
+        const rwMember = castedReturn.members.find(x => x.id === '2405179');
+        expect(rwMember?.name).to.equal('Ishhy');
+        expect(rwMember?.score).to.equal(843.14);
     });
 
     it('stats', async () => {
