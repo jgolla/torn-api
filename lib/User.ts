@@ -10,21 +10,25 @@ export class User extends TornAPIBase {
     async user(id?: string): Promise<IUser | ITornApiError> {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const response = await axios.get<any>(this.buildUri({ route: 'user', selection: '', id: id }));
-        if (response.data.error) {
-            return response.data.error;
+        if (response instanceof Error) {
+            return { code: 0, error: response.message };
         } else {
-            const user = response.data;
+            if (response.data.error) {
+                return response.data.error;
+            } else {
+                const user = response.data;
 
-            const icons: IIcon[] = [];
-            const iconNames = Object.keys(user.basicicons);
-            for (let i = 0; i < iconNames.length; i++) {
-                const name = iconNames[i];
-                const value = user.basicicons[name];
-                icons.push({ name: name, value: value });
+                const icons: IIcon[] = [];
+                const iconNames = Object.keys(user.basicicons);
+                for (let i = 0; i < iconNames.length; i++) {
+                    const name = iconNames[i];
+                    const value = user.basicicons[name];
+                    icons.push({ name: name, value: value });
+                }
+
+                user.basicicons = icons;
+                return user;
             }
-
-            user.basicicons = icons;
-            return user;
         }
     }
 
@@ -90,18 +94,22 @@ export class User extends TornAPIBase {
 
     async icons(id?: string): Promise<IIcon[] | ITornApiError> {
         const response = await axios.get<{ error?: ITornApiError, icons: Record<string, string> }>(this.buildUri({ route: 'user', selection: 'icons', id: id }));
-        if (response.data.error) {
-            return response.data.error;
+        if (response instanceof Error) {
+            return { code: 0, error: response.message };
         } else {
-            const icons: IIcon[] = [];
-            const iconNames = Object.keys(response.data.icons);
-            for (let i = 0; i < iconNames.length; i++) {
-                const name = iconNames[i];
-                const value = response.data.icons[name];
-                icons.push({ name: name, value: value });
-            }
+            if (response.data.error) {
+                return response.data.error;
+            } else {
+                const icons: IIcon[] = [];
+                const iconNames = Object.keys(response.data.icons);
+                for (let i = 0; i < iconNames.length; i++) {
+                    const name = iconNames[i];
+                    const value = response.data.icons[name];
+                    icons.push({ name: name, value: value });
+                }
 
-            return icons;
+                return icons;
+            }
         }
     }
 
@@ -140,16 +148,20 @@ export class User extends TornAPIBase {
 
     async missions(): Promise<IMissions[] | ITornApiError> {
         const response = await axios.get<{ error?: ITornApiError, missions: Record<string, IMissionStatus[]> }>(this.buildUri({ route: 'user', selection: 'missions' }));
-        if (response.data.error) {
-            return response.data.error;
+        if (response instanceof Error) {
+            return { code: 0, error: response.message };
         } else {
-            const missionReturn: IMissions[] = [];
-            const keys = Object.keys(response.data.missions);
-            for (let i = 0; i < keys.length; i++) {
-                missionReturn.push({ id: keys[i], missions: response.data.missions[keys[i]] });
-            }
+            if (response.data.error) {
+                return response.data.error;
+            } else {
+                const missionReturn: IMissions[] = [];
+                const keys = Object.keys(response.data.missions);
+                for (let i = 0; i < keys.length; i++) {
+                    missionReturn.push({ id: keys[i], missions: response.data.missions[keys[i]] });
+                }
 
-            return missionReturn;
+                return missionReturn;
+            }
         }
     }
 

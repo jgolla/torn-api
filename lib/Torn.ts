@@ -19,29 +19,37 @@ export class Torn extends TornAPIBase {
 
     async chainreport(id: number): Promise<IChainReport | ITornApiError> {
         const response = await axios.get<{ error?: ITornApiError, chainreport: IChainReport }>(this.buildUri({ route: 'torn', selection: 'chainreport', id: id ? id.toString() : '' }));
-        if (response.data.error) {
-            return response.data.error;
+        if (response instanceof Error) {
+            return { code: 0, error: response.message };
         } else {
-            const factionReturn: IChainReport = response.data.chainreport;
-            factionReturn.members = this.fixStringArray(factionReturn.members, '');
-            return factionReturn;
+            if (response.data.error) {
+                return response.data.error;
+            } else {
+                const factionReturn: IChainReport = response.data.chainreport;
+                factionReturn.members = this.fixStringArray(factionReturn.members, '');
+                return factionReturn;
+            }
         }
     }
 
     async companies(): Promise<ITornCompany[] | ITornApiError> {
         const response = await axios.get<{ error?: ITornApiError, companies: ITornCompany }>(this.buildUri({ route: 'torn', selection: 'companies' }));
-        if (response.data.error) {
-            return response.data.error;
+        if (response instanceof Error) {
+            return { code: 0, error: response.message };
         } else {
-            const tornCompany: ITornCompany[] = this.fixStringArray(response.data['companies'], 'id');
+            if (response.data.error) {
+                return response.data.error;
+            } else {
+                const tornCompany: ITornCompany[] = this.fixStringArray(response.data['companies'], 'id');
 
-            tornCompany.forEach(company => {
-                company.positions = this.fixStringArray(company.positions, 'name');
-                company.specials = this.fixStringArray(company.specials, 'name');
-                company.stock = this.fixStringArray(company.stock, 'name');
-            });
+                tornCompany.forEach(company => {
+                    company.positions = this.fixStringArray(company.positions, 'name');
+                    company.specials = this.fixStringArray(company.specials, 'name');
+                    company.stock = this.fixStringArray(company.stock, 'name');
+                });
 
-            return tornCompany;
+                return tornCompany;
+            }
         }
     }
 
@@ -51,15 +59,19 @@ export class Torn extends TornAPIBase {
 
     async factiontree(): Promise<IFactionTree[] | ITornApiError> {
         const response = await axios.get<{ error?: ITornApiError, factiontree: IFactionTree }>(this.buildUri({ route: 'torn', selection: 'factiontree' }));
-        if (response.data.error) {
-            return response.data.error;
+        if (response instanceof Error) {
+            return { code: 0, error: response.message };
         } else {
-            const returnTree: IFactionTree[] = this.fixStringArray(response.data.factiontree, 'id');
-            returnTree.forEach(item => {
-                item.branch = this.fixStringArray(item, 'id');
-            });
+            if (response.data.error) {
+                return response.data.error;
+            } else {
+                const returnTree: IFactionTree[] = this.fixStringArray(response.data.factiontree, 'id');
+                returnTree.forEach(item => {
+                    item.branch = this.fixStringArray(item, 'id');
+                });
 
-            return returnTree;
+                return returnTree;
+            }
         }
     }
 
@@ -113,30 +125,38 @@ export class Torn extends TornAPIBase {
 
     async rankedwars(): Promise<IRankedWar[] | ITornApiError> {
         const response = await axios.get<{ error?: ITornApiError, rankedwars: IRankedWar[] }>(this.buildUri({ route: 'torn', selection: 'rankedwars' }));
-        if (response.data.error) {
-            return response.data.error;
+        if (response instanceof Error) {
+            return { code: 0, error: response.message };
         } else {
-            const rankedWar: IRankedWar[] = this.fixStringArray(response.data.rankedwars, 'id');
-            rankedWar.forEach(item => {
-                item.factions = this.fixStringArray(item.factions, 'id');
-            });
+            if (response.data.error) {
+                return response.data.error;
+            } else {
+                const rankedWar: IRankedWar[] = this.fixStringArray(response.data.rankedwars, 'id');
+                rankedWar.forEach(item => {
+                    item.factions = this.fixStringArray(item.factions, 'id');
+                });
 
-            return rankedWar;
+                return rankedWar;
+            }
         }
     }
 
     async rankedwarreport(id: string): Promise<IRankedWarReport | ITornApiError> {
         const response = await axios.get<{ error?: ITornApiError, rankedwarreport: IRankedWarReport }>(this.buildUri({ route: 'torn', selection: 'rankedwarreports', id: id }));
-        if (response.data.error) {
-            return response.data.error;
+        if (response instanceof Error) {
+            return { code: 0, error: response.message };
         } else {
-            const rw = response.data.rankedwarreport as IRankedWarReport;
-            rw.factions = this.fixStringArray(rw.factions, 'id');
-            for (let i = 0; i < rw.factions.length; i++) {
-                rw.factions[i].rewards.items = this.fixStringArray(rw.factions[i].rewards.items, 'id');
+            if (response.data.error) {
+                return response.data.error;
+            } else {
+                const rw = response.data.rankedwarreport as IRankedWarReport;
+                rw.factions = this.fixStringArray(rw.factions, 'id');
+                for (let i = 0; i < rw.factions.length; i++) {
+                    rw.factions[i].rewards.items = this.fixStringArray(rw.factions[i].rewards.items, 'id');
+                }
+                rw.members = this.fixStringArray(rw.members, 'id');
+                return rw;
             }
-            rw.members = this.fixStringArray(rw.members, 'id');
-            return rw;
         }
     }
 
@@ -147,10 +167,14 @@ export class Torn extends TornAPIBase {
     async stocks(id?: string): Promise<IStock[] | IStockDetail | ITornApiError> {
         if (id) {
             const response = await axios.get<{ error?: ITornApiError, stocks: Record<string, IStockDetail> }>(this.buildUri({ route: 'torn', selection: 'stocks', id: id }));
-            if (response.data.error) {
-                return response.data.error;
+            if (response instanceof Error) {
+                return { code: 0, error: response.message };
             } else {
-                return response.data.stocks[id];
+                if (response.data.error) {
+                    return response.data.error;
+                } else {
+                    return response.data.stocks[id];
+                }
             }
         } else {
             return this.apiQueryToArray({ route: 'torn', selection: 'stocks' });
