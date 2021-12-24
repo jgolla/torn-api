@@ -11,23 +11,27 @@ export class Faction extends TornAPIBase {
     async faction(id?: string): Promise<IFaction | ITornApiError> {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const response = await axios.get<any>(this.buildUri({ route: 'faction', selection: '', id: id }));
-        if (response.data.error) {
-            return response.data.error;
+        if (response instanceof Error) {
+            return { code: 0, error: response.message };
         } else {
-            const factionReturn: IFaction = response.data;
-            factionReturn.members = this.fixStringArray(factionReturn.members, 'id');
+            if (response.data.error) {
+                return response.data.error;
+            } else {
+                const factionReturn: IFaction = response.data;
+                factionReturn.members = this.fixStringArray(factionReturn.members, 'id');
 
-            const peaceArray: IPeace[] = [];
-            const ids = Object.keys(factionReturn.peace);
-            for (let i = 0; i < ids.length; i++) {
-                const id = ids[i];
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                const field = (factionReturn.peace as any)[id];
-                peaceArray.push({ faction_id: Number(id), until: field });
+                const peaceArray: IPeace[] = [];
+                const ids = Object.keys(factionReturn.peace);
+                for (let i = 0; i < ids.length; i++) {
+                    const id = ids[i];
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                    const field = (factionReturn.peace as any)[id];
+                    peaceArray.push({ faction_id: Number(id), until: field });
+                }
+                factionReturn.peace = peaceArray;
+
+                return factionReturn;
             }
-            factionReturn.peace = peaceArray;
-
-            return factionReturn;
         }
     }
 
@@ -73,12 +77,16 @@ export class Faction extends TornAPIBase {
 
     async chainreport(): Promise<IChainReport | ITornApiError> {
         const response = await axios.get<{ error?: ITornApiError, chainreport: IChainReport }>(this.buildUri({ route: 'faction', selection: 'chainreport' }));
-        if (response.data.error) {
-            return response.data.error;
+        if (response instanceof Error) {
+            return { code: 0, error: response.message };
         } else {
-            const factionReturn: IChainReport = response.data.chainreport;
-            factionReturn.members = this.fixStringArray(factionReturn.members, '');
-            return factionReturn;
+            if (response.data.error) {
+                return response.data.error;
+            } else {
+                const factionReturn: IChainReport = response.data.chainreport;
+                factionReturn.members = this.fixStringArray(factionReturn.members, '');
+                return factionReturn;
+            }
         }
     }
 

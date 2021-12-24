@@ -13,18 +13,22 @@ export abstract class TornAPIBase {
     protected async apiQuery<T>(params: QueryParams): Promise<T | ITornApiError> {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const response = await axios.get<any>(this.buildUri(params));
-        if (response.data.error) {
-            return response.data.error;
+        if (response instanceof Error) {
+            return { code: 0, error: response.message };
         } else {
-            if (params.jsonOverride === '') {
-                return response.data;
-            } else if (params.jsonOverride) {
-                return response.data[params.jsonOverride];
+            if (response.data.error) {
+                return response.data.error;
             } else {
-                if (params.selection === '') {
+                if (params.jsonOverride === '') {
                     return response.data;
+                } else if (params.jsonOverride) {
+                    return response.data[params.jsonOverride];
                 } else {
-                    return response.data[params.selection];
+                    if (params.selection === '') {
+                        return response.data;
+                    } else {
+                        return response.data[params.selection];
+                    }
                 }
             }
         }
@@ -33,24 +37,28 @@ export abstract class TornAPIBase {
     protected async apiQueryToArray<T>(params: QueryParams, keyField?: string): Promise<T[] | ITornApiError> {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const response = await axios.get<any>(this.buildUri(params));
-        if (response.data.error) {
-            return response.data.error;
+        if (response instanceof Error) {
+            return { code: 0, error: response.message };
         } else {
-            let jsonSelection = response.data;
-            if (params.jsonOverride) {
-                jsonSelection = response.data[params.jsonOverride];
+            if (response.data.error) {
+                return response.data.error;
             } else {
-                jsonSelection = response.data[params.selection];
-            }
+                let jsonSelection = response.data;
+                if (params.jsonOverride) {
+                    jsonSelection = response.data[params.jsonOverride];
+                } else {
+                    jsonSelection = response.data[params.selection];
+                }
 
-            if (!jsonSelection) {
-                return [];
-            }
+                if (!jsonSelection) {
+                    return [];
+                }
 
-            if (keyField) {
-                return this.fixStringArray(jsonSelection, keyField);
-            } else {
-                return Object.values(jsonSelection);
+                if (keyField) {
+                    return this.fixStringArray(jsonSelection, keyField);
+                } else {
+                    return Object.values(jsonSelection);
+                }
             }
         }
     }
@@ -58,18 +66,22 @@ export abstract class TornAPIBase {
     protected async apiQueryToKeyValueArray(params: QueryParams): Promise<IKeyValue[] | ITornApiError> {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const response = await axios.get<any>(this.buildUri(params));
-        if (response.data.error) {
-            return response.data.error;
+        if (response instanceof Error) {
+            return { code: 0, error: response.message };
         } else {
-            const types: IKeyValue[] = [];
-            const ids = Object.keys(response.data[params.selection]);
-            for (let i = 0; i < ids.length; i++) {
-                const id = ids[i];
-                const name = response.data[params.selection][id];
-                types.push({ key: id, value: name });
-            }
+            if (response.data.error) {
+                return response.data.error;
+            } else {
+                const types: IKeyValue[] = [];
+                const ids = Object.keys(response.data[params.selection]);
+                for (let i = 0; i < ids.length; i++) {
+                    const id = ids[i];
+                    const name = response.data[params.selection][id];
+                    types.push({ key: id, value: name });
+                }
 
-            return types;
+                return types;
+            }
         }
     }
 
