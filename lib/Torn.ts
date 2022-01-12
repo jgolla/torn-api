@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { IBank, ITornGym, IHonor, IItem, IMedal, IOrganisedCrime, IPawnshop, IRacket, IRaid, IStock, ITerritory, ITerritoryWar, ITornApiError, ITornCompany, ITornProperty, ITornStats, IFactionTree, IKeyValue, ICard, IStockDetail, ITornEducation, IPokerTable, IChainReport, IRankedWar, IRankedWarReport } from './Interfaces';
+import { IBank, ITornGym, IHonor, IItem, IMedal, IOrganisedCrime, IPawnshop, IRacket, IRaid, IStock, ITerritory, ITerritoryWar, ITornApiError, ITornCompany, ITornProperty, ITornStats, IFactionTree, IKeyValue, ICard, IStockDetail, ITornEducation, IPokerTable, IChainReport, IRankedWar, IRankedWarReport, ITerritoryDetail } from './Interfaces';
 import { TornAPIBase } from './TornAPIBase';
 
 export class Torn extends TornAPIBase {
@@ -185,8 +185,24 @@ export class Torn extends TornAPIBase {
         return this.apiQuery({ route: 'torn', selection: 'timestamp' });
     }
 
-    async territory(): Promise<ITerritory[] | ITornApiError> {
-        return this.apiQueryToArray({ route: 'torn', selection: 'territory' }, 'id');
+    async territory(id?: string): Promise<ITerritory[] | ITerritoryDetail | ITornApiError> {
+
+        if (id) {
+            const response = await axios.get<{ error?: ITornApiError, territory: Record<string, ITerritoryDetail> }>(this.buildUri({ route: 'torn', selection: 'territory', id: id }));
+            if (response instanceof Error) {
+                return { code: 0, error: response.message };
+            } else {
+                if (response.data.error) {
+                    return response.data.error;
+                } else {
+                    const retValue = response.data.territory[id];
+                    retValue.id = id;
+                    return retValue;
+                }
+            }
+        } else {
+            return this.apiQueryToArray({ route: 'torn', selection: 'territory' }, 'id');
+        }
     }
 
     async territorywars(): Promise<ITerritoryWar[] | ITornApiError> {
