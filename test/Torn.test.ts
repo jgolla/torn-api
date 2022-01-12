@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import sinon = require('sinon');
 
 import { TornAPI } from '../lib';
-import { IBank, ICard, IChainReport, IFactionTree, IHonor, IItem, IKeyValue, IMedal, IOrganisedCrime, IPawnshop, IPokerTable, IRacket, IRaid, IRankedWar, IRankedWarReport, IStock, IStockDetail, ITerritory, ITerritoryWar, ITornCompany, ITornEducation, ITornGym, ITornProperty, ITornStats } from '../lib/Interfaces';
+import { IBank, ICard, IChainReport, IFactionTree, IHonor, IItem, IKeyValue, IMedal, IOrganisedCrime, IPawnshop, IPokerTable, IRacket, IRaid, IRankedWar, IRankedWarReport, IStock, IStockDetail, ITerritory, ITerritoryDetail, ITerritoryWar, ITornCompany, ITornEducation, ITornGym, ITornProperty, ITornStats } from '../lib/Interfaces';
 import { TestHelper } from './utils/TestUtils';
 
 describe('Torn API', () => {
@@ -404,6 +404,21 @@ describe('Torn API', () => {
         const territory = castedReturn.find(x => x.id === 'HYB');
         expect(territory?.sector).to.equal(5);
         expect(territory?.coordinate_x).to.equal('855.33');
+        expect(territory?.slots).to.equal(6);
+    });
+
+    it('territory by id', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('torn_territorydetail'));
+
+        const initialReturn = await torn.torn.territory('CAA');
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as ITerritoryDetail;
+
+        expect(castedReturn.id).to.equal('CAA');
+        expect(castedReturn.sector).to.equal(6);
+        expect(castedReturn.slots).to.equal(24);
+        expect(castedReturn.neighbors).to.have.members(["MTB", "NUB", "OUB", "PUB", "MUB", "NVB", "KTB", "OVB"]);
     });
 
     it('territorywars', async () => {

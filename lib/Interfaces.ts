@@ -53,6 +53,14 @@ export interface IFaction {
     raid_wars: IFactionRaid[];
     peace: IPeace[];
     members: IMember[];
+    rank: IFactionRank;
+}
+
+export interface IFactionRank {
+    level: number;
+    name: string;
+    division: number;
+    position: number;
 }
 
 export interface IPeace {
@@ -175,6 +183,7 @@ export interface IAttack extends IAttackFull {
     defender_factionname: string;
     chain: number;
     raid: number;
+    ranked_war: number;
     respect_gain: number;
     respect_loss: number;
     modifiers: {
@@ -911,10 +920,15 @@ export interface ITerritory {
     sector: number;
     size: number;
     density: number;
+    slots: number;
     daily_respect: number;
     faction: number;
     coordinate_x: string;
     coordinate_y: string;
+}
+
+export interface ITerritoryDetail extends ITerritory {
+    neighbors: string[];
 }
 
 export interface IEffectiveness {
