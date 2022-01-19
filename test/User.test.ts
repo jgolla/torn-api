@@ -44,9 +44,9 @@ describe('User API', () => {
         expect(castedReturn.totalbountyreward).to.equal(245245450245245);
     });
 
-    it('personalstats with timestamp', async () => {
+    it('personalstats with timestamp & id', async () => {
         const stub = sinon.stub(axios, 'get').resolves(TestHelper.getJSON('user_personalstats'));
-        await torn.user.personalstats(123456);
-        expect(stub.args[0][0]).to.equal('https://api.torn.com/user/?selections=personalstats&key=key&timestamp=123456');
+        await torn.user.personalstats('123', 123456);
+        expect(stub.args[0][0]).to.equal('https://api.torn.com/user/123?selections=personalstats&key=key&timestamp=123456');
     });
 });

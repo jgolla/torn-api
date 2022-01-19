@@ -64,8 +64,8 @@ export class User extends TornAPIBase {
         return this.apiQuery({ route: 'user', selection: 'cooldowns' });
     }
 
-    async crimes(): Promise<ICrimes | ITornApiError> {
-        return await this.apiQuery({ route: 'user', selection: 'crimes', jsonOverride: 'criminalrecord' });
+    async crimes(id?: string): Promise<ICrimes | ITornApiError> {
+        return await this.apiQuery({ route: 'user', selection: 'crimes', jsonOverride: 'criminalrecord', id: id });
     }
 
     async discord(): Promise<IDiscord | ITornApiError> {
@@ -189,8 +189,8 @@ export class User extends TornAPIBase {
         return this.apiQuery({ route: 'user', selection: 'perks', jsonOverride: '' });
     }
 
-    async personalstats(timestamp?: number): Promise<IPersonalStats | ITornApiError> {
-        return this.apiQuery({ route: 'user', selection: 'personalstats', timestamp: timestamp });
+    async personalstats(id?: string, timestamp?: number): Promise<IPersonalStats | ITornApiError> {
+        return this.apiQuery({ route: 'user', selection: 'personalstats', timestamp: timestamp, id: id });
     }
 
     async profile(id?: string): Promise<IUser | ITornApiError> {
