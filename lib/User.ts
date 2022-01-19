@@ -7,6 +7,10 @@ export class User extends TornAPIBase {
         super(apiKey);
     }
 
+    async multi(endpoints: string[], id?: string): Promise<ITornApiError | Record<string, object>> {
+        return this.multiQuery('user', endpoints, id);
+    }
+
     async user(id?: string): Promise<IUser | ITornApiError> {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const response = await axios.get<any>(this.buildUri({ route: 'user', selection: '', id: id }));

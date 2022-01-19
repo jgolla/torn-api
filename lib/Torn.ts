@@ -9,6 +9,10 @@ export class Torn extends TornAPIBase {
         super(apiKey);
     }
 
+    async multi(endpoints: string[], id?: string): Promise<ITornApiError | Record<string, object>> {
+        return this.multiQuery('torn', endpoints, id);
+    }
+
     async bank(): Promise<IBank | ITornApiError> {
         return this.apiQuery({ route: 'torn', selection: 'bank' });
     }

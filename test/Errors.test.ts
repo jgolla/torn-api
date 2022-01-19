@@ -22,7 +22,7 @@ describe('Check error handling', () => {
         methods.forEach(method => {
             it(`${method} handles error`, async () => {
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                const retValue = await ((torn as any)[name] as any)[method]();
+                const retValue = await ((torn as any)[name] as any)[method]([]);
                 expect(TornAPI.isError(retValue)).to.be.true;
             });
         });

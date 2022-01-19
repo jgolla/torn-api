@@ -8,6 +8,10 @@ export class Faction extends TornAPIBase {
         super(apiKey);
     }
 
+    async multi(endpoints: string[], id?: string): Promise<ITornApiError | Record<string, object>> {
+        return this.multiQuery('faction', endpoints, id);
+    }
+
     async faction(id?: string): Promise<IFaction | ITornApiError> {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const response = await axios.get<any>(this.buildUri({ route: 'faction', selection: '', id: id }));
