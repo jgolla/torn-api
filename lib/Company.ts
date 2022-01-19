@@ -7,6 +7,10 @@ export class Company extends TornAPIBase {
         super(apiKey);
     }
 
+    async multi(endpoints: string[], id?: string): Promise<ITornApiError | Record<string, object>> {
+        return this.multiQuery('company', endpoints, id);
+    }
+
     async applications(): Promise<undefined> {
         throw new Error('Method not implemented.');
     }

@@ -8,6 +8,10 @@ export class ItemMarket extends TornAPIBase {
         super(apiKey);
     }
 
+    async multi(endpoints: string[], id?: string): Promise<ITornApiError | Record<string, object>> {
+        return this.multiQuery('market', endpoints, id);
+    }
+
     async all(id: string): Promise<IMarketItem[] | ITornApiError> {
         const response = await axios.get<{ error?: ITornApiError, bazaar: IMarketItem[], itemmarket: IMarketItem[] }>(this.buildUri({ route: 'market', selection: 'bazaar,itemmarket', id: id }));
         if (response instanceof Error) {
