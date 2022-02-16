@@ -54,6 +54,7 @@ export interface IFaction {
     peace: IPeace[];
     members: IMember[];
     rank: IFactionRank;
+    ranked_wars: IRankedWar;
 }
 
 export interface IFactionRank {

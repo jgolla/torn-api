@@ -130,7 +130,7 @@ describe('Faction API', () => {
     });
 
     it('basic with id', async () => {
-        const stub = sinon.stub(axios, 'get').resolves(TestHelper.getJSON('faction_basic'));
+        const stub = sinon.stub(axios, 'get').resolves(TestHelper.getJSON('faction_basic_with_id'));
 
         const initialReturn = await torn.faction.basic('1234');
         expect(TornAPI.isError(initialReturn)).to.be.false;
