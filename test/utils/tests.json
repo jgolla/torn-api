@@ -82936,7 +82936,8 @@
             "level": 1,
             "name": "Unranked",
             "division": 2,
-            "position": 3
+            "position": 3,
+            "wins": 2
         },
         "ranked_wars": {
             "495": {
@@ -83335,7 +83336,8 @@
             "level": 1,
             "name": "Unranked",
             "division": 2,
-            "position": 3
+            "position": 3,
+            "wins": 2
         },
         "ranked_wars": {
             "495": {
