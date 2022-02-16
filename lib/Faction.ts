@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import { TornAPIBase } from './TornAPIBase';
-import { IApplication, IArmor, IAttack, IAttackFull, IChain, IChainReport, ICompleteChain, ICrime, ICrimeParticipant, ICurrency, IDonation, IDrug, IFaction, IFactionPosition, IFactionReport, IMedical, INews, IPeace, IRevives, IRevivesFull, IStats, ITerritory, ITornApiError, IUpgrade, IWeapon } from './Interfaces';
+import { IApplication, IArmor, IAttack, IAttackFull, IChain, IChainReport, ICompleteChain, ICrime, ICrimeParticipant, ICurrency, IDonation, IDrug, IFaction, IFactionPosition, IFactionReport, IMedical, INews, IPeace, IRankedWar, IRevives, IRevivesFull, IStats, ITerritory, ITornApiError, IUpgrade, IWeapon } from './Interfaces';
 
 export class Faction extends TornAPIBase {
     constructor(apiKey: string) {
@@ -33,6 +33,12 @@ export class Faction extends TornAPIBase {
                     peaceArray.push({ faction_id: Number(id), until: field });
                 }
                 factionReturn.peace = peaceArray;
+
+                const rankedWar: IRankedWar[] = this.fixStringArray(response.data.ranked_wars, 'id');
+                rankedWar.forEach(item => {
+                    item.factions = this.fixStringArray(item.factions, 'id');
+                });
+                factionReturn.ranked_wars = rankedWar[0];
 
                 return factionReturn;
             }

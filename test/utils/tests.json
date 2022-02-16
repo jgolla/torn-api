@@ -82938,6 +82938,427 @@
             "division": 2,
             "position": 3
         },
+        "ranked_wars": {
+            "495": {
+                "factions": {
+                    "7969": {
+                        "name": "Killer Mafia Kings",
+                        "score": 26824,
+                        "chain": 0
+                    },
+                    "14581": {
+                        "name": "Stygian: Underworld",
+                        "score": 24724,
+                        "chain": 0
+                    }
+                },
+                "war": {
+                    "start": 1644328800,
+                    "end": 1644664193,
+                    "target": 2100,
+                    "winner": 7969
+                }
+            }
+        },
+        "members": {
+            "65658": {
+                "name": "evility",
+                "level": 42,
+                "days_in_faction": 221,
+                "last_action": {
+                    "status": "Offline",
+                    "timestamp": 1630894986,
+                    "relative": "10 hours ago"
+                },
+                "status": {
+                    "description": "Okay",
+                    "details": "",
+                    "state": "Okay",
+                    "color": "green",
+                    "until": 0
+                },
+                "position": "Comrades"
+            },
+            "177489": {
+                "name": "LanCel0t",
+                "level": 45,
+                "days_in_faction": 221,
+                "last_action": {
+                    "status": "Offline",
+                    "timestamp": 1630928912,
+                    "relative": "1 hour ago"
+                },
+                "status": {
+                    "description": "Okay",
+                    "details": "",
+                    "state": "Okay",
+                    "color": "green",
+                    "until": 0
+                },
+                "position": "Comrades"
+            },
+            "207023": {
+                "name": "Fraer",
+                "level": 71,
+                "days_in_faction": 221,
+                "last_action": {
+                    "status": "Offline",
+                    "timestamp": 1630930715,
+                    "relative": "35 minutes ago"
+                },
+                "status": {
+                    "description": "Okay",
+                    "details": "",
+                    "state": "Okay",
+                    "color": "green",
+                    "until": 0
+                },
+                "position": "Comrades"
+            },
+            "360582": {
+                "name": "Liz-",
+                "level": 54,
+                "days_in_faction": 9,
+                "last_action": {
+                    "status": "Offline",
+                    "timestamp": 1630929717,
+                    "relative": "52 minutes ago"
+                },
+                "status": {
+                    "description": "Traveling to Switzerland",
+                    "details": "",
+                    "state": "Traveling",
+                    "color": "blue",
+                    "until": 0
+                },
+                "position": "Comrades"
+            },
+            "377579": {
+                "name": "crater",
+                "level": 29,
+                "days_in_faction": 221,
+                "last_action": {
+                    "status": "Offline",
+                    "timestamp": 1630923061,
+                    "relative": "2 hours ago"
+                },
+                "status": {
+                    "description": "Okay",
+                    "details": "",
+                    "state": "Okay",
+                    "color": "green",
+                    "until": 0
+                },
+                "position": "Comrades"
+            },
+            "436409": {
+                "name": "lavster",
+                "level": 30,
+                "days_in_faction": 505,
+                "last_action": {
+                    "status": "Offline",
+                    "timestamp": 1629239067,
+                    "relative": "19 days ago"
+                },
+                "status": {
+                    "description": "Okay",
+                    "details": "",
+                    "state": "Okay",
+                    "color": "green",
+                    "until": 0
+                },
+                "position": "Lord"
+            },
+            "526521": {
+                "name": "sLeePyEd",
+                "level": 30,
+                "days_in_faction": 222,
+                "last_action": {
+                    "status": "Idle",
+                    "timestamp": 1630930025,
+                    "relative": "47 minutes ago"
+                },
+                "status": {
+                    "description": "Okay",
+                    "details": "",
+                    "state": "Okay",
+                    "color": "green",
+                    "until": 0
+                },
+                "position": "Comrades"
+            },
+            "722921": {
+                "name": "Chilli_Crab",
+                "level": 51,
+                "days_in_faction": 221,
+                "last_action": {
+                    "status": "Offline",
+                    "timestamp": 1630919614,
+                    "relative": "3 hours ago"
+                },
+                "status": {
+                    "description": "Okay",
+                    "details": "",
+                    "state": "Okay",
+                    "color": "green",
+                    "until": 0
+                },
+                "position": "Comrades"
+            },
+            "1272125": {
+                "name": "Sleepingfox",
+                "level": 30,
+                "days_in_faction": 213,
+                "last_action": {
+                    "status": "Offline",
+                    "timestamp": 1630285539,
+                    "relative": "7 days ago"
+                },
+                "status": {
+                    "description": "Okay",
+                    "details": "",
+                    "state": "Okay",
+                    "color": "green",
+                    "until": 0
+                },
+                "position": "Comrades"
+            },
+            "1274944": {
+                "name": "trigger11",
+                "level": 22,
+                "days_in_faction": 195,
+                "last_action": {
+                    "status": "Offline",
+                    "timestamp": 1630382893,
+                    "relative": "6 days ago"
+                },
+                "status": {
+                    "description": "Okay",
+                    "details": "",
+                    "state": "Okay",
+                    "color": "green",
+                    "until": 0
+                },
+                "position": "Comrades"
+            },
+            "1361985": {
+                "name": "Jobsworth",
+                "level": 60,
+                "days_in_faction": 507,
+                "last_action": {
+                    "status": "Offline",
+                    "timestamp": 1630660264,
+                    "relative": "3 days ago"
+                },
+                "status": {
+                    "description": "Okay",
+                    "details": "",
+                    "state": "Okay",
+                    "color": "green",
+                    "until": 0
+                },
+                "position": "Leader"
+            },
+            "2114430": {
+                "name": "BubbleVanilla",
+                "level": 45,
+                "days_in_faction": 221,
+                "last_action": {
+                    "status": "Offline",
+                    "timestamp": 1630918434,
+                    "relative": "4 hours ago"
+                },
+                "status": {
+                    "description": "Okay",
+                    "details": "",
+                    "state": "Okay",
+                    "color": "green",
+                    "until": 0
+                },
+                "position": "Vice Co Leader"
+            },
+            "2390523": {
+                "name": "Timbits",
+                "level": 69,
+                "days_in_faction": 147,
+                "last_action": {
+                    "status": "Offline",
+                    "timestamp": 1627816450,
+                    "relative": "36 days ago"
+                },
+                "status": {
+                    "description": "Okay",
+                    "details": "",
+                    "state": "Okay",
+                    "color": "green",
+                    "until": 0
+                },
+                "position": "Co-leader"
+            },
+            "2429761": {
+                "name": "dez433",
+                "level": 26,
+                "days_in_faction": 216,
+                "last_action": {
+                    "status": "Idle",
+                    "timestamp": 1630932113,
+                    "relative": "12 minutes ago"
+                },
+                "status": {
+                    "description": "Returning to Torn from UAE",
+                    "details": "",
+                    "state": "Traveling",
+                    "color": "blue",
+                    "until": 0
+                },
+                "position": "Boss"
+            },
+            "2496911": {
+                "name": "Emily_Hatake",
+                "level": 18,
+                "days_in_faction": 43,
+                "last_action": {
+                    "status": "Offline",
+                    "timestamp": 1630886418,
+                    "relative": "12 hours ago"
+                },
+                "status": {
+                    "description": "Okay",
+                    "details": "",
+                    "state": "Okay",
+                    "color": "green",
+                    "until": 0
+                },
+                "position": "Comrades"
+            },
+            "2516881": {
+                "name": "ED-E_Fisto",
+                "level": 32,
+                "days_in_faction": 41,
+                "last_action": {
+                    "status": "Idle",
+                    "timestamp": 1630930015,
+                    "relative": "47 minutes ago"
+                },
+                "status": {
+                    "description": "Okay",
+                    "details": "",
+                    "state": "Okay",
+                    "color": "green",
+                    "until": 0
+                },
+                "position": "Comrades"
+            },
+            "2642809": {
+                "name": "Maling",
+                "level": 23,
+                "days_in_faction": 221,
+                "last_action": {
+                    "status": "Offline",
+                    "timestamp": 1630931369,
+                    "relative": "24 minutes ago"
+                },
+                "status": {
+                    "description": "Okay",
+                    "details": "",
+                    "state": "Okay",
+                    "color": "green",
+                    "until": 0
+                },
+                "position": "Comrades"
+            },
+            "2651160": {
+                "name": "Agathon",
+                "level": 18,
+                "days_in_faction": 221,
+                "last_action": {
+                    "status": "Offline",
+                    "timestamp": 1630914115,
+                    "relative": "5 hours ago"
+                },
+                "status": {
+                    "description": "Okay",
+                    "details": "",
+                    "state": "Okay",
+                    "color": "green",
+                    "until": 0
+                },
+                "position": "Comrades"
+            }
+        },
+        "peace": {
+            "8795": 1630951833,
+            "8938": 1630951296
+        },
+        "territory_wars": [
+            {
+                "territory": "JGB",
+                "assaulting_faction": 355,
+                "defending_faction": 8422,
+                "score": 0,
+                "required_score": 950000,
+                "start_time": 1630685472,
+                "end_time": 1630944672
+            },
+            {
+                "territory": "MGB",
+                "assaulting_faction": 8422,
+                "defending_faction": 355,
+                "score": 328003,
+                "required_score": 1100000,
+                "start_time": 1630864183,
+                "end_time": 1631123383
+            }
+        ],
+        "raid_wars": [
+            {
+                "raiding_faction": 30695,
+                "defending_faction": 40256,
+                "raider_score": "3273.81",
+                "defender_score": 0,
+                "start_time": 1586959630
+            }
+        ]
+    },
+    "faction_basic_with_id": {
+        "ID": 39894,
+        "name": "Synthetic Kingdom Recluse",
+        "tag": "SK",
+        "tag_image": "123-234.png",
+        "leader": 1361985,
+        "co-leader": 2390523,
+        "respect": 92969,
+        "age": 1397,
+        "capacity": 40,
+        "best_chain": 100,
+        "rank": {
+            "level": 1,
+            "name": "Unranked",
+            "division": 2,
+            "position": 3
+        },
+        "ranked_wars": {
+            "495": {
+                "factions": {
+                    "7969": {
+                        "name": "Killer Mafia Kings",
+                        "score": 26824,
+                        "chain": 0
+                    },
+                    "14581": {
+                        "name": "Stygian: Underworld",
+                        "score": 24724,
+                        "chain": 0
+                    }
+                },
+                "war": {
+                    "start": 1644328800,
+                    "end": 1644664193,
+                    "target": 2100,
+                    "winner": 7969
+                }
+            }
+        },
         "members": {
             "65658": {
                 "name": "evility",
