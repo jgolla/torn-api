@@ -62,6 +62,7 @@ export interface IFactionRank {
     name: string;
     division: number;
     position: number;
+    wins: number;
 }
 
 export interface IPeace {
