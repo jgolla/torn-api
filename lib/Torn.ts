@@ -83,8 +83,8 @@ export class Torn extends TornAPIBase {
         return this.apiQueryToArray({ route: 'torn', selection: 'gyms' }, 'id');
     }
 
-    async honors(): Promise<IHonor[] | ITornApiError> {
-        return this.apiQueryToArray({ route: 'torn', selection: 'honors' }, 'id');
+    async honors(id?: string): Promise<IHonor[] | ITornApiError> {
+        return this.apiQueryToArray({ route: 'torn', selection: 'honors', id: id }, 'id');
     }
 
     async items(): Promise<IItem[] | ITornApiError> {

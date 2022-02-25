@@ -1079,6 +1079,7 @@ export interface IHonor {
     type: number;
     circulation: number;
     rarity: string;
+    equipped: number;
 }
 
 export interface IMedal {
