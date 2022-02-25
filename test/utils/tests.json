@@ -12942,1456 +12942,1349 @@
                 "name": "I'm Watching You",
                 "description": "Find 50 items in the city",
                 "type": 16,
-                "circulation": 55331,
+                "circulation": 60087,
+                "equipped": 355,
                 "rarity": "Common"
             },
             "2": {
                 "name": "Smokin' Barrels",
                 "description": "Achieve 5,000 theft crimes",
                 "type": 5,
-                "circulation": 23224,
+                "circulation": 25149,
+                "equipped": 193,
                 "rarity": "Uncommon"
             },
             "3": {
                 "name": "Moneybags",
                 "description": "Invest $100,000,000 in the stock market",
                 "type": 14,
-                "circulation": 38863,
+                "circulation": 43788,
+                "equipped": 540,
                 "rarity": "Common"
             },
             "4": {
                 "name": "Intern",
                 "description": "Use 100 job points",
                 "type": 0,
-                "circulation": 84508,
+                "circulation": 94307,
+                "equipped": 3353,
                 "rarity": "Very Common"
             },
             "5": {
                 "name": "Journalist",
                 "description": "Have an article accepted in the newspaper",
                 "type": 0,
-                "circulation": 211,
+                "circulation": 220,
+                "equipped": 47,
                 "rarity": "Extremely Rare"
             },
             "6": {
                 "name": "Find A Penny, Pick It Up",
                 "description": "Achieve 5,000 other crimes",
                 "type": 5,
-                "circulation": 7327,
+                "circulation": 7820,
+                "equipped": 98,
                 "rarity": "Limited"
             },
             "7": {
                 "name": "Magical Veins",
                 "description": "Use 5,000 medical items",
                 "type": 15,
-                "circulation": 9884,
+                "circulation": 11436,
+                "equipped": 42,
                 "rarity": "Limited"
             },
             "8": {
                 "name": "Loan Shark",
                 "description": "Achieve a high credit score with Duke",
                 "type": 14,
-                "circulation": 19434,
+                "circulation": 21220,
+                "equipped": 321,
                 "rarity": "Uncommon"
             },
             "9": {
                 "name": "Luxury Real Estate",
                 "description": "Buy an airstrip for a property",
                 "type": 0,
-                "circulation": 34055,
+                "circulation": 36209,
+                "equipped": 786,
                 "rarity": "Common"
             },
             "10": {
                 "name": "Green, Green Grass",
-                "description": "Make an investment in the city bank of over $1,000,000,000",
+                "description": "Make an investment in the city bank of $1,000,000,000 or more",
                 "type": 14,
-                "circulation": 31654,
+                "circulation": 34455,
+                "equipped": 361,
                 "rarity": "Common"
             },
             "11": {
                 "name": "Mile High Club",
                 "description": "Travel 100 times",
                 "type": 7,
-                "circulation": 54797,
+                "circulation": 58384,
+                "equipped": 348,
                 "rarity": "Common"
             },
             "12": {
                 "name": "Pocket Money",
                 "description": "Make an investment in the city bank",
                 "type": 14,
-                "circulation": 278576,
+                "circulation": 292661,
+                "equipped": 29972,
                 "rarity": "Very Common"
             },
             "13": {
                 "name": "The Beautiful City",
                 "description": "Reach level 75",
                 "type": 12,
-                "circulation": 7325,
+                "circulation": 8611,
+                "equipped": 55,
                 "rarity": "Limited"
             },
             "14": {
                 "name": "Slow Bomb",
                 "description": "Use a dirty bomb",
                 "type": 0,
-                "circulation": 70,
+                "circulation": 73,
+                "equipped": 6,
                 "rarity": "Extremely Rare"
             },
             "15": {
                 "name": "Kill Streaker 1",
                 "description": "Achieve a best killstreak of 10",
                 "type": 8,
-                "circulation": 186264,
+                "circulation": 195128,
+                "equipped": 7259,
                 "rarity": "Very Common"
             },
             "16": {
                 "name": "Kill Streaker 2",
                 "description": "Achieve a best killstreak of 100",
                 "type": 8,
-                "circulation": 25636,
-                "rarity": "Uncommon"
+                "circulation": 27841,
+                "equipped": 413,
+                "rarity": "Common"
             },
             "17": {
                 "name": "Kill Streaker 3",
                 "description": "Achieve a best killstreak of 500",
                 "type": 8,
-                "circulation": 2725,
+                "circulation": 2992,
+                "equipped": 169,
                 "rarity": "Rare"
             },
             "18": {
                 "name": "Another Brick In The Wall",
                 "description": "Reach level 10",
                 "type": 12,
-                "circulation": 258389,
+                "circulation": 267408,
+                "equipped": 6104,
                 "rarity": "Very Common"
             },
             "19": {
                 "name": "Stock Analyst",
                 "description": "Achieve excellent success in the stock market",
                 "type": 14,
-                "circulation": 6177,
-                "rarity": "Rare"
+                "circulation": 7096,
+                "equipped": 233,
+                "rarity": "Limited"
             },
             "20": {
                 "name": "Precision",
                 "description": "Achieve 25 critical hits",
                 "type": 8,
-                "circulation": 232493,
+                "circulation": 244292,
+                "equipped": 4376,
                 "rarity": "Very Common"
             },
             "21": {
                 "name": "Driving Elite",
                 "description": "Reach racing class A",
                 "type": 0,
-                "circulation": 25970,
-                "rarity": "Uncommon"
+                "circulation": 28059,
+                "equipped": 623,
+                "rarity": "Common"
             },
             "22": {
                 "name": "Self Defense",
                 "description": "Win 50 defends",
                 "type": 8,
-                "circulation": 57958,
+                "circulation": 62408,
+                "equipped": 343,
                 "rarity": "Common"
             },
             "23": {
                 "name": "Florence Nightingale",
                 "description": "Revive 500 people",
                 "type": 15,
-                "circulation": 3041,
+                "circulation": 3539,
+                "equipped": 201,
                 "rarity": "Rare"
             },
             "24": {
                 "name": "Fire Starter",
                 "description": "Achieve 5,000 arson/fraud crimes",
                 "type": 5,
-                "circulation": 17887,
+                "circulation": 20191,
+                "equipped": 215,
                 "rarity": "Uncommon"
             },
             "25": {
                 "name": "Candy Man",
                 "description": "Achieve 1,000 theft crimes",
                 "type": 5,
-                "circulation": 116474,
+                "circulation": 120832,
+                "equipped": 2248,
                 "rarity": "Very Common"
             },
             "26": {
                 "name": "Spaced Out",
                 "description": "Overdose on Cannabis",
                 "type": 6,
-                "circulation": 1026,
+                "circulation": 1093,
+                "equipped": 197,
                 "rarity": "Very Rare"
             },
             "27": {
                 "name": "Night Walker",
                 "description": "Make 100 stealthed attacks",
                 "type": 8,
-                "circulation": 82323,
+                "circulation": 86940,
+                "equipped": 1498,
                 "rarity": "Very Common"
             },
             "28": {
                 "name": "Machinist",
                 "description": "Achieve 100 finishing hits with mechanical weapons",
                 "type": 2,
-                "circulation": 17982,
+                "circulation": 21405,
+                "equipped": 140,
                 "rarity": "Uncommon"
             },
             "29": {
                 "name": "Who's Frank?",
                 "description": "Use 50 Cannabis",
                 "type": 6,
-                "circulation": 14040,
+                "circulation": 14966,
+                "equipped": 417,
                 "rarity": "Uncommon"
             },
             "30": {
                 "name": "Party Animal",
                 "description": "Use 50 Ecstasy",
                 "type": 6,
-                "circulation": 24874,
+                "circulation": 26410,
+                "equipped": 532,
                 "rarity": "Uncommon"
             },
             "31": {
                 "name": "Horse Tranquilizer",
                 "description": "Use 50 Ketamine",
                 "type": 6,
-                "circulation": 5482,
+                "circulation": 5984,
+                "equipped": 44,
                 "rarity": "Rare"
             },
             "32": {
                 "name": "Acid Dream",
                 "description": "Use 50 LSD",
                 "type": 6,
-                "circulation": 9071,
+                "circulation": 9780,
+                "equipped": 352,
                 "rarity": "Limited"
             },
             "33": {
                 "name": "The Fields Of Opium",
                 "description": "Use 50 Opium",
                 "type": 6,
-                "circulation": 3716,
+                "circulation": 4127,
+                "equipped": 69,
                 "rarity": "Rare"
             },
             "34": {
                 "name": "I Think I See Dead People",
                 "description": "Use 50 Shrooms",
                 "type": 6,
-                "circulation": 4995,
+                "circulation": 5441,
+                "equipped": 180,
                 "rarity": "Rare"
             },
             "35": {
                 "name": "Crank It Up",
                 "description": "Use 50 Speed",
                 "type": 6,
-                "circulation": 3135,
+                "circulation": 3476,
+                "equipped": 22,
                 "rarity": "Rare"
             },
             "36": {
                 "name": "Angel Dust",
                 "description": "Use 50 PCP",
                 "type": 6,
-                "circulation": 3386,
+                "circulation": 3744,
+                "equipped": 69,
                 "rarity": "Rare"
             },
             "37": {
                 "name": "Free Energy",
                 "description": "Use 50 Xanax",
                 "type": 6,
-                "circulation": 48062,
+                "circulation": 52010,
+                "equipped": 379,
                 "rarity": "Common"
             },
             "38": {
                 "name": "Painkiller",
                 "description": "Use 50 Vicodin",
                 "type": 6,
-                "circulation": 20041,
+                "circulation": 20989,
+                "equipped": 216,
                 "rarity": "Uncommon"
             },
             "39": {
                 "name": "Woodland Camo",
                 "description": "Win 5 attacks",
                 "type": 3,
-                "circulation": 292773,
+                "circulation": 304548,
+                "equipped": 20509,
                 "rarity": "Very Common"
             },
             "40": {
                 "name": "Desert Storm Camo",
                 "description": "Win 20 attacks",
                 "type": 3,
-                "circulation": 211464,
+                "circulation": 220699,
+                "equipped": 6678,
                 "rarity": "Very Common"
             },
             "41": {
                 "name": "Urban Camo",
                 "description": "Win 50 attacks",
                 "type": 3,
-                "circulation": 163812,
+                "circulation": 171585,
+                "equipped": 3246,
                 "rarity": "Very Common"
             },
             "42": {
                 "name": "Arctic Camo",
                 "description": "Win 100 attacks",
                 "type": 3,
-                "circulation": 126320,
+                "circulation": 132903,
+                "equipped": 2375,
                 "rarity": "Very Common"
             },
             "43": {
                 "name": "Fall Camo",
                 "description": "Win 250 attacks",
                 "type": 3,
-                "circulation": 82176,
+                "circulation": 86983,
+                "equipped": 818,
                 "rarity": "Very Common"
             },
             "44": {
                 "name": "Yellow Camo",
                 "description": "Win 500 attacks",
                 "type": 3,
-                "circulation": 55843,
+                "circulation": 59605,
+                "equipped": 423,
                 "rarity": "Common"
             },
             "45": {
                 "name": "Digital Camo",
                 "description": "Win 1,000 attacks",
                 "type": 3,
-                "circulation": 36625,
+                "circulation": 39886,
+                "equipped": 145,
                 "rarity": "Common"
             },
             "46": {
                 "name": "Red Camo",
                 "description": "Win 2,000 attacks",
                 "type": 3,
-                "circulation": 21959,
+                "circulation": 24732,
+                "equipped": 135,
                 "rarity": "Uncommon"
             },
             "47": {
                 "name": "Blue Camo",
                 "description": "Win 3,000 attacks",
                 "type": 3,
-                "circulation": 15181,
+                "circulation": 17392,
+                "equipped": 171,
                 "rarity": "Uncommon"
             },
             "48": {
                 "name": "Orange Camo",
                 "description": "Win 4,000 attacks",
                 "type": 3,
-                "circulation": 11144,
+                "circulation": 12997,
+                "equipped": 87,
                 "rarity": "Limited"
             },
             "49": {
                 "name": "Pink Camo",
                 "description": "Win 5,000 attacks",
                 "type": 3,
-                "circulation": 8323,
+                "circulation": 9863,
+                "equipped": 142,
                 "rarity": "Limited"
             },
             "50": {
                 "name": "Zebra Skin",
                 "description": "Achieve 50 skill in hunting",
                 "type": 3,
-                "circulation": 17238,
+                "circulation": 18077,
+                "equipped": 202,
                 "rarity": "Uncommon"
             },
             "51": {
                 "name": "Leopard Skin",
                 "description": "Achieve 75 skill in hunting",
                 "type": 3,
-                "circulation": 10525,
+                "circulation": 10967,
+                "equipped": 262,
                 "rarity": "Limited"
             },
             "52": {
                 "name": "Tiger Skin",
                 "description": "Achieve 100 skill in hunting",
                 "type": 3,
-                "circulation": 2610,
+                "circulation": 2704,
+                "equipped": 169,
                 "rarity": "Very Rare"
             },
             "53": {
                 "name": "Biology Bachelor",
                 "description": "Complete all classes in Biology",
                 "type": 4,
-                "circulation": 45130,
+                "circulation": 49332,
+                "equipped": 789,
                 "rarity": "Common"
             },
             "54": {
                 "name": "Business Bachelor",
                 "description": "Complete all classes in Business",
                 "type": 4,
-                "circulation": 31417,
+                "circulation": 34116,
+                "equipped": 692,
                 "rarity": "Common"
             },
             "55": {
                 "name": "Combat Bachelor",
                 "description": "Complete all classes in Combat",
                 "type": 4,
-                "circulation": 43964,
+                "circulation": 47171,
+                "equipped": 1001,
                 "rarity": "Common"
             },
             "56": {
                 "name": "ICT Bachelor",
                 "description": "Complete all classes in ICT",
                 "type": 4,
-                "circulation": 39049,
+                "circulation": 41524,
+                "equipped": 1082,
                 "rarity": "Common"
             },
             "57": {
                 "name": "Defense Bachelor",
                 "description": "Complete all classes in Defense",
                 "type": 4,
-                "circulation": 50260,
+                "circulation": 53810,
+                "equipped": 1122,
                 "rarity": "Common"
             },
             "58": {
                 "name": "General Bachelor",
                 "description": "Complete all classes in General Studies",
                 "type": 4,
-                "circulation": 46411,
+                "circulation": 49228,
+                "equipped": 652,
                 "rarity": "Common"
             },
             "59": {
                 "name": "Fitness Bachelor",
                 "description": "Complete all classes in Health & Fitness",
                 "type": 4,
-                "circulation": 35779,
+                "circulation": 38528,
+                "equipped": 288,
                 "rarity": "Common"
             },
             "60": {
                 "name": "History Bachelor",
                 "description": "Complete all classes in History",
                 "type": 4,
-                "circulation": 45739,
+                "circulation": 48826,
+                "equipped": 806,
                 "rarity": "Common"
             },
             "61": {
                 "name": "Law Bachelor",
                 "description": "Complete all classes in Law",
                 "type": 4,
-                "circulation": 22665,
+                "circulation": 24539,
+                "equipped": 504,
                 "rarity": "Uncommon"
             },
             "62": {
                 "name": "Mathematics Bachelor",
                 "description": "Complete all classes in Mathematics",
                 "type": 4,
-                "circulation": 20143,
+                "circulation": 21636,
+                "equipped": 224,
                 "rarity": "Uncommon"
             },
             "63": {
                 "name": "Psychology Bachelor",
                 "description": "Complete all classes in Psychology",
                 "type": 4,
-                "circulation": 39894,
+                "circulation": 43316,
+                "equipped": 710,
                 "rarity": "Common"
             },
             "64": {
                 "name": "Sports Bachelor",
                 "description": "Complete all classes in Sports Science",
                 "type": 4,
-                "circulation": 45504,
+                "circulation": 49378,
+                "equipped": 328,
                 "rarity": "Common"
             },
             "65": {
                 "name": "United States",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 227,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "66": {
                 "name": "Argentina",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 104,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "67": {
                 "name": "Australia",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 105,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "68": {
                 "name": "Austria",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 106,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "69": {
                 "name": "Bangladesh",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 108,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "70": {
                 "name": "Belgium",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 111,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "71": {
                 "name": "Bosnia & Herzegovina",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 113,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "72": {
                 "name": "Brazil",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 115,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "73": {
                 "name": "Brunei",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 116,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "74": {
                 "name": "Bulgaria",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 117,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "75": {
                 "name": "Canada",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 119,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "76": {
                 "name": "China",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 122,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "77": {
                 "name": "Croatia",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 126,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "78": {
                 "name": "Czech",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 129,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "79": {
                 "name": "Denmark",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 130,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "80": {
                 "name": "Egypt",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 132,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "81": {
                 "name": "El Salvador",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 133,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "82": {
                 "name": "Estonia",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 135,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "83": {
                 "name": "Finland",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 138,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "84": {
                 "name": "France",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 140,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "85": {
                 "name": "Germany",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 142,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "86": {
                 "name": "Greece",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 144,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "87": {
                 "name": "Guyana",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 146,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "88": {
                 "name": "Hong Kong",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 149,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "89": {
                 "name": "Hungary",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 150,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "90": {
                 "name": "India",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 152,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "91": {
                 "name": "Indonesia",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 153,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "92": {
                 "name": "Iran",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 154,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "93": {
                 "name": "Iraq",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 155,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "94": {
                 "name": "Ireland",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 156,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "95": {
                 "name": "Israel",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 157,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "96": {
                 "name": "Italy",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 158,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "97": {
                 "name": "Japan",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 160,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "98": {
                 "name": "Latvia",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 167,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "99": {
                 "name": "Lebanon",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 168,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "100": {
                 "name": "Lithuania",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 170,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "101": {
                 "name": "Malaysia",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 172,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "102": {
                 "name": "Malta",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 174,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "103": {
                 "name": "Mauritius",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 175,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "104": {
                 "name": "Mexico",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 176,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "105": {
                 "name": "Myanmar",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 181,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "106": {
                 "name": "Netherlands",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 184,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "107": {
                 "name": "New Zealand",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 185,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "108": {
                 "name": "Norway",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 189,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "109": {
                 "name": "Pakistan",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 191,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "110": {
                 "name": "Philippines",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 195,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "111": {
                 "name": "Poland",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 196,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "112": {
                 "name": "Portugal",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 197,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "113": {
                 "name": "Russia",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 201,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "114": {
                 "name": "Saudi Arabia",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 202,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "115": {
                 "name": "Serbia",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 204,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "116": {
                 "name": "Singapore",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 206,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "117": {
                 "name": "Slovakia",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 207,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "118": {
                 "name": "Slovenia",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 208,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "119": {
                 "name": "South Africa",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 210,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "120": {
                 "name": "South Korea",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 211,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "121": {
                 "name": "Spain",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 212,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "122": {
                 "name": "Sweden",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 215,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "123": {
                 "name": "Switzerland",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 216,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "124": {
                 "name": "Thailand",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 219,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "125": {
                 "name": "Turkey",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 221,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "126": {
                 "name": "United Arab Emirates",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 224,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "127": {
                 "name": "United Kingdom",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 225,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "128": {
                 "name": "Vietnam",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 230,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "129": {
                 "name": "Wales",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 231,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "130": {
                 "name": "Maradona",
                 "description": "Travel to Argentina 50 times",
                 "type": 7,
-                "circulation": 20962,
+                "circulation": 22813,
+                "equipped": 51,
                 "rarity": "Uncommon"
             },
             "131": {
                 "name": "Cascado",
                 "description": "Travel to Mexico 50 times",
                 "type": 7,
-                "circulation": 25407,
-                "rarity": "Uncommon"
+                "circulation": 27651,
+                "equipped": 55,
+                "rarity": "Common"
             },
             "132": {
                 "name": "Land Of Promise",
                 "description": "Travel to the United Arab Emirates 50 times",
                 "type": 7,
-                "circulation": 20780,
+                "circulation": 22704,
+                "equipped": 207,
                 "rarity": "Uncommon"
             },
             "133": {
                 "name": "Hula",
                 "description": "Travel to Hawaii 50 times",
                 "type": 7,
-                "circulation": 15960,
+                "circulation": 17522,
+                "equipped": 34,
                 "rarity": "Uncommon"
             },
             "134": {
                 "name": "The Rising Sun",
                 "description": "Travel to Japan 50 times",
                 "type": 7,
-                "circulation": 15574,
+                "circulation": 17011,
+                "equipped": 158,
                 "rarity": "Uncommon"
             },
             "135": {
                 "name": "British Pride",
                 "description": "Travel to the United Kingdom 50 times",
                 "type": 7,
-                "circulation": 24647,
+                "circulation": 26671,
+                "equipped": 124,
                 "rarity": "Uncommon"
             },
             "136": {
                 "name": "Cape Town",
                 "description": "Travel to South Africa 50 times",
                 "type": 7,
-                "circulation": 25686,
-                "rarity": "Uncommon"
+                "circulation": 27904,
+                "equipped": 133,
+                "rarity": "Common"
             },
             "137": {
                 "name": "Like The Celebs",
                 "description": "Travel to Switzerland 50 times",
                 "type": 7,
-                "circulation": 24332,
+                "circulation": 26672,
+                "equipped": 80,
                 "rarity": "Uncommon"
             },
             "138": {
                 "name": "Year Of The Dragon",
                 "description": "Travel to China 50 times",
                 "type": 7,
-                "circulation": 21511,
+                "circulation": 23519,
+                "equipped": 313,
                 "rarity": "Uncommon"
             },
             "139": {
                 "name": "Toronto",
                 "description": "Travel to Canada 50 times",
                 "type": 7,
-                "circulation": 24348,
+                "circulation": 26493,
+                "equipped": 68,
                 "rarity": "Uncommon"
             },
             "140": {
                 "name": "Spray And Pray",
                 "description": "Fire 1,000 rounds",
                 "type": 8,
-                "circulation": 160244,
+                "circulation": 168361,
+                "equipped": 1958,
                 "rarity": "Very Common"
             },
             "141": {
                 "name": "Stumped",
                 "description": "Achieve 100 finishing hits with heavy artillery",
                 "type": 2,
-                "circulation": 17729,
+                "circulation": 18711,
+                "equipped": 101,
                 "rarity": "Uncommon"
             },
             "142": {
                 "name": "Axe Wound",
                 "description": "Achieve 100 finishing hits with clubbing weapons",
                 "type": 2,
-                "circulation": 33520,
+                "circulation": 36158,
+                "equipped": 428,
                 "rarity": "Common"
             },
             "143": {
                 "name": "Pin Puller",
                 "description": "Achieve 100 finishing hits with temporary weapons",
                 "type": 2,
-                "circulation": 15721,
+                "circulation": 17395,
+                "equipped": 210,
                 "rarity": "Uncommon"
             },
             "144": {
                 "name": "Lend A Hand",
                 "description": "Achieve 100 finishing hits with machine guns",
                 "type": 2,
-                "circulation": 17152,
+                "circulation": 18611,
+                "equipped": 63,
                 "rarity": "Uncommon"
             },
             "145": {
                 "name": "Yours Says Replica...",
                 "description": "Achieve 100 finishing hits with pistols",
                 "type": 2,
-                "circulation": 25642,
+                "circulation": 27396,
+                "equipped": 211,
                 "rarity": "Uncommon"
             },
             "146": {
                 "name": "2800 Ft/S",
                 "description": "Achieve 100 finishing hits with rifles",
                 "type": 2,
-                "circulation": 46730,
+                "circulation": 50024,
+                "equipped": 521,
                 "rarity": "Common"
             },
             "147": {
                 "name": "Cartridge Packer",
                 "description": "Achieve 100 finishing hits with shotguns",
                 "type": 2,
-                "circulation": 23474,
+                "circulation": 24959,
+                "equipped": 243,
                 "rarity": "Uncommon"
             },
             "148": {
                 "name": "Act Of Faith",
                 "description": "Achieve 100 finishing hits with SMGs",
                 "type": 2,
-                "circulation": 25370,
+                "circulation": 26888,
+                "equipped": 261,
                 "rarity": "Uncommon"
             },
             "149": {
                 "name": "The Stabbist",
                 "description": "Achieve 100 finishing hits with piercing weapons",
                 "type": 2,
-                "circulation": 69086,
+                "circulation": 74012,
+                "equipped": 1025,
                 "rarity": "Common"
             },
             "150": {
                 "name": "Slasher",
                 "description": "Achieve 100 finishing hits with slashing weapons",
                 "type": 2,
-                "circulation": 51462,
+                "circulation": 54263,
+                "equipped": 1099,
                 "rarity": "Common"
             },
             "151": {
                 "name": "Two Halves Make A Hole",
                 "description": "Fire 10,000 rounds",
                 "type": 8,
-                "circulation": 48042,
+                "circulation": 51843,
+                "equipped": 150,
                 "rarity": "Common"
             },
             "152": {
                 "name": "Civil Offence",
                 "description": "Achieve 5,000 bootlegging crimes",
                 "type": 5,
-                "circulation": 5029,
+                "circulation": 5454,
+                "equipped": 81,
                 "rarity": "Rare"
             },
             "153": {
                 "name": "Escobar",
                 "description": "Achieve 5,000 drug dealing crimes",
                 "type": 5,
-                "circulation": 2057,
+                "circulation": 2378,
+                "equipped": 133,
                 "rarity": "Very Rare"
             },
             "154": {
                 "name": "Stroke Bringer",
                 "description": "Achieve 10,000 theft crimes",
                 "type": 5,
-                "circulation": 9206,
+                "circulation": 10192,
+                "equipped": 88,
                 "rarity": "Limited"
             },
             "155": {
                 "name": "We Have A Breach",
                 "description": "Achieve 5,000 computer crimes",
                 "type": 5,
-                "circulation": 6686,
-                "rarity": "Rare"
+                "circulation": 7394,
+                "equipped": 144,
+                "rarity": "Limited"
             },
             "156": {
                 "name": "RDD",
                 "description": "Use a dirty bomb",
                 "type": 0,
-                "circulation": 70,
+                "circulation": 73,
+                "equipped": 27,
                 "rarity": "Extremely Rare"
             },
             "157": {
                 "name": "Smile, You're On Camera",
                 "description": "Achieve 2,500 theft crimes",
                 "type": 5,
-                "circulation": 57410,
+                "circulation": 60431,
+                "equipped": 834,
                 "rarity": "Common"
             },
             "158": {
                 "name": "Breaking And Entering",
                 "description": "Achieve 7,500 theft crimes",
                 "type": 5,
-                "circulation": 12721,
-                "rarity": "Limited"
+                "circulation": 13976,
+                "equipped": 100,
+                "rarity": "Uncommon"
             },
             "159": {
                 "name": "Professional",
                 "description": "Achieve 5,000 murder crimes",
                 "type": 5,
-                "circulation": 1789,
+                "circulation": 1962,
+                "equipped": 71,
                 "rarity": "Very Rare"
             },
             "160": {
                 "name": "Joy Rider",
                 "description": "Achieve 5,000 auto theft crimes",
                 "type": 5,
-                "circulation": 5563,
+                "circulation": 6000,
+                "equipped": 162,
                 "rarity": "Rare"
             },
             "161": {
                 "name": "Bug",
                 "description": "Achieve 1,000 computer crimes",
                 "type": 5,
-                "circulation": 23270,
+                "circulation": 24899,
+                "equipped": 638,
                 "rarity": "Uncommon"
             },
             "162": {
                 "name": "Chasm",
                 "description": "Stay married for 750 days",
                 "type": 11,
-                "circulation": 59028,
+                "circulation": 62366,
+                "equipped": 1839,
                 "rarity": "Common"
             },
             "163": {
                 "name": "Fascination",
                 "description": "Stay married for 250 days",
                 "type": 11,
-                "circulation": 97435,
+                "circulation": 102168,
+                "equipped": 4569,
                 "rarity": "Very Common"
             },
             "164": {
                 "name": "Stuck in a Rut",
                 "description": "Use 1,000 job points",
                 "type": 0,
-                "circulation": 50081,
+                "circulation": 57868,
+                "equipped": 635,
                 "rarity": "Common"
             },
             "165": {
                 "name": "There And Back",
                 "description": "Travel 1,000 times",
                 "type": 7,
-                "circulation": 12471,
-                "rarity": "Limited"
+                "circulation": 14430,
+                "equipped": 203,
+                "rarity": "Uncommon"
             },
             "166": {
                 "name": "Stairway To Heaven",
                 "description": "Stay married for 1,500 days",
                 "type": 11,
-                "circulation": 34042,
+                "circulation": 35305,
+                "equipped": 834,
                 "rarity": "Common"
             },
             "167": {
                 "name": "Velutinous",
                 "description": "Have a comic accepted in the newspaper",
                 "type": 0,
-                "circulation": 368,
+                "circulation": 421,
+                "equipped": 112,
                 "rarity": "Very Rare"
             },
             "168": {
                 "name": "Standard Bar",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 1,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "169": {
                 "name": "Default",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 0,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "170": {
                 "name": "England",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 134,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "171": {
                 "name": "Afghanistan",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 100,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "172": {
                 "name": "Albania",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 101,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "173": {
                 "name": "Andorra",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 103,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "174": {
                 "name": "Bahrain",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 107,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "175": {
                 "name": "Barbados",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 109,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "176": {
                 "name": "Belarus",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 110,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "177": {
                 "name": "Cambodia",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 118,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "178": {
                 "name": "Chile",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 121,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "179": {
                 "name": "Colombia",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 123,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "181": {
                 "name": "Cyprus",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 128,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "182": {
                 "name": "Former USSR",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 139,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "183": {
                 "name": "Ghana",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 143,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "184": {
                 "name": "Greenland",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 145,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "186": {
                 "name": "Haiti",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 147,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "188": {
                 "name": "Iceland",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 151,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "189": {
                 "name": "Jamaica",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 159,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "190": {
                 "name": "Jolly Roger",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 161,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "191": {
                 "name": "Kazakhstan",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 163,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "192": {
                 "name": "Kuwait",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 165,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "193": {
                 "name": "Laos",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 166,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "194": {
                 "name": "Morocco",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 180,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "196": {
                 "name": "Nepal",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 183,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "197": {
                 "name": "Nigeria",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 186,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "198": {
                 "name": "Northern Ireland",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 188,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "199": {
                 "name": "Oman",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 190,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "200": {
                 "name": "Palestine",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 192,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "201": {
                 "name": "Peru",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 194,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "202": {
                 "name": "Puerto Rico",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 198,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "203": {
                 "name": "Qatar",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 199,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "204": {
                 "name": "Gay Pride",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 141,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "205": {
                 "name": "Romania",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 200,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "206": {
                 "name": "Scotland",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 203,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "207": {
                 "name": "Sri Lanka",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 213,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "208": {
                 "name": "Taiwan",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 217,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "209": {
                 "name": "Tunisia",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 220,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "210": {
                 "name": "Ukraine",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 223,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "211": {
                 "name": "United Nations",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 226,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "212": {
                 "name": "Mission Accomplished",
                 "description": "Finish the Elimination competition with your team in 1st, 2nd or 3rd",
                 "type": 13,
-                "circulation": 31673,
+                "circulation": 32735,
+                "equipped": 1566,
                 "rarity": "Common"
             },
             "213": {
@@ -14399,55 +14292,63 @@
                 "description": "Participate in the Mr & Ms Torn competition",
                 "type": 13,
                 "circulation": 6807,
-                "rarity": "Limited"
+                "equipped": 203,
+                "rarity": "Rare"
             },
             "214": {
                 "name": "Jack Of All Trades",
                 "description": "Complete the 4th stage of the TC endurance challenge",
                 "type": 13,
                 "circulation": 12740,
+                "equipped": 457,
                 "rarity": "Limited"
             },
             "215": {
                 "name": "Labyrinth",
                 "description": "Purchased from the Token Shop",
                 "type": 13,
-                "circulation": 7397,
+                "circulation": 7699,
+                "equipped": 333,
                 "rarity": "Limited"
             },
             "216": {
                 "name": "Silicon Valley",
                 "description": "Code 100 viruses",
                 "type": 0,
-                "circulation": 6027,
+                "circulation": 6578,
+                "equipped": 129,
                 "rarity": "Rare"
             },
             "217": {
                 "name": "Two's Company",
                 "description": "Refer one friend to Torn who goes on to reach level 10",
                 "type": 11,
-                "circulation": 27981,
+                "circulation": 29527,
+                "equipped": 357,
                 "rarity": "Common"
             },
             "218": {
                 "name": "Three's a Crowd",
                 "description": "Refer two friends to Torn who go on to reach level 10",
                 "type": 11,
-                "circulation": 9749,
+                "circulation": 10267,
+                "equipped": 191,
                 "rarity": "Limited"
             },
             "219": {
                 "name": "Social Butterfly",
                 "description": "Refer three friends to Torn who go on to reach level 10",
                 "type": 11,
-                "circulation": 4906,
+                "circulation": 5133,
+                "equipped": 198,
                 "rarity": "Rare"
             },
             "220": {
                 "name": "The Affronted",
                 "description": "Infuriate all interviewers in starter jobs",
                 "type": 0,
-                "circulation": 7396,
+                "circulation": 8062,
+                "equipped": 209,
                 "rarity": "Limited"
             },
             "221": {
@@ -14455,6 +14356,7 @@
                 "description": "Get 50 or more tags in the Dog Tag competition",
                 "type": 13,
                 "circulation": 8377,
+                "equipped": 90,
                 "rarity": "Limited"
             },
             "222": {
@@ -14462,6 +14364,7 @@
                 "description": "Exchange all eggs for a gold one in the Easter egg hunt competition",
                 "type": 13,
                 "circulation": 32232,
+                "equipped": 417,
                 "rarity": "Common"
             },
             "223": {
@@ -14469,6 +14372,7 @@
                 "description": "Achieve level 5 on facebook Torn",
                 "type": 11,
                 "circulation": 16220,
+                "equipped": 671,
                 "rarity": "Uncommon"
             },
             "224": {
@@ -14476,6 +14380,7 @@
                 "description": "Complete the 5th stage of the TC endurance challenge",
                 "type": 13,
                 "circulation": 6142,
+                "equipped": 66,
                 "rarity": "Rare"
             },
             "225": {
@@ -14483,244 +14388,279 @@
                 "description": "Complete the endurance challenge bonus task",
                 "type": 13,
                 "circulation": 5284,
+                "equipped": 106,
                 "rarity": "Rare"
             },
             "226": {
                 "name": "Purple Heart",
                 "description": "Achieve 50 attacks against enemy team members in the Elimination competition",
                 "type": 13,
-                "circulation": 19431,
+                "circulation": 20806,
+                "equipped": 238,
                 "rarity": "Uncommon"
             },
             "227": {
                 "name": "50 Cal",
                 "description": "Achieve 1,000 critical hits",
                 "type": 8,
-                "circulation": 23614,
+                "circulation": 26810,
+                "equipped": 160,
                 "rarity": "Uncommon"
             },
             "228": {
                 "name": "007",
                 "description": "Achieve 1,000 attacks and 1,000 defends",
                 "type": 8,
-                "circulation": 2959,
+                "circulation": 3323,
+                "equipped": 106,
                 "rarity": "Rare"
             },
             "229": {
                 "name": "Seeker",
                 "description": "Achieve 250 total awards",
                 "type": 0,
-                "circulation": 15165,
+                "circulation": 17541,
+                "equipped": 145,
                 "rarity": "Uncommon"
             },
             "230": {
                 "name": "Domino Effect",
                 "description": "Defeat someone displaying this honor",
                 "type": 8,
-                "circulation": 184334,
+                "circulation": 191237,
+                "equipped": 2738,
                 "rarity": "Very Common"
             },
             "231": {
                 "name": "Discovery",
                 "description": "Be in a faction which starts making a dirty bomb",
                 "type": 0,
-                "circulation": 6181,
+                "circulation": 6288,
+                "equipped": 297,
                 "rarity": "Rare"
             },
             "232": {
                 "name": "Bounty Hunter",
                 "description": "Collect 250 bounties",
                 "type": 8,
-                "circulation": 6717,
-                "rarity": "Rare"
+                "circulation": 7313,
+                "equipped": 83,
+                "rarity": "Limited"
             },
             "233": {
                 "name": "Bronze Belt",
                 "description": "Own all lightweight gym memberships",
                 "type": 10,
-                "circulation": 93239,
+                "circulation": 98012,
+                "equipped": 2071,
                 "rarity": "Very Common"
             },
             "234": {
                 "name": "Silver Belt",
                 "description": "Own all middleweight gym memberships",
                 "type": 10,
-                "circulation": 36786,
+                "circulation": 39602,
+                "equipped": 404,
                 "rarity": "Common"
             },
             "235": {
                 "name": "Gold Belt",
                 "description": "Own all heavyweight gym memberships",
                 "type": 10,
-                "circulation": 7223,
+                "circulation": 8044,
+                "equipped": 71,
                 "rarity": "Limited"
             },
             "236": {
                 "name": "Dead Or Alive",
                 "description": "Earn $10,000,000 from bounty hunting",
                 "type": 8,
-                "circulation": 16230,
+                "circulation": 17198,
+                "equipped": 217,
                 "rarity": "Uncommon"
             },
             "237": {
                 "name": "Poker King",
                 "description": "Earn a poker score of 10,000,000",
                 "type": 9,
-                "circulation": 3091,
+                "circulation": 3319,
+                "equipped": 354,
                 "rarity": "Rare"
             },
             "238": {
                 "name": "Optimist",
                 "description": "Find 1,000 items in the dump",
                 "type": 16,
-                "circulation": 11233,
+                "circulation": 12562,
+                "equipped": 420,
                 "rarity": "Limited"
             },
             "239": {
                 "name": "Middleman",
                 "description": "Have 100 customers buy from your bazaar",
                 "type": 16,
-                "circulation": 46120,
+                "circulation": 48951,
+                "equipped": 346,
                 "rarity": "Common"
             },
             "240": {
                 "name": "Behemoth",
                 "description": "Gain 1,000,000 defense",
                 "type": 10,
-                "circulation": 32701,
+                "circulation": 36042,
+                "equipped": 750,
                 "rarity": "Common"
             },
             "241": {
                 "name": "Draco",
                 "description": "Gain 1,000,000 dexterity",
                 "type": 10,
-                "circulation": 23317,
+                "circulation": 25699,
+                "equipped": 49,
                 "rarity": "Uncommon"
             },
             "242": {
                 "name": "Supersonic",
                 "description": "Gain 1,000,000 speed",
                 "type": 10,
-                "circulation": 26085,
-                "rarity": "Uncommon"
+                "circulation": 28630,
+                "equipped": 116,
+                "rarity": "Common"
             },
             "243": {
                 "name": "Abaddon",
                 "description": "Gain 1,000,000 strength",
                 "type": 10,
-                "circulation": 36219,
+                "circulation": 39264,
+                "equipped": 425,
                 "rarity": "Common"
             },
             "244": {
                 "name": "Web Of Perks",
                 "description": "Achieve 100 personal perks",
                 "type": 0,
-                "circulation": 12694,
-                "rarity": "Limited"
+                "circulation": 14048,
+                "equipped": 220,
+                "rarity": "Uncommon"
             },
             "245": {
                 "name": "Couch Potato",
                 "description": "Achieve 1,000 hours of activity on Torn",
                 "type": 11,
-                "circulation": 13148,
-                "rarity": "Limited"
+                "circulation": 14351,
+                "equipped": 67,
+                "rarity": "Uncommon"
             },
             "246": {
                 "name": "Pyramid Scheme",
                 "description": "Have one of your referrals refer another player who goes on to reach level 10",
                 "type": 11,
-                "circulation": 6506,
-                "rarity": "Rare"
+                "circulation": 6950,
+                "equipped": 315,
+                "rarity": "Limited"
             },
             "247": {
                 "name": "Blood Money",
                 "description": "Make $1,000,000 from a single mugging",
                 "type": 8,
-                "circulation": 48038,
+                "circulation": 50540,
+                "equipped": 770,
                 "rarity": "Common"
             },
             "248": {
                 "name": "Bar Breaker",
                 "description": "Bust 1,000 people from the Torn City jail",
                 "type": 15,
-                "circulation": 5683,
+                "circulation": 5967,
+                "equipped": 44,
                 "rarity": "Rare"
             },
             "249": {
                 "name": "Aiding And Abetting",
                 "description": "Bust 2,500 people from the Torn City jail",
                 "type": 15,
-                "circulation": 2192,
+                "circulation": 2351,
+                "equipped": 65,
                 "rarity": "Very Rare"
             },
             "250": {
                 "name": "Don't Drop It",
                 "description": "Bust 10,000 people from the Torn City jail",
                 "type": 15,
-                "circulation": 282,
+                "circulation": 316,
+                "equipped": 20,
                 "rarity": "Very Rare"
             },
             "251": {
                 "name": "Society's Worst",
                 "description": "Commit 10,000 criminal offences",
                 "type": 5,
-                "circulation": 29282,
+                "circulation": 32095,
+                "equipped": 280,
                 "rarity": "Common"
             },
             "252": {
                 "name": "Freedom Isn't Free",
                 "description": "Make 500 bails from jail",
                 "type": 15,
-                "circulation": 2771,
+                "circulation": 2853,
+                "equipped": 49,
                 "rarity": "Rare"
             },
             "253": {
                 "name": "Chainer 1",
                 "description": "Participate in a 10 length chain",
                 "type": 8,
-                "circulation": 88861,
+                "circulation": 96091,
+                "equipped": 548,
                 "rarity": "Very Common"
             },
             "254": {
                 "name": "Flatline",
                 "description": "Achieve a one hit kill on a target from full life",
                 "type": 8,
-                "circulation": 168538,
+                "circulation": 179722,
+                "equipped": 7754,
                 "rarity": "Very Common"
             },
             "255": {
                 "name": "Chainer 2",
                 "description": "Participate in a 100 length chain",
                 "type": 8,
-                "circulation": 69638,
+                "circulation": 76247,
+                "equipped": 352,
                 "rarity": "Common"
             },
             "256": {
                 "name": "Carnage",
                 "description": "Make a single hit that earns your faction 10 or more respect",
                 "type": 8,
-                "circulation": 55163,
+                "circulation": 60408,
+                "equipped": 584,
                 "rarity": "Common"
             },
             "257": {
                 "name": "Chainer 3",
                 "description": "Participate in a 1,000 length chain",
                 "type": 8,
-                "circulation": 54575,
+                "circulation": 60274,
+                "equipped": 771,
                 "rarity": "Common"
             },
             "258": {
                 "name": "The High Life",
                 "description": "Own a yacht",
                 "type": 0,
-                "circulation": 13919,
+                "circulation": 14987,
+                "equipped": 376,
                 "rarity": "Uncommon"
             },
             "259": {
                 "name": "Half Way There",
                 "description": "Reach level 50",
                 "type": 12,
-                "circulation": 21338,
+                "circulation": 23854,
+                "equipped": 112,
                 "rarity": "Uncommon"
             },
             "263": {
@@ -14728,97 +14668,111 @@
                 "description": "Finish the Torn of the Dead competition as a civilian",
                 "type": 13,
                 "circulation": 1340,
+                "equipped": 139,
                 "rarity": "Very Rare"
             },
             "264": {
                 "name": "The Whole Nine Yards",
                 "description": "Reach level 100",
                 "type": 12,
-                "circulation": 1324,
+                "circulation": 1675,
+                "equipped": 5,
                 "rarity": "Very Rare"
             },
             "265": {
                 "name": "To The Limit",
                 "description": "Reach level 100",
                 "type": 12,
-                "circulation": 1324,
+                "circulation": 1675,
+                "equipped": 41,
                 "rarity": "Very Rare"
             },
             "266": {
                 "name": "Energize",
                 "description": "Refill your energy bar 250 times",
                 "type": 0,
-                "circulation": 17578,
+                "circulation": 19485,
+                "equipped": 96,
                 "rarity": "Uncommon"
             },
             "267": {
                 "name": "Second Chance",
                 "description": "Revive 1,000 people",
                 "type": 15,
-                "circulation": 1741,
+                "circulation": 2090,
+                "equipped": 255,
                 "rarity": "Very Rare"
             },
             "268": {
                 "name": "Wholesaler",
                 "description": "Sell 1,000 points on the market",
                 "type": 0,
-                "circulation": 43822,
+                "circulation": 46115,
+                "equipped": 502,
                 "rarity": "Common"
             },
             "269": {
                 "name": "Spinner",
                 "description": "Spin the roulette wheel 1,000 times",
                 "type": 9,
-                "circulation": 14901,
+                "circulation": 15896,
+                "equipped": 242,
                 "rarity": "Uncommon"
             },
             "270": {
                 "name": "Deadlock",
                 "description": "Stalemate 100 times",
                 "type": 8,
-                "circulation": 9729,
+                "circulation": 10921,
+                "equipped": 134,
                 "rarity": "Limited"
             },
             "271": {
                 "name": "Eco Friendly",
                 "description": "Trash 5,000 items",
                 "type": 16,
-                "circulation": 24759,
+                "circulation": 26457,
+                "equipped": 327,
                 "rarity": "Uncommon"
             },
             "272": {
                 "name": "Shark Bait",
                 "description": "Travel to Cayman Islands 50 times",
                 "type": 7,
-                "circulation": 23040,
+                "circulation": 25251,
+                "equipped": 106,
                 "rarity": "Uncommon"
             },
             "273": {
                 "name": "Bargain Hunter",
                 "description": "Win 10 auctions",
                 "type": 16,
-                "circulation": 11403,
+                "circulation": 11897,
+                "equipped": 58,
                 "rarity": "Limited"
             },
             "274": {
                 "name": "Redline",
                 "description": "Win 250 races with a single car",
                 "type": 0,
-                "circulation": 5407,
+                "circulation": 5906,
+                "equipped": 176,
                 "rarity": "Rare"
             },
             "275": {
                 "name": "Jackpot",
                 "description": "Win the jackpot on the slot machine",
                 "type": 9,
-                "circulation": 486,
+                "circulation": 543,
+                "equipped": 96,
                 "rarity": "Very Rare"
             },
             "276": {
                 "name": "Lucky Break",
                 "description": "Win one of the lotteries",
                 "type": 9,
-                "circulation": 3092,
+                "circulation": 3306,
+                "equipped": 276,
                 "rarity": "Rare"
             },
             "277": {
@@ -14826,6 +14780,7 @@
                 "description": "Get 250 or more tags in the Dog Tag competition",
                 "type": 13,
                 "circulation": 2192,
+                "equipped": 92,
                 "rarity": "Very Rare"
             },
             "278": {
@@ -14833,69 +14788,79 @@
                 "description": "Complete the 6th stage of the TC endurance challenge",
                 "type": 13,
                 "circulation": 4939,
+                "equipped": 99,
                 "rarity": "Rare"
             },
             "279": {
                 "name": "Domination",
                 "description": "Finish the Elimination competition with your team in 1st place",
                 "type": 13,
-                "circulation": 4019,
+                "circulation": 4725,
+                "equipped": 507,
                 "rarity": "Rare"
             },
             "280": {
                 "name": "Supremacy",
                 "description": "Finish the Elimination competition within the top 5% of attacking players in your team",
                 "type": 13,
-                "circulation": 5118,
+                "circulation": 5392,
+                "equipped": 496,
                 "rarity": "Rare"
             },
             "281": {
                 "name": "Parallel",
                 "description": "Purchased from the Token Shop",
                 "type": 13,
-                "circulation": 8116,
+                "circulation": 8445,
+                "equipped": 401,
                 "rarity": "Limited"
             },
             "283": {
                 "name": "Globule",
                 "description": "Purchased from the Token Shop",
                 "type": 13,
-                "circulation": 27947,
+                "circulation": 28760,
+                "equipped": 594,
                 "rarity": "Common"
             },
             "284": {
                 "name": "Electric Dream",
                 "description": "Purchased from the Token Shop",
                 "type": 13,
-                "circulation": 4718,
+                "circulation": 4988,
+                "equipped": 329,
                 "rarity": "Rare"
             },
             "288": {
                 "name": "Fresh Start",
                 "description": "Reset your merits",
                 "type": 0,
-                "circulation": 32212,
+                "circulation": 38882,
+                "equipped": 272,
                 "rarity": "Common"
             },
             "294": {
                 "name": "Pepperoni",
                 "description": "Purchased from the Token Shop",
                 "type": 13,
-                "circulation": 3240,
+                "circulation": 3459,
+                "equipped": 96,
                 "rarity": "Rare"
             },
             "297": {
                 "name": "Constellations",
                 "description": "Purchased from the Token Shop",
                 "type": 13,
-                "circulation": 13570,
+                "circulation": 14133,
+                "equipped": 952,
                 "rarity": "Uncommon"
             },
             "298": {
                 "name": "Acute",
                 "description": "Purchased from the Token Shop",
                 "type": 13,
-                "circulation": 18269,
+                "circulation": 18943,
+                "equipped": 249,
                 "rarity": "Uncommon"
             },
             "306": {
@@ -14903,27 +14868,31 @@
                 "description": "Attack 50 zombies in the Torn of the Dead competition",
                 "type": 13,
                 "circulation": 3211,
+                "equipped": 80,
                 "rarity": "Rare"
             },
             "308": {
                 "name": "Retro",
                 "description": "Purchased from the Token Shop",
                 "type": 13,
-                "circulation": 23319,
+                "circulation": 24037,
+                "equipped": 717,
                 "rarity": "Uncommon"
             },
             "309": {
                 "name": "Christmas in Torn",
                 "description": "Login on Christmas Day",
                 "type": 11,
-                "circulation": 80663,
-                "rarity": "Common"
+                "circulation": 91695,
+                "equipped": 2833,
+                "rarity": "Very Common"
             },
             "311": {
                 "name": "Brainz",
                 "description": "Infect 50 civilians in the Torn of the Dead competition",
                 "type": 13,
                 "circulation": 507,
+                "equipped": 26,
                 "rarity": "Very Rare"
             },
             "312": {
@@ -14931,195 +14900,223 @@
                 "description": "Survive a Torn City rollback",
                 "type": 0,
                 "circulation": 24163,
+                "equipped": 1235,
                 "rarity": "Uncommon"
             },
             "313": {
                 "name": "Serenity",
                 "description": "Purchased from the Token Shop",
                 "type": 13,
-                "circulation": 18404,
+                "circulation": 19080,
+                "equipped": 1031,
                 "rarity": "Uncommon"
             },
             "315": {
                 "name": "Glimmer",
                 "description": "Purchased from the Token Shop",
                 "type": 13,
-                "circulation": 6300,
+                "circulation": 6581,
+                "equipped": 336,
                 "rarity": "Rare"
             },
             "316": {
                 "name": "Forgiven",
                 "description": "Be truly forgiven for all of your sins",
                 "type": 11,
-                "circulation": 12225,
+                "circulation": 13325,
+                "equipped": 628,
                 "rarity": "Limited"
             },
             "317": {
                 "name": "Phoenix",
                 "description": "Defeat someone after losing to them within 10 minutes",
                 "type": 8,
-                "circulation": 48210,
+                "circulation": 55073,
+                "equipped": 2224,
                 "rarity": "Common"
             },
             "318": {
                 "name": "Futurity",
                 "description": "Purchased from the Token Shop",
                 "type": 13,
-                "circulation": 16070,
+                "circulation": 16666,
+                "equipped": 985,
                 "rarity": "Uncommon"
             },
             "321": {
                 "name": "Supernova",
                 "description": "Purchased from the Token Shop",
                 "type": 13,
-                "circulation": 3930,
+                "circulation": 4197,
+                "equipped": 291,
                 "rarity": "Rare"
             },
             "322": {
                 "name": "Miracle Worker",
                 "description": "Revive 10 people within 10 minutes",
                 "type": 15,
-                "circulation": 5036,
+                "circulation": 5991,
+                "equipped": 532,
                 "rarity": "Rare"
             },
             "326": {
                 "name": "Highs and Lows",
                 "description": "Achieve a win-streak of 25 in High-Low",
                 "type": 9,
-                "circulation": 5588,
+                "circulation": 6182,
+                "equipped": 455,
                 "rarity": "Rare"
             },
             "327": {
                 "name": "One in Six",
                 "description": "Win 50 games of Foot Russian Roulette",
                 "type": 9,
-                "circulation": 13351,
-                "rarity": "Limited"
+                "circulation": 14644,
+                "equipped": 478,
+                "rarity": "Uncommon"
             },
             "330": {
                 "name": "Champion",
                 "description": "Win a community event",
                 "type": 13,
-                "circulation": 178,
+                "circulation": 193,
+                "equipped": 55,
                 "rarity": "Extremely Rare"
             },
             "334": {
                 "name": "Compulsive",
                 "description": "Refill your casino tokens 250 times",
                 "type": 0,
-                "circulation": 704,
+                "circulation": 906,
+                "equipped": 19,
                 "rarity": "Very Rare"
             },
             "338": {
                 "name": "Twenty-One",
                 "description": "Achieve a Natural, Six card Charlie, Double down and Insurance on Blackjack",
                 "type": 9,
-                "circulation": 20401,
+                "circulation": 21748,
+                "equipped": 1676,
                 "rarity": "Uncommon"
             },
             "367": {
                 "name": "Clotted",
                 "description": "Suffer from an acute hemolytic reaction, or be immune to it",
                 "type": 15,
-                "circulation": 30031,
+                "circulation": 33419,
+                "equipped": 509,
                 "rarity": "Common"
             },
             "371": {
                 "name": "Protege",
                 "description": "Complete the mission Introduction: Duke",
                 "type": 17,
-                "circulation": 94665,
+                "circulation": 101372,
+                "equipped": 2109,
                 "rarity": "Very Common"
             },
             "375": {
                 "name": "Resolution",
                 "description": "Login on New Year's Day",
                 "type": 11,
-                "circulation": 48653,
+                "circulation": 60675,
+                "equipped": 2095,
                 "rarity": "Common"
             },
             "380": {
                 "name": "Ecstatic",
                 "description": "Achieve the maximum of 99,999 happiness",
                 "type": 0,
-                "circulation": 7587,
+                "circulation": 9089,
+                "equipped": 493,
                 "rarity": "Limited"
             },
             "395": {
                 "name": "Energetic",
                 "description": "Achieve the maximum of 1,000 energy",
                 "type": 0,
-                "circulation": 52181,
+                "circulation": 57307,
+                "equipped": 1238,
                 "rarity": "Common"
             },
             "398": {
                 "name": "Anaemic",
                 "description": "Fill 1,000 empty blood bags",
                 "type": 15,
-                "circulation": 11724,
+                "circulation": 13258,
+                "equipped": 165,
                 "rarity": "Limited"
             },
             "406": {
                 "name": "Vampire",
                 "description": "Random chance upon using a blood bag",
                 "type": 15,
-                "circulation": 29368,
+                "circulation": 32592,
+                "equipped": 643,
                 "rarity": "Common"
             },
             "414": {
                 "name": "Triple Tap",
                 "description": "Achieve three headshots in a row",
                 "type": 8,
-                "circulation": 20618,
+                "circulation": 27119,
+                "equipped": 1357,
                 "rarity": "Uncommon"
             },
             "418": {
                 "name": "Transfusion",
                 "description": "Fill 250 empty blood bags",
                 "type": 15,
-                "circulation": 22191,
+                "circulation": 24138,
+                "equipped": 451,
                 "rarity": "Uncommon"
             },
             "427": {
                 "name": "Awesome",
                 "description": "Win while spinning the Wheel of Awesome",
                 "type": 9,
-                "circulation": 39911,
+                "circulation": 43212,
+                "equipped": 3288,
                 "rarity": "Common"
             },
             "431": {
                 "name": "Lame",
                 "description": "Win while spinning the Wheel of Lame",
                 "type": 9,
-                "circulation": 56736,
+                "circulation": 61054,
+                "equipped": 1064,
                 "rarity": "Common"
             },
             "437": {
                 "name": "Mediocre",
                 "description": "Win while spinning the Wheel of Mediocrity",
                 "type": 9,
-                "circulation": 51096,
+                "circulation": 55055,
+                "equipped": 639,
                 "rarity": "Common"
             },
             "443": {
                 "name": "Trick or Treat",
                 "description": "Login on Halloween",
                 "type": 11,
-                "circulation": 71795,
-                "rarity": "Common"
+                "circulation": 83191,
+                "equipped": 3115,
+                "rarity": "Very Common"
             },
             "459": {
                 "name": "Torniversary",
                 "description": "Login on November 15th",
                 "type": 11,
-                "circulation": 72478,
-                "rarity": "Common"
+                "circulation": 84145,
+                "equipped": 2202,
+                "rarity": "Very Common"
             },
             "475": {
                 "name": "Chainer 4",
                 "description": "Participate in a 10,000 length chain",
                 "type": 8,
-                "circulation": 19081,
+                "circulation": 22051,
+                "equipped": 393,
                 "rarity": "Uncommon"
             },
             "476": {
@@ -15127,986 +15124,1037 @@
                 "description": "Participate in a 100,000 length chain",
                 "type": 8,
                 "circulation": 0,
+                "equipped": 0,
                 "rarity": "Unknown Rarity"
             },
             "477": {
                 "name": "Massacre",
                 "description": "Make a single hit that earns your faction 100 or more respect",
                 "type": 8,
-                "circulation": 22063,
+                "circulation": 25031,
+                "equipped": 704,
                 "rarity": "Uncommon"
             },
             "478": {
                 "name": "Genocide",
                 "description": "Make a single hit that earns your faction 1,000 or more respect",
                 "type": 8,
-                "circulation": 8063,
+                "circulation": 9523,
+                "equipped": 461,
                 "rarity": "Limited"
             },
             "481": {
                 "name": "Semper     Fortis",
                 "description": "Defeat someone who has more battle stats than you in a solo attack  ",
                 "type": 8,
-                "circulation": 119043,
+                "circulation": 130445,
+                "equipped": 9462,
                 "rarity": "Very Common"
             },
             "488": {
                 "name": "Vengeance",
                 "description": "Successfully perform a faction retaliation hit",
                 "type": 8,
-                "circulation": 14316,
+                "circulation": 18171,
+                "equipped": 360,
                 "rarity": "Uncommon"
             },
             "490": {
                 "name": "Sidekick",
                 "description": "Assist in 250 attacks",
                 "type": 8,
-                "circulation": 1159,
+                "circulation": 1690,
+                "equipped": 46,
                 "rarity": "Very Rare"
             },
             "491": {
                 "name": "Modded",
                 "description": "Equip two tier 3 or tier 4 mods to a single weapon",
                 "type": 2,
-                "circulation": 1230,
+                "circulation": 1507,
+                "equipped": 44,
                 "rarity": "Very Rare"
             },
             "497": {
                 "name": "Reinforced",
                 "description": "Gain 10,000,000 defense",
                 "type": 10,
-                "circulation": 21173,
+                "circulation": 23680,
+                "equipped": 125,
                 "rarity": "Uncommon"
             },
             "498": {
                 "name": "Shielded",
                 "description": "Gain 1,000,000,000 defense",
                 "type": 10,
-                "circulation": 2685,
-                "rarity": "Very Rare"
+                "circulation": 3113,
+                "equipped": 45,
+                "rarity": "Rare"
             },
             "500": {
                 "name": "Survivalist",
                 "description": "Win an attack with only 1% life remaining",
                 "type": 8,
-                "circulation": 38130,
+                "circulation": 42519,
+                "equipped": 1571,
                 "rarity": "Common"
             },
             "505": {
                 "name": "Turbocharged",
                 "description": "Gain 10,000,000 speed",
                 "type": 10,
-                "circulation": 17880,
+                "circulation": 19889,
+                "equipped": 37,
                 "rarity": "Uncommon"
             },
             "506": {
                 "name": "Lightspeed",
                 "description": "Gain 100,000,000 speed",
                 "type": 10,
-                "circulation": 13122,
-                "rarity": "Limited"
+                "circulation": 14733,
+                "equipped": 42,
+                "rarity": "Uncommon"
             },
             "513": {
                 "name": "Daddy's New Shoes",
                 "description": "Win $100,000,000 on a single game of Russian Roulette",
                 "type": 9,
-                "circulation": 10409,
+                "circulation": 11841,
+                "equipped": 428,
                 "rarity": "Limited"
             },
             "515": {
                 "name": "Unarmed",
                 "description": "Achieve 100 finishing hits with fists or kick",
                 "type": 2,
-                "circulation": 12989,
-                "rarity": "Limited"
+                "circulation": 14533,
+                "equipped": 187,
+                "rarity": "Uncommon"
             },
             "517": {
                 "name": "Pressure Point",
                 "description": "Achieve 100 one hit kills",
                 "type": 8,
-                "circulation": 52702,
+                "circulation": 57204,
+                "equipped": 294,
                 "rarity": "Common"
             },
             "519": {
                 "name": "Foot Soldier",
                 "description": "Beat 10 unique opponents in Russian Roulette",
                 "type": 9,
-                "circulation": 17522,
+                "circulation": 20120,
+                "equipped": 513,
                 "rarity": "Uncommon"
             },
             "520": {
                 "name": "Pious",
                 "description": "Donate a total of $100,000 to the church",
                 "type": 14,
-                "circulation": 42370,
+                "circulation": 47208,
+                "equipped": 877,
                 "rarity": "Common"
             },
             "521": {
                 "name": "Saintly",
                 "description": "Donate a total of $1,000,000 to the church",
                 "type": 14,
-                "circulation": 26995,
-                "rarity": "Uncommon"
+                "circulation": 30345,
+                "equipped": 728,
+                "rarity": "Common"
             },
             "522": {
                 "name": "Sacrificial",
                 "description": "Donate a total of $1,000,000,000 to the church",
                 "type": 14,
-                "circulation": 192,
+                "circulation": 234,
+                "equipped": 42,
                 "rarity": "Extremely Rare"
             },
             "523": {
                 "name": "Devout",
                 "description": "Donate a total of $100,000,000 to the church",
                 "type": 14,
-                "circulation": 1824,
+                "circulation": 2080,
+                "equipped": 69,
                 "rarity": "Very Rare"
             },
             "525": {
                 "name": "Tireless",
                 "description": "Attain 100,000 endurance",
                 "type": 4,
-                "circulation": 17944,
+                "circulation": 19593,
+                "equipped": 149,
                 "rarity": "Uncommon"
             },
             "527": {
                 "name": "Worth it",
                 "description": "Use a stat enhancer",
                 "type": 16,
-                "circulation": 3123,
+                "circulation": 3663,
+                "equipped": 177,
                 "rarity": "Rare"
             },
             "530": {
                 "name": "Talented",
                 "description": "Attain 100,000 intelligence",
                 "type": 4,
-                "circulation": 19542,
+                "circulation": 20747,
+                "equipped": 350,
                 "rarity": "Uncommon"
             },
             "533": {
                 "name": "Tough",
                 "description": "Attain 100,000 manual labor",
                 "type": 4,
-                "circulation": 13968,
+                "circulation": 15204,
+                "equipped": 142,
                 "rarity": "Uncommon"
             },
             "534": {
                 "name": "Alcoholic",
                 "description": "Drink 500 bottles of alcohol",
                 "type": 16,
-                "circulation": 21393,
+                "circulation": 23357,
+                "equipped": 326,
                 "rarity": "Uncommon"
             },
             "537": {
                 "name": "Diabetic",
                 "description": "Eat 500 bags of candy",
                 "type": 16,
-                "circulation": 29526,
+                "circulation": 32586,
+                "equipped": 284,
                 "rarity": "Common"
             },
             "538": {
                 "name": "Sodaholic",
                 "description": "Drink 500 cans of energy drink",
                 "type": 16,
-                "circulation": 3685,
+                "circulation": 4487,
+                "equipped": 72,
                 "rarity": "Rare"
             },
             "539": {
                 "name": "Bibliophile",
                 "description": "Read 10 books",
                 "type": 16,
-                "circulation": 2483,
-                "rarity": "Very Rare"
+                "circulation": 3086,
+                "equipped": 73,
+                "rarity": "Rare"
             },
             "541": {
                 "name": "Mule",
                 "description": "Import 100 items from abroad",
                 "type": 7,
-                "circulation": 52068,
+                "circulation": 57501,
+                "equipped": 242,
                 "rarity": "Common"
             },
             "542": {
                 "name": "Smuggler",
                 "description": "Import 1,000 items from abroad",
                 "type": 7,
-                "circulation": 40974,
+                "circulation": 45390,
+                "equipped": 220,
                 "rarity": "Common"
             },
             "543": {
                 "name": "Trafficker",
                 "description": "Import 10,000 items from abroad",
                 "type": 7,
-                "circulation": 24707,
+                "circulation": 27420,
+                "equipped": 137,
                 "rarity": "Uncommon"
             },
             "544": {
                 "name": "City Slicker",
                 "description": "Make a profit of $10,000,000 in a single Stock Market sale",
                 "type": 14,
-                "circulation": 8996,
+                "circulation": 13141,
+                "equipped": 427,
                 "rarity": "Limited"
             },
             "545": {
                 "name": "Diamond Hands",
                 "description": "Make a profit of $1,000,000,000 in a single Stock Market sale",
                 "type": 14,
-                "circulation": 373,
+                "circulation": 579,
+                "equipped": 61,
                 "rarity": "Very Rare"
             },
             "546": {
                 "name": "Dividend",
                 "description": "Receive 100 stock payouts ",
                 "type": 14,
-                "circulation": 27075,
+                "circulation": 28877,
+                "equipped": 121,
                 "rarity": "Common"
             },
             "548": {
                 "name": "Tendies",
                 "description": "Make a profit of $100,000,000 in a single Stock Market sale",
                 "type": 14,
-                "circulation": 3439,
+                "circulation": 4886,
+                "equipped": 217,
                 "rarity": "Rare"
             },
             "549": {
                 "name": "Tourist",
                 "description": "Spend 7 days in the air",
                 "type": 7,
-                "circulation": 47793,
+                "circulation": 52218,
+                "equipped": 215,
                 "rarity": "Common"
             },
             "550": {
                 "name": "Arrowshot",
                 "description": "Gain 1,000,000,000 speed",
                 "type": 10,
-                "circulation": 2831,
+                "circulation": 3215,
+                "equipped": 26,
                 "rarity": "Rare"
             },
             "552": {
                 "name": "Mastermind",
                 "description": "Participate in 100 organized crimes",
                 "type": 5,
-                "circulation": 37705,
+                "circulation": 42677,
+                "equipped": 409,
                 "rarity": "Common"
             },
             "557": {
                 "name": "Globetrotter",
                 "description": "Spend 365 days in the air",
                 "type": 7,
-                "circulation": 1881,
+                "circulation": 2455,
+                "equipped": 209,
                 "rarity": "Very Rare"
             },
             "566": {
                 "name": "You've Got Some Nerve",
                 "description": "Refill your nerve bar 250 times",
                 "type": 0,
-                "circulation": 3700,
+                "circulation": 4564,
+                "equipped": 136,
                 "rarity": "Rare"
             },
             "567": {
                 "name": "Frequent Flyer",
                 "description": "Spend 31 days in the air",
                 "type": 7,
-                "circulation": 31237,
+                "circulation": 34565,
+                "equipped": 126,
                 "rarity": "Common"
             },
             "571": {
                 "name": "Checkered Past",
                 "description": "Win 100 races",
                 "type": 0,
-                "circulation": 19432,
+                "circulation": 21156,
+                "equipped": 148,
                 "rarity": "Uncommon"
             },
             "572": {
                 "name": "Motorhead",
                 "description": "Reach a racing skill of 10",
                 "type": 0,
-                "circulation": 7813,
+                "circulation": 9058,
+                "equipped": 108,
                 "rarity": "Limited"
             },
             "581": {
                 "name": "On Track",
                 "description": "Earn 2,500 racing points",
                 "type": 0,
-                "circulation": 3634,
+                "circulation": 4314,
+                "equipped": 161,
                 "rarity": "Rare"
             },
             "601": {
                 "name": "Fury",
                 "description": "Achieve 10,000 hits",
                 "type": 8,
-                "circulation": 18069,
+                "circulation": 20931,
+                "equipped": 93,
                 "rarity": "Uncommon"
             },
             "605": {
                 "name": "Friendly Fire",
                 "description": "Defeat a fellow faction member",
                 "type": 8,
-                "circulation": 30119,
+                "circulation": 34143,
+                "equipped": 438,
                 "rarity": "Common"
             },
             "606": {
                 "name": "Decorated",
                 "description": "Achieve 100 total awards",
                 "type": 0,
-                "circulation": 48134,
+                "circulation": 53029,
+                "equipped": 182,
                 "rarity": "Common"
             },
             "607": {
                 "name": "Buffed",
                 "description": "Achieve 50 personal perks",
                 "type": 0,
-                "circulation": 40697,
+                "circulation": 45231,
+                "equipped": 317,
                 "rarity": "Common"
             },
             "608": {
                 "name": "1337",
                 "description": "Deal exactly 1,337 damage to an opponent in a single hit",
                 "type": 8,
-                "circulation": 15307,
+                "circulation": 18393,
+                "equipped": 496,
                 "rarity": "Uncommon"
             },
             "611": {
                 "name": "War Machine",
                 "description": "Achieve 1,000 finishing hits in every category",
                 "type": 2,
-                "circulation": 165,
+                "circulation": 246,
+                "equipped": 56,
                 "rarity": "Extremely Rare"
             },
             "614": {
                 "name": "Honored",
                 "description": "Achieve 500 total awards",
                 "type": 0,
-                "circulation": 513,
+                "circulation": 646,
+                "equipped": 70,
                 "rarity": "Very Rare"
             },
             "615": {
                 "name": "Guardian Angel",
                 "description": "Defeat someone while they are attacking someone else",
                 "type": 8,
-                "circulation": 21039,
+                "circulation": 24885,
+                "equipped": 863,
                 "rarity": "Uncommon"
             },
             "617": {
                 "name": "10-Stack",
                 "description": "Increase a merit upgrade to its maximum",
                 "type": 0,
-                "circulation": 61487,
+                "circulation": 66378,
+                "equipped": 341,
                 "rarity": "Common"
             },
             "620": {
                 "name": "OP",
                 "description": "Achieve 150 personal perks",
                 "type": 0,
-                "circulation": 901,
+                "circulation": 922,
+                "equipped": 46,
                 "rarity": "Very Rare"
             },
             "627": {
                 "name": "Manu Forti",
                 "description": "Defeat someone who has at least double your battle stats in a solo attack",
                 "type": 8,
-                "circulation": 63282,
+                "circulation": 71867,
+                "equipped": 3496,
                 "rarity": "Common"
             },
             "629": {
                 "name": "Alpinist",
                 "description": "Gain 100,000,000 dexterity",
                 "type": 10,
-                "circulation": 11262,
+                "circulation": 12671,
+                "equipped": 35,
                 "rarity": "Limited"
             },
             "631": {
                 "name": "Vae Victis",
                 "description": "Defeat someone who has five times more battlestats than you in a solo attack",
                 "type": 8,
-                "circulation": 35464,
+                "circulation": 41944,
+                "equipped": 3292,
                 "rarity": "Common"
             },
             "635": {
                 "name": "Freerunner",
                 "description": "Gain 10,000,000 dexterity",
                 "type": 10,
-                "circulation": 15628,
+                "circulation": 17445,
+                "equipped": 37,
                 "rarity": "Uncommon"
             },
             "636": {
                 "name": "Task Master",
                 "description": "Earn 10,000 mission credits",
                 "type": 17,
-                "circulation": 7847,
+                "circulation": 9183,
+                "equipped": 225,
                 "rarity": "Limited"
             },
             "638": {
                 "name": "Funambulist",
                 "description": "Gain 1,000,000,000 dexterity",
                 "type": 10,
-                "circulation": 2488,
-                "rarity": "Very Rare"
+                "circulation": 2833,
+                "equipped": 21,
+                "rarity": "Rare"
             },
             "639": {
                 "name": "Double Dragon",
                 "description": "Assist in a single attack",
                 "type": 8,
-                "circulation": 61784,
+                "circulation": 69217,
+                "equipped": 4244,
                 "rarity": "Common"
             },
             "640": {
                 "name": "Bulletproof",
                 "description": "Gain 100,000,000 defense",
                 "type": 10,
-                "circulation": 12352,
-                "rarity": "Limited"
+                "circulation": 14077,
+                "equipped": 62,
+                "rarity": "Uncommon"
             },
             "641": {
                 "name": "Strongest Link",
                 "description": "Make 100 hits in a single chain",
                 "type": 8,
-                "circulation": 18916,
+                "circulation": 21801,
+                "equipped": 226,
                 "rarity": "Uncommon"
             },
             "643": {
                 "name": "Powerhouse",
                 "description": "Gain 10,000,000 strength",
                 "type": 10,
-                "circulation": 23191,
+                "circulation": 25414,
+                "equipped": 186,
                 "rarity": "Uncommon"
             },
             "646": {
                 "name": "Mighty Roar",
                 "description": "Gain 100,000,000 strength",
                 "type": 10,
-                "circulation": 14509,
+                "circulation": 16224,
+                "equipped": 73,
                 "rarity": "Uncommon"
             },
             "647": {
                 "name": "Well Built",
                 "description": "Gain 1,000,000,000 strength",
                 "type": 10,
-                "circulation": 3461,
+                "circulation": 3881,
+                "equipped": 50,
                 "rarity": "Rare"
             },
             "651": {
                 "name": "Wise Guy",
                 "description": "Complete 50 education courses",
                 "type": 4,
-                "circulation": 46477,
+                "circulation": 50684,
+                "equipped": 170,
                 "rarity": "Common"
             },
             "653": {
                 "name": "Smart Alec",
                 "description": "Complete 10 education courses",
                 "type": 4,
-                "circulation": 195422,
+                "circulation": 201554,
+                "equipped": 893,
                 "rarity": "Very Common"
             },
             "656": {
                 "name": "Whiz Kid",
                 "description": "Complete 100 education courses",
                 "type": 4,
-                "circulation": 18250,
+                "circulation": 19649,
+                "equipped": 93,
                 "rarity": "Uncommon"
             },
             "659": {
                 "name": "Clever Dick",
                 "description": "Complete 25 education courses",
                 "type": 4,
-                "circulation": 94100,
+                "circulation": 99342,
+                "equipped": 341,
                 "rarity": "Very Common"
             },
             "664": {
                 "name": "Mercenary",
                 "description": "Complete 1,000 contracts",
                 "type": 17,
-                "circulation": 1150,
+                "circulation": 1422,
+                "equipped": 112,
                 "rarity": "Very Rare"
             },
             "665": {
                 "name": "Boss Fight",
                 "description": "Participate in the defeat of a lootable NPC",
                 "type": 8,
-                "circulation": 17026,
+                "circulation": 19534,
+                "equipped": 308,
                 "rarity": "Uncommon"
             },
             "670": {
                 "name": "Giant Slayer",
                 "description": "Receive loot from a defeated NPC",
                 "type": 8,
-                "circulation": 4838,
+                "circulation": 5876,
+                "equipped": 181,
                 "rarity": "Rare"
             },
             "678": {
                 "name": "Stinker",
                 "description": "Successfully prank someone with Stink Bombs",
                 "type": 16,
-                "circulation": 12955,
-                "rarity": "Limited"
+                "circulation": 14661,
+                "equipped": 70,
+                "rarity": "Uncommon"
             },
             "679": {
                 "name": "Pumped",
                 "description": "Attain 100,000,000 total stats",
                 "type": 10,
-                "circulation": 18019,
+                "circulation": 20049,
+                "equipped": 45,
                 "rarity": "Uncommon"
             },
             "686": {
                 "name": "Healthy",
                 "description": "Attain 10,000 total stats",
                 "type": 10,
-                "circulation": 138466,
+                "circulation": 143991,
+                "equipped": 304,
                 "rarity": "Very Common"
             },
             "687": {
                 "name": "Lean",
                 "description": "Attain 100 total stats",
                 "type": 10,
-                "circulation": 434915,
+                "circulation": 450717,
+                "equipped": 22943,
                 "rarity": "Very Common"
             },
             "690": {
                 "name": "Ripped",
                 "description": "Attain 10,000,000,000 total stats",
                 "type": 10,
-                "circulation": 251,
-                "rarity": "Extremely Rare"
+                "circulation": 305,
+                "equipped": 15,
+                "rarity": "Very Rare"
             },
             "694": {
                 "name": "Athletic",
                 "description": "Attain 1,000,000 total stats",
                 "type": 10,
-                "circulation": 47841,
+                "circulation": 51572,
+                "equipped": 210,
                 "rarity": "Common"
             },
             "699": {
                 "name": "Collector",
                 "description": "Maintain an impressive display case of collectible items",
                 "type": 16,
-                "circulation": 1003,
+                "circulation": 1232,
+                "equipped": 75,
                 "rarity": "Very Rare"
             },
             "700": {
                 "name": "Leaderboard",
                 "description": "Achieve top 250 in one of the personal Hall of Fame leaderboards",
                 "type": 0,
-                "circulation": 2031,
+                "circulation": 2220,
+                "equipped": 354,
                 "rarity": "Very Rare"
             },
             "704": {
                 "name": "Shredded",
                 "description": "Attain 100,000,000,000 total stats",
                 "type": 10,
-                "circulation": 40,
+                "circulation": 49,
+                "equipped": 7,
                 "rarity": "Extremely Rare"
             },
             "708": {
                 "name": "Conditioned",
                 "description": "Attain 10,000,000 total stats",
                 "type": 10,
-                "circulation": 31071,
+                "circulation": 33820,
+                "equipped": 195,
                 "rarity": "Common"
             },
             "716": {
                 "name": "Wipeout",
                 "description": "Successfully prank someone with Toilet Paper",
                 "type": 16,
-                "circulation": 13387,
-                "rarity": "Limited"
+                "circulation": 15144,
+                "equipped": 75,
+                "rarity": "Uncommon"
             },
             "717": {
                 "name": "Foul Play",
                 "description": "Successfully prank someone with Dog Poop",
                 "type": 16,
-                "circulation": 12884,
-                "rarity": "Limited"
+                "circulation": 14575,
+                "equipped": 56,
+                "rarity": "Uncommon"
             },
             "719": {
                 "name": "Invictus",
                 "description": "Successfully defend against someone who has at least double your battle stats",
                 "type": 8,
-                "circulation": 70809,
+                "circulation": 82642,
+                "equipped": 1610,
                 "rarity": "Common"
             },
             "720": {
                 "name": "Fit",
                 "description": "Attain 1,000 total stats",
                 "type": 10,
-                "circulation": 259601,
+                "circulation": 268177,
+                "equipped": 1378,
                 "rarity": "Very Common"
             },
             "721": {
                 "name": "Jacked",
                 "description": "Attain 1,000,000,000 total stats",
                 "type": 10,
-                "circulation": 8145,
+                "circulation": 9386,
+                "equipped": 85,
                 "rarity": "Limited"
             },
             "723": {
                 "name": "Toned",
                 "description": "Attain 100,000 total stats",
                 "type": 10,
-                "circulation": 76048,
+                "circulation": 80664,
+                "equipped": 198,
                 "rarity": "Common"
             },
             "725": {
                 "name": "Cuba",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 127,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "726": {
                 "name": "Uruguay ",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 228,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "729": {
                 "name": "Hairy",
                 "description": "Unlock a hairstyle from the token shop",
                 "type": 13,
-                "circulation": 18761,
+                "circulation": 19885,
+                "equipped": 114,
                 "rarity": "Uncommon"
             },
             "730": {
                 "name": "Backdrop",
                 "description": "Unlock a backdrop from the token shop",
                 "type": 13,
-                "circulation": 27738,
+                "circulation": 28974,
+                "equipped": 395,
                 "rarity": "Common"
             },
             "731": {
                 "name": "Tornication",
                 "description": "Login on Valentine's Day",
                 "type": 11,
-                "circulation": 52184,
+                "circulation": 64684,
+                "equipped": 1967,
                 "rarity": "Common"
             },
             "734": {
                 "name": "Wrecked",
                 "description": "Crash a car while racing",
                 "type": 0,
-                "circulation": 20780,
+                "circulation": 24145,
+                "equipped": 398,
                 "rarity": "Uncommon"
             },
             "739": {
                 "name": "Church Mouse",
                 "description": "Be mugged for exactly $1",
                 "type": 8,
-                "circulation": 28824,
+                "circulation": 33790,
+                "equipped": 403,
                 "rarity": "Common"
             },
             "740": {
                 "name": "Devastation",
                 "description": "Deal at least 5,000 damage in a single hit",
                 "type": 8,
-                "circulation": 8999,
+                "circulation": 11769,
+                "equipped": 430,
                 "rarity": "Limited"
             },
             "741": {
                 "name": "Obliteration",
                 "description": "Deal at least 10,000 damage in a single hit",
                 "type": 8,
-                "circulation": 1319,
+                "circulation": 1762,
+                "equipped": 100,
                 "rarity": "Very Rare"
             },
             "742": {
                 "name": "Overtime",
                 "description": "Use 10,000 job points",
                 "type": 0,
-                "circulation": 10230,
+                "circulation": 12630,
+                "equipped": 356,
                 "rarity": "Limited"
             },
             "743": {
                 "name": "Lavish",
                 "description": "Dump an item with a current market value of at least $1,000,000",
                 "type": 16,
-                "circulation": 17121,
+                "circulation": 19568,
+                "equipped": 243,
                 "rarity": "Uncommon"
             },
             "763": {
                 "name": "Bare",
                 "description": "Win 250 unarmored fights",
                 "type": 8,
-                "circulation": 3995,
+                "circulation": 5013,
+                "equipped": 81,
                 "rarity": "Rare"
             },
             "774": {
                 "name": "Sierra Leone",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 205,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "775": {
                 "name": "Cayman Islands",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 120,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "778": {
                 "name": "Specialist",
                 "description": "Achieve 100% EXP on 25 different weapons",
                 "type": 2,
-                "circulation": 106,
+                "circulation": 177,
+                "equipped": 42,
                 "rarity": "Extremely Rare"
             },
             "781": {
                 "name": "Riddled",
                 "description": "Defeat an opponent after hitting at least 10 different body parts in a single attack",
                 "type": 8,
-                "circulation": 26280,
-                "rarity": "Uncommon"
+                "circulation": 30935,
+                "equipped": 1029,
+                "rarity": "Common"
             },
             "786": {
                 "name": "Annihilation",
                 "description": "Deal at least 15,000 damage in a single hit",
                 "type": 8,
-                "circulation": 705,
+                "circulation": 906,
+                "equipped": 129,
                 "rarity": "Very Rare"
             },
             "787": {
                 "name": "Venezuela",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 229,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "791": {
                 "name": "Quartermaster",
                 "description": "Use 10,000 rounds of special ammunition",
                 "type": 2,
-                "circulation": 2647,
-                "rarity": "Very Rare"
+                "circulation": 3651,
+                "equipped": 59,
+                "rarity": "Rare"
             },
             "793": {
                 "name": "Bandolier",
                 "description": "Use 1,000 rounds of special ammunition",
                 "type": 2,
-                "circulation": 9212,
+                "circulation": 11245,
+                "equipped": 151,
                 "rarity": "Limited"
             },
             "800": {
                 "name": "Surplus",
                 "description": "Use 100 rounds of special ammunition",
                 "type": 2,
-                "circulation": 14745,
+                "circulation": 17519,
+                "equipped": 306,
                 "rarity": "Uncommon"
             },
             "801": {
                 "name": "Algeria",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 102,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "802": {
                 "name": "Bolivia",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 112,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "803": {
                 "name": "Botswana",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 114,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "804": {
                 "name": "Costa Rica",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 125,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "805": {
                 "name": "Dominican Republic",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 131,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "806": {
                 "name": "Ethiopia",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 136,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "807": {
                 "name": "Fiji",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 137,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "808": {
                 "name": "Honduras",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 148,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "809": {
                 "name": "Jordan",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 162,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "810": {
                 "name": "Kenya",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 164,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "811": {
                 "name": "Libya",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 169,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "812": {
                 "name": "Luxembourg",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 171,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "813": {
                 "name": "Maldives",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 173,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "814": {
                 "name": "Moldova",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 177,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "815": {
                 "name": "Mongolia",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 178,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "816": {
                 "name": "Montenegro",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 179,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "817": {
                 "name": "Namibia",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 182,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "818": {
                 "name": "North Macedonia",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 187,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "819": {
                 "name": "Panama",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 193,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "820": {
                 "name": "Somalia",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 209,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "821": {
                 "name": "Suriname",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 214,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "822": {
                 "name": "Tanzania",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 218,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "823": {
                 "name": "Uganda",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 222,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "824": {
                 "name": "Zambia",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 232,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "825": {
                 "name": "Zimbabwe",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 233,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "827": {
                 "name": "Deadly Duo",
                 "description": "Attack and defeat an opponent with your spouse",
                 "type": 8,
-                "circulation": 12756,
-                "rarity": "Limited"
+                "circulation": 15039,
+                "equipped": 519,
+                "rarity": "Uncommon"
             },
             "828": {
                 "name": "Finale",
                 "description": "Defeat someone on the 25th turn of an attack",
                 "type": 8,
-                "circulation": 16615,
+                "circulation": 20812,
+                "equipped": 955,
                 "rarity": "Uncommon"
             },
             "834": {
                 "name": "Lead Salad",
                 "description": "Fire 100,000 rounds",
                 "type": 8,
-                "circulation": 3936,
+                "circulation": 4861,
+                "equipped": 53,
                 "rarity": "Rare"
             },
             "836": {
                 "name": "Peppered",
                 "description": "Fire 1,000,000 rounds",
                 "type": 8,
-                "circulation": 165,
+                "circulation": 259,
+                "equipped": 39,
                 "rarity": "Extremely Rare"
             },
             "838": {
                 "name": "Lovestruck",
                 "description": "Defeat a married couple",
                 "type": 8,
-                "circulation": 37420,
+                "circulation": 44058,
+                "equipped": 729,
                 "rarity": "Common"
             },
             "839": {
                 "name": "RNG",
                 "description": "Who knows?",
                 "type": 0,
-                "circulation": 8024,
+                "circulation": 10951,
+                "equipped": 2012,
                 "rarity": "Limited"
             },
             "843": {
@@ -16114,280 +16162,305 @@
                 "description": "Defeat someone using only your fists on May 4th",
                 "type": 8,
                 "circulation": 21456,
+                "equipped": 746,
                 "rarity": "Uncommon"
             },
             "844": {
                 "name": "Worker Bee",
                 "description": "Achieve 10,000 in any working stat",
                 "type": 4,
-                "circulation": 65726,
+                "circulation": 75047,
+                "equipped": 912,
                 "rarity": "Common"
             },
             "845": {
                 "name": "Historian",
                 "description": "Read a chronicle",
                 "type": 0,
-                "circulation": 16302,
+                "circulation": 19360,
+                "equipped": 474,
                 "rarity": "Uncommon"
             },
             "846": {
                 "name": "International",
                 "description": "Defeat 100 people while abroad",
                 "type": 7,
-                "circulation": 13122,
-                "rarity": "Limited"
+                "circulation": 14744,
+                "equipped": 170,
+                "rarity": "Uncommon"
             },
             "851": {
                 "name": "Mod Boss",
                 "description": "Own at least 20 weapon mods",
                 "type": 2,
-                "circulation": 679,
+                "circulation": 872,
+                "equipped": 50,
                 "rarity": "Very Rare"
             },
             "853": {
                 "name": "Souvenir",
                 "description": "Purchase the perfect souvenir abroad",
                 "type": 7,
-                "circulation": 14062,
+                "circulation": 16584,
+                "equipped": 247,
                 "rarity": "Uncommon"
             },
             "857": {
                 "name": "Philistine",
                 "description": "In memory of our dear friend Philistine",
-                "type": 1,
-                "circulation": 1001,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "858": {
                 "name": "Biccy",
                 "description": "In memory of our dear friend Biccy",
-                "type": 1,
-                "circulation": 1002,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "859": {
                 "name": "787thWarDog",
                 "description": "In memory of our dear friend 787thWarDog",
-                "type": 1,
-                "circulation": 1003,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "860": {
                 "name": "Landlord",
                 "description": "Lease one of your properties to someone",
                 "type": 0,
-                "circulation": 23428,
+                "circulation": 27324,
+                "equipped": 362,
                 "rarity": "Uncommon"
             },
             "863": {
                 "name": "Crucifixion",
                 "description": "Defeat someone you've just revived",
                 "type": 15,
-                "circulation": 10868,
+                "circulation": 13614,
+                "equipped": 187,
                 "rarity": "Limited"
             },
             "869": {
                 "name": "Monopoly",
                 "description": "Own every stock benefit and dividend at the same time",
                 "type": 14,
-                "circulation": 590,
+                "circulation": 638,
+                "equipped": 40,
                 "rarity": "Very Rare"
             },
             "870": {
                 "name": "Resurrection",
                 "description": "Revive someone you've just defeated",
                 "type": 15,
-                "circulation": 10895,
+                "circulation": 13404,
+                "equipped": 523,
                 "rarity": "Limited"
             },
             "871": {
                 "name": "Leonidas",
                 "description": "Achieve a finishing hit with Kick",
                 "type": 2,
-                "circulation": 24065,
-                "rarity": "Uncommon"
+                "circulation": 28454,
+                "equipped": 779,
+                "rarity": "Common"
             },
             "873": {
                 "name": "Welcome",
                 "description": "Be online every day for 100 days",
                 "type": 11,
-                "circulation": 23483,
-                "rarity": "Uncommon"
+                "circulation": 27881,
+                "equipped": 255,
+                "rarity": "Common"
             },
             "882": {
                 "name": "Radaway",
                 "description": "Use a Neumune Tablet to reduce radiation poisoning",
                 "type": 16,
-                "circulation": 7292,
+                "circulation": 8793,
+                "equipped": 194,
                 "rarity": "Limited"
             },
             "888": {
                 "name": "Nice",
                 "description": "Nice",
                 "type": 0,
-                "circulation": 4026,
+                "circulation": 4774,
+                "equipped": 384,
                 "rarity": "Rare"
             },
             "896": {
                 "name": "Going Postal",
                 "description": "Defeat a company co-worker",
                 "type": 8,
-                "circulation": 16530,
+                "circulation": 20000,
+                "equipped": 218,
                 "rarity": "Uncommon"
             },
             "902": {
                 "name": "Gone Fishing",
                 "description": "Be defeated by a trout",
                 "type": 2,
-                "circulation": 41848,
+                "circulation": 52132,
+                "equipped": 1105,
                 "rarity": "Common"
             },
             "903": {
                 "name": "Booboo",
                 "description": "Go to hospital 250 times",
                 "type": 15,
-                "circulation": 159180,
+                "circulation": 170171,
+                "equipped": 252,
                 "rarity": "Very Common"
             },
             "906": {
                 "name": "Repeat Offender",
                 "description": "Go to jail 250 times",
                 "type": 15,
-                "circulation": 30952,
+                "circulation": 32821,
+                "equipped": 54,
                 "rarity": "Common"
             },
             "916": {
                 "name": "Chain Saver",
                 "description": "Save a 100+ chain 10 seconds before it breaks",
                 "type": 8,
-                "circulation": 9091,
+                "circulation": 11361,
+                "equipped": 228,
                 "rarity": "Limited"
             },
             "942": {
                 "name": "Maimed",
                 "description": "Use 2,500 Hollow Point rounds",
                 "type": 2,
-                "circulation": 3277,
+                "circulation": 4308,
+                "equipped": 50,
                 "rarity": "Rare"
             },
             "943": {
                 "name": "Penetrated",
                 "description": "Use 2,500 Piercing rounds",
                 "type": 2,
-                "circulation": 2705,
+                "circulation": 3626,
+                "equipped": 66,
                 "rarity": "Rare"
             },
             "944": {
                 "name": "Scorched",
                 "description": "Use 2,500 Incendiary rounds",
                 "type": 2,
-                "circulation": 2885,
+                "circulation": 3931,
+                "equipped": 163,
                 "rarity": "Rare"
             },
             "945": {
                 "name": "Marked",
                 "description": "Use 2,500 Tracer rounds",
                 "type": 2,
-                "circulation": 2851,
+                "circulation": 3820,
+                "equipped": 62,
                 "rarity": "Rare"
             },
             "951": {
                 "name": "Dragon's Breath",
                 "description": "Use a 12 Gauge Incendiary round",
                 "type": 2,
-                "circulation": 3964,
+                "circulation": 5238,
+                "equipped": 371,
                 "rarity": "Rare"
             },
             "955": {
                 "name": "Yoink",
                 "description": "Successfully mug someone who just mugged someone else",
                 "type": 8,
-                "circulation": 11166,
-                "rarity": "Limited"
+                "circulation": 14109,
+                "equipped": 420,
+                "rarity": "Uncommon"
             },
             "956": {
                 "name": "Kosovo",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 164,
-                "rarity": "Unknown Rarity"
+                "type": 1
             },
             "964": {
                 "name": "Something Humerus",
                 "description": "Upgrade your Halloween Basket to Terrifying",
                 "type": 13,
-                "circulation": 1499,
-                "rarity": "Very Rare"
+                "circulation": 5958,
+                "equipped": 224,
+                "rarity": "Rare"
             },
             "966": {
                 "name": "Oh My Gourd!",
                 "description": "Upgrade your Halloween Basket to Nightmarish",
                 "type": 13,
-                "circulation": 1,
-                "rarity": "Unknown Rarity"
+                "circulation": 20,
+                "equipped": 7,
+                "rarity": "Extremely Rare"
             },
             "969": {
                 "name": "Phantastic",
                 "description": "Upgrade your Halloween Basket to Frightful",
                 "type": 13,
-                "circulation": 10367,
-                "rarity": "Limited"
+                "circulation": 17947,
+                "equipped": 353,
+                "rarity": "Uncommon"
             },
             "1001": {
                 "name": "Boom!",
                 "description": "Deal over 10,000,000 total damage",
                 "type": 8,
-                "circulation": 8225,
+                "circulation": 9931,
+                "equipped": 127,
                 "rarity": "Limited"
             },
             "1002": {
                 "name": "Bam!",
                 "description": "Deal over 1,000,000 total damage",
                 "type": 8,
-                "circulation": 34140,
+                "circulation": 38208,
+                "equipped": 106,
                 "rarity": "Common"
             },
             "1003": {
                 "name": "Kapow!",
                 "description": "Deal over 100,000,000 total damage",
                 "type": 8,
-                "circulation": 355,
+                "circulation": 484,
+                "equipped": 36,
                 "rarity": "Very Rare"
             },
             "1004": {
                 "name": "Wham!",
                 "description": "Deal over 100,000 total damage",
                 "type": 8,
-                "circulation": 92845,
+                "circulation": 100095,
+                "equipped": 754,
                 "rarity": "Very Common"
             },
             "1005": {
                 "name": "Bullish",
                 "description": "Achieve $1,000,000,000 in total profits in the stock market",
                 "type": 14,
-                "circulation": 1394,
+                "circulation": 2101,
+                "equipped": 165,
                 "rarity": "Very Rare"
             },
             "1006": {
                 "name": "Bearish",
                 "description": "Achieve $1,000,000,000 in total losses in the stock market",
                 "type": 14,
-                "circulation": 695,
+                "circulation": 971,
+                "equipped": 41,
                 "rarity": "Very Rare"
             },
             "1007": {
                 "name": "Stonks",
                 "description": "Make a loss of $100,000,000 in a single Stock Market sale",
                 "type": 14,
-                "circulation": 2026,
+                "circulation": 2569,
+                "equipped": 131,
                 "rarity": "Very Rare"
             },
             "1008": {
                 "name": "Vatican City",
                 "description": "A default honor bar available to everyone",
-                "type": 1,
-                "circulation": 228,
-                "rarity": "Unknown Rarity"
+                "type": 1
             }
         }
     },

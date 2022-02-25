@@ -159,6 +159,10 @@ describe('Torn API', () => {
         const honor = castedReturn.find(x => x.id === '28');
         expect(honor?.name).to.equal('Machinist');
         expect(honor?.description).to.equal('Achieve 100 finishing hits with mechanical weapons');
+        expect(honor?.type).to.equal(2);
+        expect(honor?.circulation).to.equal(21405);
+        expect(honor?.equipped).to.equal(140);
+        expect(honor?.rarity).to.equal('Uncommon');
     });
 
     it('items', async () => {
