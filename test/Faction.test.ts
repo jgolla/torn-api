@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { expect } from 'chai';
-import sinon = require('sinon');
+import sinon from 'sinon';
 
 import { TornAPI } from '../lib';
 import { IApplication, IArmor, IAttack, IAttackFull, IChain, IChainReport, ICompleteChain, ICrime, ICurrency, IDonation, IDrug, IFaction, IFactionPosition, IFactionReport, IMedical, INews, IReport, IRevives, IRevivesFull, IStats, IUpgrade, IWeapon } from '../lib/Interfaces';

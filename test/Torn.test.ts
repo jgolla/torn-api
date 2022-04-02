@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { expect } from 'chai';
-import sinon = require('sinon');
+import sinon from 'sinon';
 
 import { TornAPI } from '../lib';
 import { IBank, ICard, IChainReport, IFactionTree, IHonor, IItem, IKeyValue, IMedal, IOrganisedCrime, IPawnshop, IPokerTable, IRacket, IRaid, IRankedWar, IRankedWarReport, IStock, IStockDetail, ITerritory, ITerritoryDetail, ITerritoryWar, ITornCompany, ITornEducation, ITornGym, ITornProperty, ITornStats } from '../lib/Interfaces';

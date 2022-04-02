@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { expect } from 'chai';
-import sinon = require('sinon');
+import sinon from 'sinon';
 
 import { ItemMarket, TornAPI, Torn, Company, Faction, Property, User } from '../lib';
 import { TestHelper } from './utils/TestUtils';
