@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { expect } from 'chai';
-import sinon = require('sinon');
+import sinon from 'sinon';
 
 import { TornAPI } from '../lib';
 import { IProperty } from '../lib/Interfaces';

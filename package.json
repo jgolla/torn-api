@@ -29,7 +29,6 @@
   },
   "homepage": "https://github.com/jgolla/torn-api#readme",
   "devDependencies": {
-    "@sinonjs/samsam": "^6.0.2",
     "@types/chai": "^4.2.21",
     "@types/mocha": "^9.0.0",
     "@types/sinon": "^10.0.2",
