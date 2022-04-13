@@ -1254,7 +1254,9 @@ export interface IStock {
     current_price: number;
     market_cap: number;
     total_shares: number;
+    investors: number;
     benefit: {
+        type: string;
         frequency: number;
         requirement: number;
         description: string;
@@ -1267,6 +1269,7 @@ export interface IStockDetail extends IStock {
     last_week: IStockPeriod;
     last_month: IStockPeriod;
     last_year: IStockPeriod;
+    all_time: IStockPeriod;
     history: IStockHistory[];
 }
 
