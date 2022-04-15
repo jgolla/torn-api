@@ -373,7 +373,7 @@ export interface IUser extends IBasicUser {
     role: string;
     donator: number;
     property_id: number;
-    competition?: unknown;
+    competition?: IUserCompetition;
     life: IUserBar;
     job: IJob;
     faction: {
@@ -387,6 +387,11 @@ export interface IUser extends IBasicUser {
     basicicons: IIcon[];
     states: IStates;
     last_action: ILastAction;
+}
+
+export interface IUserCompetition {
+    name: string;
+    score: number;
 }
 
 export interface IUserBar {
