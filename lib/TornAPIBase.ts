@@ -5,6 +5,7 @@ import { IKeyValue, ITornApiError } from './Interfaces';
 export abstract class TornAPIBase {
 
     protected apiKey: string;
+    protected static GenericAPIError = { code: 0, error: 'Unknown error occurred' };
 
     constructor(apiKey: string) {
         this.apiKey = apiKey;
@@ -16,9 +17,9 @@ export abstract class TornAPIBase {
         if (response instanceof Error) {
             return { code: 0, error: response.message };
         } else {
-            if (response.data.error) {
+            if (response.data && response.data.error) {
                 return response.data.error;
-            } else {
+            } else if (response.data) {
                 if (params.jsonOverride === '') {
                     return response.data;
                 } else if (params.jsonOverride) {
@@ -32,6 +33,8 @@ export abstract class TornAPIBase {
                 }
             }
         }
+
+        return TornAPIBase.GenericAPIError;
     }
 
     protected async apiQueryToArray<T>(params: QueryParams, keyField?: string): Promise<T[] | ITornApiError> {
@@ -40,9 +43,9 @@ export abstract class TornAPIBase {
         if (response instanceof Error) {
             return { code: 0, error: response.message };
         } else {
-            if (response.data.error) {
+            if (response.data && response.data.error) {
                 return response.data.error;
-            } else {
+            } else if (response.data) {
                 let jsonSelection = response.data;
                 if (params.jsonOverride) {
                     jsonSelection = response.data[params.jsonOverride];
@@ -61,6 +64,8 @@ export abstract class TornAPIBase {
                 }
             }
         }
+
+        return TornAPIBase.GenericAPIError;
     }
 
     protected async apiQueryToKeyValueArray(params: QueryParams): Promise<IKeyValue[] | ITornApiError> {
@@ -69,9 +74,9 @@ export abstract class TornAPIBase {
         if (response instanceof Error) {
             return { code: 0, error: response.message };
         } else {
-            if (response.data.error) {
+            if (response.data && response.data.error) {
                 return response.data.error;
-            } else {
+            } else if (response.data) {
                 const types: IKeyValue[] = [];
                 const ids = Object.keys(response.data[params.selection]);
                 for (let i = 0; i < ids.length; i++) {
@@ -83,6 +88,8 @@ export abstract class TornAPIBase {
                 return types;
             }
         }
+
+        return TornAPIBase.GenericAPIError;
     }
 
     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/no-explicit-any
@@ -135,12 +142,14 @@ export abstract class TornAPIBase {
         if (response instanceof Error) {
             return { code: 0, error: response.message };
         } else {
-            if (response.data.error) {
+            if (response.data && response.data.error) {
                 return response.data.error;
-            } else {
+            } else if (response.data) {
                 return response.data;
             }
         }
+
+        return TornAPIBase.GenericAPIError;
     }
 }
 

@@ -18,9 +18,9 @@ export class Faction extends TornAPIBase {
         if (response instanceof Error) {
             return { code: 0, error: response.message };
         } else {
-            if (response.data.error) {
+            if (response.data && response.data.error) {
                 return response.data.error;
-            } else {
+            } else if (response.data) {
                 const factionReturn: IFaction = response.data;
                 factionReturn.members = this.fixStringArray(factionReturn.members, 'id');
 
@@ -43,6 +43,8 @@ export class Faction extends TornAPIBase {
                 return factionReturn;
             }
         }
+
+        return TornAPIBase.GenericAPIError;
     }
 
     async applications(): Promise<IApplication[] | ITornApiError> {
@@ -90,14 +92,16 @@ export class Faction extends TornAPIBase {
         if (response instanceof Error) {
             return { code: 0, error: response.message };
         } else {
-            if (response.data.error) {
+            if (response.data && response.data.error) {
                 return response.data.error;
-            } else {
+            } else if (response.data) {
                 const factionReturn: IChainReport = response.data.chainreport;
                 factionReturn.members = this.fixStringArray(factionReturn.members, '');
                 return factionReturn;
             }
         }
+
+        return TornAPIBase.GenericAPIError;
     }
 
     async chains(): Promise<ICompleteChain[] | ITornApiError> {
