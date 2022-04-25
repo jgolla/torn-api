@@ -17,9 +17,9 @@ export class User extends TornAPIBase {
         if (response instanceof Error) {
             return { code: 0, error: response.message };
         } else {
-            if (response.data.error) {
+            if (response.data && response.data.error) {
                 return response.data.error;
-            } else {
+            } else if (response.data) {
                 const user = response.data;
 
                 const icons: IIcon[] = [];
@@ -33,6 +33,8 @@ export class User extends TornAPIBase {
                 user.basicicons = icons;
                 return user;
             }
+
+            return TornAPIBase.GenericAPIError;
         }
     }
 
@@ -101,9 +103,9 @@ export class User extends TornAPIBase {
         if (response instanceof Error) {
             return { code: 0, error: response.message };
         } else {
-            if (response.data.error) {
+            if (response.data && response.data.error) {
                 return response.data.error;
-            } else {
+            } else if (response.data) {
                 const icons: IIcon[] = [];
                 const iconNames = Object.keys(response.data.icons);
                 for (let i = 0; i < iconNames.length; i++) {
@@ -114,6 +116,8 @@ export class User extends TornAPIBase {
 
                 return icons;
             }
+
+            return TornAPIBase.GenericAPIError;
         }
     }
 
@@ -155,9 +159,9 @@ export class User extends TornAPIBase {
         if (response instanceof Error) {
             return { code: 0, error: response.message };
         } else {
-            if (response.data.error) {
+            if (response.data && response.data.error) {
                 return response.data.error;
-            } else {
+            } else if (response.data) {
                 const missionReturn: IMissions[] = [];
                 const keys = Object.keys(response.data.missions);
                 for (let i = 0; i < keys.length; i++) {
@@ -166,6 +170,8 @@ export class User extends TornAPIBase {
 
                 return missionReturn;
             }
+
+            return TornAPIBase.GenericAPIError;
         }
     }
 

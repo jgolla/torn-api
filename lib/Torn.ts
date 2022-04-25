@@ -26,13 +26,15 @@ export class Torn extends TornAPIBase {
         if (response instanceof Error) {
             return { code: 0, error: response.message };
         } else {
-            if (response.data.error) {
+            if (response.data && response.data.error) {
                 return response.data.error;
-            } else {
+            } else if (response.data) {
                 const factionReturn: IChainReport = response.data.chainreport;
                 factionReturn.members = this.fixStringArray(factionReturn.members, '');
                 return factionReturn;
             }
+
+            return TornAPIBase.GenericAPIError;
         }
     }
 
@@ -41,9 +43,9 @@ export class Torn extends TornAPIBase {
         if (response instanceof Error) {
             return { code: 0, error: response.message };
         } else {
-            if (response.data.error) {
+            if (response.data && response.data.error) {
                 return response.data.error;
-            } else {
+            } else if (response.data) {
                 const tornCompany: ITornCompany[] = this.fixStringArray(response.data['companies'], 'id');
 
                 tornCompany.forEach(company => {
@@ -54,6 +56,8 @@ export class Torn extends TornAPIBase {
 
                 return tornCompany;
             }
+
+            return TornAPIBase.GenericAPIError;
         }
     }
 
@@ -66,9 +70,9 @@ export class Torn extends TornAPIBase {
         if (response instanceof Error) {
             return { code: 0, error: response.message };
         } else {
-            if (response.data.error) {
+            if (response.data && response.data.error) {
                 return response.data.error;
-            } else {
+            } else if (response.data) {
                 const returnTree: IFactionTree[] = this.fixStringArray(response.data.factiontree, 'id');
                 returnTree.forEach(item => {
                     item.branch = this.fixStringArray(item, 'id');
@@ -76,6 +80,8 @@ export class Torn extends TornAPIBase {
 
                 return returnTree;
             }
+
+            return TornAPIBase.GenericAPIError;
         }
     }
 
@@ -132,9 +138,9 @@ export class Torn extends TornAPIBase {
         if (response instanceof Error) {
             return { code: 0, error: response.message };
         } else {
-            if (response.data.error) {
+            if (response.data && response.data.error) {
                 return response.data.error;
-            } else {
+            } else if (response.data) {
                 const rankedWar: IRankedWar[] = this.fixStringArray(response.data.rankedwars, 'id');
                 rankedWar.forEach(item => {
                     item.factions = this.fixStringArray(item.factions, 'id');
@@ -142,6 +148,8 @@ export class Torn extends TornAPIBase {
 
                 return rankedWar;
             }
+
+            return TornAPIBase.GenericAPIError;
         }
     }
 
@@ -150,9 +158,9 @@ export class Torn extends TornAPIBase {
         if (response instanceof Error) {
             return { code: 0, error: response.message };
         } else {
-            if (response.data.error) {
+            if (response.data && response.data.error) {
                 return response.data.error;
-            } else {
+            } else if (response.data) {
                 const rw = response.data.rankedwarreport as IRankedWarReport;
                 rw.factions = this.fixStringArray(rw.factions, 'id');
                 for (let i = 0; i < rw.factions.length; i++) {
@@ -161,6 +169,8 @@ export class Torn extends TornAPIBase {
                 rw.members = this.fixStringArray(rw.members, 'id');
                 return rw;
             }
+
+            return TornAPIBase.GenericAPIError;
         }
     }
 
@@ -174,11 +184,13 @@ export class Torn extends TornAPIBase {
             if (response instanceof Error) {
                 return { code: 0, error: response.message };
             } else {
-                if (response.data.error) {
+                if (response.data && response.data.error) {
                     return response.data.error;
-                } else {
+                } else if (response.data) {
                     return response.data.stocks[id];
                 }
+
+                return TornAPIBase.GenericAPIError;
             }
         } else {
             return this.apiQueryToArray({ route: 'torn', selection: 'stocks' });
@@ -196,13 +208,15 @@ export class Torn extends TornAPIBase {
             if (response instanceof Error) {
                 return { code: 0, error: response.message };
             } else {
-                if (response.data.error) {
+                if (response.data && response.data.error) {
                     return response.data.error;
-                } else {
+                } else if (response.data) {
                     const retValue = response.data.territory[id];
                     retValue.id = id;
                     return retValue;
                 }
+
+                return TornAPIBase.GenericAPIError;
             }
         } else {
             return this.apiQueryToArray({ route: 'torn', selection: 'territory' }, 'id');

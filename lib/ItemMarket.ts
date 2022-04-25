@@ -17,11 +17,13 @@ export class ItemMarket extends TornAPIBase {
         if (response instanceof Error) {
             return { code: 0, error: response.message };
         } else {
-            if (response.data.error) {
+            if (response.data && response.data.error) {
                 return response.data.error;
-            } else {
+            } else if (response.data) {
                 return [...response.data.bazaar, ...response.data.itemmarket];
             }
+
+            return TornAPIBase.GenericAPIError;
         }
     }
 

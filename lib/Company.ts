@@ -40,14 +40,16 @@ export class Company extends TornAPIBase {
         if (response instanceof Error) {
             return { code: 0, error: response.message };
         } else {
-            if (response.data.error) {
+            if (response.data && response.data.error) {
                 return response.data.error;
-            } else {
+            } else if (response.data) {
                 const companyProfile: ICompanyProfile = response.data.company;
                 companyProfile.employees = this.fixStringArray(companyProfile.employees, 'id');
                 return companyProfile;
             }
         }
+
+        return TornAPIBase.GenericAPIError;
     }
 
     async stock(): Promise<ICompanyStock[] | ITornApiError> {
