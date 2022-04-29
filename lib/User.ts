@@ -1,5 +1,5 @@
 import { TornAPIBase } from './TornAPIBase';
-import { ITornApiError, IUser, IAmmo, IAttack, IBars, IBasicUser, IBattleStats, ICooldowns, ICrimes, IDiscord, IEducation, IEvents, IGym, IHOF, IIcon, IInventory, IJobPoints, IJobs, IUserCompany, IMedals, IMerits, IMessage, IMoney, INetworth, INotifications, IPerks, IPersonalStats, IRefills, IRevives, IRevivesFull, IUserStock, ITravel, IWorkStats, IUserProperty, IUserSkill, IAttackFull, ILog, IUserStockTransaction, IMissions, IMissionStatus } from './Interfaces';
+import { ITornApiError, IUser, IAmmo, IAttack, IBars, IBasicUser, IBattleStats, ICooldowns, ICrimes, IDiscord, IEducation, IEvents, IGym, IHOF, IIcon, IInventory, IJobPoints, IJobs, IUserCompany, IMedals, IMerits, IMessage, IMoney, INetworth, INotifications, IPerks, IPersonalStats, IRefills, IRevives, IRevivesFull, IUserStock, ITravel, IWorkStats, IUserProperty, IUserSkill, IAttackFull, ILog, IUserStockTransaction, IMissions, IMissionStatus, Errorable } from './Interfaces';
 import axios from 'axios';
 
 export class User extends TornAPIBase {
@@ -7,11 +7,11 @@ export class User extends TornAPIBase {
         super(apiKey);
     }
 
-    async multi(endpoints: string[], id?: string): Promise<ITornApiError | Record<string, object>> {
+    async multi(endpoints: string[], id?: string): Promise<Errorable<Record<string, object>>> {
         return this.multiQuery('user', endpoints, id);
     }
 
-    async user(id?: string): Promise<IUser | ITornApiError> {
+    async user(id?: string): Promise<Errorable<IUser>> {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const response = await axios.get<any>(this.buildUri({ route: 'user', selection: '', id: id }));
         if (response instanceof Error) {
@@ -38,67 +38,67 @@ export class User extends TornAPIBase {
         }
     }
 
-    async ammo(): Promise<IAmmo[] | ITornApiError> {
+    async ammo(): Promise<Errorable<IAmmo[]>> {
         return this.apiQuery({ route: 'user', selection: 'ammo' });
     }
 
-    async attacks(): Promise<IAttack[] | ITornApiError> {
+    async attacks(): Promise<Errorable<IAttack[]>> {
         return this.apiQueryToArray({ route: 'user', selection: 'attacks' });
     }
 
-    async attacksfull(): Promise<IAttackFull[] | ITornApiError> {
+    async attacksfull(): Promise<Errorable<IAttackFull[]>> {
         return this.apiQueryToArray({ route: 'user', selection: 'attacksfull', jsonOverride: 'attacks' });
     }
 
-    async bars(): Promise<IBars | ITornApiError> {
+    async bars(): Promise<Errorable<IBars>> {
         return this.apiQuery({ route: 'user', selection: 'bars', jsonOverride: '' });
     }
 
-    async basic(id?: string): Promise<IBasicUser | ITornApiError> {
+    async basic(id?: string): Promise<Errorable<IBasicUser>> {
         return this.apiQuery({ route: 'user', selection: 'basic', id: id });
     }
 
-    async battlestats(): Promise<IBattleStats | ITornApiError> {
+    async battlestats(): Promise<Errorable<IBattleStats>> {
         return this.apiQuery({ route: 'user', selection: 'battlestats', jsonOverride: '' });
     }
 
-    async bazaar(): Promise<unknown | ITornApiError> {
+    async bazaar(): Promise<unknown> {
         throw new Error('Method not implemented.');
     }
 
-    async cooldowns(): Promise<ICooldowns | ITornApiError> {
+    async cooldowns(): Promise<Errorable<ICooldowns>> {
         return this.apiQuery({ route: 'user', selection: 'cooldowns' });
     }
 
-    async crimes(id?: string): Promise<ICrimes | ITornApiError> {
+    async crimes(id?: string): Promise<Errorable<ICrimes>> {
         return await this.apiQuery({ route: 'user', selection: 'crimes', jsonOverride: 'criminalrecord', id: id });
     }
 
-    async discord(): Promise<IDiscord | ITornApiError> {
+    async discord(): Promise<Errorable<IDiscord>> {
         return this.apiQuery({ route: 'user', selection: 'discord' });
     }
 
-    async display(): Promise<unknown | ITornApiError> {
+    async display(): Promise<unknown> {
         throw new Error('Method not implemented.');
     }
 
-    async education(): Promise<IEducation | ITornApiError> {
+    async education(): Promise<Errorable<IEducation>> {
         return this.apiQuery({ route: 'user', selection: 'education', jsonOverride: '' });
     }
 
-    async events(limit?: number): Promise<IEvents[] | ITornApiError> {
+    async events(limit?: number): Promise<Errorable<IEvents[]>> {
         return this.apiQueryToArray({ route: 'user', selection: 'events', limit: limit });
     }
 
-    async gym(): Promise<IGym | ITornApiError> {
+    async gym(): Promise<Errorable<IGym>> {
         return this.apiQuery({ route: 'user', selection: 'gym', jsonOverride: 'active_gym' });
     }
 
-    async hof(): Promise<IHOF | ITornApiError> {
+    async hof(): Promise<Errorable<IHOF>> {
         return this.apiQuery({ route: 'user', selection: 'hof', jsonOverride: 'halloffame' });
     }
 
-    async icons(id?: string): Promise<IIcon[] | ITornApiError> {
+    async icons(id?: string): Promise<Errorable<IIcon[]>> {
         const response = await axios.get<{ error?: ITornApiError, icons: Record<string, string> }>(this.buildUri({ route: 'user', selection: 'icons', id: id }));
         if (response instanceof Error) {
             return { code: 0, error: response.message };
@@ -121,11 +121,11 @@ export class User extends TornAPIBase {
         }
     }
 
-    async inventory(): Promise<IInventory[] | ITornApiError> {
+    async inventory(): Promise<Errorable<IInventory[]>> {
         return this.apiQuery({ route: 'user', selection: 'inventory' });
     }
 
-    async jobpoints(): Promise<IJobPoints | ITornApiError> {
+    async jobpoints(): Promise<Errorable<IJobPoints>> {
         const response = await this.apiQuery<IInternalJobPoints>({ route: 'user', selection: 'jobpoints' });
         if ('error' in response) {
             return response;
@@ -138,23 +138,23 @@ export class User extends TornAPIBase {
         }
     }
 
-    async log(): Promise<ILog[] | ITornApiError> {
+    async log(): Promise<Errorable<ILog[]>> {
         return this.apiQueryToArray({ route: 'user', selection: 'log' }, 'id');
     }
 
-    async medals(id?: string): Promise<IMedals | ITornApiError> {
+    async medals(id?: string): Promise<Errorable<IMedals>> {
         return this.apiQuery({ route: 'user', selection: 'medals', jsonOverride: '', id: id });
     }
 
-    async merits(): Promise<IMerits | ITornApiError> {
+    async merits(): Promise<Errorable<IMerits>> {
         return this.apiQuery({ route: 'user', selection: 'merits' });
     }
 
-    async messages(limit?: number): Promise<IMessage[] | ITornApiError> {
+    async messages(limit?: number): Promise<Errorable<IMessage[]>> {
         return this.apiQueryToArray({ route: 'user', selection: 'messages', limit: limit });
     }
 
-    async missions(): Promise<IMissions[] | ITornApiError> {
+    async missions(): Promise<Errorable<IMissions[]>> {
         const response = await axios.get<{ error?: ITornApiError, missions: Record<string, IMissionStatus[]> }>(this.buildUri({ route: 'user', selection: 'missions' }));
         if (response instanceof Error) {
             return { code: 0, error: response.message };
@@ -175,43 +175,43 @@ export class User extends TornAPIBase {
         }
     }
 
-    async money(): Promise<IMoney | ITornApiError> {
+    async money(): Promise<Errorable<IMoney>> {
         return this.apiQuery({ route: 'user', selection: 'money', jsonOverride: '' });
     }
 
-    async networth(): Promise<INetworth | ITornApiError> {
+    async networth(): Promise<Errorable<INetworth>> {
         return this.apiQuery({ route: 'user', selection: 'networth' });
     }
 
-    async newevents(): Promise<IEvents[] | ITornApiError> {
+    async newevents(): Promise<Errorable<IEvents[]>> {
         return this.apiQueryToArray({ route: 'user', selection: 'newevents', jsonOverride: 'events' });
     }
 
-    async newmessages(): Promise<IMessage[] | ITornApiError> {
+    async newmessages(): Promise<Errorable<IMessage[]>> {
         return this.apiQueryToArray({ route: 'user', selection: 'newmessages', jsonOverride: 'messages' });
     }
 
-    async notifications(): Promise<INotifications | ITornApiError> {
+    async notifications(): Promise<Errorable<INotifications>> {
         return this.apiQuery({ route: 'user', selection: 'notifications' });
     }
 
-    async perks(): Promise<IPerks | ITornApiError> {
+    async perks(): Promise<Errorable<IPerks>> {
         return this.apiQuery({ route: 'user', selection: 'perks', jsonOverride: '' });
     }
 
-    async personalstats(id?: string, timestamp?: number): Promise<IPersonalStats | ITornApiError> {
+    async personalstats(id?: string, timestamp?: number): Promise<Errorable<IPersonalStats>> {
         return this.apiQuery({ route: 'user', selection: 'personalstats', timestamp: timestamp, id: id });
     }
 
-    async profile(id?: string): Promise<IUser | ITornApiError> {
+    async profile(id?: string): Promise<Errorable<IUser>> {
         return this.user(id);
     }
 
-    async properties(): Promise<IUserProperty[] | ITornApiError> {
+    async properties(): Promise<Errorable<IUserProperty[]>> {
         return this.apiQueryToArray({ route: 'user', selection: 'properties' });
     }
 
-    async refills(): Promise<IRefills | ITornApiError> {
+    async refills(): Promise<Errorable<IRefills>> {
         return this.apiQuery({ route: 'user', selection: 'refills' });
     }
 
@@ -219,19 +219,19 @@ export class User extends TornAPIBase {
         throw new Error('Method not implemented.');
     }
 
-    async revives(): Promise<IRevives[] | ITornApiError> {
+    async revives(): Promise<Errorable<IRevives[]>> {
         return this.apiQueryToArray({ route: 'user', selection: 'revives' });
     }
 
-    async revivesfull(): Promise<IRevivesFull[] | ITornApiError> {
+    async revivesfull(): Promise<Errorable<IRevivesFull[]>> {
         return this.apiQueryToArray({ route: 'user', selection: 'revives', jsonOverride: 'revivesfull' });
     }
 
-    async skills(): Promise<IUserSkill | ITornApiError> {
+    async skills(): Promise<Errorable<IUserSkill>> {
         return this.apiQuery({ route: 'user', selection: 'skills', jsonOverride: '' });
     }
 
-    async stocks(): Promise<IUserStock[] | ITornApiError> {
+    async stocks(): Promise<Errorable<IUserStock[]>> {
         const response = await this.apiQueryToArray<IInternalUserStock>({ route: 'user', selection: 'stocks' });
         if ('error' in response) {
             return response;
@@ -251,15 +251,15 @@ export class User extends TornAPIBase {
         }
     }
 
-    async travel(): Promise<ITravel | ITornApiError> {
+    async travel(): Promise<Errorable<ITravel>> {
         return this.apiQuery({ route: 'user', selection: 'travel' });
     }
 
-    async weaponexp(): Promise<unknown | ITornApiError> {
+    async weaponexp(): Promise<unknown> {
         throw new Error('Method not implemented.');
     }
 
-    async workstats(): Promise<IWorkStats | ITornApiError> {
+    async workstats(): Promise<Errorable<IWorkStats>> {
         return this.apiQuery({ route: 'user', selection: 'workstats', jsonOverride: '' });
     }
 }
