@@ -3,6 +3,8 @@ export interface ITornApiError {
     error: string;
 }
 
+export type Errorable<T> = T | ITornApiError;
+
 export interface IBank {
     '1w': string;
     '2w': string;

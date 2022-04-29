@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { IBank, ITornGym, IHonor, IItem, IMedal, IOrganisedCrime, IPawnshop, IRacket, IRaid, IStock, ITerritory, ITerritoryWar, ITornApiError, ITornCompany, ITornProperty, ITornStats, IFactionTree, IKeyValue, ICard, IStockDetail, ITornEducation, IPokerTable, IChainReport, IRankedWar, IRankedWarReport, ITerritoryDetail } from './Interfaces';
+import { IBank, ITornGym, IHonor, IItem, IMedal, IOrganisedCrime, IPawnshop, IRacket, IRaid, IStock, ITerritory, ITerritoryWar, ITornApiError, ITornCompany, ITornProperty, ITornStats, IFactionTree, IKeyValue, ICard, IStockDetail, ITornEducation, IPokerTable, IChainReport, IRankedWar, IRankedWarReport, ITerritoryDetail, Errorable } from './Interfaces';
 import { TornAPIBase } from './TornAPIBase';
 
 export class Torn extends TornAPIBase {
@@ -9,19 +9,19 @@ export class Torn extends TornAPIBase {
         super(apiKey);
     }
 
-    async multi(endpoints: string[], id?: string): Promise<ITornApiError | Record<string, object>> {
+    async multi(endpoints: string[], id?: string): Promise<Errorable<Record<string, object>>> {
         return this.multiQuery('torn', endpoints, id);
     }
 
-    async bank(): Promise<IBank | ITornApiError> {
+    async bank(): Promise<Errorable<IBank>> {
         return this.apiQuery({ route: 'torn', selection: 'bank' });
     }
 
-    async cards(): Promise<ICard[] | ITornApiError> {
+    async cards(): Promise<Errorable<ICard[]>> {
         return this.apiQueryToArray({ route: 'torn', selection: 'cards' }, 'id');
     }
 
-    async chainreport(id: number): Promise<IChainReport | ITornApiError> {
+    async chainreport(id: number): Promise<Errorable<IChainReport>> {
         const response = await axios.get<{ error?: ITornApiError, chainreport: IChainReport }>(this.buildUri({ route: 'torn', selection: 'chainreport', id: id ? id.toString() : '' }));
         if (response instanceof Error) {
             return { code: 0, error: response.message };
@@ -38,7 +38,7 @@ export class Torn extends TornAPIBase {
         }
     }
 
-    async companies(): Promise<ITornCompany[] | ITornApiError> {
+    async companies(): Promise<Errorable<ITornCompany[]>> {
         const response = await axios.get<{ error?: ITornApiError, companies: ITornCompany }>(this.buildUri({ route: 'torn', selection: 'companies' }));
         if (response instanceof Error) {
             return { code: 0, error: response.message };
@@ -61,11 +61,11 @@ export class Torn extends TornAPIBase {
         }
     }
 
-    async education(): Promise<ITornEducation[] | ITornApiError> {
+    async education(): Promise<Errorable<ITornEducation[]>> {
         return this.apiQueryToArray({ route: 'torn', selection: 'education' }, 'id');
     }
 
-    async factiontree(): Promise<IFactionTree[] | ITornApiError> {
+    async factiontree(): Promise<Errorable<IFactionTree[]>> {
         const response = await axios.get<{ error?: ITornApiError, factiontree: IFactionTree }>(this.buildUri({ route: 'torn', selection: 'factiontree' }));
         if (response instanceof Error) {
             return { code: 0, error: response.message };
@@ -85,55 +85,55 @@ export class Torn extends TornAPIBase {
         }
     }
 
-    async gyms(): Promise<ITornGym[] | ITornApiError> {
+    async gyms(): Promise<Errorable<ITornGym[]>> {
         return this.apiQueryToArray({ route: 'torn', selection: 'gyms' }, 'id');
     }
 
-    async honors(id?: string): Promise<IHonor[] | ITornApiError> {
+    async honors(id?: string): Promise<Errorable<IHonor[]>> {
         return this.apiQueryToArray({ route: 'torn', selection: 'honors', id: id }, 'id');
     }
 
-    async items(): Promise<IItem[] | ITornApiError> {
+    async items(): Promise<Errorable<IItem[]>> {
         return this.apiQueryToArray({ route: 'torn', selection: 'items' }, 'id');
     }
 
-    async logcategories(): Promise<IKeyValue[] | ITornApiError> {
+    async logcategories(): Promise<Errorable<IKeyValue[]>> {
         return this.apiQueryToKeyValueArray({ route: 'torn', selection: 'logcategories' });
     }
 
-    async logtypes(): Promise<IKeyValue[] | ITornApiError> {
+    async logtypes(): Promise<Errorable<IKeyValue[]>> {
         return this.apiQueryToKeyValueArray({ route: 'torn', selection: 'logtypes' });
     }
 
-    async medals(): Promise<IMedal[] | ITornApiError> {
+    async medals(): Promise<Errorable<IMedal[]>> {
         return this.apiQueryToArray({ route: 'torn', selection: 'medals' }, 'id');
     }
 
-    async organisedcrimes(): Promise<IOrganisedCrime[] | ITornApiError> {
+    async organisedcrimes(): Promise<Errorable<IOrganisedCrime[]>> {
         return this.apiQueryToArray({ route: 'torn', selection: 'organisedcrimes' }, 'id');
     }
 
-    async pawnshop(): Promise<IPawnshop | ITornApiError> {
+    async pawnshop(): Promise<Errorable<IPawnshop>> {
         return this.apiQuery({ route: 'torn', selection: 'pawnshop' });
     }
 
-    async properties(): Promise<ITornProperty[] | ITornApiError> {
+    async properties(): Promise<Errorable<ITornProperty[]>> {
         return this.apiQueryToArray({ route: 'torn', selection: 'properties' }, 'id');
     }
 
-    async pokertables(): Promise<IPokerTable[] | ITornApiError> {
+    async pokertables(): Promise<Errorable<IPokerTable[]>> {
         return this.apiQueryToArray({ route: 'torn', selection: 'pokertables' }, 'id');
     }
 
-    async rackets(): Promise<IRacket[] | ITornApiError> {
+    async rackets(): Promise<Errorable<IRacket[]>> {
         return this.apiQueryToArray({ route: 'torn', selection: 'rackets' }, 'id');
     }
 
-    async raids(): Promise<IRaid[] | ITornApiError> {
+    async raids(): Promise<Errorable<IRaid[]>> {
         return this.apiQueryToArray({ route: 'torn', selection: 'raids' }, 'id');
     }
 
-    async rankedwars(): Promise<IRankedWar[] | ITornApiError> {
+    async rankedwars(): Promise<Errorable<IRankedWar[]>> {
         const response = await axios.get<{ error?: ITornApiError, rankedwars: IRankedWar[] }>(this.buildUri({ route: 'torn', selection: 'rankedwars' }));
         if (response instanceof Error) {
             return { code: 0, error: response.message };
@@ -153,7 +153,7 @@ export class Torn extends TornAPIBase {
         }
     }
 
-    async rankedwarreport(id: string): Promise<IRankedWarReport | ITornApiError> {
+    async rankedwarreport(id: string): Promise<Errorable<IRankedWarReport>> {
         const response = await axios.get<{ error?: ITornApiError, rankedwarreport: IRankedWarReport }>(this.buildUri({ route: 'torn', selection: 'rankedwarreports', id: id }));
         if (response instanceof Error) {
             return { code: 0, error: response.message };
@@ -174,11 +174,11 @@ export class Torn extends TornAPIBase {
         }
     }
 
-    async stats(): Promise<ITornStats | ITornApiError> {
+    async stats(): Promise<Errorable<ITornStats>> {
         return this.apiQuery({ route: 'torn', selection: 'stats' });
     }
 
-    async stocks(id?: string): Promise<IStock[] | IStockDetail | ITornApiError> {
+    async stocks(id?: string): Promise<Errorable<IStock[] | IStockDetail>> {
         if (id) {
             const response = await axios.get<{ error?: ITornApiError, stocks: Record<string, IStockDetail> }>(this.buildUri({ route: 'torn', selection: 'stocks', id: id }));
             if (response instanceof Error) {
@@ -197,11 +197,11 @@ export class Torn extends TornAPIBase {
         }
     }
 
-    async timestamp(): Promise<number | ITornApiError> {
+    async timestamp(): Promise<Errorable<number>> {
         return this.apiQuery({ route: 'torn', selection: 'timestamp' });
     }
 
-    async territory(id?: string): Promise<ITerritory[] | ITerritoryDetail | ITornApiError> {
+    async territory(id?: string): Promise<Errorable<ITerritory[] | ITerritoryDetail>> {
 
         if (id) {
             const response = await axios.get<{ error?: ITornApiError, territory: Record<string, ITerritoryDetail> }>(this.buildUri({ route: 'torn', selection: 'territory', id: id }));
@@ -223,7 +223,7 @@ export class Torn extends TornAPIBase {
         }
     }
 
-    async territorywars(): Promise<ITerritoryWar[] | ITornApiError> {
+    async territorywars(): Promise<Errorable<ITerritoryWar[]>> {
         return this.apiQueryToArray({ route: 'torn', selection: 'territorywars' }, 'id');
     }
 }
