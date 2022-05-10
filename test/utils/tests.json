@@ -382,6 +382,516 @@
             }
         }
     },
+    "torn_cityshops": {
+        "cityshops": {
+            "100": {
+                "name": "Big Al's Gun Shop",
+                "inventory": {
+                    "1": {
+                        "name": "Hammer",
+                        "type": "Melee",
+                        "price": 75,
+                        "in_stock": 156
+                    },
+                    "2": {
+                        "name": "Baseball bat",
+                        "type": "Melee",
+                        "price": 200,
+                        "in_stock": 69
+                    },
+                    "3": {
+                        "name": "Crow bar",
+                        "type": "Melee",
+                        "price": 400,
+                        "in_stock": 641
+                    },
+                    "12": {
+                        "name": "Glock 18",
+                        "type": "Secondary",
+                        "price": 400,
+                        "in_stock": 531
+                    },
+                    "13": {
+                        "name": "Raven MP25",
+                        "type": "Secondary",
+                        "price": 550,
+                        "in_stock": 122
+                    },
+                    "650": {
+                        "name": "Leather Gloves",
+                        "type": "Defensive",
+                        "price": 750,
+                        "in_stock": 437
+                    },
+                    "392": {
+                        "name": "Pepper Spray",
+                        "type": "Temporary",
+                        "price": 800,
+                        "in_stock": 220
+                    },
+                    "649": {
+                        "name": "Leather Boots",
+                        "type": "Defensive",
+                        "price": 900,
+                        "in_stock": 830
+                    },
+                    "14": {
+                        "name": "Ruger 22/45",
+                        "type": "Secondary",
+                        "price": 975,
+                        "in_stock": 295
+                    },
+                    "5": {
+                        "name": "Pen knife",
+                        "type": "Melee",
+                        "price": 1000,
+                        "in_stock": 828
+                    },
+                    "6": {
+                        "name": "Kitchen knife",
+                        "type": "Melee",
+                        "price": 1500,
+                        "in_stock": 799
+                    },
+                    "173": {
+                        "name": "Butterfly Knife",
+                        "type": "Melee",
+                        "price": 1750,
+                        "in_stock": 100
+                    },
+                    "15": {
+                        "name": "Beretta M9",
+                        "type": "Secondary",
+                        "price": 2000,
+                        "in_stock": 457
+                    },
+                    "7": {
+                        "name": "Dagger",
+                        "type": "Melee",
+                        "price": 2250,
+                        "in_stock": 29
+                    },
+                    "22": {
+                        "name": "Sawed-Off Shotgun",
+                        "type": "Primary",
+                        "price": 2400,
+                        "in_stock": 573
+                    },
+                    "32": {
+                        "name": "Leather Vest",
+                        "type": "Defensive",
+                        "price": 2500,
+                        "in_stock": 888
+                    },
+                    "16": {
+                        "name": "USP",
+                        "type": "Secondary",
+                        "price": 2750,
+                        "in_stock": 157
+                    },
+                    "176": {
+                        "name": "Chain mail",
+                        "type": "Defensive",
+                        "price": 4000,
+                        "in_stock": 137
+                    },
+                    "23": {
+                        "name": "Benelli M1 Tactical",
+                        "type": "Primary",
+                        "price": 4900,
+                        "in_stock": 335
+                    },
+                    "24": {
+                        "name": "MP5-Navy",
+                        "type": "Primary",
+                        "price": 5600,
+                        "in_stock": 334
+                    },
+                    "25": {
+                        "name": "P90",
+                        "type": "Primary",
+                        "price": 9800,
+                        "in_stock": 747
+                    },
+                    "18": {
+                        "name": "Fiveseven",
+                        "type": "Secondary",
+                        "price": 9950,
+                        "in_stock": 577
+                    },
+                    "33": {
+                        "name": "Riot Gear",
+                        "type": "Defensive",
+                        "price": 10000,
+                        "in_stock": 357
+                    },
+                    "174": {
+                        "name": "XM8 Rifle",
+                        "type": "Primary",
+                        "price": 12500,
+                        "in_stock": 561
+                    },
+                    "10": {
+                        "name": "Chainsaw",
+                        "type": "Melee",
+                        "price": 15000,
+                        "in_stock": 24
+                    },
+                    "27": {
+                        "name": "M4A1 Colt Carbine",
+                        "type": "Primary",
+                        "price": 19500,
+                        "in_stock": 374
+                    },
+                    "19": {
+                        "name": "Magnum",
+                        "type": "Secondary",
+                        "price": 23000,
+                        "in_stock": 741
+                    },
+                    "34": {
+                        "name": "Bulletproof Vest",
+                        "type": "Defensive",
+                        "price": 50000,
+                        "in_stock": 457
+                    },
+                    "29": {
+                        "name": "M16 A2 Rifle",
+                        "type": "Primary",
+                        "price": 53000,
+                        "in_stock": 968
+                    },
+                    "49": {
+                        "name": "Full Body Armour",
+                        "type": "Defensive",
+                        "price": 75000,
+                        "in_stock": 582
+                    },
+                    "30": {
+                        "name": "Steyr AUG",
+                        "type": "Primary",
+                        "price": 99500,
+                        "in_stock": 240
+                    }
+                }
+            },
+            "101": {
+                "name": "Sally's Sweet Shop",
+                "inventory": {
+                    "210": {
+                        "name": "Chocolate Kiss",
+                        "type": "Candy",
+                        "price": 150,
+                        "in_stock": 600
+                    },
+                    "209": {
+                        "name": "Sweet Hearts",
+                        "type": "Candy",
+                        "price": 500,
+                        "in_stock": 99
+                    }
+                }
+            },
+            "102": {
+                "name": "TC Clothing",
+                "inventory": {
+                    "404": {
+                        "name": "Bandana",
+                        "type": "Clothing",
+                        "price": 500,
+                        "in_stock": 880
+                    }
+                }
+            },
+            "103": {
+                "name": "Bits 'n' Bobs",
+                "inventory": {
+                    "97": {
+                        "name": "Bunch of flowers",
+                        "type": "Flower",
+                        "price": 5,
+                        "in_stock": 165
+                    },
+                    "403": {
+                        "name": "Box of Tissues",
+                        "type": "Other",
+                        "price": 20,
+                        "in_stock": 478
+                    },
+                    "186": {
+                        "name": "Sheep Plushie",
+                        "type": "Plushie",
+                        "price": 25,
+                        "in_stock": 759
+                    },
+                    "560": {
+                        "name": "Fruitcake",
+                        "type": "Other",
+                        "price": 30,
+                        "in_stock": 150
+                    },
+                    "215": {
+                        "name": "Kitten Plushie",
+                        "type": "Plushie",
+                        "price": 50,
+                        "in_stock": 47
+                    },
+                    "401": {
+                        "name": "Lead Pipe",
+                        "type": "Melee",
+                        "price": 150,
+                        "in_stock": 806
+                    },
+                    "183": {
+                        "name": "Single Red Rose",
+                        "type": "Flower",
+                        "price": 175,
+                        "in_stock": 241
+                    },
+                    "129": {
+                        "name": "Dozen Roses",
+                        "type": "Flower",
+                        "price": 300,
+                        "in_stock": 900
+                    },
+                    "64": {
+                        "name": "Pack of cuban cigars",
+                        "type": "Other",
+                        "price": 400,
+                        "in_stock": 550
+                    },
+                    "184": {
+                        "name": "Bunch of Black Roses",
+                        "type": "Flower",
+                        "price": 500,
+                        "in_stock": 392
+                    }
+                }
+            },
+            "104": {
+                "name": "the Jewelry Store",
+                "inventory": {
+                    "51": {
+                        "name": "Plain silver ring",
+                        "type": "Jewelry",
+                        "price": 100,
+                        "in_stock": 887
+                    },
+                    "52": {
+                        "name": "Sapphire ring",
+                        "type": "Jewelry",
+                        "price": 300,
+                        "in_stock": 800
+                    },
+                    "53": {
+                        "name": "Gold ring",
+                        "type": "Jewelry",
+                        "price": 530,
+                        "in_stock": 679
+                    },
+                    "54": {
+                        "name": "Diamond Ring",
+                        "type": "Jewelry",
+                        "price": 5000,
+                        "in_stock": 248
+                    }
+                }
+            },
+            "105": {
+                "name": "the Super Store",
+                "inventory": {
+                    "417": {
+                        "name": "RS232 Cable",
+                        "type": "Electronic",
+                        "price": 30,
+                        "in_stock": 378
+                    },
+                    "44": {
+                        "name": "Pack of blank CDs",
+                        "type": "Electronic",
+                        "price": 35,
+                        "in_stock": 306
+                    },
+                    "61": {
+                        "name": "Personal computer",
+                        "type": "Electronic",
+                        "price": 1350,
+                        "in_stock": 388
+                    }
+                }
+            },
+            "106": {
+                "name": "Cyber Force"
+            },
+            "107": {
+                "name": "the Docks",
+                "inventory": {
+                    "498": {
+                        "name": "Peugeot 106",
+                        "type": "Car",
+                        "price": 8000,
+                        "in_stock": 188
+                    },
+                    "500": {
+                        "name": "Vauxhall Corsa",
+                        "type": "Car",
+                        "price": 9000,
+                        "in_stock": 47
+                    },
+                    "499": {
+                        "name": "Renault Clio",
+                        "type": "Car",
+                        "price": 11000,
+                        "in_stock": 189
+                    },
+                    "506": {
+                        "name": "Volkswagen Golf GTI",
+                        "type": "Car",
+                        "price": 12500,
+                        "in_stock": 241
+                    },
+                    "504": {
+                        "name": "Seat Leon Cupra",
+                        "type": "Car",
+                        "price": 17500,
+                        "in_stock": 133
+                    },
+                    "93": {
+                        "name": "Ford Mustang",
+                        "type": "Car",
+                        "price": 38000,
+                        "in_stock": 173
+                    },
+                    "82": {
+                        "name": "Chevrolet Corvette Z06",
+                        "type": "Car",
+                        "price": 75000,
+                        "in_stock": 197
+                    },
+                    "518": {
+                        "name": "Audi R8",
+                        "type": "Car",
+                        "price": 175000,
+                        "in_stock": 127
+                    },
+                    "85": {
+                        "name": "Ford GT40",
+                        "type": "Car",
+                        "price": 230000,
+                        "in_stock": 118
+                    },
+                    "517": {
+                        "name": "Aston Martin One-77",
+                        "type": "Car",
+                        "price": 1300000,
+                        "in_stock": 37
+                    }
+                }
+            },
+            "108": {
+                "name": "the Post Office",
+                "inventory": {
+                    "372": {
+                        "name": "Empty box",
+                        "type": "Other",
+                        "price": 5,
+                        "in_stock": 467
+                    },
+                    "378": {
+                        "name": "Generic wrapping paper",
+                        "type": "Other",
+                        "price": 20,
+                        "in_stock": 668
+                    },
+                    "377": {
+                        "name": "Birthday wrapping paper",
+                        "type": "Other",
+                        "price": 30,
+                        "in_stock": 274
+                    },
+                    "379": {
+                        "name": "Christmas wrapping paper",
+                        "type": "Other",
+                        "price": 30,
+                        "in_stock": 1000
+                    }
+                }
+            },
+            "109": {
+                "name": "the Pawn Shop"
+            },
+            "110": {
+                "name": "the Pharmacy",
+                "inventory": {
+                    "731": {
+                        "name": "Empty Blood Bag",
+                        "type": "Medical",
+                        "price": 15000,
+                        "in_stock": 383
+                    },
+                    "68": {
+                        "name": "Small first aid kit",
+                        "type": "Medical",
+                        "price": 20000,
+                        "in_stock": 778
+                    },
+                    "66": {
+                        "name": "Morphine",
+                        "type": "Medical",
+                        "price": 50000,
+                        "in_stock": 862
+                    },
+                    "464": {
+                        "name": "Melatonin",
+                        "type": "Temporary",
+                        "price": 300000,
+                        "in_stock": 216
+                    },
+                    "814": {
+                        "name": "Tyrosine",
+                        "type": "Temporary",
+                        "price": 600000,
+                        "in_stock": 890
+                    },
+                    "465": {
+                        "name": "Serotonin",
+                        "type": "Temporary",
+                        "price": 1300000,
+                        "in_stock": 990
+                    }
+                }
+            },
+            "111": {
+                "name": "Nikeh Sports",
+                "inventory": {
+                    "329": {
+                        "name": "Skateboard",
+                        "type": "Booster",
+                        "price": 450000000,
+                        "in_stock": 319
+                    },
+                    "330": {
+                        "name": "Boxing Gloves",
+                        "type": "Booster",
+                        "price": 450000000,
+                        "in_stock": 261
+                    },
+                    "331": {
+                        "name": "Dumbbells",
+                        "type": "Booster",
+                        "price": 450000000,
+                        "in_stock": 876
+                    },
+                    "106": {
+                        "name": "Parachute",
+                        "type": "Booster",
+                        "price": 450000000,
+                        "in_stock": 286
+                    }
+                }
+            }
+        }
+    },
     "torn_companies": {
         "companies": {
             "1": {

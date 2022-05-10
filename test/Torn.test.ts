@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import sinon from 'sinon';
 
 import { TornAPI } from '../lib';
-import { IBank, ICard, IChainReport, IFactionTree, IHonor, IItem, IKeyValue, IMedal, IOrganisedCrime, IPawnshop, IPokerTable, IRacket, IRaid, IRankedWar, IRankedWarReport, IStock, IStockDetail, ITerritory, ITerritoryDetail, ITerritoryWar, ITornCompany, ITornEducation, ITornGym, ITornProperty, ITornStats } from '../lib/Interfaces';
+import { IBank, ICard, IChainReport, ICityShop, IFactionTree, IHonor, IItem, IKeyValue, IMedal, IOrganisedCrime, IPawnshop, IPokerTable, IRacket, IRaid, IRankedWar, IRankedWarReport, IStock, IStockDetail, ITerritory, ITerritoryDetail, ITerritoryWar, ITornCompany, ITornEducation, ITornGym, ITornProperty, ITornStats } from '../lib/Interfaces';
 import { TestHelper } from './utils/TestUtils';
 
 describe('Torn API', () => {
@@ -68,6 +68,26 @@ describe('Torn API', () => {
         const bonus = castedReturn.bonuses.find(x => x.chain === 25);
         expect(bonus?.attacker).to.equal(2488990);
         expect(bonus?.respect).to.equal(20);
+    });
+
+    it('cityshops', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('torn_cityshops'));
+
+        const initialReturn = await torn.torn.cityshops();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as ICityShop[];
+
+        // spot check one
+        const shop = castedReturn.find(x => x.id === '110');
+        expect(shop?.name).to.equal('the Pharmacy');
+
+        //spot check one item
+        const item = shop?.inventory.find(x => x.id === '66');
+        expect(item?.name).to.equal('Morphine');
+        expect(item?.type).to.equal('Medical');
+        expect(item?.price).to.equal(50000);
+        expect(item?.in_stock).to.equal(862);
     });
 
     it('companies', async () => {

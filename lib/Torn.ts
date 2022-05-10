@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { IBank, ITornGym, IHonor, IItem, IMedal, IOrganisedCrime, IPawnshop, IRacket, IRaid, IStock, ITerritory, ITerritoryWar, ITornApiError, ITornCompany, ITornProperty, ITornStats, IFactionTree, IKeyValue, ICard, IStockDetail, ITornEducation, IPokerTable, IChainReport, IRankedWar, IRankedWarReport, ITerritoryDetail, Errorable } from './Interfaces';
+import { IBank, ITornGym, IHonor, IItem, IMedal, IOrganisedCrime, IPawnshop, IRacket, IRaid, IStock, ITerritory, ITerritoryWar, ITornApiError, ITornCompany, ITornProperty, ITornStats, IFactionTree, IKeyValue, ICard, IStockDetail, ITornEducation, IPokerTable, IChainReport, IRankedWar, IRankedWarReport, ITerritoryDetail, Errorable, ICityShop } from './Interfaces';
 import { TornAPIBase } from './TornAPIBase';
 
 export class Torn extends TornAPIBase {
@@ -32,6 +32,26 @@ export class Torn extends TornAPIBase {
                 const factionReturn: IChainReport = response.data.chainreport;
                 factionReturn.members = this.fixStringArray(factionReturn.members, '');
                 return factionReturn;
+            }
+
+            return TornAPIBase.GenericAPIError;
+        }
+    }
+
+    async cityshops(): Promise<Errorable<ICityShop[]>> {
+        const response = await axios.get<{ error?: ITornApiError, cityshops: ICityShop[] }>(this.buildUri({ route: 'torn', selection: 'cityshops' }));
+        if (response instanceof Error) {
+            return { code: 0, error: response.message };
+        } else {
+            if (response.data && response.data.error) {
+                return response.data.error;
+            } else if (response.data) {
+                const cityshops: ICityShop[] = this.fixStringArray(response.data['cityshops'], 'id');
+                for (let i = 0; i < cityshops.length; i++) {
+                    cityshops[i].inventory = this.fixStringArray(cityshops[i].inventory, 'id');
+                }
+
+                return cityshops;
             }
 
             return TornAPIBase.GenericAPIError;
