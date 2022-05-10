@@ -95,15 +95,17 @@ export abstract class TornAPIBase {
     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/no-explicit-any
     protected fixStringArray<T>(mapLike: any, keyField: string): T[] {
         const returnArray: T[] = [];
-        const ids = Object.keys(mapLike);
-        for (let i = 0; i < ids.length; i++) {
-            const id = ids[i];
-            const field = mapLike[id];
-            if (typeof field === 'object') {
-                if (keyField) {
-                    field[keyField] = id;
+        if (mapLike) {
+            const ids = Object.keys(mapLike);
+            for (let i = 0; i < ids.length; i++) {
+                const id = ids[i];
+                const field = mapLike[id];
+                if (typeof field === 'object') {
+                    if (keyField) {
+                        field[keyField] = id;
+                    }
+                    returnArray.push(field);
                 }
-                returnArray.push(field);
             }
         }
 

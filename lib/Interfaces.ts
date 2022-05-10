@@ -1505,3 +1505,17 @@ export interface IRWItem {
     name: string;
     quantity: number;
 }
+
+export interface ICityShop {
+    id: string;
+    name: string;
+    inventory: ICityShopInventory[];
+}
+
+export interface ICityShopInventory {
+    id: string;
+    name: string;
+    type: string;
+    price: number;
+    in_stock: number;
+}
