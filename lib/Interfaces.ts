@@ -389,6 +389,7 @@ export interface IUser extends IBasicUser {
     basicicons: IIcon[];
     states: IStates;
     last_action: ILastAction;
+    revivable: number;
 }
 
 export interface IUserCompetition {
