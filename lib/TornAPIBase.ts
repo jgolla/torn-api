@@ -138,7 +138,7 @@ export abstract class TornAPIBase {
         return `https://api.torn.com/${params.route}/${id}?selections=${params.selection}&key=${this.apiKey}${from}${to}${limit}${timestamp}`;
     }
 
-    protected async multiQuery<T>(route: string, endpoints: string[], id?: string): Promise<ITornApiError | Record<string, T>> {
+    async multiQuery<T>(route: string, endpoints: string[], id?: string): Promise<ITornApiError | Record<string, T>> {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const response = await axios.get<any>(this.buildUri({ route: route, selection: endpoints.join(','), id: id }));
         if (response instanceof Error) {

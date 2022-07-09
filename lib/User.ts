@@ -11,6 +11,10 @@ export class User extends TornAPIBase {
         return this.multiQuery('user', endpoints, id);
     }
 
+    multi2<T>(id?: string): RequestBuilder<{}> {
+        return new RequestBuilder<{}>(this, id);
+    }
+
     async user(id?: string): Promise<Errorable<IUser>> {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const response = await axios.get<any>(this.buildUri({ route: 'user', selection: '', id: id }));
@@ -261,6 +265,30 @@ export class User extends TornAPIBase {
 
     async workstats(): Promise<Errorable<IWorkStats>> {
         return this.apiQuery({ route: 'user', selection: 'workstats', jsonOverride: '' });
+    }
+}
+
+class RequestBuilder<T> {
+    constructor(private user: User, private id?: string) {}
+
+    private selections = new Set<string>();
+    ammo = this._add<{ ammo: [IAmmo] }>("attacks");
+    attacks = this._add<{ attacks: { [id: string]: IAttack } }>("attacks");
+    bars = this._add<IBars>("bars");
+
+    fetch(): Promise<Errorable<T>> {
+        return this.user.multiQuery(
+            "user",
+            [...this.selections],
+            this.id
+        ) as Promise<Errorable<T>>;
+    }
+
+    private _add<TAdd>(selection: string): () => RequestBuilder<T & TAdd> {
+        return () => {
+            this.selections.add(selection);
+            return this as unknown as RequestBuilder<T & TAdd>;
+        };
     }
 }
 
