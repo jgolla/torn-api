@@ -11,7 +11,7 @@ export class User extends TornAPIBase {
         return this.multiQuery('user', endpoints, id);
     }
 
-    multi2<T>(id?: string): RequestBuilder<{}> {
+    typedMulti<T>(id?: string): RequestBuilder<{}> {
         return new RequestBuilder<{}>(this, id);
     }
 
