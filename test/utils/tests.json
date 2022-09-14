@@ -86239,5 +86239,9 @@
                 }
             ]
         }
+    },
+    "user_profile": 
+        {"rank":"Elite Medalist","level":100,"gender":"Male","property":"Private Island","signup":"2014-12-31 17:56:21","awards":517,"friends":66,"enemies":11,"forum_posts":4482,"karma":3371,"age":2814,"role":"Wiki Contributor","donator":1,"player_id":1879891,"name":"Mudbottom","property_id":487997,"revivable":0,"life":{"current":7500,"maximum":7500,"increment":450,"interval":300,"ticktime":271,"fulltime":0},"status":{"description":"Okay","details":"","state":"Okay","color":"green","until":0},"job":{"position":"Employee","company_id":92523,"company_name":"Lawyers, Guns, and Money","company_type":2},"faction":{"position":"Bluesman","faction_id":13274,"days_in_faction":1468,"faction_name":"SPECTRE","faction_tag":"SPCR"},"married":{"spouse_id":1886602,"spouse_name":"Althea","duration":2776},"basicicons":{"icon5":"Level 100","icon6":"Male","icon4":"Subscriber","icon8":"Married - To Althea","icon27":"Company - Attorney of Lawyers, Guns, and Money (Law Firm)","icon9":"Faction - Bluesman of SPECTRE"},"states":{"hospital_timestamp":0,"jail_timestamp":0},"last_action":{"status":"Online","timestamp":1663183762,"relative":"1 minute ago"},"competition":{"name":"Elimination","score":0,"team":"laughing-stock","teamName":"laughing-stock","attacks":75}
     }
 }
+    

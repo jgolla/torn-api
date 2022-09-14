@@ -394,7 +394,10 @@ export interface IUser extends IBasicUser {
 
 export interface IUserCompetition {
     name: string;
-    score: number;
+    score?: number;
+    team?: string;
+    teamName?: string;
+    attacks?: number;
 }
 
 export interface IUserBar {
