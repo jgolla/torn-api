@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import sinon from 'sinon';
 
 import { TornAPI } from '../lib';
-import { IMissions, IPersonalStats } from '../lib/Interfaces';
+import { IMissions, IPersonalStats, IUser } from '../lib/Interfaces';
 import { TestHelper } from './utils/TestUtils';
 
 describe('User API', () => {
@@ -48,5 +48,14 @@ describe('User API', () => {
         const stub = sinon.stub(axios, 'get').resolves(TestHelper.getJSON('user_personalstats'));
         await torn.user.personalstats('123', 123456);
         expect(stub.args[0][0]).to.equal('https://api.torn.com/user/123?selections=personalstats&key=key&timestamp=123456');
+    });
+
+    it('profile',async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('user_profile'));
+        const initialReturn = await torn.user.profile();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as IUser;
+        expect(castedReturn.competition?.name).to.equal("Elimination");
     });
 });
