@@ -29,6 +29,7 @@ describe('Faction API', () => {
         const application = castedReturn.find(x => x.userID === 123456);
         expect(application?.name).to.equal('playername');
         expect(application?.stats.defence).to.equal(4);
+        expect(application?.status).to.equal('active');
     });
 
     it('armor', async () => {
