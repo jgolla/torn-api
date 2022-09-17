@@ -32,6 +32,19 @@ describe('Faction API', () => {
         expect(application?.status).to.equal('active');
     });
 
+    it('applications (no stat sharing)', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('faction_applications'));
+
+        const initialReturn = await torn.faction.applications();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as IApplication[];
+
+        // spot check one
+        const application = castedReturn.find(x => x.userID === 2819896);
+        expect(application?.stats.strength).to.be.undefined;
+    });
+
     it('armor', async () => {
         sinon.stub(axios, 'get').resolves(TestHelper.getJSON('faction_armor'));
 
