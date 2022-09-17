@@ -29,6 +29,20 @@ describe('Faction API', () => {
         const application = castedReturn.find(x => x.userID === 123456);
         expect(application?.name).to.equal('playername');
         expect(application?.stats.defence).to.equal(4);
+        expect(application?.status).to.equal('active');
+    });
+
+    it('applications (no stat sharing)', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('faction_applications'));
+
+        const initialReturn = await torn.faction.applications();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as IApplication[];
+
+        // spot check one
+        const application = castedReturn.find(x => x.userID === 2819896);
+        expect(application?.stats.strength).to.be.undefined;
     });
 
     it('armor', async () => {

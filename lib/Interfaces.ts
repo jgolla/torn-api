@@ -229,6 +229,7 @@ export interface IApplication {
     };
     message: string;
     expires: number;
+    status: string;
 }
 
 export interface ICrimeParticipant {
