@@ -161,6 +161,7 @@ describe('Faction API', () => {
         expect(castedReturn?.current).to.equal(0);
         expect(castedReturn?.max).to.equal(8795);
         expect(castedReturn?.start).to.equal(1630951833);
+        expect(castedReturn?.end).to.equal(1630951834);
     });
 
     it('chainreport', async () => {

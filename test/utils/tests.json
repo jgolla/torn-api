@@ -85250,7 +85250,8 @@
             "timeout": 0,
             "modifier": 1,
             "cooldown": 0,
-            "start": 1630951833
+            "start": 1630951833,
+            "end": 1630951834
         }
     },
     "faction_chains": {
@@ -86023,6 +86024,58 @@
                 "loaned_to": "1,2,3,4"
             }
         ]
+    },
+    "user_hof": {
+        "halloffame": {
+                "attacks": {
+                        "value": 5291,
+                        "rank": 99
+                },
+                "battlestats": {
+                        "value": 6032709,
+                        "rank": 140
+                },
+                "busts": {
+                        "value": 68,
+                        "rank": 366
+                },
+                "defends": {
+                        "value": 32,
+                        "rank": 911
+                },
+                "networth": {
+                        "value": 10088115496,
+                        "rank": 112
+                },
+                "offences": {
+                        "value": 18291,
+                        "rank": 186
+                },
+                "revives": {
+                        "value": 0,
+                        "rank": 0
+                },
+                "traveltime": {
+                        "value": 272836,
+                        "rank": 45
+                },
+                "workstats": {
+                        "value": 1313,
+                        "rank": 1476
+                },
+                "level": {
+                        "value": 65,
+                        "rank": 1350
+                },
+                "rank": {
+                        "value": 20,
+                        "rank": 14
+                },
+                "respect": {
+                        "value": 15040,
+                        "rank": 2
+                }
+        }
     },
     "user_personalstats": {
         "personalstats": {

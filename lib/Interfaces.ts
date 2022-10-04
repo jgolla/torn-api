@@ -207,6 +207,7 @@ export interface IChain {
     modifier: number;
     cooldown: number;
     start: number;
+    end: number;
 }
 
 export interface ICompleteChain {
@@ -494,7 +495,7 @@ export interface IHOF {
     networth: IHOFStat;
     offences: IHOFStat;
     revives: IHOFStat;
-    traveled: IHOFStat;
+    traveltime: IHOFStat;
     workstats: IHOFStat;
     level: IHOFStat;
     rank: IHOFStat;
