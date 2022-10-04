@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import sinon from 'sinon';
 
 import { TornAPI } from '../lib';
-import { IMissions, IPersonalStats, IUser } from '../lib/Interfaces';
+import { IHOF, IMissions, IPersonalStats, IUser } from '../lib/Interfaces';
 import { TestHelper } from './utils/TestUtils';
 
 describe('User API', () => {
@@ -14,6 +14,20 @@ describe('User API', () => {
     });
 
     afterEach(sinon.restore);
+
+    it('hof', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('user_hof'));
+
+        const initialReturn = await torn.user.hof();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as IHOF;
+        expect(castedReturn.battlestats.value).to.equal(6032709);
+        expect(castedReturn.battlestats.rank).to.equal(140);
+
+        expect(castedReturn.traveltime.value).to.equal(272836);
+        expect(castedReturn.traveltime.rank).to.equal(45);
+    });
 
     it('missions', async () => {
         sinon.stub(axios, 'get').resolves(TestHelper.getJSON('user_missions'));
