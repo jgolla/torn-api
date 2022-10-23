@@ -23,7 +23,12 @@ class TornAPI {
         }, error => {
             // Any status codes that falls outside the range of 2xx cause this function to trigger
             // return in the form of ITornApiError
-            return { data: { error: { code: error.response.status, error: error.response.statusText } } };
+            if(error.response) {
+                return { data: { error: { code: error.response.status, error: error.response.statusText } } };
+            } else {
+                // protect against no repsonse being returned
+                return { data: { error: { code: 500, error: 'Unknown error occurred.' } } };
+            }
         });
     }
 
