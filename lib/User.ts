@@ -208,7 +208,7 @@ export class User extends TornAPIBase {
     }
 
     async properties(): Promise<Errorable<IUserProperty[]>> {
-        return this.apiQueryToArray({ route: 'user', selection: 'properties' });
+        return this.apiQueryToArray({ route: 'user', selection: 'properties' }, 'id');
     }
 
     async refills(): Promise<Errorable<IRefills>> {

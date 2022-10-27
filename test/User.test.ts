@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import sinon from 'sinon';
 
 import { TornAPI } from '../lib';
-import { IHOF, IMissions, IPersonalStats, IUser } from '../lib/Interfaces';
+import { IHOF, IMissions, IPersonalStats, IUser, IUserProperty } from '../lib/Interfaces';
 import { TestHelper } from './utils/TestUtils';
 
 describe('User API', () => {
@@ -64,12 +64,26 @@ describe('User API', () => {
         expect(stub.args[0][0]).to.equal('https://api.torn.com/user/123?selections=personalstats&key=key&timestamp=123456');
     });
 
-    it('profile',async () => {
+    it('profile', async () => {
         sinon.stub(axios, 'get').resolves(TestHelper.getJSON('user_profile'));
         const initialReturn = await torn.user.profile();
         expect(TornAPI.isError(initialReturn)).to.be.false;
 
         const castedReturn = initialReturn as IUser;
         expect(castedReturn.competition?.name).to.equal("Elimination");
+    });
+
+    it('properties', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('user_properties'));
+        const initialReturn = await torn.user.properties();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as IUserProperty[];
+
+        // spot check one
+        const propery = castedReturn.find(x => x.id === '2952723');
+        expect(propery?.owner_id).to.equal(248772);
+        expect(propery?.modifications.hot_tub).to.equal(1);
+        expect(propery?.rented.user_id).to.equal(12345);
     });
 });

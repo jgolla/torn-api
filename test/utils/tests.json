@@ -86305,6 +86305,83 @@
     },
     "user_profile": 
         {"rank":"Elite Medalist","level":100,"gender":"Male","property":"Private Island","signup":"2014-12-31 17:56:21","awards":517,"friends":66,"enemies":11,"forum_posts":4482,"karma":3371,"age":2814,"role":"Wiki Contributor","donator":1,"player_id":1879891,"name":"Mudbottom","property_id":487997,"revivable":0,"life":{"current":7500,"maximum":7500,"increment":450,"interval":300,"ticktime":271,"fulltime":0},"status":{"description":"Okay","details":"","state":"Okay","color":"green","until":0},"job":{"position":"Employee","company_id":92523,"company_name":"Lawyers, Guns, and Money","company_type":2},"faction":{"position":"Bluesman","faction_id":13274,"days_in_faction":1468,"faction_name":"SPECTRE","faction_tag":"SPCR"},"married":{"spouse_id":1886602,"spouse_name":"Althea","duration":2776},"basicicons":{"icon5":"Level 100","icon6":"Male","icon4":"Subscriber","icon8":"Married - To Althea","icon27":"Company - Attorney of Lawyers, Guns, and Money (Law Firm)","icon9":"Faction - Bluesman of SPECTRE"},"states":{"hospital_timestamp":0,"jail_timestamp":0},"last_action":{"status":"Online","timestamp":1663183762,"relative":"1 minute ago"},"competition":{"name":"Elimination","score":0,"team":"laughing-stock","teamName":"laughing-stock","attacks":75}
+    },
+    "user_properties":
+    {
+        "properties": {
+                "2952332": {
+                        "owner_id": 248772,
+                        "property_type": 1,
+                        "property": "Trailer",
+                        "status": "Owned by their spouse",
+                        "happy": 165,
+                        "upkeep": 10,
+                        "staff_cost": 0,
+                        "cost": 5000,
+                        "marketprice": 7500,
+                        "modifications": {
+                                "interior": 2,
+                                "hot_tub": 0,
+                                "sauna": 0,
+                                "pool": 0,
+                                "open_bar": 0,
+                                "shooting_range": 0,
+                                "vault": 0,
+                                "medical_facility": 0,
+                                "airstrip": 0,
+                                "yacht": 0
+                        },
+                        "staff": {
+                                "maid": 0,
+                                "guard": 0,
+                                "pilot": 0,
+                                "butler": 0,
+                                "doctor": 0
+                        },
+                        "rented": {
+                                "user_id": 0,
+                                "days_left": 0,
+                                "total_cost": 0,
+                                "cost_per_day": 0
+                        }
+                },
+                "2952723": {
+                        "owner_id": 248772,
+                        "property_type": 4,
+                        "property": "Detached House",
+                        "status": "Owned by their spouse",
+                        "happy": 500,
+                        "upkeep": 150,
+                        "staff_cost": 0,
+                        "cost": 300000,
+                        "marketprice": 979000,
+                        "modifications": {
+                                "interior": 2,
+                                "hot_tub": 1,
+                                "sauna": 1,
+                                "pool": 3,
+                                "open_bar": 0,
+                                "shooting_range": 0,
+                                "vault": 0,
+                                "medical_facility": 0,
+                                "airstrip": 0,
+                                "yacht": 0
+                        },
+                        "staff": {
+                                "maid": 0,
+                                "guard": 0,
+                                "pilot": 0,
+                                "butler": 0,
+                                "doctor": 0
+                        },
+                        "rented": {
+                                "user_id": 12345,
+                                "days_left": 1,
+                                "total_cost": 2,
+                                "cost_per_day": 2
+                        }
+                }
+        }
     }
 }
     

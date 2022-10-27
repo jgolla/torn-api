@@ -920,7 +920,15 @@ export interface IPropertyStaff {
     doctor: number;
 }
 
+export interface IPropertyRented {
+    user_id: number;
+    days_left: number;
+    total_cost: number;
+    cost_per_day: number;
+}
+
 export interface IUserProperty extends IPropertyBase {
+    id: string;
     property: string;
     status: string;
     staff_cost: number;
@@ -928,6 +936,7 @@ export interface IUserProperty extends IPropertyBase {
     marketprice: number;
     modifications: IPropertyModifications;
     staff: IPropertyStaff;
+    rented: IPropertyRented;
 }
 
 export interface ITerritory {
