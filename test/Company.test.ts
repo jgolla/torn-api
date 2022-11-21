@@ -3,11 +3,16 @@ import { expect } from 'chai';
 import sinon from 'sinon';
 
 import { TornAPI } from '../lib';
-import { ICompanyDetailed, ICompanyEmployee, ICompanyProfile, ICompanyStock, INews } from '../lib/Interfaces';
+import {
+    ICompanyDetailed,
+    ICompanyEmployee,
+    ICompanyProfile,
+    ICompanyStock,
+    INews,
+} from '../lib/Interfaces';
 import { TestHelper } from './utils/TestUtils';
 
 describe('Company API', () => {
-
     let torn: TornAPI;
     before(() => {
         torn = new TornAPI('key');
@@ -81,7 +86,9 @@ describe('Company API', () => {
 
         // spot check one
         const news = castedReturn.find(x => x.id === '51955618');
-        expect(news?.news).to.equal(`Quality Controller <a href = http://www.torn.com/profiles.php?XID=222>222</a> has been trained by the director.`);
+        expect(news?.news).to.equal(
+            `Quality Controller <a href = http://www.torn.com/profiles.php?XID=222>222</a> has been trained by the director.`
+        );
         expect(news?.timestamp).to.equal(1633603424);
     });
 
@@ -95,7 +102,9 @@ describe('Company API', () => {
 
         // spot check one
         const news = castedReturn.find(x => x.id === '51955618');
-        expect(news?.news).to.equal(`Quality Controller <a href = http://www.torn.com/profiles.php?XID=222>222</a> has been trained by the director.`);
+        expect(news?.news).to.equal(
+            `Quality Controller <a href = http://www.torn.com/profiles.php?XID=222>222</a> has been trained by the director.`
+        );
         expect(news?.timestamp).to.equal(1633603424);
     });
 

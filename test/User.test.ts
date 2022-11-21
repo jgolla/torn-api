@@ -7,7 +7,6 @@ import { IHOF, IMissions, IPersonalStats, IUser, IUserProperty } from '../lib/In
 import { TestHelper } from './utils/TestUtils';
 
 describe('User API', () => {
-
     let torn: TornAPI;
     before(() => {
         torn = new TornAPI('key');
@@ -61,7 +60,9 @@ describe('User API', () => {
     it('personalstats with timestamp & id', async () => {
         const stub = sinon.stub(axios, 'get').resolves(TestHelper.getJSON('user_personalstats'));
         await torn.user.personalstats('123', 123456);
-        expect(stub.args[0][0]).to.equal('https://api.torn.com/user/123?selections=personalstats&key=key&timestamp=123456');
+        expect(stub.args[0][0]).to.equal(
+            'https://api.torn.com/user/123?selections=personalstats&key=key&timestamp=123456'
+        );
     });
 
     it('profile', async () => {
@@ -70,7 +71,7 @@ describe('User API', () => {
         expect(TornAPI.isError(initialReturn)).to.be.false;
 
         const castedReturn = initialReturn as IUser;
-        expect(castedReturn.competition?.name).to.equal("Elimination");
+        expect(castedReturn.competition?.name).to.equal('Elimination');
     });
 
     it('properties', async () => {

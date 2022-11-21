@@ -3,11 +3,33 @@ import { expect } from 'chai';
 import sinon from 'sinon';
 
 import { TornAPI } from '../lib';
-import { IApplication, IArmor, IAttack, IAttackFull, IChain, IChainReport, ICompleteChain, ICrime, ICurrency, IDonation, IDrug, IFaction, IFactionPosition, IFactionReport, IMedical, INews, IReport, IRevives, IRevivesFull, IStats, IUpgrade, IWeapon } from '../lib/Interfaces';
+import {
+    IApplication,
+    IArmor,
+    IAttack,
+    IAttackFull,
+    IChain,
+    IChainReport,
+    ICompleteChain,
+    ICrime,
+    ICurrency,
+    IDonation,
+    IDrug,
+    IFaction,
+    IFactionPosition,
+    IFactionReport,
+    IMedical,
+    INews,
+    IReport,
+    IRevives,
+    IRevivesFull,
+    IStats,
+    IUpgrade,
+    IWeapon,
+} from '../lib/Interfaces';
 import { TestHelper } from './utils/TestUtils';
 
 describe('Faction API', () => {
-
     let torn: TornAPI;
     before(() => {
         torn = new TornAPI('key');
@@ -74,7 +96,9 @@ describe('Faction API', () => {
 
         // spot check one
         const armor = castedReturn.find(x => x.id === 'QnzHSbp0kEExZcGQIXix');
-        expect(armor?.news).to.equal(`<a href = "http://www.torn.com/profiles.php?XID=2">2</a> used one of the faction's Xanax items.`);
+        expect(armor?.news).to.equal(
+            `<a href = "http://www.torn.com/profiles.php?XID=2">2</a> used one of the faction's Xanax items.`
+        );
         expect(armor?.timestamp).to.equal(1630776810);
     });
 
@@ -88,7 +112,9 @@ describe('Faction API', () => {
 
         // spot check one
         const news = castedReturn.find(x => x.id === 'ZDuZJGW0xroVpNdG817F');
-        expect(news?.news).to.equal(`Someone mugged <a href = "http://www.torn.com/profiles.php?XID=3">3</a> [<a href = "http://www.torn.com/loader.php?sid=attackLog&ID=edad5c98bfa9ed01756">view</a>]`);
+        expect(news?.news).to.equal(
+            `Someone mugged <a href = "http://www.torn.com/profiles.php?XID=3">3</a> [<a href = "http://www.torn.com/loader.php?sid=attackLog&ID=edad5c98bfa9ed01756">view</a>]`
+        );
         expect(news?.timestamp).to.equal(1630777177);
     });
 
@@ -196,7 +222,7 @@ describe('Faction API', () => {
         const chain = castedReturn.find(x => x.id === '9690493');
 
         expect(chain?.chain).to.equal(10);
-        expect(chain?.respect).to.equal("20.6923");
+        expect(chain?.respect).to.equal('20.6923');
         expect(chain?.start).to.equal(1582544410);
         expect(chain?.end).to.equal(1582544451);
     });
@@ -211,7 +237,9 @@ describe('Faction API', () => {
 
         // spot check one
         const news = castedReturn.find(x => x.id === 'e9zYGYSy4MWpb8VEARZP');
-        expect(news?.news).to.equal(`The faction successfully initiated a planned robbery! [<a href = "http://www.torn.com/organisedcrimes.php?step=log&ID=555">Details</a>]`);
+        expect(news?.news).to.equal(
+            `The faction successfully initiated a planned robbery! [<a href = "http://www.torn.com/organisedcrimes.php?step=log&ID=555">Details</a>]`
+        );
         expect(news?.timestamp).to.equal(1631334048);
     });
 
@@ -228,7 +256,7 @@ describe('Faction API', () => {
         expect(crime?.time_started).to.equal(1629533679);
         expect(crime?.time_left).to.equal(0);
 
-        let member = crime?.participants.find(x => x.id = '1');
+        let member = crime?.participants.find(x => (x.id = '1'));
         expect(member?.state).to.be.undefined;
         expect(member?.details).to.be.undefined;
 
@@ -236,10 +264,9 @@ describe('Faction API', () => {
         expect(crime?.time_started).to.equal(1631157703);
         expect(crime?.time_left).to.equal(143180);
 
-        member = crime?.participants.find(x => x.id = '4');
+        member = crime?.participants.find(x => (x.id = '4'));
         expect(member?.state).to.equal('Okay');
         expect(member?.color).to.equal('green');
-
     });
 
     it('currency', async () => {
@@ -267,7 +294,6 @@ describe('Faction API', () => {
         expect(crime?.name).to.equal('a');
         expect(crime?.money_balance).to.equal(310435970);
         expect(crime?.points_balance).to.equal(0);
-
 
         crime = castedReturn.find(x => x.id === '2');
         expect(crime?.name).to.equal('b');
@@ -300,7 +326,9 @@ describe('Faction API', () => {
 
         // spot check one
         const news = castedReturn.find(x => x.id === 'oRiMR8XSwic5tiNkCDWa');
-        expect(news?.news).to.equal(`<a href = "http://www.torn.com/profiles.php?XID=2">2</a> deposited $50,000,000`);
+        expect(news?.news).to.equal(
+            `<a href = "http://www.torn.com/profiles.php?XID=2">2</a> deposited $50,000,000`
+        );
         expect(news?.timestamp).to.equal(1631903946);
     });
 
@@ -314,7 +342,9 @@ describe('Faction API', () => {
 
         // spot check one
         const news = castedReturn.find(x => x.id === 'QUykOiGjMRQEWesSsmKx');
-        expect(news?.news).to.equal(`<a class="t-green bold" href = "http://www.torn.com/factions.php?step=profile&ID=2">Fact2</a> has abandoned <a class="t-green bold" href = "http://www.torn.com/city.php#terrName=ABV">ABV</a>`);
+        expect(news?.news).to.equal(
+            `<a class="t-green bold" href = "http://www.torn.com/factions.php?step=profile&ID=2">Fact2</a> has abandoned <a class="t-green bold" href = "http://www.torn.com/city.php#terrName=ABV">ABV</a>`
+        );
         expect(news?.timestamp).to.equal(1631478567);
     });
 
@@ -343,7 +373,9 @@ describe('Faction API', () => {
 
         // spot check one
         const news = castedReturn.find(x => x.id === 'xJbsn5KaLCqbRZr4HcbE');
-        expect(news?.news).to.equal(`<a href = http://www.torn.com/profiles.php?XID=1>1</a> changed <a href = http://www.torn.com/profiles.php?XID=2>2</a>'s position from Cadet to Newbie.`);
+        expect(news?.news).to.equal(
+            `<a href = http://www.torn.com/profiles.php?XID=1>1</a> changed <a href = http://www.torn.com/profiles.php?XID=2>2</a>'s position from Cadet to Newbie.`
+        );
         expect(news?.timestamp).to.equal(1631825990);
     });
 
@@ -437,7 +469,7 @@ describe('Faction API', () => {
 
         const castedReturn = initialReturn as IStats;
 
-        // spot check stats        
+        // spot check stats
         expect(castedReturn.alcoholused).to.equal(284624);
         expect(castedReturn.drugoverdoses).to.equal(824);
         expect(castedReturn.gymdexterity).to.equal(2886020);
@@ -454,7 +486,9 @@ describe('Faction API', () => {
 
         // spot check one
         const news = castedReturn.find(x => x.id === 'cwdXodZ93txRCl74YcIm');
-        expect(news?.news).to.equal(`<a class="t-green bold" href = "http://www.torn.com/factions.php?step=profile&ID=1">NPO - Strength</a> gained 2 respect from their 2 territories.`);
+        expect(news?.news).to.equal(
+            `<a class="t-green bold" href = "http://www.torn.com/factions.php?step=profile&ID=1">NPO - Strength</a> gained 2 respect from their 2 territories.`
+        );
         expect(news?.timestamp).to.equal(1630972889);
     });
 

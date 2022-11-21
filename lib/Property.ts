@@ -2,8 +2,8 @@ import { TornAPIBase } from './TornAPIBase';
 import { Errorable, IProperty } from './Interfaces';
 
 export class Property extends TornAPIBase {
-    constructor(apiKey: string) {
-        super(apiKey);
+    constructor(apiKey: string, comment: string) {
+        super(apiKey, comment);
     }
 
     async multi(endpoints: string[], id?: string): Promise<Errorable<Record<string, object>>> {

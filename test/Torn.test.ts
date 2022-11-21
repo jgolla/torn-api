@@ -3,11 +3,37 @@ import { expect } from 'chai';
 import sinon from 'sinon';
 
 import { TornAPI } from '../lib';
-import { IBank, ICard, IChainReport, ICityShop, IFactionTree, IHonor, IItem, IKeyValue, IMedal, IOrganisedCrime, IPawnshop, IPokerTable, IRacket, IRaid, IRankedWar, IRankedWarReport, IStock, IStockDetail, ITerritory, ITerritoryDetail, ITerritoryWar, ITornCompany, ITornEducation, ITornGym, ITornProperty, ITornStats } from '../lib/Interfaces';
+import {
+    IBank,
+    ICard,
+    IChainReport,
+    ICityShop,
+    IFactionTree,
+    IHonor,
+    IItem,
+    IKeyValue,
+    IMedal,
+    IOrganisedCrime,
+    IPawnshop,
+    IPokerTable,
+    IRacket,
+    IRaid,
+    IRankedWar,
+    IRankedWarReport,
+    IStock,
+    IStockDetail,
+    ITerritory,
+    ITerritoryDetail,
+    ITerritoryWar,
+    ITornCompany,
+    ITornEducation,
+    ITornGym,
+    ITornProperty,
+    ITornStats,
+} from '../lib/Interfaces';
 import { TestHelper } from './utils/TestUtils';
 
 describe('Torn API', () => {
-
     let torn: TornAPI;
     before(() => {
         torn = new TornAPI('key');
@@ -52,7 +78,9 @@ describe('Torn API', () => {
         const initialReturn = await torn.torn.chainreport(1234);
         expect(TornAPI.isError(initialReturn)).to.be.false;
 
-        expect(stub.args[0][0]).to.equal('https://api.torn.com/torn/1234?selections=chainreport&key=key');
+        expect(stub.args[0][0]).to.equal(
+            'https://api.torn.com/torn/1234?selections=chainreport&key=key'
+        );
 
         const castedReturn = initialReturn as IChainReport;
         expect(castedReturn?.chain).to.equal(250);
@@ -105,7 +133,9 @@ describe('Torn API', () => {
 
         //spot check one
         const postition = company?.positions.find(x => x.name === 'Musician');
-        expect(postition?.description).to.equal('This position can give expert advice on different instruments to secure sales.');
+        expect(postition?.description).to.equal(
+            'This position can give expert advice on different instruments to secure sales.'
+        );
 
         //spot check one
         const stock = company?.stock.find(x => x.name === 'Violin');
@@ -163,7 +193,9 @@ describe('Torn API', () => {
         // spot check one
         const gym = castedReturn.find(x => x.id === '28');
         expect(gym?.name).to.equal('Mr. Isoyamas');
-        expect(gym?.note).to.equal('Requirements must be maintained to preserve access to this gym');
+        expect(gym?.note).to.equal(
+            'Requirements must be maintained to preserve access to this gym'
+        );
         expect(gym?.defense).to.equal(80);
     });
 
@@ -196,7 +228,9 @@ describe('Torn API', () => {
         // spot check one
         const item = castedReturn.find(x => x.id === '61');
         expect(item?.name).to.equal('Personal Computer');
-        expect(item?.description).to.equal('A high-tech personal computer. Can be used to program viruses.');
+        expect(item?.description).to.equal(
+            'A high-tech personal computer. Can be used to program viruses.'
+        );
         expect(item?.weapon_type).to.be.null;
     });
 
@@ -290,12 +324,7 @@ describe('Torn API', () => {
         // spot check one
         const property = castedReturn.find(x => x.id === '16');
         expect(property?.name).to.equal('Drakkar Sea Fort');
-        expect(property?.staff_available).to.have.members([
-            "Maid",
-            "Butler",
-            "Guard",
-            "Doctor"
-        ]);
+        expect(property?.staff_available).to.have.members(['Maid', 'Butler', 'Guard', 'Doctor']);
     });
 
     it('rackets', async () => {
@@ -327,7 +356,7 @@ describe('Torn API', () => {
     });
 
     it('raids null', async () => {
-        sinon.stub(axios, 'get').resolves({ data: { 'raids': null } });
+        sinon.stub(axios, 'get').resolves({ data: { raids: null } });
 
         const initialReturn = await torn.torn.raids();
         expect(TornAPI.isError(initialReturn)).to.be.false;
@@ -442,7 +471,16 @@ describe('Torn API', () => {
         expect(castedReturn.id).to.equal('CAA');
         expect(castedReturn.sector).to.equal(6);
         expect(castedReturn.slots).to.equal(24);
-        expect(castedReturn.neighbors).to.have.members(["MTB", "NUB", "OUB", "PUB", "MUB", "NVB", "KTB", "OVB"]);
+        expect(castedReturn.neighbors).to.have.members([
+            'MTB',
+            'NUB',
+            'OUB',
+            'PUB',
+            'MUB',
+            'NVB',
+            'KTB',
+            'OVB',
+        ]);
     });
 
     it('territorywars', async () => {
@@ -460,7 +498,7 @@ describe('Torn API', () => {
     });
 
     it('territorywars null', async () => {
-        sinon.stub(axios, 'get').resolves({ data: { 'territorywars': null } });
+        sinon.stub(axios, 'get').resolves({ data: { territorywars: null } });
 
         const initialReturn = await torn.torn.territorywars();
         expect(TornAPI.isError(initialReturn)).to.be.false;

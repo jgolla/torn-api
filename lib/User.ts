@@ -1,10 +1,52 @@
 import { TornAPIBase } from './TornAPIBase';
-import { ITornApiError, IUser, IAmmo, IAttack, IBars, IBasicUser, IBattleStats, ICooldowns, ICrimes, IDiscord, IEducation, IEvents, IGym, IHOF, IIcon, IInventory, IJobPoints, IJobs, IUserCompany, IMedals, IMerits, IMessage, IMoney, INetworth, INotifications, IPerks, IPersonalStats, IRefills, IRevives, IRevivesFull, IUserStock, ITravel, IWorkStats, IUserProperty, IUserSkill, IAttackFull, ILog, IUserStockTransaction, IMissions, IMissionStatus, Errorable } from './Interfaces';
+import {
+    ITornApiError,
+    IUser,
+    IAmmo,
+    IAttack,
+    IBars,
+    IBasicUser,
+    IBattleStats,
+    ICooldowns,
+    ICrimes,
+    IDiscord,
+    IEducation,
+    IEvents,
+    IGym,
+    IHOF,
+    IIcon,
+    IInventory,
+    IJobPoints,
+    IJobs,
+    IUserCompany,
+    IMedals,
+    IMerits,
+    IMessage,
+    IMoney,
+    INetworth,
+    INotifications,
+    IPerks,
+    IPersonalStats,
+    IRefills,
+    IRevives,
+    IRevivesFull,
+    IUserStock,
+    ITravel,
+    IWorkStats,
+    IUserProperty,
+    IUserSkill,
+    IAttackFull,
+    ILog,
+    IUserStockTransaction,
+    IMissions,
+    IMissionStatus,
+    Errorable,
+} from './Interfaces';
 import axios from 'axios';
 
 export class User extends TornAPIBase {
-    constructor(apiKey: string) {
-        super(apiKey);
+    constructor(apiKey: string, comment: string) {
+        super(apiKey, comment);
     }
 
     async multi(endpoints: string[], id?: string): Promise<Errorable<Record<string, object>>> {
@@ -13,7 +55,9 @@ export class User extends TornAPIBase {
 
     async user(id?: string): Promise<Errorable<IUser>> {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const response = await axios.get<any>(this.buildUri({ route: 'user', selection: '', id: id }));
+        const response = await axios.get<any>(
+            this.buildUri({ route: 'user', selection: '', id: id })
+        );
         if (response instanceof Error) {
             return { code: 0, error: response.message };
         } else {
@@ -47,7 +91,11 @@ export class User extends TornAPIBase {
     }
 
     async attacksfull(): Promise<Errorable<IAttackFull[]>> {
-        return this.apiQueryToArray({ route: 'user', selection: 'attacksfull', jsonOverride: 'attacks' });
+        return this.apiQueryToArray({
+            route: 'user',
+            selection: 'attacksfull',
+            jsonOverride: 'attacks',
+        });
     }
 
     async bars(): Promise<Errorable<IBars>> {
@@ -71,7 +119,12 @@ export class User extends TornAPIBase {
     }
 
     async crimes(id?: string): Promise<Errorable<ICrimes>> {
-        return await this.apiQuery({ route: 'user', selection: 'crimes', jsonOverride: 'criminalrecord', id: id });
+        return await this.apiQuery({
+            route: 'user',
+            selection: 'crimes',
+            jsonOverride: 'criminalrecord',
+            id: id,
+        });
     }
 
     async discord(): Promise<Errorable<IDiscord>> {
@@ -99,7 +152,9 @@ export class User extends TornAPIBase {
     }
 
     async icons(id?: string): Promise<Errorable<IIcon[]>> {
-        const response = await axios.get<{ error?: ITornApiError, icons: Record<string, string> }>(this.buildUri({ route: 'user', selection: 'icons', id: id }));
+        const response = await axios.get<{ error?: ITornApiError; icons: Record<string, string> }>(
+            this.buildUri({ route: 'user', selection: 'icons', id: id })
+        );
         if (response instanceof Error) {
             return { code: 0, error: response.message };
         } else {
@@ -126,13 +181,16 @@ export class User extends TornAPIBase {
     }
 
     async jobpoints(): Promise<Errorable<IJobPoints>> {
-        const response = await this.apiQuery<IInternalJobPoints>({ route: 'user', selection: 'jobpoints' });
+        const response = await this.apiQuery<IInternalJobPoints>({
+            route: 'user',
+            selection: 'jobpoints',
+        });
         if ('error' in response) {
             return response;
         } else {
             const returnPoints: IJobPoints = {
                 jobs: response.jobs,
-                companies: Object.values(response.companies)
+                companies: Object.values(response.companies),
             };
             return returnPoints;
         }
@@ -155,7 +213,10 @@ export class User extends TornAPIBase {
     }
 
     async missions(): Promise<Errorable<IMissions[]>> {
-        const response = await axios.get<{ error?: ITornApiError, missions: Record<string, IMissionStatus[]> }>(this.buildUri({ route: 'user', selection: 'missions' }));
+        const response = await axios.get<{
+            error?: ITornApiError;
+            missions: Record<string, IMissionStatus[]>;
+        }>(this.buildUri({ route: 'user', selection: 'missions' }));
         if (response instanceof Error) {
             return { code: 0, error: response.message };
         } else {
@@ -184,11 +245,19 @@ export class User extends TornAPIBase {
     }
 
     async newevents(): Promise<Errorable<IEvents[]>> {
-        return this.apiQueryToArray({ route: 'user', selection: 'newevents', jsonOverride: 'events' });
+        return this.apiQueryToArray({
+            route: 'user',
+            selection: 'newevents',
+            jsonOverride: 'events',
+        });
     }
 
     async newmessages(): Promise<Errorable<IMessage[]>> {
-        return this.apiQueryToArray({ route: 'user', selection: 'newmessages', jsonOverride: 'messages' });
+        return this.apiQueryToArray({
+            route: 'user',
+            selection: 'newmessages',
+            jsonOverride: 'messages',
+        });
     }
 
     async notifications(): Promise<Errorable<INotifications>> {
@@ -200,7 +269,12 @@ export class User extends TornAPIBase {
     }
 
     async personalstats(id?: string, timestamp?: number): Promise<Errorable<IPersonalStats>> {
-        return this.apiQuery({ route: 'user', selection: 'personalstats', timestamp: timestamp, id: id });
+        return this.apiQuery({
+            route: 'user',
+            selection: 'personalstats',
+            timestamp: timestamp,
+            id: id,
+        });
     }
 
     async profile(id?: string): Promise<Errorable<IUser>> {
@@ -224,7 +298,11 @@ export class User extends TornAPIBase {
     }
 
     async revivesfull(): Promise<Errorable<IRevivesFull[]>> {
-        return this.apiQueryToArray({ route: 'user', selection: 'revives', jsonOverride: 'revivesfull' });
+        return this.apiQueryToArray({
+            route: 'user',
+            selection: 'revives',
+            jsonOverride: 'revivesfull',
+        });
     }
 
     async skills(): Promise<Errorable<IUserSkill>> {
@@ -232,7 +310,10 @@ export class User extends TornAPIBase {
     }
 
     async stocks(): Promise<Errorable<IUserStock[]>> {
-        const response = await this.apiQueryToArray<IInternalUserStock>({ route: 'user', selection: 'stocks' });
+        const response = await this.apiQueryToArray<IInternalUserStock>({
+            route: 'user',
+            selection: 'stocks',
+        });
         if ('error' in response) {
             return response;
         } else {
@@ -243,7 +324,7 @@ export class User extends TornAPIBase {
                     stock_id: tempStock.stock_id,
                     total_shares: tempStock.total_shares,
                     dividend: tempStock.dividend,
-                    transactions: this.fixStringArray(tempStock.transactions, 'id')
+                    transactions: this.fixStringArray(tempStock.transactions, 'id'),
                 });
             }
 

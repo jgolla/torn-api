@@ -6,9 +6,7 @@ import { ItemMarket, TornAPI, Torn, Company, Faction, Property, User } from '../
 import { TestHelper } from './utils/TestUtils';
 
 describe('Check error handling', () => {
-
     describe('Well formed Error', () => {
-
         beforeEach(() => {
             sinon.stub(axios, 'get').resolves(TestHelper.getJSON('errorTest'));
         });
@@ -17,7 +15,12 @@ describe('Check error handling', () => {
 
         type TornType = ItemMarket | Torn | Company | Faction | Property | User;
 
-        function testErrors(name: string, className: TornType, ignoreList: string[], unimplementedList: string[] = []) {
+        function testErrors(
+            name: string,
+            className: TornType,
+            ignoreList: string[],
+            unimplementedList: string[] = []
+        ) {
             const torn = new TornAPI('myKey');
             const igores = [...ignoreList, ...unimplementedList];
             const methods = Object.getOwnPropertyNames(className).filter(x => !igores.includes(x));
@@ -48,7 +51,12 @@ describe('Check error handling', () => {
         });
 
         describe('faction', () => {
-            testErrors('faction', Faction.prototype, ['constructor', 'fixStringMap'], ['boosters', 'cesium', 'contributors', 'temporary']);
+            testErrors(
+                'faction',
+                Faction.prototype,
+                ['constructor', 'fixStringMap'],
+                ['boosters', 'cesium', 'contributors', 'temporary']
+            );
         });
 
         describe('item market', () => {
@@ -64,7 +72,12 @@ describe('Check error handling', () => {
         });
 
         describe('user', () => {
-            testErrors('user', User.prototype, ['constructor'], ['bazaar', 'display', 'reports', 'weaponexp']);
+            testErrors(
+                'user',
+                User.prototype,
+                ['constructor'],
+                ['bazaar', 'display', 'reports', 'weaponexp']
+            );
         });
     });
 
@@ -77,7 +90,12 @@ describe('Check error handling', () => {
 
         type TornType = ItemMarket | Torn | Company | Faction | Property | User;
 
-        function testErrors(name: string, className: TornType, ignoreList: string[], unimplementedList: string[] = []) {
+        function testErrors(
+            name: string,
+            className: TornType,
+            ignoreList: string[],
+            unimplementedList: string[] = []
+        ) {
             const torn = new TornAPI('myKey');
             const igores = [...ignoreList, ...unimplementedList];
             const methods = Object.getOwnPropertyNames(className).filter(x => !igores.includes(x));
@@ -95,7 +113,12 @@ describe('Check error handling', () => {
         });
 
         describe('faction', () => {
-            testErrors('faction', Faction.prototype, ['constructor', 'fixStringMap'], ['boosters', 'cesium', 'contributors', 'temporary']);
+            testErrors(
+                'faction',
+                Faction.prototype,
+                ['constructor', 'fixStringMap'],
+                ['boosters', 'cesium', 'contributors', 'temporary']
+            );
         });
 
         describe('item market', () => {
@@ -111,7 +134,12 @@ describe('Check error handling', () => {
         });
 
         describe('user', () => {
-            testErrors('user', User.prototype, ['constructor'], ['bazaar', 'display', 'reports', 'weaponexp']);
+            testErrors(
+                'user',
+                User.prototype,
+                ['constructor'],
+                ['bazaar', 'display', 'reports', 'weaponexp']
+            );
         });
     });
 });

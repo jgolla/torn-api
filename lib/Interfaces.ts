@@ -113,11 +113,11 @@ export interface IArmor extends IArmoryBase {
     loaned_to?: string | number;
 }
 
-export type IWeapon = IArmor
+export type IWeapon = IArmor;
 
-export type IDrug = IArmoryBase
+export type IDrug = IArmoryBase;
 
-export type IMedical = IArmoryBase
+export type IMedical = IArmoryBase;
 
 export interface IStats {
     drugsused: number;
@@ -1164,14 +1164,14 @@ export interface IRankedWar {
         id: string;
         name: string;
         score: number;
-        chain: number
+        chain: number;
     }[];
     war: {
         start: number;
         end: number;
         target: number;
         winner: number;
-    }
+    };
 }
 
 export interface ITornStats {
@@ -1533,4 +1533,20 @@ export interface ICityShopInventory {
     type: string;
     price: number;
     in_stock: number;
+}
+
+// TODO: add the possible values for each selection array from here: https://www.torn.com/api.html# -> https://images.mavri.dev/SwQRB28LZADT/direct
+export interface IKeyInfo {
+    access_level: number;
+    access_type: string;
+
+    selections: {
+        company: string[];
+        faction: string[];
+        market: string[];
+        property: string[];
+        torn: string[];
+        user: string[];
+        key: string[];
+    };
 }

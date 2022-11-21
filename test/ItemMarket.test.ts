@@ -7,7 +7,6 @@ import { IMarketItem, IPointsMarket } from '../lib/Interfaces';
 import { TestHelper } from './utils/TestUtils';
 
 describe('ItemMarket API', () => {
-
     let torn: TornAPI;
     before(() => {
         torn = new TornAPI('key');

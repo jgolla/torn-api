@@ -1,11 +1,39 @@
 import axios from 'axios';
 
 import { TornAPIBase } from './TornAPIBase';
-import { Errorable, IApplication, IArmor, IAttack, IAttackFull, IChain, IChainReport, ICompleteChain, ICrime, ICrimeParticipant, ICurrency, IDonation, IDrug, IFaction, IFactionPosition, IFactionReport, IMedical, INews, IPeace, IRankedWar, IRevives, IRevivesFull, IStats, ITerritory, ITornApiError, IUpgrade, IWeapon } from './Interfaces';
+import {
+    Errorable,
+    IApplication,
+    IArmor,
+    IAttack,
+    IAttackFull,
+    IChain,
+    IChainReport,
+    ICompleteChain,
+    ICrime,
+    ICrimeParticipant,
+    ICurrency,
+    IDonation,
+    IDrug,
+    IFaction,
+    IFactionPosition,
+    IFactionReport,
+    IMedical,
+    INews,
+    IPeace,
+    IRankedWar,
+    IRevives,
+    IRevivesFull,
+    IStats,
+    ITerritory,
+    ITornApiError,
+    IUpgrade,
+    IWeapon,
+} from './Interfaces';
 
 export class Faction extends TornAPIBase {
-    constructor(apiKey: string) {
-        super(apiKey);
+    constructor(apiKey: string, comment: string) {
+        super(apiKey, comment);
     }
 
     async multi(endpoints: string[], id?: string): Promise<Errorable<Record<string, object>>> {
@@ -14,7 +42,9 @@ export class Faction extends TornAPIBase {
 
     async faction(id?: string): Promise<Errorable<IFaction>> {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const response = await axios.get<any>(this.buildUri({ route: 'faction', selection: '', id: id }));
+        const response = await axios.get<any>(
+            this.buildUri({ route: 'faction', selection: '', id: id })
+        );
         if (response instanceof Error) {
             return { code: 0, error: response.message };
         } else {
@@ -34,7 +64,10 @@ export class Faction extends TornAPIBase {
                 }
                 factionReturn.peace = peaceArray;
 
-                const rankedWar: IRankedWar[] = this.fixStringArray(response.data.ranked_wars, 'id');
+                const rankedWar: IRankedWar[] = this.fixStringArray(
+                    response.data.ranked_wars,
+                    'id'
+                );
                 rankedWar.forEach(item => {
                     item.factions = this.fixStringArray(item.factions, 'id');
                 });
@@ -56,11 +89,17 @@ export class Faction extends TornAPIBase {
     }
 
     async armorynews(from?: number, to?: number): Promise<Errorable<INews[]>> {
-        return this.apiQueryToArray({ route: 'faction', selection: 'armorynews', from: from, to: to }, 'id');
+        return this.apiQueryToArray(
+            { route: 'faction', selection: 'armorynews', from: from, to: to },
+            'id'
+        );
     }
 
     async attacknews(from?: number, to?: number): Promise<Errorable<INews[]>> {
-        return this.apiQueryToArray({ route: 'faction', selection: 'attacknews', from: from, to: to }, 'id');
+        return this.apiQueryToArray(
+            { route: 'faction', selection: 'attacknews', from: from, to: to },
+            'id'
+        );
     }
 
     async attacks(from?: number, to?: number): Promise<Errorable<IAttack[]>> {
@@ -68,7 +107,13 @@ export class Faction extends TornAPIBase {
     }
 
     async attacksfull(from?: number, to?: number): Promise<Errorable<IAttackFull[]>> {
-        return this.apiQueryToArray({ route: 'faction', selection: 'attacksfull', jsonOverride: 'attacks', from: from, to: to });
+        return this.apiQueryToArray({
+            route: 'faction',
+            selection: 'attacksfull',
+            jsonOverride: 'attacks',
+            from: from,
+            to: to,
+        });
     }
 
     async basic(id?: string): Promise<Errorable<IFaction>> {
@@ -88,7 +133,9 @@ export class Faction extends TornAPIBase {
     }
 
     async chainreport(): Promise<Errorable<IChainReport>> {
-        const response = await axios.get<{ error?: ITornApiError, chainreport: IChainReport }>(this.buildUri({ route: 'faction', selection: 'chainreport' }));
+        const response = await axios.get<{ error?: ITornApiError; chainreport: IChainReport }>(
+            this.buildUri({ route: 'faction', selection: 'chainreport' })
+        );
         if (response instanceof Error) {
             return { code: 0, error: response.message };
         } else {
@@ -113,23 +160,31 @@ export class Faction extends TornAPIBase {
     }
 
     async crimenews(from?: number, to?: number): Promise<Errorable<INews[]>> {
-        return this.apiQueryToArray({ route: 'faction', selection: 'crimenews', from: from, to: to }, 'id');
+        return this.apiQueryToArray(
+            { route: 'faction', selection: 'crimenews', from: from, to: to },
+            'id'
+        );
     }
 
     async crimes(from?: number, to?: number): Promise<Errorable<ICrime[]>> {
-        const crimes = await this.apiQueryToArray<ICrime>({ route: 'faction', selection: 'crimes', from: from, to: to }, 'id');
+        const crimes = await this.apiQueryToArray<ICrime>(
+            { route: 'faction', selection: 'crimes', from: from, to: to },
+            'id'
+        );
 
         if (!('error' in crimes)) {
             crimes.forEach(value => {
                 const internalParticipants = value.participants;
                 const participants: ICrimeParticipant[] = [];
                 for (let i = 0; i < internalParticipants.length; i++) {
-                    const participantMap = this.fixStringMap<Partial<ICrimeParticipant>>(internalParticipants[i]);
+                    const participantMap = this.fixStringMap<Partial<ICrimeParticipant>>(
+                        internalParticipants[i]
+                    );
                     const id = participantMap.keys().next().value;
                     const value = participantMap.get(id);
 
                     const participant: ICrimeParticipant = {
-                        id: id
+                        id: id,
                     };
 
                     if (value) {
@@ -163,11 +218,17 @@ export class Faction extends TornAPIBase {
     }
 
     async fundsnews(from?: number, to?: number): Promise<Errorable<INews[]>> {
-        return this.apiQueryToArray({ route: 'faction', selection: 'fundsnews', from: from, to: to }, 'id');
+        return this.apiQueryToArray(
+            { route: 'faction', selection: 'fundsnews', from: from, to: to },
+            'id'
+        );
     }
 
     async mainnews(from?: number, to?: number): Promise<Errorable<INews[]>> {
-        return this.apiQueryToArray({ route: 'faction', selection: 'mainnews', from: from, to: to }, 'id');
+        return this.apiQueryToArray(
+            { route: 'faction', selection: 'mainnews', from: from, to: to },
+            'id'
+        );
     }
 
     async medical(): Promise<Errorable<IMedical[]>> {
@@ -175,7 +236,10 @@ export class Faction extends TornAPIBase {
     }
 
     async membershipnews(from?: number, to?: number): Promise<Errorable<INews[]>> {
-        return this.apiQueryToArray({ route: 'faction', selection: 'membershipnews', from: from, to: to }, 'id');
+        return this.apiQueryToArray(
+            { route: 'faction', selection: 'membershipnews', from: from, to: to },
+            'id'
+        );
     }
 
     async positions(): Promise<Errorable<IFactionPosition[]>> {
@@ -191,7 +255,10 @@ export class Faction extends TornAPIBase {
     }
 
     async revivesfull(): Promise<Errorable<IRevivesFull[]>> {
-        return this.apiQueryToArray({ route: 'faction', selection: 'revivesfull', jsonOverride: 'revives' }, 'id');
+        return this.apiQueryToArray(
+            { route: 'faction', selection: 'revivesfull', jsonOverride: 'revives' },
+            'id'
+        );
     }
 
     async stats(): Promise<Errorable<IStats>> {
@@ -207,7 +274,10 @@ export class Faction extends TornAPIBase {
     }
 
     async territorynews(from?: number, to?: number): Promise<Errorable<INews[]>> {
-        return this.apiQueryToArray({ route: 'faction', selection: 'territorynews', from: from, to: to }, 'id');
+        return this.apiQueryToArray(
+            { route: 'faction', selection: 'territorynews', from: from, to: to },
+            'id'
+        );
     }
 
     async upgrades(): Promise<Errorable<IUpgrade[]>> {

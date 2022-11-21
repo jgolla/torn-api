@@ -1,12 +1,40 @@
 import axios from 'axios';
 
-import { IBank, ITornGym, IHonor, IItem, IMedal, IOrganisedCrime, IPawnshop, IRacket, IRaid, IStock, ITerritory, ITerritoryWar, ITornApiError, ITornCompany, ITornProperty, ITornStats, IFactionTree, IKeyValue, ICard, IStockDetail, ITornEducation, IPokerTable, IChainReport, IRankedWar, IRankedWarReport, ITerritoryDetail, Errorable, ICityShop } from './Interfaces';
+import {
+    IBank,
+    ITornGym,
+    IHonor,
+    IItem,
+    IMedal,
+    IOrganisedCrime,
+    IPawnshop,
+    IRacket,
+    IRaid,
+    IStock,
+    ITerritory,
+    ITerritoryWar,
+    ITornApiError,
+    ITornCompany,
+    ITornProperty,
+    ITornStats,
+    IFactionTree,
+    IKeyValue,
+    ICard,
+    IStockDetail,
+    ITornEducation,
+    IPokerTable,
+    IChainReport,
+    IRankedWar,
+    IRankedWarReport,
+    ITerritoryDetail,
+    Errorable,
+    ICityShop,
+} from './Interfaces';
 import { TornAPIBase } from './TornAPIBase';
 
 export class Torn extends TornAPIBase {
-
-    constructor(apiKey: string) {
-        super(apiKey);
+    constructor(apiKey: string, comment: string) {
+        super(apiKey, comment);
     }
 
     async multi(endpoints: string[], id?: string): Promise<Errorable<Record<string, object>>> {
@@ -22,7 +50,9 @@ export class Torn extends TornAPIBase {
     }
 
     async chainreport(id: number): Promise<Errorable<IChainReport>> {
-        const response = await axios.get<{ error?: ITornApiError, chainreport: IChainReport }>(this.buildUri({ route: 'torn', selection: 'chainreport', id: id ? id.toString() : '' }));
+        const response = await axios.get<{ error?: ITornApiError; chainreport: IChainReport }>(
+            this.buildUri({ route: 'torn', selection: 'chainreport', id: id ? id.toString() : '' })
+        );
         if (response instanceof Error) {
             return { code: 0, error: response.message };
         } else {
@@ -39,14 +69,19 @@ export class Torn extends TornAPIBase {
     }
 
     async cityshops(): Promise<Errorable<ICityShop[]>> {
-        const response = await axios.get<{ error?: ITornApiError, cityshops: ICityShop[] }>(this.buildUri({ route: 'torn', selection: 'cityshops' }));
+        const response = await axios.get<{ error?: ITornApiError; cityshops: ICityShop[] }>(
+            this.buildUri({ route: 'torn', selection: 'cityshops' })
+        );
         if (response instanceof Error) {
             return { code: 0, error: response.message };
         } else {
             if (response.data && response.data.error) {
                 return response.data.error;
             } else if (response.data) {
-                const cityshops: ICityShop[] = this.fixStringArray(response.data['cityshops'], 'id');
+                const cityshops: ICityShop[] = this.fixStringArray(
+                    response.data['cityshops'],
+                    'id'
+                );
                 for (let i = 0; i < cityshops.length; i++) {
                     cityshops[i].inventory = this.fixStringArray(cityshops[i].inventory, 'id');
                 }
@@ -59,14 +94,19 @@ export class Torn extends TornAPIBase {
     }
 
     async companies(): Promise<Errorable<ITornCompany[]>> {
-        const response = await axios.get<{ error?: ITornApiError, companies: ITornCompany }>(this.buildUri({ route: 'torn', selection: 'companies' }));
+        const response = await axios.get<{ error?: ITornApiError; companies: ITornCompany }>(
+            this.buildUri({ route: 'torn', selection: 'companies' })
+        );
         if (response instanceof Error) {
             return { code: 0, error: response.message };
         } else {
             if (response.data && response.data.error) {
                 return response.data.error;
             } else if (response.data) {
-                const tornCompany: ITornCompany[] = this.fixStringArray(response.data['companies'], 'id');
+                const tornCompany: ITornCompany[] = this.fixStringArray(
+                    response.data['companies'],
+                    'id'
+                );
 
                 tornCompany.forEach(company => {
                     company.positions = this.fixStringArray(company.positions, 'name');
@@ -86,14 +126,19 @@ export class Torn extends TornAPIBase {
     }
 
     async factiontree(): Promise<Errorable<IFactionTree[]>> {
-        const response = await axios.get<{ error?: ITornApiError, factiontree: IFactionTree }>(this.buildUri({ route: 'torn', selection: 'factiontree' }));
+        const response = await axios.get<{ error?: ITornApiError; factiontree: IFactionTree }>(
+            this.buildUri({ route: 'torn', selection: 'factiontree' })
+        );
         if (response instanceof Error) {
             return { code: 0, error: response.message };
         } else {
             if (response.data && response.data.error) {
                 return response.data.error;
             } else if (response.data) {
-                const returnTree: IFactionTree[] = this.fixStringArray(response.data.factiontree, 'id');
+                const returnTree: IFactionTree[] = this.fixStringArray(
+                    response.data.factiontree,
+                    'id'
+                );
                 returnTree.forEach(item => {
                     item.branch = this.fixStringArray(item, 'id');
                 });
@@ -154,7 +199,9 @@ export class Torn extends TornAPIBase {
     }
 
     async rankedwars(): Promise<Errorable<IRankedWar[]>> {
-        const response = await axios.get<{ error?: ITornApiError, rankedwars: IRankedWar[] }>(this.buildUri({ route: 'torn', selection: 'rankedwars' }));
+        const response = await axios.get<{ error?: ITornApiError; rankedwars: IRankedWar[] }>(
+            this.buildUri({ route: 'torn', selection: 'rankedwars' })
+        );
         if (response instanceof Error) {
             return { code: 0, error: response.message };
         } else {
@@ -174,7 +221,10 @@ export class Torn extends TornAPIBase {
     }
 
     async rankedwarreport(id: string): Promise<Errorable<IRankedWarReport>> {
-        const response = await axios.get<{ error?: ITornApiError, rankedwarreport: IRankedWarReport }>(this.buildUri({ route: 'torn', selection: 'rankedwarreports', id: id }));
+        const response = await axios.get<{
+            error?: ITornApiError;
+            rankedwarreport: IRankedWarReport;
+        }>(this.buildUri({ route: 'torn', selection: 'rankedwarreports', id: id }));
         if (response instanceof Error) {
             return { code: 0, error: response.message };
         } else {
@@ -184,7 +234,10 @@ export class Torn extends TornAPIBase {
                 const rw = response.data.rankedwarreport as IRankedWarReport;
                 rw.factions = this.fixStringArray(rw.factions, 'id');
                 for (let i = 0; i < rw.factions.length; i++) {
-                    rw.factions[i].rewards.items = this.fixStringArray(rw.factions[i].rewards.items, 'id');
+                    rw.factions[i].rewards.items = this.fixStringArray(
+                        rw.factions[i].rewards.items,
+                        'id'
+                    );
                 }
                 rw.members = this.fixStringArray(rw.members, 'id');
                 return rw;
@@ -200,7 +253,10 @@ export class Torn extends TornAPIBase {
 
     async stocks(id?: string): Promise<Errorable<IStock[] | IStockDetail>> {
         if (id) {
-            const response = await axios.get<{ error?: ITornApiError, stocks: Record<string, IStockDetail> }>(this.buildUri({ route: 'torn', selection: 'stocks', id: id }));
+            const response = await axios.get<{
+                error?: ITornApiError;
+                stocks: Record<string, IStockDetail>;
+            }>(this.buildUri({ route: 'torn', selection: 'stocks', id: id }));
             if (response instanceof Error) {
                 return { code: 0, error: response.message };
             } else {
@@ -222,9 +278,11 @@ export class Torn extends TornAPIBase {
     }
 
     async territory(id?: string): Promise<Errorable<ITerritory[] | ITerritoryDetail>> {
-
         if (id) {
-            const response = await axios.get<{ error?: ITornApiError, territory: Record<string, ITerritoryDetail> }>(this.buildUri({ route: 'torn', selection: 'territory', id: id }));
+            const response = await axios.get<{
+                error?: ITornApiError;
+                territory: Record<string, ITerritoryDetail>;
+            }>(this.buildUri({ route: 'torn', selection: 'territory', id: id }));
             if (response instanceof Error) {
                 return { code: 0, error: response.message };
             } else {
