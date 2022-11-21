@@ -1,0 +1,9 @@
+/.cache
+/.git
+/dist
+/docs
+/misc
+/node_modules
+/temp
+
+README.md
