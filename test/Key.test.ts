@@ -15,11 +15,15 @@ describe('Key Info', () => {
     afterEach(sinon.restore);
 
     it('key info', async () => {
-        const stub = sinon.stub(axios, 'get').resolves(TestHelper.getJSON('key_info_test'));
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('key_info_test'));
+        // console.log(TestHelper.getJSON('key_info_test'));
         const initialReturn = await torn.key.info();
-        console.log(initialReturn);
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as IKeyInfo;
+        expect(castedReturn.access_level).to.equal(3);
+        expect(castedReturn.access_type).to.equal('Limited Access');
     });
-    // expect(TornAPI.isError(initialReturn)).to.be.false;
 
     // const castedReturn = initialReturn as IKeyInfo;
     // console.log(castedReturn);

@@ -7,7 +7,6 @@ export class Key extends TornAPIBase {
     }
 
     async info(): Promise<Errorable<IKeyInfo>> {
-        // https://api.torn.com/key/?selections=info&key=jyGWkKySd6nnE5YK
-        return this.apiQuery({ route: 'key', selection: 'info' });
+        return this.multiQuery('key', ['info']) as Promise<Errorable<IKeyInfo>>;
     }
 }
