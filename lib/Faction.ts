@@ -4,8 +4,8 @@ import { TornAPIBase } from './TornAPIBase';
 import { Errorable, IApplication, IArmor, IAttack, IAttackFull, IChain, IChainReport, ICompleteChain, ICrime, ICrimeParticipant, ICurrency, IDonation, IDrug, IFaction, IFactionPosition, IFactionReport, IMedical, INews, IPeace, IRankedWar, IRevives, IRevivesFull, IStats, ITerritory, ITornApiError, IUpgrade, IWeapon } from './Interfaces';
 
 export class Faction extends TornAPIBase {
-    constructor(apiKey: string) {
-        super(apiKey);
+    constructor(apiKey: string, comment: string) {
+        super(apiKey, comment);
     }
 
     async multi(endpoints: string[], id?: string): Promise<Errorable<Record<string, object>>> {

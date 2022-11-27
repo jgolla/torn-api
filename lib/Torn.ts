@@ -5,8 +5,8 @@ import { TornAPIBase } from './TornAPIBase';
 
 export class Torn extends TornAPIBase {
 
-    constructor(apiKey: string) {
-        super(apiKey);
+    constructor(apiKey: string, comment: string) {
+        super(apiKey, comment);
     }
 
     async multi(endpoints: string[], id?: string): Promise<Errorable<Record<string, object>>> {

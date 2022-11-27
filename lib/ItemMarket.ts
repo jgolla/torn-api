@@ -4,8 +4,8 @@ import { TornAPIBase } from './TornAPIBase';
 import { Errorable, IMarketItem, IPointsMarket, ITornApiError } from './Interfaces';
 
 export class ItemMarket extends TornAPIBase {
-    constructor(apiKey: string) {
-        super(apiKey);
+    constructor(apiKey: string, comment: string) {
+        super(apiKey, comment);
     }
 
     async multi(endpoints: string[], id?: string): Promise<Errorable<Record<string, object>>> {

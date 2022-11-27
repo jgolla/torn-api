@@ -3,8 +3,8 @@ import { ITornApiError, IUser, IAmmo, IAttack, IBars, IBasicUser, IBattleStats, 
 import axios from 'axios';
 
 export class User extends TornAPIBase {
-    constructor(apiKey: string) {
-        super(apiKey);
+    constructor(apiKey: string, comment: string) {
+        super(apiKey, comment);
     }
 
     async multi(endpoints: string[], id?: string): Promise<Errorable<Record<string, object>>> {
