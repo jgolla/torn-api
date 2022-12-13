@@ -226,7 +226,7 @@ export interface IApplication {
         strength: number;
         speed: number;
         dexterity: number;
-        defence: number;
+        defense: number;
     };
     message: string;
     expires: number;
