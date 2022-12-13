@@ -83079,7 +83079,7 @@
                     "strength": 1,
                     "speed": 2,
                     "dexterity": 3,
-                    "defence": 4
+                    "defense": 4
                 },
                 "message": "I am invited to play.",
                 "expires": 1629120726,
