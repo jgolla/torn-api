@@ -36,6 +36,15 @@ class TornAPI {
         });
     }
 
+    private resetInternal(): void {
+        this._torn = null;
+        this._user = null;
+        this._faction = null;
+        this._property = null;
+        this._itemmarket = null;
+        this._company = null;
+    }
+
     private apiKey = '';
     public setKey(apiKey: string): void {
         // only reset if the key has changed
@@ -43,12 +52,7 @@ class TornAPI {
             this.apiKey = apiKey;
 
             // when the key changes, reset all the internals
-            this._torn = null;
-            this._user = null;
-            this._faction = null;
-            this._property = null;
-            this._itemmarket = null;
-            this._company = null;
+            this.resetInternal();
         }
     }
 
@@ -59,12 +63,7 @@ class TornAPI {
             this.comment = comment;
 
             // when the comment changes, reset all the internals
-            this._torn = null;
-            this._user = null;
-            this._faction = null;
-            this._property = null;
-            this._itemmarket = null;
-            this._company = null;
+            this.resetInternal();
         }
     }
 
