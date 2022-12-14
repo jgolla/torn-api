@@ -3,8 +3,8 @@ import { ICompanyDetailed, ICompany, ICompanyEmployee, ICompanyProfile, ITornApi
 import axios from 'axios';
 
 export class Company extends TornAPIBase {
-    constructor(apiKey: string) {
-        super(apiKey);
+    constructor(apiKey: string, comment: string) {
+        super(apiKey, comment);
     }
 
     async multi(endpoints: string[], id?: string): Promise<Errorable<Record<string, object>>> {

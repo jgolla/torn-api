@@ -5,10 +5,12 @@ import { IKeyValue, ITornApiError } from './Interfaces';
 export abstract class TornAPIBase {
 
     protected apiKey: string;
+    protected comment: string;
     protected static GenericAPIError = { code: 0, error: 'Unknown error occurred' };
 
-    constructor(apiKey: string) {
+    constructor(apiKey: string, comment: string) {
         this.apiKey = apiKey;
+        this.comment = comment;
     }
 
     protected async apiQuery<T>(params: QueryParams): Promise<T | ITornApiError> {
@@ -113,7 +115,7 @@ export abstract class TornAPIBase {
     }
 
     protected buildUri(params: QueryParams): string {
-        let id = '', from = '', to = '', limit = '', timestamp = '';
+        let id = '', from = '', to = '', limit = '', timestamp = '', commentData = '';
 
         if (params.id) {
             id = params.id;
@@ -135,7 +137,11 @@ export abstract class TornAPIBase {
             timestamp = `&timestamp=${params.timestamp}`;
         }
 
-        return `https://api.torn.com/${params.route}/${id}?selections=${params.selection}&key=${this.apiKey}${from}${to}${limit}${timestamp}`;
+        if (this.comment) {
+            commentData = `&comment=${this.comment}`;
+        }
+
+        return `https://api.torn.com/${params.route}/${id}?selections=${params.selection}&key=${this.apiKey}${from}${to}${limit}${timestamp}${commentData}`;
     }
 
     protected async multiQuery<T>(route: string, endpoints: string[], id?: string): Promise<ITornApiError | Record<string, T>> {
