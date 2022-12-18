@@ -34,6 +34,9 @@ class TornAPI {
                 return { data: { error: { code: 500, error: 'Unknown error occurred.' } } };
             }
         });
+
+        // hack to work around: https://github.com/axios/axios/issues/5346
+        axios.defaults.headers['Accept-Encoding'] = '*';        
     }
 
     private resetInternal(): void {
