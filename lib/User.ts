@@ -205,7 +205,7 @@ export class User extends TornAPIBase {
         if (stat) {
           selection += `&stat=${stat.join(',')}`
         }
-        return this.apiQuery({ route: 'user', selection: selection, timestamp: timestamp, id: id });
+        return this.apiQuery({ route: 'user', selection: selection, timestamp: timestamp, id: id, jsonOverride: 'personalstats' });
     }
 
     async profile(id?: string): Promise<Errorable<IUser>> {
@@ -285,6 +285,7 @@ interface IInternalUserStock {
     };
     transactions: Map<string, IUserStockTransaction>;
 }
+
 type IUserStats =
     "bazaarcustomers"
     | "bazaarsales"
