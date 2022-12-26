@@ -86077,6 +86077,13 @@
                 }
         }
     },
+    "user_personalstats_stats": {
+        "personalstats": {
+            "bazaarsales": 245024529,
+            "mailssent": 9,
+            "rifhits": 24590
+        }
+    },
     "user_personalstats": {
         "personalstats": {
             "bazaarcustomers": 255,

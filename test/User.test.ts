@@ -58,11 +58,20 @@ describe('User API', () => {
         expect(castedReturn.totalbountyreward).to.equal(245245450245245);
     });
 
-    it('personalstats', async () => {
-        const stub = sinon.stub(axios, 'get').resolves(TestHelper.getJSON('user_personalstats'));
-        await torn.user.personalstats('123', 123456, ['bazaarsales', 'mailssent', 'rifhits']);
+    it('personalstats with timestamp, id & specified stats', async () => {
+        const stub = sinon.stub(axios, 'get').resolves(TestHelper.getJSON('user_personalstats_stats'));
+
+        const initialReturn = await torn.user.personalstats('123', 123456, ['bazaarsales', 'mailssent', 'rifhits']);
+        expect(TornAPI.isError(initialReturn)).to.be.false;
         expect(stub.args[0][0]).to.equal('https://api.torn.com/user/123?selections=personalstats&stat=bazaarsales,mailssent,rifhits&key=key&timestamp=123456');
-    })
+
+        const castedReturn = initialReturn as Partial<IPersonalStats>;
+
+        expect(castedReturn.bazaarsales).to.equal(245024529);
+        expect(castedReturn.mailssent).to.equal(9);
+        expect(castedReturn.rifhits).to.equal(24590);
+        expect(Object.entries(castedReturn).length).to.equal(3);
+    });
 
     it('personalstats with timestamp & id', async () => {
         const stub = sinon.stub(axios, 'get').resolves(TestHelper.getJSON('user_personalstats'));
