@@ -1,7 +1,6 @@
 import { TornAPIBase } from './TornAPIBase';
 import { ITornApiError, IUser, IAmmo, IAttack, IBars, IBasicUser, IBattleStats, ICooldowns, ICrimes, IDiscord, IEducation, IEvents, IGym, IHOF, IIcon, IInventory, IJobPoints, IJobs, IUserCompany, IMedals, IMerits, IMessage, IMoney, INetworth, INotifications, IPerks, IPersonalStats, IRefills, IRevives, IRevivesFull, IUserStock, ITravel, IWorkStats, IUserProperty, IUserSkill, IAttackFull, ILog, IUserStockTransaction, IMissions, IMissionStatus, Errorable } from './Interfaces';
 import axios from 'axios';
-import { TornAPI } from '.';
 
 export class User extends TornAPIBase {
     constructor(apiKey: string, comment: string) {
@@ -203,7 +202,7 @@ export class User extends TornAPIBase {
     async personalstats(id?: string, timestamp?: number, stat?: IUserStats[]): Promise<Errorable<IPersonalStats | Partial<IPersonalStats>>> {
         let selection = 'personalstats';
         if (stat) {
-          selection += `&stat=${stat.join(',')}`
+          selection += `&stat=${stat.join(',')}`;
         }
         return this.apiQuery({ route: 'user', selection: selection, timestamp: timestamp, id: id, jsonOverride: 'personalstats' });
     }
