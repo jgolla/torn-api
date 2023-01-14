@@ -200,11 +200,10 @@ export class User extends TornAPIBase {
     }
 
     async personalstats(id?: string, timestamp?: number, stat?: IUserStats[]): Promise<Errorable<IPersonalStats | Partial<IPersonalStats>>> {
-        let selection = 'personalstats';
         if (stat) {
-          selection += `&stat=${stat.join(',')}`;
+            return this.apiQuery({ route: 'user', selection: 'personalstats', timestamp: timestamp, id: id, jsonOverride: 'personalstats', additionalSelections: { 'stat': `${stat.join(',')}` } });
         }
-        return this.apiQuery({ route: 'user', selection: selection, timestamp: timestamp, id: id, jsonOverride: 'personalstats' });
+        return this.apiQuery({ route: 'user', selection: 'personalstats', timestamp: timestamp, id: id, jsonOverride: 'personalstats' });
     }
 
     async profile(id?: string): Promise<Errorable<IUser>> {

@@ -63,7 +63,10 @@ describe('User API', () => {
 
         const initialReturn = await torn.user.personalstats('123', 123456, ['bazaarsales', 'mailssent', 'rifhits']);
         expect(TornAPI.isError(initialReturn)).to.be.false;
-        expect(stub.args[0][0]).to.equal('https://api.torn.com/user/123?selections=personalstats&stat=bazaarsales,mailssent,rifhits&key=key&timestamp=123456');
+        expect(stub.args[0][0]).to.contain('https://api.torn.com/user/123');
+        expect(stub.args[0][0]).to.contain('selections=personalstats');
+        expect(stub.args[0][0]).to.contain('stat=bazaarsales%2Cmailssent%2Crifhits');
+        expect(stub.args[0][0]).to.contain('timestamp=123456');
 
         const castedReturn = initialReturn as Partial<IPersonalStats>;
 
