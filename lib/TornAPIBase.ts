@@ -115,33 +115,37 @@ export abstract class TornAPIBase {
     }
 
     protected buildUri(params: QueryParams): string {
-        let id = '', from = '', to = '', limit = '', timestamp = '', commentData = '';
+        const url = new URL(`${params.route}/${params.id}`, `https://api.torn.com`);
+        url.searchParams.set('selections', params.selection);
+        url.searchParams.set('key', this.apiKey);
 
-        if (params.id) {
-            id = params.id;
+        if(params.additionalSelections) {
+            for (const key in params.additionalSelections) {
+                url.searchParams.set(key, params.additionalSelections[key]);
+            }
         }
 
         if (params.from) {
-            from = `&from=${params.from}`;
+            url.searchParams.set('from', params.from.toString());
         }
 
         if (params.to) {
-            to = `&to=${params.to}`;
+            url.searchParams.set('to', params.to.toString());
         }
 
         if (params.limit) {
-            limit = `&limit=${params.limit}`;
+            url.searchParams.set('limit', params.limit.toString());
         }
 
         if (params.timestamp) {
-            timestamp = `&timestamp=${params.timestamp}`;
+            url.searchParams.set('timestamp', params.timestamp.toString());
         }
 
         if (this.comment) {
-            commentData = `&comment=${this.comment}`;
+            url.searchParams.set('comment', this.comment);
         }
 
-        return `https://api.torn.com/${params.route}/${id}?selections=${params.selection}&key=${this.apiKey}${from}${to}${limit}${timestamp}${commentData}`;
+        return url.toString();
     }
 
     protected async multiQuery<T>(route: string, endpoints: string[], id?: string): Promise<ITornApiError | Record<string, T>> {
@@ -170,4 +174,5 @@ interface QueryParams {
     to?: number;
     limit?: number;
     timestamp?: number;
+    additionalSelections?: Record<string, string>;
 }
