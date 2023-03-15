@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { IBank, ITornGym, IHonor, IItem, IMedal, IOrganisedCrime, IPawnshop, IRacket, IRaid, IStock, ITerritory, ITerritoryWar, ITornApiError, ITornCompany, ITornProperty, ITornStats, IFactionTree, IKeyValue, ICard, IStockDetail, ITornEducation, IPokerTable, IChainReport, IRankedWar, IRankedWarReport, ITerritoryDetail, Errorable, ICityShop } from './Interfaces';
+import { IBank, ITornGym, IHonor, IItem, IMedal, IOrganisedCrime, IPawnshop, IRacket, IRaid, IStock, ITerritory, ITerritoryWar, ITornApiError, ITornCompany, ITornProperty, ITornStats, IFactionTree, IKeyValue, ICard, IStockDetail, ITornEducation, IPokerTable, IChainReport, IRankedWar, IRankedWarReport, ITerritoryDetail, Errorable, ICityShop, IItemDetails } from './Interfaces';
 import { TornAPIBase } from './TornAPIBase';
 
 export class Torn extends TornAPIBase {
@@ -115,6 +115,21 @@ export class Torn extends TornAPIBase {
 
     async items(): Promise<Errorable<IItem[]>> {
         return this.apiQueryToArray({ route: 'torn', selection: 'items' }, 'id');
+    }
+
+    async itemdetails(uid: number): Promise<Errorable<IItemDetails>> {
+        const response = await axios.get<{ error?: ITornApiError, itemdetails: IItemDetails }>(this.buildUri({ route: 'torn', selection: 'itemdetails', id: uid.toString() }));
+        if (response instanceof Error) {
+            return { code: 0, error: response.message };
+        } else {
+            if (response.data && response.data.error) {
+                return response.data.error;
+            } else if (response.data) {
+                return response.data.itemdetails;
+            }
+
+            return TornAPIBase.GenericAPIError;
+        }
     }
 
     async logcategories(): Promise<Errorable<IKeyValue[]>> {

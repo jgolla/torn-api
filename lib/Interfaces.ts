@@ -509,6 +509,7 @@ export interface IIcon {
 
 export interface IInventory {
     ID: number;
+    UID?: number;
     name: string;
     type: string;
     quantity: number;
@@ -1533,4 +1534,15 @@ export interface ICityShopInventory {
     type: string;
     price: number;
     in_stock: number;
+}
+
+export interface IItemDetails {
+    ID: number;
+    UID: number;
+    name: string;
+    type: string;
+    rarity: string;
+    damage:number;
+    accuracy:number;
+    quality:number;
 }
