@@ -32669,6 +32669,18 @@
             }
         }
     },
+    "torn_itemdetails": {
+        "itemdetails": {
+            "ID": 26,
+            "UID": 8412949966,
+            "name": "AK-47",
+            "type": "Primary",
+            "rarity": "None",
+            "damage": 56.03,
+            "accuracy": 52.44,
+            "quality": 4.76
+        }
+    },
     "torn_logcategories": {
         "logcategories": {
             "0": "Not defined",

@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import sinon from 'sinon';
 
 import { TornAPI } from '../lib';
-import { IBank, ICard, IChainReport, ICityShop, IFactionTree, IHonor, IItem, IKeyValue, IMedal, IOrganisedCrime, IPawnshop, IPokerTable, IRacket, IRaid, IRankedWar, IRankedWarReport, IStock, IStockDetail, ITerritory, ITerritoryDetail, ITerritoryWar, ITornCompany, ITornEducation, ITornGym, ITornProperty, ITornStats } from '../lib/Interfaces';
+import { IBank, ICard, IChainReport, ICityShop, IFactionTree, IHonor, IItem, IItemDetails, IKeyValue, IMedal, IOrganisedCrime, IPawnshop, IPokerTable, IRacket, IRaid, IRankedWar, IRankedWarReport, IStock, IStockDetail, ITerritory, ITerritoryDetail, ITerritoryWar, ITornCompany, ITornEducation, ITornGym, ITornProperty, ITornStats } from '../lib/Interfaces';
 import { TestHelper } from './utils/TestUtils';
 
 describe('Torn API', () => {
@@ -198,6 +198,20 @@ describe('Torn API', () => {
         expect(item?.name).to.equal('Personal Computer');
         expect(item?.description).to.equal('A high-tech personal computer. Can be used to program viruses.');
         expect(item?.weapon_type).to.be.null;
+    });
+
+    it('itemdetails', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('torn_itemdetails'));
+
+        const initialReturn = await torn.torn.itemdetails(8412949966);
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as IItemDetails;
+
+        expect(castedReturn.UID).to.equal(8412949966);
+        expect(castedReturn.name).to.equal('AK-47');
+        expect(castedReturn.accuracy).to.equal(52.44);
+        expect(castedReturn.quality).to.equal(4.76);
     });
 
     it('logcategories', async () => {
