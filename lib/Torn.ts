@@ -117,6 +117,11 @@ export class Torn extends TornAPIBase {
         return this.apiQueryToArray({ route: 'torn', selection: 'items' }, 'id');
     }
 
+    /**
+     * Returns item details for a given item.
+     * @param uid The unique number identifier of the item
+     * @returns The IItemDetails
+     */
     async itemdetails(uid: number): Promise<Errorable<IItemDetails>> {
         const response = await axios.get<{ error?: ITornApiError, itemdetails: IItemDetails }>(this.buildUri({ route: 'torn', selection: 'itemdetails', id: uid.toString() }));
         if (response instanceof Error) {
@@ -125,6 +130,11 @@ export class Torn extends TornAPIBase {
             if (response.data && response.data.error) {
                 return response.data.error;
             } else if (response.data) {
+                const returnDetails = response.data.itemdetails;
+                if(response.data.itemdetails.bonuses) {
+                    returnDetails.bonuses = this.fixStringArray(response.data.itemdetails.bonuses, 'id');
+                }
+
                 return response.data.itemdetails;
             }
 
@@ -256,6 +266,14 @@ export class Torn extends TornAPIBase {
         } else {
             return this.apiQueryToArray({ route: 'torn', selection: 'territory' }, 'id');
         }
+    }
+
+    /**
+     * Gets an array of Territory names.
+     * @returns a string array of Territory names
+     */
+    async territorynames(): Promise<Errorable<string[]>> {
+        return this.apiQueryToArray({route: 'torn', selection: 'territorynames'});
     }
 
     async territorywars(): Promise<Errorable<ITerritoryWar[]>> {

@@ -32678,7 +32678,14 @@
             "rarity": "None",
             "damage": 56.03,
             "accuracy": 52.44,
-            "quality": 4.76
+            "quality": 4.76,
+            "bonuses": {
+                "1": {
+                        "bonus": "Expose",
+                        "description": "7% increased critical hit rate",
+                        "value": 7
+                }
+           }
         }
     },
     "torn_logcategories": {
@@ -80367,6 +80374,11 @@
                 ]
             }
         }
+    },
+    "torn_territorynames": {
+        "territorynames": [
+            "tn1", "tn2", "tn3"
+        ]
     },
     "torn_territorywars": {
         "territorywars": {
