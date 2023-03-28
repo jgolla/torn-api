@@ -1545,4 +1545,12 @@ export interface IItemDetails {
     damage:number;
     accuracy:number;
     quality:number;
+    bonuses?: IItemDetailsBonus[];
+}
+
+export interface IItemDetailsBonus {
+    id: string;
+    bonus: string;
+    description: string;
+    value: number;
 }

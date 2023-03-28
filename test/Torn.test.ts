@@ -212,6 +212,11 @@ describe('Torn API', () => {
         expect(castedReturn.name).to.equal('AK-47');
         expect(castedReturn.accuracy).to.equal(52.44);
         expect(castedReturn.quality).to.equal(4.76);
+        
+        expect(castedReturn.bonuses).to.exist;
+        if(castedReturn.bonuses) {
+            expect(castedReturn.bonuses[0].bonus).to.equal('Expose');
+        }
     });
 
     it('logcategories', async () => {
@@ -457,6 +462,17 @@ describe('Torn API', () => {
         expect(castedReturn.sector).to.equal(6);
         expect(castedReturn.slots).to.equal(24);
         expect(castedReturn.neighbors).to.have.members(["MTB", "NUB", "OUB", "PUB", "MUB", "NVB", "KTB", "OVB"]);
+    });
+
+    it('territorynames', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('torn_territorynames'));
+
+        const initialReturn = await torn.torn.territorynames();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as string[];
+
+        expect(castedReturn).to.have.members(["tn1", "tn2", "tn3"]);
     });
 
     it('territorywars', async () => {
