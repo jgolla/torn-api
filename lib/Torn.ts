@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { IBank, ITornGym, IHonor, IItem, IMedal, IOrganisedCrime, IPawnshop, IRacket, IRaid, IStock, ITerritory, ITerritoryWar, ITornApiError, ITornCompany, ITornProperty, ITornStats, IFactionTree, IKeyValue, ICard, IStockDetail, ITornEducation, IPokerTable, IChainReport, IRankedWar, IRankedWarReport, ITerritoryDetail, Errorable, ICityShop, IItemDetails } from './Interfaces';
+import { IBank, ITornGym, IHonor, IItem, IMedal, IOrganisedCrime, IPawnshop, IRacket, IRaid, IStock, ITerritoryWar, ITornApiError, ITornCompany, ITornProperty, ITornStats, IFactionTree, IKeyValue, ICard, IStockDetail, ITornEducation, IPokerTable, IChainReport, IRankedWar, IRankedWarReport, ITerritoryDetail, Errorable, ICityShop, IItemDetails } from './Interfaces';
 import { TornAPIBase } from './TornAPIBase';
 
 export class Torn extends TornAPIBase {
@@ -246,26 +246,14 @@ export class Torn extends TornAPIBase {
         return this.apiQuery({ route: 'torn', selection: 'timestamp' });
     }
 
-    async territory(id?: string): Promise<Errorable<ITerritory[] | ITerritoryDetail>> {
-
-        if (id) {
-            const response = await axios.get<{ error?: ITornApiError, territory: Record<string, ITerritoryDetail> }>(this.buildUri({ route: 'torn', selection: 'territory', id: id }));
-            if (response instanceof Error) {
-                return { code: 0, error: response.message };
-            } else {
-                if (response.data && response.data.error) {
-                    return response.data.error;
-                } else if (response.data) {
-                    const retValue = response.data.territory[id];
-                    retValue.id = id;
-                    return retValue;
-                }
-
-                return TornAPIBase.GenericAPIError;
-            }
-        } else {
-            return this.apiQueryToArray({ route: 'torn', selection: 'territory' }, 'id');
-        }
+    /**
+     * Gets an array of ITerritoryDetail for the specified input territory list.
+     * 
+     * @param terriorties Comma separated list of territories to get the details for. Max 50
+     * @returns An array of ITerritoryDetail
+     */
+    async territory(terriorties: string): Promise<Errorable<ITerritoryDetail[]>> {
+        return this.apiQueryToArray({ route: 'torn', selection: 'territory', id: terriorties }, 'id');
     }
 
     /**
