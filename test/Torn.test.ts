@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import sinon from 'sinon';
 
 import { TornAPI } from '../lib';
-import { IBank, ICard, IChainReport, ICityShop, IFactionTree, IHonor, IItem, IItemDetails, IKeyValue, IMedal, IOrganisedCrime, IPawnshop, IPokerTable, IRacket, IRaid, IRankedWar, IRankedWarReport, IStock, IStockDetail, ITerritory, ITerritoryDetail, ITerritoryWar, ITornCompany, ITornEducation, ITornGym, ITornProperty, ITornStats } from '../lib/Interfaces';
+import { IBank, ICard, IChainReport, ICityShop, IFactionTree, IHonor, IItem, IItemDetails, IKeyValue, IMedal, IOrganisedCrime, IPawnshop, IPokerTable, IRacket, IRaid, IRankedWar, IRankedWarReport, IStock, IStockDetail, ITerritoryDetail, ITerritoryWar, ITornCompany, ITornEducation, ITornGym, ITornProperty, ITornStats } from '../lib/Interfaces';
 import { TestHelper } from './utils/TestUtils';
 
 describe('Torn API', () => {
@@ -435,33 +435,18 @@ describe('Torn API', () => {
         expect(history?.price).to.equal(695.19);
     });
 
-    it('territory', async () => {
-        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('torn_territory'));
-
-        const initialReturn = await torn.torn.territory();
-        expect(TornAPI.isError(initialReturn)).to.be.false;
-
-        const castedReturn = initialReturn as ITerritory[];
-
-        // spot check one
-        const territory = castedReturn.find(x => x.id === 'HYB');
-        expect(territory?.sector).to.equal(5);
-        expect(territory?.coordinate_x).to.equal('855.33');
-        expect(territory?.slots).to.equal(6);
-    });
-
     it('territory by id', async () => {
         sinon.stub(axios, 'get').resolves(TestHelper.getJSON('torn_territorydetail'));
 
-        const initialReturn = await torn.torn.territory('CAA');
+        const initialReturn = await torn.torn.territory('CAA,ACC');
         expect(TornAPI.isError(initialReturn)).to.be.false;
 
-        const castedReturn = initialReturn as ITerritoryDetail;
+        const castedReturn = initialReturn as ITerritoryDetail[];
 
-        expect(castedReturn.id).to.equal('CAA');
-        expect(castedReturn.sector).to.equal(6);
-        expect(castedReturn.slots).to.equal(24);
-        expect(castedReturn.neighbors).to.have.members(["MTB", "NUB", "OUB", "PUB", "MUB", "NVB", "KTB", "OVB"]);
+        expect(castedReturn[1].id).to.equal('CAA');
+        expect(castedReturn[1].sector).to.equal(6);
+        expect(castedReturn[1].slots).to.equal(24);
+        expect(castedReturn[1].neighbors).to.have.members(["MTB", "NUB", "OUB", "PUB", "MUB", "NVB", "KTB", "OVB"]);
     });
 
     it('territorynames', async () => {
