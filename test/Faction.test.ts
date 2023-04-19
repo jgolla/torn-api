@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import sinon from 'sinon';
 
 import { TornAPI } from '../lib';
-import { IApplication, IArmor, IAttack, IAttackFull, IChain, IChainReport, ICompleteChain, ICrime, ICurrency, IDonation, IDrug, IFaction, IFactionPosition, IFactionReport, IMedical, INews, IReport, IRevives, IRevivesFull, IStats, IUpgrade, IWeapon } from '../lib/Interfaces';
+import { IApplication, IArmor, IAttack, IAttackFull, IBooster, IChain, IChainReport, ICompleteChain, ICrime, ICurrency, IDonation, IDrug, IFaction, IFactionPosition, IFactionReport, IMedical, INews, IReport, IRevives, IRevivesFull, IStats, ITemporary, IUpgrade, IWeapon } from '../lib/Interfaces';
 import { TestHelper } from './utils/TestUtils';
 
 describe('Faction API', () => {
@@ -151,6 +151,21 @@ describe('Faction API', () => {
         expect(stub.args[0][0]).to.equal('https://api.torn.com/faction/1234?selections=&key=key');
     });
 
+    it('boosters', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('faction_boosters'));
+
+        const initialReturn = await torn.faction.boosters();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as IBooster[];
+
+        // spot check one
+        const booster = castedReturn.find(x => x.ID === 180);
+        expect(booster?.name).to.equal('Bottle of Beer');
+        expect(booster?.quantity).to.equal(8091);
+        expect(booster?.type).to.equal('Alcohol');
+    });
+
     it('chain', async () => {
         sinon.stub(axios, 'get').resolves(TestHelper.getJSON('faction_chain'));
 
@@ -199,6 +214,16 @@ describe('Faction API', () => {
         expect(chain?.respect).to.equal("20.6923");
         expect(chain?.start).to.equal(1582544410);
         expect(chain?.end).to.equal(1582544451);
+    });
+
+    it('crimeexp',async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('faction_crimeexp'));
+
+        const initialReturn = await torn.faction.crimeexp();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as number[];
+        expect(castedReturn).to.have.members([1,2,3]);
     });
 
     it('crimenews', async () => {
@@ -442,6 +467,25 @@ describe('Faction API', () => {
         expect(castedReturn.drugoverdoses).to.equal(824);
         expect(castedReturn.gymdexterity).to.equal(2886020);
         expect(castedReturn.medicalitemsused).to.equal(268624);
+    });
+
+    it('temporary', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('faction_temporary'));
+
+        const initialReturn = await torn.faction.temporary();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as ITemporary[];
+
+        // spot check one
+        let temp = castedReturn.find(x => x.ID === 229);
+        expect(temp?.name).to.equal('Claymore Mine');
+        expect(temp?.loaned_to).to.be.null;
+
+        // spot check one
+        temp = castedReturn.find(x => x.ID === 394);
+        expect(temp?.name).to.equal('Brick');
+        expect(temp?.loaned_to).to.equal('1,2,3,4');
     });
 
     it('territorynews', async () => {

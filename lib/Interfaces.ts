@@ -113,52 +113,59 @@ export interface IArmor extends IArmoryBase {
     loaned_to?: string | number;
 }
 
-export type IWeapon = IArmor
+export type IWeapon = IArmor;
 
-export type IDrug = IArmoryBase
+export type ITemporary = IArmor;
 
-export type IMedical = IArmoryBase
+export type IDrug = IArmoryBase;
+
+export type IMedical = IArmoryBase;
+
+export type IBooster = IArmoryBase;
 
 export interface IStats {
-    drugsused: number;
-    gymtrains: number;
-    gymstrength: number;
-    gymdefense: number;
-    gymspeed: number;
-    criminaloffences: number;
-    jails: number;
-    gymdexterity: number;
-    hosps: number;
-    medicalitemsused: number;
-    medicalcooldownused: number;
-    medicalitemrecovery: number;
-    attacksdamagehits: number;
-    attacksdamage: number;
-    hosptimegiven: number;
-    attacksleave: number;
-    attackswon: number;
-    candyused: number;
-    attacksdamaging: number;
-    energydrinkused: number;
-    hosptimereceived: number;
-    attackslost: number;
-    attacksmug: number;
-    attackshosp: number;
-    organisedcrimefail: number;
-    alcoholused: number;
-    organisedcrimerespect: number;
-    organisedcrimemoney: number;
-    organisedcrimesuccess: number;
-    attacksrunaway: number;
-    busts: number;
-    drugoverdoses: number;
-    bestchain: number;
-    traveltimes: number;
-    traveltime: number;
-    rehabs: number;
-    hunting: number;
-    caymaninterest: number;
-    revives: number;
+    medicalitemsused: number
+    criminaloffences: number
+    organisedcrimerespect: number
+    organisedcrimemoney: number
+    organisedcrimesuccess: number
+    organisedcrimefail: number
+    attackswon: number
+    attackslost: number
+    attackschain: number
+    attacksleave: number
+    attacksmug: number
+    attackshosp: number
+    bestchain: number
+    busts: number
+    revives: number
+    jails: number
+    hosps: number
+    medicalitemrecovery: number
+    medicalcooldownused: number
+    gymtrains: number
+    gymstrength: number
+    gymspeed: number
+    gymdefense: number
+    gymdexterity: number
+    candyused: number
+    alcoholused: number
+    energydrinkused: number
+    drugsused: number
+    drugoverdoses: number
+    rehabs: number
+    caymaninterest: number
+    traveltimes: number
+    traveltime: number
+    hunting: number
+    attacksdamagehits: number
+    attacksdamage: number
+    hosptimegiven: number
+    hosptimereceived: number
+    attacksdamaging: number
+    attacksrunaway: number
+    highestterritories: number
+    territoryrespect: number
 }
 
 export interface INews {
