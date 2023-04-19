@@ -44229,6 +44229,13 @@
             }
         }
     },
+    "faction_crimeexp": {
+        "crimeexp": [
+                1,
+                3,
+                2
+        ]
+    },
     "faction_crimenews": {
         "crimenews": {
             "1ky0s9lwslAQ2TAG5oos": {
@@ -44454,6 +44461,34 @@
                 "timestamp": 1631478567
             }
         }
+    },
+    "faction_boosters": {
+        "boosters": [
+            {
+                    "ID": 37,
+                    "name": "Bag of Bon Bons",
+                    "type": "Candy",
+                    "quantity": 583
+            },
+            {
+                    "ID": 180,
+                    "name": "Bottle of Beer",
+                    "type": "Alcohol",
+                    "quantity": 8091
+            },
+            {
+                    "ID": 426,
+                    "name": "Bottle of Tequila",
+                    "type": "Alcohol",
+                    "quantity": 143
+            },
+            {
+                    "ID": 35,
+                    "name": "Box of Chocolate Bars",
+                    "type": "Candy",
+                    "quantity": 3246
+            }
+        ]
     },
     "faction_medical": {
         "medical": [
@@ -44946,6 +44981,28 @@
                 "unlocked": "2021-09-14 04:01:03"
             }
         }
+    },
+    "faction_temporary": {
+        "temporary": [
+                {
+                        "ID": 394,
+                        "name": "Brick",
+                        "type": "Temporary",
+                        "quantity": 1643,
+                        "available": 1643,
+                        "loaned": 0,
+                        "loaned_to": "1,2,3,4"
+                },
+                {
+                        "ID": 229,
+                        "name": "Claymore Mine",
+                        "type": "Temporary",
+                        "quantity": 1,
+                        "available": 1,
+                        "loaned": 0,
+                        "loaned_to": null
+                }
+        ]
     },
     "faction_weapons": {
         "weapons": [

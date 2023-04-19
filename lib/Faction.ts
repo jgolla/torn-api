@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import { TornAPIBase } from './TornAPIBase';
-import { Errorable, IApplication, IArmor, IAttack, IAttackFull, IChain, IChainReport, ICompleteChain, ICrime, ICrimeParticipant, ICurrency, IDonation, IDrug, IFaction, IFactionPosition, IFactionReport, IMedical, INews, IPeace, IRankedWar, IRevives, IRevivesFull, IStats, ITerritory, ITornApiError, IUpgrade, IWeapon } from './Interfaces';
+import { Errorable, IApplication, IArmor, IAttack, IAttackFull, IBooster, IChain, IChainReport, ICompleteChain, ICrime, ICrimeParticipant, ICurrency, IDonation, IDrug, IFaction, IFactionPosition, IFactionReport, IMedical, INews, IPeace, IRankedWar, IRevives, IRevivesFull, IStats, ITemporary, ITerritory, ITornApiError, IUpgrade, IWeapon } from './Interfaces';
 
 export class Faction extends TornAPIBase {
     constructor(apiKey: string, comment: string) {
@@ -75,8 +75,13 @@ export class Faction extends TornAPIBase {
         return this.faction(id);
     }
 
-    async boosters(): Promise<undefined> {
-        throw new Error('Method not implemented.');
+    /**
+     * Gets a list of amory booster items.
+     * 
+     * @returns An array of armory boosters
+     */
+    async boosters(): Promise<Errorable<IBooster[]>> {
+        return this.apiQuery({ route: 'faction', selection: 'boosters' });
     }
 
     async cesium(): Promise<undefined> {
@@ -110,6 +115,15 @@ export class Faction extends TornAPIBase {
 
     async contributors(): Promise<undefined> {
         throw new Error('Method not implemented.');
+    }
+
+    /**
+     * Gets members in order of their crime experience.
+     * 
+     * @returns An array of member's Torn ids in order of their crime experience
+     */
+    async crimeexp(): Promise<Errorable<number[]>> {
+        return this.apiQueryToArray({ route: 'faction', selection: 'crimeexp' });
     }
 
     async crimenews(from?: number, to?: number): Promise<Errorable<INews[]>> {
@@ -198,8 +212,13 @@ export class Faction extends TornAPIBase {
         return this.apiQuery({ route: 'faction', selection: 'stats' });
     }
 
-    async temporary(): Promise<undefined> {
-        throw new Error('Method not implemented.');
+    /**
+     * Gets a list of amory temporary items.
+     * 
+     * @returns An array of armory temporary items
+     */
+    async temporary(): Promise<Errorable<ITemporary[]>> {
+        return this.apiQuery({ route: 'faction', selection: 'temporary' });   
     }
 
     async territory(): Promise<Errorable<ITerritory[]>> {
