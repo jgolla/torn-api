@@ -86,8 +86,14 @@ export class User extends TornAPIBase {
         return this.apiQuery({ route: 'user', selection: 'education', jsonOverride: '' });
     }
 
+    /**
+     * Gets an array of user events.
+     * 
+     * @param limit option limit of number of events
+     * @returns An array of User events
+     */
     async events(limit?: number): Promise<Errorable<IEvents[]>> {
-        return this.apiQueryToArray({ route: 'user', selection: 'events', limit: limit });
+        return this.apiQueryToArray({ route: 'user', selection: 'events', limit: limit }, 'id');
     }
 
     async gym(): Promise<Errorable<IGym>> {
