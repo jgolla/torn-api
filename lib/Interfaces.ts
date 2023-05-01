@@ -480,9 +480,9 @@ export interface IEducation {
 }
 
 export interface IEvents {
+    id: string;
     timestamp: number;
     event: string;
-    seen: number;
 }
 
 export interface IGym {

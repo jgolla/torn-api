@@ -45035,6 +45035,18 @@
             }
         ]
     },
+    "user_events": {
+        "events": {
+            "81SBqTkJswWDDK6aNYGW": {
+                    "timestamp": 1682963136,
+                    "event": "<a href = http://www.torn.com/\"http://www.torn.com/http://www.torn.com/profiles.php?XID=2491575\">jgolla</a> gave $400,000,000 to you from <a href = http://www.torn.com/\"http://www.torn.com/http://www.torn.com/factions.php?step=profile&ID=10610\">NPO - Strength</a>"
+            },
+            "4KlrivzsMp3kIHTuaRJm": {
+                    "timestamp": 1682945567,
+                    "event": "<a href = http://www.torn.com/\"http://www.torn.com/http://www.torn.com/profiles.php?XID=2491575\">jgolla</a> gave $1,000,000 to you from <a href = http://www.torn.com/\"http://www.torn.com/http://www.torn.com/factions.php?step=profile&ID=10610\">NPO - Strength</a>"
+            }
+        }
+    },
     "user_hof": {
         "halloffame": {
                 "attacks": {
