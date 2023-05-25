@@ -402,13 +402,24 @@ export interface IUser extends IBasicUser {
 }
 
 export interface IUserCompetition {
-    name: string;
-    score?: number;
-    team?: string;
-    teamName?: string;
+    name: "Dog Tags" | "Easter Egg Hunt" | "Elimination" | "Halloween" | "Mr & Ms Torn";
     attacks?: number;
+    image?: string;
+    position?: unknown;
+    /**
+     *     Integer score for Easter Egg Hunt or Dog Tags. Number score for Mr & Ms Torn.
+     */
+    score?: number;
+    team?: number;
+    text?: string;
+    total: number;
+    /**
+     * Amount of Treats collected during Halloween.
+     */
+    treats_collected_total?: number;
+    teamName?: string;
+    votes: number;
 }
-
 export interface IUserBar {
     current: number;
     maximum: number;
