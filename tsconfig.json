@@ -1,13 +1,13 @@
 {
-	"compilerOptions": {
-		"target": "ES2019",
-		"module": "commonjs",
-		"esModuleInterop": true,
-		"declaration": true,
-		"outDir": "dist",
-		"strict": true,
-		"resolveJsonModule": true,
-		"rootDir": "lib"
-	},
-	"include": ["lib/**/*"]
+  "compilerOptions": {
+    "target": "ES2019",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "declaration": true,
+    "outDir": "dist",
+    "strict": true,
+    "resolveJsonModule": true,
+    "rootDir": "lib"
+  },
+  "include": ["lib/**/*"]
 }

@@ -23,10 +23,10 @@ const myBattleStats = await torn.user.battlestats();
 
 // check for error
 if (TornAPI.isError(myBattleStats)) {
-	console.log(`${myBattleStats.code}: ${myBattleStats.error}`);
+  console.log(`${myBattleStats.code}: ${myBattleStats.error}`);
 } else {
-	console.log(`strength: ${myBattleStats.strength}`);
-	console.log(`speed: ${myBattleStats.speed}`);
+  console.log(`strength: ${myBattleStats.strength}`);
+  console.log(`speed: ${myBattleStats.speed}`);
 }
 ```
 
