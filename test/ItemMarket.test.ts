@@ -7,7 +7,6 @@ import { IMarketItem, IPointsMarket } from '../lib/Interfaces';
 import { TestHelper } from './utils/TestUtils';
 
 describe('ItemMarket API', () => {
-
     let torn: TornAPI;
     before(() => {
         torn = new TornAPI('key');
@@ -25,7 +24,7 @@ describe('ItemMarket API', () => {
         const castedReturn = initialReturn as IMarketItem[];
 
         // spot check one
-        const item = castedReturn.find(x => x.ID === 46596312);
+        const item = castedReturn.find((x) => x.ID === 46596312);
         expect(item?.cost).to.equal(950);
         expect(item?.quantity).to.equal(7);
     });
@@ -40,7 +39,7 @@ describe('ItemMarket API', () => {
         const castedReturn = initialReturn as IMarketItem[];
 
         // spot check one
-        const item = castedReturn.find(x => x.ID === 131761544);
+        const item = castedReturn.find((x) => x.ID === 131761544);
         expect(item?.cost).to.equal(320);
         expect(item?.quantity).to.equal(1);
     });
@@ -54,7 +53,7 @@ describe('ItemMarket API', () => {
         const castedReturn = initialReturn as IPointsMarket[];
 
         // spot check one
-        const item = castedReturn.find(x => x.id === '11112620');
+        const item = castedReturn.find((x) => x.id === '11112620');
         expect(item?.cost).to.equal(45400);
         expect(item?.quantity).to.equal(200);
         expect(item?.total_cost).to.equal(9080000);
@@ -72,11 +71,11 @@ describe('ItemMarket API', () => {
         const castedReturn = initialReturn as IMarketItem[];
 
         // spot check one from each
-        let item = castedReturn.find(x => x.ID === 131761544);
+        let item = castedReturn.find((x) => x.ID === 131761544);
         expect(item?.cost).to.equal(320);
         expect(item?.quantity).to.equal(1);
 
-        item = castedReturn.find(x => x.ID === 11616293);
+        item = castedReturn.find((x) => x.ID === 11616293);
         expect(item?.cost).to.equal(750);
         expect(item?.quantity).to.equal(10);
     });

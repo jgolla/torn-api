@@ -7,7 +7,6 @@ import { IEvents, IHOF, IMissions, IPersonalStats, IUser, IUserProperty } from '
 import { TestHelper } from './utils/TestUtils';
 
 describe('User API', () => {
-
     let torn: TornAPI;
     before(() => {
         torn = new TornAPI('key');
@@ -15,14 +14,14 @@ describe('User API', () => {
 
     afterEach(sinon.restore);
 
-    it('events',async () => {
+    it('events', async () => {
         sinon.stub(axios, 'get').resolves(TestHelper.getJSON('user_events'));
 
         const initialReturn = await torn.user.events();
         expect(TornAPI.isError(initialReturn)).to.be.false;
 
         const castedReturn = initialReturn as IEvents[];
-        const event = castedReturn.find(x => x.id === '4KlrivzsMp3kIHTuaRJm')
+        const event = castedReturn.find((x) => x.id === '4KlrivzsMp3kIHTuaRJm');
         expect(event?.timestamp).to.equal(1682945567);
     });
 
@@ -54,7 +53,7 @@ describe('User API', () => {
         expect(missionStatus).not.to.be.undefined;
 
         expect(missionStatus?.length).to.equal(9);
-        const singleMission = missionStatus?.find(x => x.title === 'Party Tricks');
+        const singleMission = missionStatus?.find((x) => x.title === 'Party Tricks');
         expect(singleMission?.status).to.equal('failed');
     });
 
@@ -99,7 +98,7 @@ describe('User API', () => {
         expect(TornAPI.isError(initialReturn)).to.be.false;
 
         const castedReturn = initialReturn as IUser;
-        expect(castedReturn.competition?.name).to.equal("Elimination");
+        expect(castedReturn.competition?.name).to.equal('Elimination');
     });
 
     it('properties', async () => {
@@ -110,7 +109,7 @@ describe('User API', () => {
         const castedReturn = initialReturn as IUserProperty[];
 
         // spot check one
-        const propery = castedReturn.find(x => x.id === '2952723');
+        const propery = castedReturn.find((x) => x.id === '2952723');
         expect(propery?.owner_id).to.equal(248772);
         expect(propery?.modifications.hot_tub).to.equal(1);
         expect(propery?.rented.user_id).to.equal(12345);

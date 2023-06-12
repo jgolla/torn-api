@@ -1,5 +1,47 @@
 import { TornAPIBase } from './TornAPIBase';
-import { ITornApiError, IUser, IAmmo, IAttack, IBars, IBasicUser, IBattleStats, ICooldowns, ICrimes, IDiscord, IEducation, IEvents, IGym, IHOF, IIcon, IInventory, IJobPoints, IJobs, IUserCompany, IMedals, IMerits, IMessage, IMoney, INetworth, INotifications, IPerks, IPersonalStats, IRefills, IRevives, IRevivesFull, IUserStock, ITravel, IWorkStats, IUserProperty, IUserSkill, IAttackFull, ILog, IUserStockTransaction, IMissions, IMissionStatus, Errorable } from './Interfaces';
+import {
+    ITornApiError,
+    IUser,
+    IAmmo,
+    IAttack,
+    IBars,
+    IBasicUser,
+    IBattleStats,
+    ICooldowns,
+    ICrimes,
+    IDiscord,
+    IEducation,
+    IEvents,
+    IGym,
+    IHOF,
+    IIcon,
+    IInventory,
+    IJobPoints,
+    IJobs,
+    IUserCompany,
+    IMedals,
+    IMerits,
+    IMessage,
+    IMoney,
+    INetworth,
+    INotifications,
+    IPerks,
+    IPersonalStats,
+    IRefills,
+    IRevives,
+    IRevivesFull,
+    IUserStock,
+    ITravel,
+    IWorkStats,
+    IUserProperty,
+    IUserSkill,
+    IAttackFull,
+    ILog,
+    IUserStockTransaction,
+    IMissions,
+    IMissionStatus,
+    Errorable
+} from './Interfaces';
 import axios from 'axios';
 
 export class User extends TornAPIBase {
@@ -88,7 +130,7 @@ export class User extends TornAPIBase {
 
     /**
      * Gets an array of user events.
-     * 
+     *
      * @param limit option limit of number of events
      * @returns An array of User events
      */
@@ -105,7 +147,9 @@ export class User extends TornAPIBase {
     }
 
     async icons(id?: string): Promise<Errorable<IIcon[]>> {
-        const response = await axios.get<{ error?: ITornApiError, icons: Record<string, string> }>(this.buildUri({ route: 'user', selection: 'icons', id: id }));
+        const response = await axios.get<{ error?: ITornApiError; icons: Record<string, string> }>(
+            this.buildUri({ route: 'user', selection: 'icons', id: id })
+        );
         if (response instanceof Error) {
             return { code: 0, error: response.message };
         } else {
@@ -161,7 +205,9 @@ export class User extends TornAPIBase {
     }
 
     async missions(): Promise<Errorable<IMissions[]>> {
-        const response = await axios.get<{ error?: ITornApiError, missions: Record<string, IMissionStatus[]> }>(this.buildUri({ route: 'user', selection: 'missions' }));
+        const response = await axios.get<{ error?: ITornApiError; missions: Record<string, IMissionStatus[]> }>(
+            this.buildUri({ route: 'user', selection: 'missions' })
+        );
         if (response instanceof Error) {
             return { code: 0, error: response.message };
         } else {
@@ -207,7 +253,14 @@ export class User extends TornAPIBase {
 
     async personalstats(id?: string, timestamp?: number, stat?: IUserStats[]): Promise<Errorable<IPersonalStats | Partial<IPersonalStats>>> {
         if (stat) {
-            return this.apiQuery({ route: 'user', selection: 'personalstats', timestamp: timestamp, id: id, jsonOverride: 'personalstats', additionalSelections: { 'stat': `${stat.join(',')}` } });
+            return this.apiQuery({
+                route: 'user',
+                selection: 'personalstats',
+                timestamp: timestamp,
+                id: id,
+                jsonOverride: 'personalstats',
+                additionalSelections: { stat: `${stat.join(',')}` }
+            });
         }
         return this.apiQuery({ route: 'user', selection: 'personalstats', timestamp: timestamp, id: id, jsonOverride: 'personalstats' });
     }
@@ -291,189 +344,188 @@ interface IInternalUserStock {
 }
 
 type IUserStats =
-    "bazaarcustomers"
-    | "bazaarsales"
-    | "bazaarprofit"
-    | "useractivity"
-    | "activestreak"
-    | "bestactivestreak"
-    | "itemsbought"
-    | "pointsbought"
-    | "itemsboughtabroad"
-    | "moneyinvested"
-    | "investedprofit"
-    | "weaponsbought"
-    | "trades"
-    | "itemssent"
-    | "auctionswon"
-    | "auctionsells"
-    | "pointssold"
-    | "attackswon"
-    | "attackslost"
-    | "attacksdraw"
-    | "bestkillstreak"
-    | "killstreak"
-    | "moneymugged"
-    | "attacksstealthed"
-    | "attackhits"
-    | "attackmisses"
-    | "attackdamage"
-    | "attackcriticalhits"
-    | "respectforfaction"
-    | "onehitkills"
-    | "defendswon"
-    | "defendslost"
-    | "defendsstalemated"
-    | "bestdamage"
-    | "roundsfired"
-    | "yourunaway"
-    | "theyrunaway"
-    | "highestbeaten"
-    | "peoplebusted"
-    | "failedbusts"
-    | "peoplebought"
-    | "peopleboughtspent"
-    | "virusescoded"
-    | "cityfinds"
-    | "traveltimes"
-    | "bountiesplaced"
-    | "bountiesreceived"
-    | "bountiescollected"
-    | "totalbountyreward"
-    | "revives"
-    | "revivesreceived"
-    | "medicalitemsused"
-    | "statenhancersused"
-    | "trainsreceived"
-    | "totalbountyspent"
-    | "drugsused"
-    | "overdosed"
-    | "meritsbought"
-    | "personalsplaced"
-    | "classifiedadsplaced"
-    | "mailssent"
-    | "friendmailssent"
-    | "factionmailssent"
-    | "companymailssent"
-    | "spousemailssent"
-    | "largestmug"
-    | "cantaken"
-    | "exttaken"
-    | "kettaken"
-    | "lsdtaken"
-    | "opitaken"
-    | "shrtaken"
-    | "spetaken"
-    | "pcptaken"
-    | "xantaken"
-    | "victaken"
-    | "chahits"
-    | "heahits"
-    | "axehits"
-    | "grehits"
-    | "machits"
-    | "pishits"
-    | "rifhits"
-    | "shohits"
-    | "smghits"
-    | "piehits"
-    | "slahits"
-    | "argtravel"
-    | "mextravel"
-    | "dubtravel"
-    | "hawtravel"
-    | "japtravel"
-    | "lontravel"
-    | "soutravel"
-    | "switravel"
-    | "chitravel"
-    | "cantravel"
-    | "dumpfinds"
-    | "dumpsearches"
-    | "itemsdumped"
-    | "daysbeendonator"
-    | "caytravel"
-    | "jailed"
-    | "hospital"
-    | "attacksassisted"
-    | "bloodwithdrawn"
-    | "networth"
-    | "missionscompleted"
-    | "contractscompleted"
-    | "dukecontractscompleted"
-    | "missioncreditsearned"
-    | "consumablesused"
-    | "candyused"
-    | "alcoholused"
-    | "energydrinkused"
-    | "nerverefills"
-    | "unarmoredwon"
-    | "h2hhits"
-    | "organisedcrimes"
-    | "territorytime"
-    | "territoryjoins"
-    | "stockpayouts"
-    | "stockprofits"
-    | "stocklosses"
-    | "stockfees"
-    | "stocknetprofits"
-    | "arrestsmade"
-    | "tokenrefills"
-    | "booksread"
-    | "traveltime"
-    | "boostersused"
-    | "rehabs"
-    | "rehabcost"
-    | "awards"
-    | "receivedbountyvalue"
-    | "networthpending"
-    | "networthwallet"
-    | "networthbank"
-    | "networthpoints"
-    | "networthcayman"
-    | "networthvault"
-    | "networthpiggybank"
-    | "networthitems"
-    | "networthdisplaycase"
-    | "networthbazaar"
-    | "networthproperties"
-    | "networthstockmarket"
-    | "networthitemmarket"
-    | "networthauctionhouse"
-    | "networthcompany"
-    | "networthbookie"
-    | "networthenlistedcars"
-    | "networthloan"
-    | "networthunpaidfees"
-    | "racingskill"
-    | "raceswon"
-    | "racesentered"
-    | "racingpointsearned"
-    | "specialammoused"
-    | "cityitemsbought"
-    | "hollowammoused"
-    | "tracerammoused"
-    | "piercingammoused"
-    | "incendiaryammoused"
-    | "attackswonabroad"
-    | "defendslostabroad"
-    | "rankedwarringwins"
-    | "retals"
-    | "elo"
-    | "strength"
-    | "defense"
-    | "speed"
-    | "dexterity"
-    | "totalstats"
-    | "manuallabor"
-    | "intelligence"
-    | "endurance"
-    | "totalworkingstats"
-    | "jobpointsused"
-    | "reviveskill"
-    | "itemslooted"
-    | "rankedwarhits"
-    | "raidhits"
-    | "territoryclears"
-    | "refills";
-
+    | 'bazaarcustomers'
+    | 'bazaarsales'
+    | 'bazaarprofit'
+    | 'useractivity'
+    | 'activestreak'
+    | 'bestactivestreak'
+    | 'itemsbought'
+    | 'pointsbought'
+    | 'itemsboughtabroad'
+    | 'moneyinvested'
+    | 'investedprofit'
+    | 'weaponsbought'
+    | 'trades'
+    | 'itemssent'
+    | 'auctionswon'
+    | 'auctionsells'
+    | 'pointssold'
+    | 'attackswon'
+    | 'attackslost'
+    | 'attacksdraw'
+    | 'bestkillstreak'
+    | 'killstreak'
+    | 'moneymugged'
+    | 'attacksstealthed'
+    | 'attackhits'
+    | 'attackmisses'
+    | 'attackdamage'
+    | 'attackcriticalhits'
+    | 'respectforfaction'
+    | 'onehitkills'
+    | 'defendswon'
+    | 'defendslost'
+    | 'defendsstalemated'
+    | 'bestdamage'
+    | 'roundsfired'
+    | 'yourunaway'
+    | 'theyrunaway'
+    | 'highestbeaten'
+    | 'peoplebusted'
+    | 'failedbusts'
+    | 'peoplebought'
+    | 'peopleboughtspent'
+    | 'virusescoded'
+    | 'cityfinds'
+    | 'traveltimes'
+    | 'bountiesplaced'
+    | 'bountiesreceived'
+    | 'bountiescollected'
+    | 'totalbountyreward'
+    | 'revives'
+    | 'revivesreceived'
+    | 'medicalitemsused'
+    | 'statenhancersused'
+    | 'trainsreceived'
+    | 'totalbountyspent'
+    | 'drugsused'
+    | 'overdosed'
+    | 'meritsbought'
+    | 'personalsplaced'
+    | 'classifiedadsplaced'
+    | 'mailssent'
+    | 'friendmailssent'
+    | 'factionmailssent'
+    | 'companymailssent'
+    | 'spousemailssent'
+    | 'largestmug'
+    | 'cantaken'
+    | 'exttaken'
+    | 'kettaken'
+    | 'lsdtaken'
+    | 'opitaken'
+    | 'shrtaken'
+    | 'spetaken'
+    | 'pcptaken'
+    | 'xantaken'
+    | 'victaken'
+    | 'chahits'
+    | 'heahits'
+    | 'axehits'
+    | 'grehits'
+    | 'machits'
+    | 'pishits'
+    | 'rifhits'
+    | 'shohits'
+    | 'smghits'
+    | 'piehits'
+    | 'slahits'
+    | 'argtravel'
+    | 'mextravel'
+    | 'dubtravel'
+    | 'hawtravel'
+    | 'japtravel'
+    | 'lontravel'
+    | 'soutravel'
+    | 'switravel'
+    | 'chitravel'
+    | 'cantravel'
+    | 'dumpfinds'
+    | 'dumpsearches'
+    | 'itemsdumped'
+    | 'daysbeendonator'
+    | 'caytravel'
+    | 'jailed'
+    | 'hospital'
+    | 'attacksassisted'
+    | 'bloodwithdrawn'
+    | 'networth'
+    | 'missionscompleted'
+    | 'contractscompleted'
+    | 'dukecontractscompleted'
+    | 'missioncreditsearned'
+    | 'consumablesused'
+    | 'candyused'
+    | 'alcoholused'
+    | 'energydrinkused'
+    | 'nerverefills'
+    | 'unarmoredwon'
+    | 'h2hhits'
+    | 'organisedcrimes'
+    | 'territorytime'
+    | 'territoryjoins'
+    | 'stockpayouts'
+    | 'stockprofits'
+    | 'stocklosses'
+    | 'stockfees'
+    | 'stocknetprofits'
+    | 'arrestsmade'
+    | 'tokenrefills'
+    | 'booksread'
+    | 'traveltime'
+    | 'boostersused'
+    | 'rehabs'
+    | 'rehabcost'
+    | 'awards'
+    | 'receivedbountyvalue'
+    | 'networthpending'
+    | 'networthwallet'
+    | 'networthbank'
+    | 'networthpoints'
+    | 'networthcayman'
+    | 'networthvault'
+    | 'networthpiggybank'
+    | 'networthitems'
+    | 'networthdisplaycase'
+    | 'networthbazaar'
+    | 'networthproperties'
+    | 'networthstockmarket'
+    | 'networthitemmarket'
+    | 'networthauctionhouse'
+    | 'networthcompany'
+    | 'networthbookie'
+    | 'networthenlistedcars'
+    | 'networthloan'
+    | 'networthunpaidfees'
+    | 'racingskill'
+    | 'raceswon'
+    | 'racesentered'
+    | 'racingpointsearned'
+    | 'specialammoused'
+    | 'cityitemsbought'
+    | 'hollowammoused'
+    | 'tracerammoused'
+    | 'piercingammoused'
+    | 'incendiaryammoused'
+    | 'attackswonabroad'
+    | 'defendslostabroad'
+    | 'rankedwarringwins'
+    | 'retals'
+    | 'elo'
+    | 'strength'
+    | 'defense'
+    | 'speed'
+    | 'dexterity'
+    | 'totalstats'
+    | 'manuallabor'
+    | 'intelligence'
+    | 'endurance'
+    | 'totalworkingstats'
+    | 'jobpointsused'
+    | 'reviveskill'
+    | 'itemslooted'
+    | 'rankedwarhits'
+    | 'raidhits'
+    | 'territoryclears'
+    | 'refills';

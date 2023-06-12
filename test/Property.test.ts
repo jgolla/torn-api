@@ -7,7 +7,6 @@ import { IProperty } from '../lib/Interfaces';
 import { TestHelper } from './utils/TestUtils';
 
 describe('Property API', () => {
-
     let torn: TornAPI;
     before(() => {
         torn = new TornAPI('key');
@@ -23,7 +22,17 @@ describe('Property API', () => {
 
         const castedReturn = initialReturn as IProperty;
         expect(castedReturn.owner_id).to.equal(1948203);
-        expect(castedReturn.upgrades).to.have.members(["Superior interior", "Large pool", "Large vault", "Hottub", "Sauna", "Bar", "Shooting range", "Medical facility", "Airstrip"]);
+        expect(castedReturn.upgrades).to.have.members([
+            'Superior interior',
+            'Large pool',
+            'Large vault',
+            'Hottub',
+            'Sauna',
+            'Bar',
+            'Shooting range',
+            'Medical facility',
+            'Airstrip'
+        ]);
         expect(castedReturn.rented.user_id).to.equal(2487726);
     });
 

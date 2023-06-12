@@ -6,7 +6,6 @@ export class Property extends TornAPIBase {
         super(apiKey, comment);
     }
 
-
     async multi(endpoints: string[], id?: string): Promise<Errorable<Record<string, object>>> {
         return this.multiQuery('property', endpoints, id);
     }

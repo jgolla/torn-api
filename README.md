@@ -1,13 +1,17 @@
 # ts-torn-api
+
 ##
-`ts-torn-api` is a TypeScript wrapper for using the [Torn](https://www.torn.com/) API. 
+
+`ts-torn-api` is a TypeScript wrapper for using the [Torn](https://www.torn.com/) API.
 
 ## Installing
+
 Using npm:
 
 ```bash
 $ npm install ts-torn-api
 ```
+
 ## Using
 
 ```ts
@@ -19,7 +23,7 @@ const myBattleStats = await torn.user.battlestats();
 
 // check for error
 if (TornAPI.isError(myBattleStats)) {
-    console.log(`${myBattleStats.code}: ${myBattleStats.error}`)
+    console.log(`${myBattleStats.code}: ${myBattleStats.error}`);
 } else {
     console.log(`strength: ${myBattleStats.strength}`);
     console.log(`speed: ${myBattleStats.speed}`);

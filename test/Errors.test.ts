@@ -6,9 +6,7 @@ import { ItemMarket, TornAPI, Torn, Company, Faction, Property, User } from '../
 import { TestHelper } from './utils/TestUtils';
 
 describe('Check error handling', () => {
-
     describe('Well formed Error', () => {
-
         beforeEach(() => {
             sinon.stub(axios, 'get').resolves(TestHelper.getJSON('errorTest'));
         });
@@ -20,8 +18,8 @@ describe('Check error handling', () => {
         function testErrors(name: string, className: TornType, ignoreList: string[], unimplementedList: string[] = []) {
             const torn = new TornAPI('myKey');
             const igores = [...ignoreList, ...unimplementedList];
-            const methods = Object.getOwnPropertyNames(className).filter(x => !igores.includes(x));
-            methods.forEach(method => {
+            const methods = Object.getOwnPropertyNames(className).filter((x) => !igores.includes(x));
+            methods.forEach((method) => {
                 it(`${method} handles error`, async () => {
                     // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     const retValue = await ((torn as any)[name] as any)[method]([]);
@@ -29,7 +27,7 @@ describe('Check error handling', () => {
                 });
             });
 
-            unimplementedList.forEach(method => {
+            unimplementedList.forEach((method) => {
                 it(`${method} should not be implemented`, async () => {
                     try {
                         // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -80,8 +78,8 @@ describe('Check error handling', () => {
         function testErrors(name: string, className: TornType, ignoreList: string[], unimplementedList: string[] = []) {
             const torn = new TornAPI('myKey');
             const igores = [...ignoreList, ...unimplementedList];
-            const methods = Object.getOwnPropertyNames(className).filter(x => !igores.includes(x));
-            methods.forEach(method => {
+            const methods = Object.getOwnPropertyNames(className).filter((x) => !igores.includes(x));
+            methods.forEach((method) => {
                 it(`${method} handles error`, async () => {
                     // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     const retValue = await ((torn as any)[name] as any)[method]([]);

@@ -3,11 +3,37 @@ import { expect } from 'chai';
 import sinon from 'sinon';
 
 import { TornAPI } from '../lib';
-import { IBank, ICard, IChainReport, ICityShop, IFactionTree, IHonor, IItem, IItemDetails, IKeyValue, IMedal, IOrganisedCrime, IPawnshop, IPokerTable, IRacket, IRaid, IRankedWar, IRankedWarReport, IStock, IStockDetail, ITerritoryDetail, ITerritoryWar, ITornCompany, ITornEducation, ITornGym, ITornProperty, ITornStats } from '../lib/Interfaces';
+import {
+    IBank,
+    ICard,
+    IChainReport,
+    ICityShop,
+    IFactionTree,
+    IHonor,
+    IItem,
+    IItemDetails,
+    IKeyValue,
+    IMedal,
+    IOrganisedCrime,
+    IPawnshop,
+    IPokerTable,
+    IRacket,
+    IRaid,
+    IRankedWar,
+    IRankedWarReport,
+    IStock,
+    IStockDetail,
+    ITerritoryDetail,
+    ITerritoryWar,
+    ITornCompany,
+    ITornEducation,
+    ITornGym,
+    ITornProperty,
+    ITornStats
+} from '../lib/Interfaces';
 import { TestHelper } from './utils/TestUtils';
 
 describe('Torn API', () => {
-
     let torn: TornAPI;
     before(() => {
         torn = new TornAPI('key');
@@ -38,7 +64,7 @@ describe('Torn API', () => {
         const castedReturn = initialReturn as ICard[];
 
         // spot check one
-        const card = castedReturn.find(x => x.id === '23');
+        const card = castedReturn.find((x) => x.id === '23');
         expect(card?.name).to.equal('Seven of Clubs');
         expect(card?.value).to.equal(7);
         expect(card?.short).to.equal(7);
@@ -60,12 +86,12 @@ describe('Torn API', () => {
         expect(castedReturn?.respect).to.equal(1089.36);
 
         // spot check one member
-        const member = castedReturn.members.find(x => x.userID === 2556388);
+        const member = castedReturn.members.find((x) => x.userID === 2556388);
         expect(member?.respect).to.equal(36.33);
         expect(member?.attacks).to.equal(14);
 
         //spot check one bonus
-        const bonus = castedReturn.bonuses.find(x => x.chain === 25);
+        const bonus = castedReturn.bonuses.find((x) => x.chain === 25);
         expect(bonus?.attacker).to.equal(2488990);
         expect(bonus?.respect).to.equal(20);
     });
@@ -79,11 +105,11 @@ describe('Torn API', () => {
         const castedReturn = initialReturn as ICityShop[];
 
         // spot check one
-        const shop = castedReturn.find(x => x.id === '110');
+        const shop = castedReturn.find((x) => x.id === '110');
         expect(shop?.name).to.equal('the Pharmacy');
 
         //spot check one item
-        const item = shop?.inventory.find(x => x.id === '66');
+        const item = shop?.inventory.find((x) => x.id === '66');
         expect(item?.name).to.equal('Morphine');
         expect(item?.type).to.equal('Medical');
         expect(item?.price).to.equal(50000);
@@ -99,20 +125,20 @@ describe('Torn API', () => {
         const castedReturn = initialReturn as ITornCompany[];
 
         // spot check one
-        const company = castedReturn.find(x => x.id === '23');
+        const company = castedReturn.find((x) => x.id === '23');
         expect(company?.name).to.equal('Music Store');
         expect(company?.positions.length).to.equal(7);
 
         //spot check one
-        const postition = company?.positions.find(x => x.name === 'Musician');
+        const postition = company?.positions.find((x) => x.name === 'Musician');
         expect(postition?.description).to.equal('This position can give expert advice on different instruments to secure sales.');
 
         //spot check one
-        const stock = company?.stock.find(x => x.name === 'Violin');
+        const stock = company?.stock.find((x) => x.name === 'Violin');
         expect(stock?.cost).to.equal(389);
 
         //spot check one
-        const special = company?.specials.find(x => x.name === 'High-fidelity');
+        const special = company?.specials.find((x) => x.name === 'High-fidelity');
         expect(special?.effect).to.equal('Reduced enemy stealth');
     });
 
@@ -125,7 +151,7 @@ describe('Torn API', () => {
         const castedReturn = initialReturn as ITornEducation[];
 
         // spot check one
-        const education = castedReturn.find(x => x.id === '28');
+        const education = castedReturn.find((x) => x.id === '28');
         expect(education?.name).to.equal('Probability');
 
         // spot check one
@@ -142,11 +168,11 @@ describe('Torn API', () => {
         const castedReturn = initialReturn as IFactionTree[];
 
         // spot check one
-        const factiontree = castedReturn.find(x => x.id === '23');
+        const factiontree = castedReturn.find((x) => x.id === '23');
         expect(factiontree?.branch.length).to.equal(10);
 
         // spot check one
-        const branch = factiontree?.branch.filter(x => x.id === '6')[0];
+        const branch = factiontree?.branch.filter((x) => x.id === '6')[0];
         expect(branch?.branch).to.equal('Voracity');
         expect(branch?.name).to.equal('Candy effect VI');
         expect(branch?.challenge).to.equal('Use 2,000 bags of candy');
@@ -161,7 +187,7 @@ describe('Torn API', () => {
         const castedReturn = initialReturn as ITornGym[];
 
         // spot check one
-        const gym = castedReturn.find(x => x.id === '28');
+        const gym = castedReturn.find((x) => x.id === '28');
         expect(gym?.name).to.equal('Mr. Isoyamas');
         expect(gym?.note).to.equal('Requirements must be maintained to preserve access to this gym');
         expect(gym?.defense).to.equal(80);
@@ -176,7 +202,7 @@ describe('Torn API', () => {
         const castedReturn = initialReturn as IHonor[];
 
         // spot check one
-        const honor = castedReturn.find(x => x.id === '28');
+        const honor = castedReturn.find((x) => x.id === '28');
         expect(honor?.name).to.equal('Machinist');
         expect(honor?.description).to.equal('Achieve 100 finishing hits with mechanical weapons');
         expect(honor?.type).to.equal(2);
@@ -194,7 +220,7 @@ describe('Torn API', () => {
         const castedReturn = initialReturn as IItem[];
 
         // spot check one
-        const item = castedReturn.find(x => x.id === '61');
+        const item = castedReturn.find((x) => x.id === '61');
         expect(item?.name).to.equal('Personal Computer');
         expect(item?.description).to.equal('A high-tech personal computer. Can be used to program viruses.');
         expect(item?.weapon_type).to.be.null;
@@ -212,9 +238,9 @@ describe('Torn API', () => {
         expect(castedReturn.name).to.equal('AK-47');
         expect(castedReturn.accuracy).to.equal(52.44);
         expect(castedReturn.quality).to.equal(4.76);
-        
+
         expect(castedReturn.bonuses).to.exist;
-        if(castedReturn.bonuses) {
+        if (castedReturn.bonuses) {
             expect(castedReturn.bonuses[0].bonus).to.equal('Expose');
         }
     });
@@ -228,7 +254,7 @@ describe('Torn API', () => {
         const castedReturn = initialReturn as IKeyValue[];
 
         // spot check one
-        const item = castedReturn.find(x => x.key === '61');
+        const item = castedReturn.find((x) => x.key === '61');
         expect(item?.value).to.equal('Drugs');
     });
 
@@ -241,7 +267,7 @@ describe('Torn API', () => {
         const castedReturn = initialReturn as IKeyValue[];
 
         // spot check one
-        const item = castedReturn.find(x => x.key === '361');
+        const item = castedReturn.find((x) => x.key === '361');
         expect(item?.value).to.equal('Personal details real name change');
     });
 
@@ -254,7 +280,7 @@ describe('Torn API', () => {
         const castedReturn = initialReturn as IMedal[];
 
         // spot check one
-        const medal = castedReturn.find(x => x.id === '61');
+        const medal = castedReturn.find((x) => x.id === '61');
         expect(medal?.name).to.equal('Ub3r Hacker');
         expect(medal?.description).to.equal('Commit 4,000 Computer crimes');
     });
@@ -268,7 +294,7 @@ describe('Torn API', () => {
         const castedReturn = initialReturn as IOrganisedCrime[];
 
         // spot check one
-        const medal = castedReturn.find(x => x.id === '6');
+        const medal = castedReturn.find((x) => x.id === '6');
         expect(medal?.name).to.equal('Taking over a cruise liner');
         expect(medal?.members).to.equal(15);
     });
@@ -293,7 +319,7 @@ describe('Torn API', () => {
         const castedReturn = initialReturn as IPokerTable[];
 
         // spot check one
-        const table = castedReturn.find(x => x.id === '16');
+        const table = castedReturn.find((x) => x.id === '16');
         expect(table?.name).to.equal('Oligarch');
         expect(table?.big_blind).to.equal(100000000);
     });
@@ -307,14 +333,9 @@ describe('Torn API', () => {
         const castedReturn = initialReturn as ITornProperty[];
 
         // spot check one
-        const property = castedReturn.find(x => x.id === '16');
+        const property = castedReturn.find((x) => x.id === '16');
         expect(property?.name).to.equal('Drakkar Sea Fort');
-        expect(property?.staff_available).to.have.members([
-            "Maid",
-            "Butler",
-            "Guard",
-            "Doctor"
-        ]);
+        expect(property?.staff_available).to.have.members(['Maid', 'Butler', 'Guard', 'Doctor']);
     });
 
     it('rackets', async () => {
@@ -326,7 +347,7 @@ describe('Torn API', () => {
         const castedReturn = initialReturn as IRacket[];
 
         // spot check one
-        const racket = castedReturn.find(x => x.id === 'QZG');
+        const racket = castedReturn.find((x) => x.id === 'QZG');
         expect(racket?.name).to.equal('Truck Stop I');
         expect(racket?.reward).to.equal('10x Can of Red Cow daily');
     });
@@ -340,13 +361,13 @@ describe('Torn API', () => {
         const castedReturn = initialReturn as IRaid[];
 
         // spot check one
-        const raid = castedReturn.find(x => x.id === '2727');
+        const raid = castedReturn.find((x) => x.id === '2727');
         expect(raid?.assaulting_faction).to.equal(46270);
         expect(raid?.defending_faction).to.equal(44416);
     });
 
     it('raids null', async () => {
-        sinon.stub(axios, 'get').resolves({ data: { 'raids': null } });
+        sinon.stub(axios, 'get').resolves({ data: { raids: null } });
 
         const initialReturn = await torn.torn.raids();
         expect(TornAPI.isError(initialReturn)).to.be.false;
@@ -364,10 +385,10 @@ describe('Torn API', () => {
         const castedReturn = initialReturn as IRankedWar[];
 
         // spot check one
-        const rankedwar = castedReturn.find(x => x.id === '140');
+        const rankedwar = castedReturn.find((x) => x.id === '140');
         expect(rankedwar?.war.start).to.equal(1639666800);
 
-        const faction = rankedwar?.factions.find(x => x.id === '38887');
+        const faction = rankedwar?.factions.find((x) => x.id === '38887');
         expect(faction?.name).to.equal('Medics');
         expect(faction?.score).to.equal(1);
     });
@@ -381,11 +402,11 @@ describe('Torn API', () => {
         const castedReturn = initialReturn as IRankedWarReport;
         expect(castedReturn.war.winner).to.equal(46529);
 
-        const rwFaction = castedReturn.factions.find(x => x.id === '46763');
+        const rwFaction = castedReturn.factions.find((x) => x.id === '46763');
         expect(rwFaction?.name).to.equal('Mama Bears Den');
         expect(rwFaction?.rewards.items[0].name).to.equal('Small Arms Cache');
 
-        const rwMember = castedReturn.members.find(x => x.id === '2405179');
+        const rwMember = castedReturn.members.find((x) => x.id === '2405179');
         expect(rwMember?.name).to.equal('Ishhy');
         expect(rwMember?.score).to.equal(843.14);
     });
@@ -410,7 +431,7 @@ describe('Torn API', () => {
         const castedReturn = initialReturn as IStock[];
 
         // spot check one
-        const stock = castedReturn.find(x => x.stock_id === 16);
+        const stock = castedReturn.find((x) => x.stock_id === 16);
         expect(stock?.name).to.equal('Symbiotic Ltd.');
         expect(stock?.benefit.description).to.equal('1x Drug Pack');
     });
@@ -430,7 +451,7 @@ describe('Torn API', () => {
         expect(castedReturn.last_week.change).to.equal(-3.8);
 
         // spot check one
-        const history = castedReturn.history.find(x => x.timestamp === 1628943960);
+        const history = castedReturn.history.find((x) => x.timestamp === 1628943960);
         expect(history?.change).to.equal(-0.07);
         expect(history?.price).to.equal(695.19);
     });
@@ -446,7 +467,7 @@ describe('Torn API', () => {
         expect(castedReturn[1].id).to.equal('CAA');
         expect(castedReturn[1].sector).to.equal(6);
         expect(castedReturn[1].slots).to.equal(24);
-        expect(castedReturn[1].neighbors).to.have.members(["MTB", "NUB", "OUB", "PUB", "MUB", "NVB", "KTB", "OVB"]);
+        expect(castedReturn[1].neighbors).to.have.members(['MTB', 'NUB', 'OUB', 'PUB', 'MUB', 'NVB', 'KTB', 'OVB']);
     });
 
     it('territorynames', async () => {
@@ -457,7 +478,7 @@ describe('Torn API', () => {
 
         const castedReturn = initialReturn as string[];
 
-        expect(castedReturn).to.have.members(["tn1", "tn2", "tn3"]);
+        expect(castedReturn).to.have.members(['tn1', 'tn2', 'tn3']);
     });
 
     it('territorywars', async () => {
@@ -469,13 +490,13 @@ describe('Torn API', () => {
         const castedReturn = initialReturn as ITerritoryWar[];
 
         // spot check one
-        const territory = castedReturn.find(x => x.id === 'AMF');
+        const territory = castedReturn.find((x) => x.id === 'AMF');
         expect(territory?.assaulting_faction).to.equal(11559);
         expect(territory?.defending_faction).to.equal(15256);
     });
 
     it('territorywars null', async () => {
-        sinon.stub(axios, 'get').resolves({ data: { 'territorywars': null } });
+        sinon.stub(axios, 'get').resolves({ data: { territorywars: null } });
 
         const initialReturn = await torn.torn.territorywars();
         expect(TornAPI.isError(initialReturn)).to.be.false;

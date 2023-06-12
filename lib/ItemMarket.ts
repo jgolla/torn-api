@@ -13,7 +13,9 @@ export class ItemMarket extends TornAPIBase {
     }
 
     async all(id: string): Promise<Errorable<IMarketItem[]>> {
-        const response = await axios.get<{ error?: ITornApiError, bazaar: IMarketItem[], itemmarket: IMarketItem[] }>(this.buildUri({ route: 'market', selection: 'bazaar,itemmarket', id: id }));
+        const response = await axios.get<{ error?: ITornApiError; bazaar: IMarketItem[]; itemmarket: IMarketItem[] }>(
+            this.buildUri({ route: 'market', selection: 'bazaar,itemmarket', id: id })
+        );
         if (response instanceof Error) {
             return { code: 0, error: response.message };
         } else {

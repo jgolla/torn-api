@@ -7,7 +7,6 @@ import { ICompanyDetailed, ICompanyEmployee, ICompanyProfile, ICompanyStock, INe
 import { TestHelper } from './utils/TestUtils';
 
 describe('Company API', () => {
-
     let torn: TornAPI;
     before(() => {
         torn = new TornAPI('key');
@@ -24,7 +23,7 @@ describe('Company API', () => {
         const castedReturn = initialReturn as ICompanyEmployee[];
 
         // spot check one
-        const employee = castedReturn.find(x => x.id === '1819862');
+        const employee = castedReturn.find((x) => x.id === '1819862');
         expect(employee?.name).to.equal('AbsoluteQueen');
         expect(employee?.last_action.relative).to.equal('51 minutes ago');
     });
@@ -47,7 +46,7 @@ describe('Company API', () => {
         expect(castedReturn.name).to.equal('Shepherds of Fire');
 
         // spot check one
-        const employee = castedReturn.employees.find(x => x.id === '2488292');
+        const employee = castedReturn.employees.find((x) => x.id === '2488292');
         expect(employee?.name).to.equal('Broadway');
         expect(employee?.last_action.relative).to.equal('2 days ago');
     });
@@ -80,7 +79,7 @@ describe('Company API', () => {
         const castedReturn = initialReturn as INews[];
 
         // spot check one
-        const news = castedReturn.find(x => x.id === '51955618');
+        const news = castedReturn.find((x) => x.id === '51955618');
         expect(news?.news).to.equal(`Quality Controller <a href = http://www.torn.com/profiles.php?XID=222>222</a> has been trained by the director.`);
         expect(news?.timestamp).to.equal(1633603424);
     });
@@ -94,7 +93,7 @@ describe('Company API', () => {
         const castedReturn = initialReturn as INews[];
 
         // spot check one
-        const news = castedReturn.find(x => x.id === '51955618');
+        const news = castedReturn.find((x) => x.id === '51955618');
         expect(news?.news).to.equal(`Quality Controller <a href = http://www.torn.com/profiles.php?XID=222>222</a> has been trained by the director.`);
         expect(news?.timestamp).to.equal(1633603424);
     });
@@ -108,7 +107,7 @@ describe('Company API', () => {
         const castedReturn = initialReturn as ICompanyStock[];
 
         // spot check one
-        const stock = castedReturn.find(x => x.name === 'Dinner Candle');
+        const stock = castedReturn.find((x) => x.name === 'Dinner Candle');
         expect(stock?.sold_amount).to.equal(18298);
     });
 });

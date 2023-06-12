@@ -1,7 +1,37 @@
 import axios from 'axios';
 
 import { TornAPIBase } from './TornAPIBase';
-import { Errorable, IApplication, IArmor, IAttack, IAttackFull, IBooster, IChain, IChainReport, ICompleteChain, ICrime, ICrimeParticipant, ICurrency, IDonation, IDrug, IFaction, IFactionPosition, IFactionReport, IMedical, INews, IPeace, IRankedWar, IRevives, IRevivesFull, IStats, ITemporary, ITerritory, ITornApiError, IUpgrade, IWeapon } from './Interfaces';
+import {
+    Errorable,
+    IApplication,
+    IArmor,
+    IAttack,
+    IAttackFull,
+    IBooster,
+    IChain,
+    IChainReport,
+    ICompleteChain,
+    ICrime,
+    ICrimeParticipant,
+    ICurrency,
+    IDonation,
+    IDrug,
+    IFaction,
+    IFactionPosition,
+    IFactionReport,
+    IMedical,
+    INews,
+    IPeace,
+    IRankedWar,
+    IRevives,
+    IRevivesFull,
+    IStats,
+    ITemporary,
+    ITerritory,
+    ITornApiError,
+    IUpgrade,
+    IWeapon
+} from './Interfaces';
 
 export class Faction extends TornAPIBase {
     constructor(apiKey: string, comment: string) {
@@ -35,7 +65,7 @@ export class Faction extends TornAPIBase {
                 factionReturn.peace = peaceArray;
 
                 const rankedWar: IRankedWar[] = this.fixStringArray(response.data.ranked_wars, 'id');
-                rankedWar.forEach(item => {
+                rankedWar.forEach((item) => {
                     item.factions = this.fixStringArray(item.factions, 'id');
                 });
                 factionReturn.ranked_wars = rankedWar[0];
@@ -77,7 +107,7 @@ export class Faction extends TornAPIBase {
 
     /**
      * Gets a list of amory booster items.
-     * 
+     *
      * @returns An array of armory boosters
      */
     async boosters(): Promise<Errorable<IBooster[]>> {
@@ -93,7 +123,7 @@ export class Faction extends TornAPIBase {
     }
 
     async chainreport(): Promise<Errorable<IChainReport>> {
-        const response = await axios.get<{ error?: ITornApiError, chainreport: IChainReport }>(this.buildUri({ route: 'faction', selection: 'chainreport' }));
+        const response = await axios.get<{ error?: ITornApiError; chainreport: IChainReport }>(this.buildUri({ route: 'faction', selection: 'chainreport' }));
         if (response instanceof Error) {
             return { code: 0, error: response.message };
         } else {
@@ -119,7 +149,7 @@ export class Faction extends TornAPIBase {
 
     /**
      * Gets members in order of their crime experience.
-     * 
+     *
      * @returns An array of member's Torn ids in order of their crime experience
      */
     async crimeexp(): Promise<Errorable<number[]>> {
@@ -134,7 +164,7 @@ export class Faction extends TornAPIBase {
         const crimes = await this.apiQueryToArray<ICrime>({ route: 'faction', selection: 'crimes', from: from, to: to }, 'id');
 
         if (!('error' in crimes)) {
-            crimes.forEach(value => {
+            crimes.forEach((value) => {
                 const internalParticipants = value.participants;
                 const participants: ICrimeParticipant[] = [];
                 for (let i = 0; i < internalParticipants.length; i++) {
@@ -214,11 +244,11 @@ export class Faction extends TornAPIBase {
 
     /**
      * Gets a list of amory temporary items.
-     * 
+     *
      * @returns An array of armory temporary items
      */
     async temporary(): Promise<Errorable<ITemporary[]>> {
-        return this.apiQuery({ route: 'faction', selection: 'temporary' });   
+        return this.apiQuery({ route: 'faction', selection: 'temporary' });
     }
 
     async territory(): Promise<Errorable<ITerritory[]>> {

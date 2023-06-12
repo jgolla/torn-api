@@ -124,48 +124,48 @@ export type IMedical = IArmoryBase;
 export type IBooster = IArmoryBase;
 
 export interface IStats {
-    medicalitemsused: number
-    criminaloffences: number
-    organisedcrimerespect: number
-    organisedcrimemoney: number
-    organisedcrimesuccess: number
-    organisedcrimefail: number
-    attackswon: number
-    attackslost: number
-    attackschain: number
-    attacksleave: number
-    attacksmug: number
-    attackshosp: number
-    bestchain: number
-    busts: number
-    revives: number
-    jails: number
-    hosps: number
-    medicalitemrecovery: number
-    medicalcooldownused: number
-    gymtrains: number
-    gymstrength: number
-    gymspeed: number
-    gymdefense: number
-    gymdexterity: number
-    candyused: number
-    alcoholused: number
-    energydrinkused: number
-    drugsused: number
-    drugoverdoses: number
-    rehabs: number
-    caymaninterest: number
-    traveltimes: number
-    traveltime: number
-    hunting: number
-    attacksdamagehits: number
-    attacksdamage: number
-    hosptimegiven: number
-    hosptimereceived: number
-    attacksdamaging: number
-    attacksrunaway: number
-    highestterritories: number
-    territoryrespect: number
+    medicalitemsused: number;
+    criminaloffences: number;
+    organisedcrimerespect: number;
+    organisedcrimemoney: number;
+    organisedcrimesuccess: number;
+    organisedcrimefail: number;
+    attackswon: number;
+    attackslost: number;
+    attackschain: number;
+    attacksleave: number;
+    attacksmug: number;
+    attackshosp: number;
+    bestchain: number;
+    busts: number;
+    revives: number;
+    jails: number;
+    hosps: number;
+    medicalitemrecovery: number;
+    medicalcooldownused: number;
+    gymtrains: number;
+    gymstrength: number;
+    gymspeed: number;
+    gymdefense: number;
+    gymdexterity: number;
+    candyused: number;
+    alcoholused: number;
+    energydrinkused: number;
+    drugsused: number;
+    drugoverdoses: number;
+    rehabs: number;
+    caymaninterest: number;
+    traveltimes: number;
+    traveltime: number;
+    hunting: number;
+    attacksdamagehits: number;
+    attacksdamage: number;
+    hosptimegiven: number;
+    hosptimereceived: number;
+    attacksdamaging: number;
+    attacksrunaway: number;
+    highestterritories: number;
+    territoryrespect: number;
 }
 
 export interface INews {
@@ -402,7 +402,7 @@ export interface IUser extends IBasicUser {
 }
 
 export interface IUserCompetition {
-    name: "Dog Tags" | "Easter Egg Hunt" | "Elimination" | "Halloween" | "Mr & Ms Torn";
+    name: 'Dog Tags' | 'Easter Egg Hunt' | 'Elimination' | 'Halloween' | 'Mr & Ms Torn';
     attacks?: number;
     image?: string;
     position?: unknown;
@@ -1183,14 +1183,14 @@ export interface IRankedWar {
         id: string;
         name: string;
         score: number;
-        chain: number
+        chain: number;
     }[];
     war: {
         start: number;
         end: number;
         target: number;
         winner: number;
-    }
+    };
 }
 
 export interface ITornStats {
@@ -1560,9 +1560,9 @@ export interface IItemDetails {
     name: string;
     type: string;
     rarity: string;
-    damage:number;
-    accuracy:number;
-    quality:number;
+    damage: number;
+    accuracy: number;
+    quality: number;
     bonuses?: IItemDetailsBonus[];
 }
 

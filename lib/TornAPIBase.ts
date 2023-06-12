@@ -3,7 +3,6 @@ import axios from 'axios';
 import { IKeyValue, ITornApiError } from './Interfaces';
 
 export abstract class TornAPIBase {
-
     protected apiKey: string;
     protected comment: string;
     protected static GenericAPIError = { code: 0, error: 'Unknown error occurred' };
@@ -119,7 +118,7 @@ export abstract class TornAPIBase {
         url.searchParams.set('selections', params.selection);
         url.searchParams.set('key', this.apiKey);
 
-        if(params.additionalSelections) {
+        if (params.additionalSelections) {
             for (const key in params.additionalSelections) {
                 url.searchParams.set(key, params.additionalSelections[key]);
             }

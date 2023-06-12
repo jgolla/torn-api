@@ -36,7 +36,9 @@ export class Company extends TornAPIBase {
     }
 
     async profile(id?: string): Promise<Errorable<ICompanyProfile>> {
-        const response = await axios.get<{ error?: ITornApiError, company: ICompanyProfile }>(this.buildUri({ route: 'company', selection: 'profile', id: id }));
+        const response = await axios.get<{ error?: ITornApiError; company: ICompanyProfile }>(
+            this.buildUri({ route: 'company', selection: 'profile', id: id })
+        );
         if (response instanceof Error) {
             return { code: 0, error: response.message };
         } else {
