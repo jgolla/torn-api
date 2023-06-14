@@ -7,6 +7,7 @@ import { ITornApiError } from './Interfaces';
 import { Property } from './Property';
 import { Torn } from './Torn';
 import { User } from './User';
+import { ApiKey } from './Key';
 import * as TornInterfaces from './Interfaces';
 
 class TornAPI {
@@ -46,6 +47,7 @@ class TornAPI {
         this._property = null;
         this._itemmarket = null;
         this._company = null;
+        this._apikey = null;
     }
 
     private apiKey = '';
@@ -122,6 +124,15 @@ class TornAPI {
         }
 
         return this._itemmarket;
+    }
+
+    private _apikey: ApiKey | null = null;
+    get key(): ApiKey {
+        if (!this._apikey) {
+            this._apikey = new ApiKey(this.apiKey, this.comment);
+        }
+
+        return this._apikey;
     }
 
     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/no-explicit-any

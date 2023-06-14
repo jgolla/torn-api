@@ -1572,3 +1572,139 @@ export interface IItemDetailsBonus {
     description: string;
     value: number;
 }
+
+type IApiCompanySelection = 'applications' | 'companies' | 'detailed' | 'employees' | 'news' | 'newsfull' | 'profile' | 'stock' | 'timestamp' | 'lookup';
+type IApiFactionSelection =
+    | 'applications'
+    | 'armor'
+    | 'armorynews'
+    | 'attacknews'
+    | 'attacks'
+    | 'attacksfull'
+    | 'basic'
+    | 'boosters'
+    | 'cesium'
+    | 'chain'
+    | 'chainreport'
+    | 'chains'
+    | 'contributors'
+    | 'crimenews'
+    | 'crimes'
+    | 'currency'
+    | 'donations'
+    | 'drugs'
+    | 'fundsnews'
+    | 'mainnews'
+    | 'medical'
+    | 'membershipnews'
+    | 'positions'
+    | 'reports'
+    | 'revives'
+    | 'revivesfull'
+    | 'stats'
+    | 'temporary'
+    | 'territory'
+    | 'territorynews'
+    | 'timestamp'
+    | 'upgrades'
+    | 'weapons'
+    | 'lookup'
+    | 'crimeexp';
+type IApiMarketSelection = 'bazaar' | 'itemmarket' | 'pointsmarket' | 'timestamp' | 'lookup';
+type IApiPropertySelection = 'property' | 'timestamp' | 'lookup';
+type IApiTornSelection =
+    | 'bank'
+    | 'cards'
+    | 'chainreport'
+    | 'companies'
+    | 'competition'
+    | 'education'
+    | 'factiontree'
+    | 'gyms'
+    | 'honors'
+    | 'items'
+    | 'itemstats'
+    | 'logcategories'
+    | 'logtypes'
+    | 'medals'
+    | 'organisedcrimes'
+    | 'pawnshop'
+    | 'pokertables'
+    | 'properties'
+    | 'rackets'
+    | 'raids'
+    | 'rankedwars'
+    | 'rankedwarreport'
+    | 'stats'
+    | 'stocks'
+    | 'territory'
+    | 'territorywars'
+    | 'timestamp'
+    | 'lookup'
+    | 'cityshops'
+    | 'itemdetails'
+    | 'territorynames';
+
+type IApiUserSelection =
+    | 'ammo'
+    | 'attacks'
+    | 'attacksfull'
+    | 'bars'
+    | 'basic'
+    | 'battlestats'
+    | 'bazaar'
+    | 'cooldowns'
+    | 'crimes'
+    | 'discord'
+    | 'display'
+    | 'education'
+    | 'events'
+    | 'gym'
+    | 'hof'
+    | 'honors'
+    | 'icons'
+    | 'inventory'
+    | 'jobpoints'
+    | 'log'
+    | 'medals'
+    | 'merits'
+    | 'messages'
+    | 'missions'
+    | 'money'
+    | 'networth'
+    | 'newevents'
+    | 'newmessages'
+    | 'notifications'
+    | 'perks'
+    | 'personalstats'
+    | 'profile'
+    | 'properties'
+    | 'receivedevents'
+    | 'refills'
+    | 'reports'
+    | 'revives'
+    | 'revivesfull'
+    | 'skills'
+    | 'stocks'
+    | 'timestamp'
+    | 'travel'
+    | 'weaponexp'
+    | 'workstats'
+    | 'lookup'
+    | 'publicstatus';
+
+type IApiKeySelection = 'info';
+
+export interface IApiKeyInfo {
+    access_level: 0 | 1 | 2 | 3 | 4;
+    access_type: 'Custom' | 'Full Access' | 'Limited Access' | 'Minimal Access' | 'Public Only';
+    selections: {
+        company: IApiCompanySelection[];
+        faction: IApiFactionSelection[];
+        key: IApiKeySelection[];
+        market: IApiMarketSelection[];
+        property: IApiPropertySelection[];
+        torn: IApiTornSelection[];
+        user: IApiUserSelection[];
+    };
+}
