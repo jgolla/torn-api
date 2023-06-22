@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import sinon from 'sinon';
 
 import { TornAPI } from '../lib';
-import { IEvents, IHOF, IMissions, IPersonalStats, IUser, IUserProperty } from '../lib/Interfaces';
+import { IEvents, IHOF, IMissions, IPersonalStats, IUser, IUserProperty, IUserSkill } from '../lib/Interfaces';
 import { TestHelper } from './utils/TestUtils';
 
 describe('User API', () => {
@@ -113,5 +113,16 @@ describe('User API', () => {
         expect(propery?.owner_id).to.equal(248772);
         expect(propery?.modifications.hot_tub).to.equal(1);
         expect(propery?.rented.user_id).to.equal(12345);
+    });
+
+    it('skills', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('user_skills'));
+        const initialReturn = await torn.user.skills();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as IUserSkill;
+
+        expect(castedReturn.hunting).to.equal('7.81');
+        expect(castedReturn.reviving).to.be.undefined;
     });
 });

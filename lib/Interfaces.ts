@@ -1338,8 +1338,9 @@ export interface ITerritoryWar {
 }
 
 export interface IUserSkill {
-    hunting: string;
-    racing: string;
+    hunting?: string;
+    racing?: string;
+    reviving?: string;
     player_id: number;
 }
 
