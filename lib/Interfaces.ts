@@ -1573,8 +1573,8 @@ export interface IItemDetailsBonus {
     value: number;
 }
 
-type IApiCompanySelection = 'applications' | 'companies' | 'detailed' | 'employees' | 'news' | 'newsfull' | 'profile' | 'stock' | 'timestamp' | 'lookup';
-type IApiFactionSelection =
+type IAPICompanySelection = 'applications' | 'companies' | 'detailed' | 'employees' | 'news' | 'newsfull' | 'profile' | 'stock' | 'timestamp' | 'lookup';
+type IAPIFactionSelection =
     | 'applications'
     | 'armor'
     | 'armorynews'
@@ -1610,9 +1610,9 @@ type IApiFactionSelection =
     | 'weapons'
     | 'lookup'
     | 'crimeexp';
-type IApiMarketSelection = 'bazaar' | 'itemmarket' | 'pointsmarket' | 'timestamp' | 'lookup';
-type IApiPropertySelection = 'property' | 'timestamp' | 'lookup';
-type IApiTornSelection =
+type IAPIMarketSelection = 'bazaar' | 'itemmarket' | 'pointsmarket' | 'timestamp' | 'lookup';
+type IAPIPropertySelection = 'property' | 'timestamp' | 'lookup';
+type IAPITornSelection =
     | 'bank'
     | 'cards'
     | 'chainreport'
@@ -1645,7 +1645,7 @@ type IApiTornSelection =
     | 'itemdetails'
     | 'territorynames';
 
-type IApiUserSelection =
+type IAPIUserSelection =
     | 'ammo'
     | 'attacks'
     | 'attacksfull'
@@ -1693,9 +1693,9 @@ type IApiUserSelection =
     | 'lookup'
     | 'publicstatus';
 
-type IApiKeySelection = 'info';
+type IAPIKeySelection = 'info';
 
-export interface IApiKeyInfo {
+export interface IAPIKeyInfo {
     access_level: 0 | 1 | 2 | 3 | 4;
     access_type: 'Custom' | 'Full Access' | 'Limited Access' | 'Minimal Access' | 'Public Only';
     selections: {
