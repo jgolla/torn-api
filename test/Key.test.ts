@@ -1,5 +1,3 @@
-/**
- */
 import axios from 'axios';
 import { expect } from 'chai';
 import sinon from 'sinon';
