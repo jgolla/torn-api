@@ -6,6 +6,11 @@ export class ApiKey extends TornAPIBase {
         super(apiKey, comment);
     }
 
+        /**
+     * Gets a list of amory booster items.
+     *
+     * @returns An array of armory boosters
+     */
     async info(): Promise<Errorable<IAPIKeyInfo>> {
         return this.apiQuery({ route: 'key', selection: 'info', jsonOverride: '' });
     }
