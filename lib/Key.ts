@@ -6,10 +6,10 @@ export class ApiKey extends TornAPIBase {
         super(apiKey, comment);
     }
 
-        /**
-     * Gets a list of amory booster items.
+    /**
+     * Gets the permission levels and type of the key.
      *
-     * @returns An array of armory boosters
+     * @returns The permission level of the key.
      */
     async info(): Promise<Errorable<IAPIKeyInfo>> {
         return this.apiQuery({ route: 'key', selection: 'info', jsonOverride: '' });

@@ -44219,6 +44219,11 @@
             }
         }
     },
+    "user_skills": {
+        "hunting": "7.81",
+        "racing": "1.74",
+        "player_id": 1575
+    },
     "api_key_info": {
         "access_level": 4,
         "access_type": "Full Access",

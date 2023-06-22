@@ -289,6 +289,11 @@ export class User extends TornAPIBase {
         return this.apiQueryToArray({ route: 'user', selection: 'revives', jsonOverride: 'revivesfull' });
     }
 
+    /**
+     * Gets your skill level. 
+     * 
+     * @returns Your skill level
+     */
     async skills(): Promise<Errorable<IUserSkill>> {
         return this.apiQuery({ route: 'user', selection: 'skills', jsonOverride: '' });
     }
