@@ -5,7 +5,7 @@ import { expect } from 'chai';
 import sinon from 'sinon';
 
 import { TornAPI } from '../lib';
-import { IApiKeyInfo } from '../lib/Interfaces';
+import { IAPIKeyInfo } from '../lib/Interfaces';
 import { TestHelper } from './utils/TestUtils';
 
 describe('Key Info API', () => {
@@ -22,7 +22,7 @@ describe('Key Info API', () => {
         const initialReturn = await torn.key.info();
         expect(TornAPI.isError(initialReturn)).to.be.false;
 
-        const castedReturn = initialReturn as IApiKeyInfo;
+        const castedReturn = initialReturn as IAPIKeyInfo;
 
         expect(castedReturn.access_level).to.equal(4);
         expect(castedReturn.access_type).to.equal('Full Access');

@@ -1699,12 +1699,12 @@ export interface IAPIKeyInfo {
     access_level: 0 | 1 | 2 | 3 | 4;
     access_type: 'Custom' | 'Full Access' | 'Limited Access' | 'Minimal Access' | 'Public Only';
     selections: {
-        company: IApiCompanySelection[];
-        faction: IApiFactionSelection[];
-        key: IApiKeySelection[];
-        market: IApiMarketSelection[];
-        property: IApiPropertySelection[];
-        torn: IApiTornSelection[];
-        user: IApiUserSelection[];
+        company: IAPICompanySelection[];
+        faction: IAPIFactionSelection[];
+        key: IAPIKeySelection[];
+        market: IAPIMarketSelection[];
+        property: IAPIPropertySelection[];
+        torn: IAPITornSelection[];
+        user: IAPIUserSelection[];
     };
 }
