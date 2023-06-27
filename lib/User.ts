@@ -188,6 +188,10 @@ export class User extends TornAPIBase {
         }
     }
 
+    /**
+     * Gets an array of last 100 logs for the user.
+     * @returns Last 100 logs for the user.
+     */
     async log(): Promise<Errorable<ILog[]>> {
         return this.apiQueryToArray({ route: 'user', selection: 'log' }, 'id');
     }
@@ -265,6 +269,12 @@ export class User extends TornAPIBase {
         return this.apiQuery({ route: 'user', selection: 'personalstats', timestamp: timestamp, id: id, jsonOverride: 'personalstats' });
     }
 
+    /**
+     * Get information about current user or specified user.
+     *
+     * @param id Optional ID for the user
+     * @returns Information about current user or specified user
+     */
     async profile(id?: string): Promise<Errorable<IUser>> {
         return this.user(id);
     }
@@ -290,8 +300,8 @@ export class User extends TornAPIBase {
     }
 
     /**
-     * Gets your skill level. 
-     * 
+     * Gets your skill level.
+     *
      * @returns Your skill level
      */
     async skills(): Promise<Errorable<IUserSkill>> {

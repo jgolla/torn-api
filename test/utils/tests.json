@@ -44128,7 +44128,7 @@
         "revivable": 0,
         "life": { "current": 7500, "maximum": 7500, "increment": 450, "interval": 300, "ticktime": 271, "fulltime": 0 },
         "status": { "description": "Okay", "details": "", "state": "Okay", "color": "green", "until": 0 },
-        "job": { "position": "Employee", "company_id": 92523, "company_name": "Lawyers, Guns, and Money", "company_type": 2 },
+        "job": { "job": "Director", "position": "Employee", "company_id": 92523, "company_name": "Lawyers, Guns, and Money", "company_type": 2 },
         "faction": { "position": "Bluesman", "faction_id": 13274, "days_in_faction": 1468, "faction_name": "SPECTRE", "faction_tag": "SPCR" },
         "married": { "spouse_id": 1886602, "spouse_name": "Althea", "duration": 2776 },
         "basicicons": {

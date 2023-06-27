@@ -99,6 +99,8 @@ describe('User API', () => {
 
         const castedReturn = initialReturn as IUser;
         expect(castedReturn.competition?.name).to.equal('Elimination');
+        expect(castedReturn.job.job).to.equal('Director');
+        expect(castedReturn.job.position).to.equal('Employee');
     });
 
     it('properties', async () => {
