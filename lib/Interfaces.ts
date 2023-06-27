@@ -340,6 +340,7 @@ export interface IUpgrade {
 // /User/
 
 export interface IJob {
+    job: string;
     position: string;
     company_id: number;
     company_name: string;
@@ -1367,6 +1368,7 @@ export interface ILog {
     log: number;
     title: string;
     timestamp: number;
+    category: string;
     data: Record<string, number | string>;
 }
 
