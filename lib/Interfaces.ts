@@ -1,5 +1,97 @@
+export enum ApiErrorCodes {
+    /**
+     * Unhandled error, should not occur.
+     */
+    UnknownError = 0,
+
+    /**
+     * Private key is empty in current request.
+     */
+    KeyIsEmpty = 1,
+
+    /**
+     * Private key is wrong/incorrect format.
+     */
+    IncorrectKey = 2,
+
+    /**
+     * Requesting an incorrect basic type.
+     */
+    WrongType = 3,
+
+    /**
+     * Requesting incorrect selection fields.
+     */
+    WrongFields = 4,
+
+    /**
+     * Requests are blocked for a small period of time because of too many requests per user (max 100 per minute).
+     */
+    TooManyRequests = 5,
+
+    /**
+     * Wrong ID value.
+     */
+    IncorrectId = 6,
+
+    /**
+     * A requested selection is private (For example, personal data of another user / faction).
+     */
+    IncorrectIdEntityRelation = 7,
+
+    /**
+     * Current IP is banned for a small period of time because of abuse.
+     */
+    IpBlock = 8,
+
+    /**
+     * Api system is currently disabled.
+     */
+    ApiDisabled = 9,
+
+    /**
+     * Current key can't be used because owner is in federal jail.
+     */
+    FeddedOwner = 10,
+
+    /**
+     * You can only change your API key once every 60 seconds.
+     */
+    KeyChangeError = 11,
+
+    /**
+     * Error reading key from Database.
+     */
+    KeyReadError = 12,
+
+    /**
+     * The key owner hasn't been online for more than 7 days.
+     */
+    InactiveOwner = 13,
+
+    /**
+     * Too many records have been pulled today by this user from our cloud services.
+     */
+    DailyReadLimitReached = 14,
+
+    /**
+     * An error code specifically for testing purposes that has no dedicated meaning.
+     * */
+    TemporaryError = 15,
+
+    /**
+     * A selection is being called of which this key does not have permission to access.
+     */
+    InsufficientPermissions = 16,
+
+    /**
+     * Backend error occurred, please try again.
+     */
+    BackendError = 17
+}
+
 export interface ITornApiError {
-    code: number;
+    code: ApiErrorCodes;
     error: string;
 }
 
