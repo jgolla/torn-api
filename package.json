@@ -16,9 +16,19 @@
         "postversion": "git push && git push --tags",
         "coverage": "nyc -r lcov -e .ts -x \"test/**/*.test.ts\" npm run test"
     },
+    "commitlint": {
+        "extends": [
+          "@commitlint/config-conventional"
+        ]
+    },
     "eslintIgnore": [
         "*.d.ts"
     ],
+    "husky": {
+        "hooks": {
+          "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+        }
+    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/jgolla/torn-api.git"
@@ -30,6 +40,8 @@
     },
     "homepage": "https://github.com/jgolla/torn-api#readme",
     "devDependencies": {
+        "@commitlint/cli": "^17.6.6",
+        "@commitlint/config-conventional": "^17.6.6",
         "@types/chai": "^4.2.21",
         "@types/mocha": "^10.0.0",
         "@types/sinon": "^10.0.2",
@@ -37,6 +49,7 @@
         "@typescript-eslint/parser": "^5.0.0",
         "chai": "^4.3.4",
         "eslint": "^8.0.0",
+        "husky": "^8.0.3",
         "mocha": "^10.0.0",
         "nyc": "^15.1.0",
         "prettier": "^3.0.0",
