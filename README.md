@@ -15,7 +15,7 @@ $ npm install ts-torn-api
 ## Using
 
 ```ts
-import { TornAPI } from 'torn-api';
+import { TornAPI } from 'ts-torn-api';
 
 const myKey = 'ADD_YOUR_KEY_HERE';
 const torn = new TornAPI(myKey);
