@@ -300,6 +300,10 @@ export class Torn extends TornAPIBase {
         return this.apiQueryToArray({ route: 'torn', selection: 'territorynames' });
     }
 
+    /**
+     * Gets an array of Territory wars.
+     * @returns a string array of Territory wars
+     */
     async territorywars(): Promise<Errorable<ITerritoryWar[]>> {
         return this.apiQueryToArray({ route: 'torn', selection: 'territorywars' }, 'id');
     }

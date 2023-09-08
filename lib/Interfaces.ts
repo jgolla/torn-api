@@ -1423,9 +1423,12 @@ interface IStockHistory {
 }
 
 export interface ITerritoryWar {
+    territory_war_id: number;
     id: string;
     assaulting_faction: number;
     defending_faction: number;
+    score: number;
+    required_score: number;
     started: number;
     ends: number;
 }
