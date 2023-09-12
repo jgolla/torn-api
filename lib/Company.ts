@@ -31,10 +31,6 @@ export class Company extends TornAPIBase {
         return this.apiQueryToArray({ route: 'company', selection: 'news', from: from, to: to }, 'id');
     }
 
-    async newsfull(from?: number, to?: number): Promise<Errorable<INews[]>> {
-        return this.apiQueryToArray({ route: 'company', selection: 'newsfull', jsonOverride: 'news', from: from, to: to }, 'id');
-    }
-
     async profile(id?: string): Promise<Errorable<ICompanyProfile>> {
         const response = await axios.get<{ error?: ITornApiError; company: ICompanyProfile }>(
             this.buildUri({ route: 'company', selection: 'profile', id: id })

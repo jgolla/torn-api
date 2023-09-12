@@ -84,20 +84,6 @@ describe('Company API', () => {
         expect(news?.timestamp).to.equal(1633603424);
     });
 
-    it('newsfull', async () => {
-        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('company_news'));
-
-        const initialReturn = await torn.company.newsfull();
-        expect(TornAPI.isError(initialReturn)).to.be.false;
-
-        const castedReturn = initialReturn as INews[];
-
-        // spot check one
-        const news = castedReturn.find((x) => x.id === '51955618');
-        expect(news?.news).to.equal(`Quality Controller <a href = http://www.torn.com/profiles.php?XID=222>222</a> has been trained by the director.`);
-        expect(news?.timestamp).to.equal(1633603424);
-    });
-
     it('stock', async () => {
         sinon.stub(axios, 'get').resolves(TestHelper.getJSON('company_stock'));
 
