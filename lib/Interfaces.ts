@@ -1431,6 +1431,8 @@ export interface ITerritoryWar {
     required_score: number;
     started: number;
     ends: number;
+    assaulters: number[];
+    defenders: number[];
 }
 
 export interface IUserSkill {
