@@ -38126,10 +38126,15 @@
                 "ends": 1629118233
             },
             "AMF": {
-                "assaulting_faction": 11559,
-                "defending_faction": 15256,
-                "started": 1628866831,
-                "ends": 1629126031
+                "territory_war_id": 40113,
+                "assaulting_faction": 47195,
+                "defending_faction": 19002,
+                "score": 0,
+                "required_score": 1300000,
+                "started": 1696126178,
+                "ends": 1696385378,
+                "assaulters": [3917189, 4969998],
+                "defenders": [1917189, 2969998, 2416494]
             },
             "YQF": {
                 "assaulting_faction": 10960,

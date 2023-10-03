@@ -491,8 +491,10 @@ describe('Torn API', () => {
 
         // spot check one
         const territory = castedReturn.find((x) => x.id === 'AMF');
-        expect(territory?.assaulting_faction).to.equal(11559);
-        expect(territory?.defending_faction).to.equal(15256);
+        expect(territory?.assaulting_faction).to.equal(47195);
+        expect(territory?.defending_faction).to.equal(19002);
+        expect(territory?.assaulters).to.have.members([3917189, 4969998]);
+        expect(territory?.defenders).to.have.members([1917189, 2969998, 2416494]);
     });
 
     it('territorywars null', async () => {
