@@ -15,7 +15,6 @@ import {
     IGym,
     IHOF,
     IIcon,
-    IInventory,
     IJobPoints,
     IJobs,
     IUserCompany,
@@ -169,10 +168,6 @@ export class User extends TornAPIBase {
 
             return TornAPIBase.GenericAPIError;
         }
-    }
-
-    async inventory(): Promise<Errorable<IInventory[]>> {
-        return this.apiQuery({ route: 'user', selection: 'inventory' });
     }
 
     async jobpoints(): Promise<Errorable<IJobPoints>> {

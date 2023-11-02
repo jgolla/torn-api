@@ -618,16 +618,6 @@ export interface IIcon {
     value: string;
 }
 
-export interface IInventory {
-    ID: number;
-    UID?: number;
-    name: string;
-    type: string;
-    quantity: number;
-    equipped: number;
-    market_price: number;
-}
-
 export interface IJobs {
     medical: number;
     casino: number;
