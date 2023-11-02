@@ -171,10 +171,6 @@ export class User extends TornAPIBase {
         }
     }
 
-    async inventory(): Promise<Errorable<IInventory[]>> {
-        return this.apiQuery({ route: 'user', selection: 'inventory' });
-    }
-
     async jobpoints(): Promise<Errorable<IJobPoints>> {
         const response = await this.apiQuery<IInternalJobPoints>({ route: 'user', selection: 'jobpoints' });
         if ('error' in response) {
