@@ -15,7 +15,6 @@ import {
     IGym,
     IHOF,
     IIcon,
-    IInventory,
     IJobPoints,
     IJobs,
     IUserCompany,
