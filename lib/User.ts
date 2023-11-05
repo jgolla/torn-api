@@ -95,6 +95,12 @@ export class User extends TornAPIBase {
         return this.apiQuery({ route: 'user', selection: 'bars', jsonOverride: '' });
     }
 
+    /**
+     * Get basic information about a user.
+     *
+     * @param id optional id of user to get
+     * @returns An IBasicUser object with user's info
+     */
     async basic(id?: string): Promise<Errorable<IBasicUser>> {
         return this.apiQuery({ route: 'user', selection: 'basic', id: id });
     }

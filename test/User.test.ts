@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import sinon from 'sinon';
 
 import { TornAPI } from '../lib';
-import { IEvents, IHOF, IMissions, IPersonalStats, IUser, IUserProperty, IUserSkill } from '../lib/Interfaces';
+import { IBasicUser, IEvents, IHOF, IMissions, IPersonalStats, IUser, IUserProperty, IUserSkill } from '../lib/Interfaces';
 import { TestHelper } from './utils/TestUtils';
 
 describe('User API', () => {
@@ -13,6 +13,17 @@ describe('User API', () => {
     });
 
     afterEach(sinon.restore);
+
+    it('basic', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('user_basic'));
+
+        const initialReturn = await torn.user.basic();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as IBasicUser;
+        expect(castedReturn?.level).to.equal(80);
+        expect(castedReturn?.status.until).to.equal(0);
+    });
 
     it('events', async () => {
         sinon.stub(axios, 'get').resolves(TestHelper.getJSON('user_events'));
