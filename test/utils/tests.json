@@ -43816,6 +43816,19 @@
             }
         ]
     },
+    "user_basic": {
+        "level": 80,
+        "gender": "Female",
+        "player_id": 2491575,
+        "name": "jgolla",
+        "status": {
+            "description": "Okay",
+            "details": "",
+            "state": "Okay",
+            "color": "green",
+            "until": 0
+        }
+    },
     "user_events": {
         "events": {
             "81SBqTkJswWDDK6aNYGW": {
