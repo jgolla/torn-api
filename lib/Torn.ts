@@ -28,7 +28,8 @@ import {
     ITerritoryDetail,
     Errorable,
     ICityShop,
-    IItemDetails
+    IItemDetails,
+    ISearchForCash
 } from './Interfaces';
 import { TornAPIBase } from './TornAPIBase';
 
@@ -251,6 +252,10 @@ export class Torn extends TornAPIBase {
 
             return TornAPIBase.GenericAPIError;
         }
+    }
+
+    async searchforcash(): Promise<Errorable<ISearchForCash>> {
+        return this.apiQuery({ route: 'torn', selection: 'searchforcash' });
     }
 
     async stats(): Promise<Errorable<ITornStats>> {

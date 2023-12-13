@@ -21,6 +21,7 @@ import {
     IRaid,
     IRankedWar,
     IRankedWarReport,
+    ISearchForCash,
     IStock,
     IStockDetail,
     ITerritoryDetail,
@@ -409,6 +410,17 @@ describe('Torn API', () => {
         const rwMember = castedReturn.members.find((x) => x.id === '2405179');
         expect(rwMember?.name).to.equal('Ishhy');
         expect(rwMember?.score).to.equal(843.14);
+    });
+
+    it('searchforcash', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('torn_searchforcash'));
+
+        const initialReturn = await torn.torn.searchforcash();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as ISearchForCash;
+        expect(castedReturn.search_the_junkyard.title).to.equal('Scrap currently being crushed');
+        expect(castedReturn.search_the_junkyard.percentage).to.equal(45);
     });
 
     it('stats', async () => {

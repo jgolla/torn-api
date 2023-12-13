@@ -1630,6 +1630,20 @@ export interface IRWItem {
     quantity: number;
 }
 
+export interface ISearchForCash {
+    search_the_trash: ISearchForCashSubCrime;
+    search_the_subway: ISearchForCashSubCrime;
+    search_the_junkyard: ISearchForCashSubCrime;
+    search_the_beach: ISearchForCashSubCrime;
+    search_the_cemetery: ISearchForCashSubCrime;
+    search_the_fountain: ISearchForCashSubCrime;
+}
+
+interface ISearchForCashSubCrime {
+    title: string;
+    percentage: number;
+}
+
 export interface ICityShop {
     id: string;
     name: string;

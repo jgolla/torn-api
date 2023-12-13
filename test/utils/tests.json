@@ -37168,6 +37168,34 @@
             }
         }
     },
+    "torn_searchforcash": {
+        "searchforcash": {
+            "search_the_trash": {
+                "title": "Trash Collection: Mondays 06:00 - 18:00",
+                "percentage": 28
+            },
+            "search_the_subway": {
+                "title": "Status: On-Peak",
+                "percentage": 74
+            },
+            "search_the_junkyard": {
+                "title": "Scrap currently being crushed",
+                "percentage": 45
+            },
+            "search_the_beach": {
+                "title": "Tide: Mid-tide",
+                "percentage": 51
+            },
+            "search_the_cemetery": {
+                "title": "Groundskeeping: Active",
+                "percentage": 25
+            },
+            "search_the_fountain": {
+                "title": "Collections: 1st of the month 13:00 - 16:00",
+                "percentage": 39
+            }
+        }
+    },
     "torn_stats": {
         "stats": {
             "timestamp": 1628912947,
