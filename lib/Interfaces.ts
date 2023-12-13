@@ -1630,6 +1630,34 @@ export interface IRWItem {
     quantity: number;
 }
 
+export interface ISearchForCashCrimeStatus {
+    search_the_trash: ISearchForCashCrimeStatusSubCrime;
+    search_the_subway: ISearchForCashCrimeStatusSubCrime;
+    search_the_junkyard: ISearchForCashCrimeStatusSubCrime;
+    search_the_beach: ISearchForCashCrimeStatusSubCrime;
+    search_the_cemetery: ISearchForCashCrimeStatusSubCrime;
+    search_the_fountain: ISearchForCashCrimeStatusSubCrime;
+}
+
+interface ISearchForCashCrimeStatusSubCrime {
+    title: string;
+    percentage: number;
+}
+
+export interface IShopliftingCrimeStatus {
+    sallys_sweet_shop: IShopliftingCrimeStatusSubCrime[];
+    Bits_n_bobs: IShopliftingCrimeStatusSubCrime[];
+    tc_clothing: IShopliftingCrimeStatusSubCrime[];
+    super_store: IShopliftingCrimeStatusSubCrime[];
+    big_als: IShopliftingCrimeStatusSubCrime[];
+    jewelry_store: IShopliftingCrimeStatusSubCrime[];
+}
+
+export interface IShopliftingCrimeStatusSubCrime {
+    title: string;
+    disabled: boolean;
+}
+
 export interface ICityShop {
     id: string;
     name: string;

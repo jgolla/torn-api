@@ -21,6 +21,8 @@ import {
     IRaid,
     IRankedWar,
     IRankedWarReport,
+    ISearchForCashCrimeStatus,
+    IShopliftingCrimeStatus,
     IStock,
     IStockDetail,
     ITerritoryDetail,
@@ -409,6 +411,28 @@ describe('Torn API', () => {
         const rwMember = castedReturn.members.find((x) => x.id === '2405179');
         expect(rwMember?.name).to.equal('Ishhy');
         expect(rwMember?.score).to.equal(843.14);
+    });
+
+    it('searchforcash', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('torn_searchforcash'));
+
+        const initialReturn = await torn.torn.searchforcash();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as ISearchForCashCrimeStatus;
+        expect(castedReturn.search_the_junkyard.title).to.equal('Scrap currently being crushed');
+        expect(castedReturn.search_the_junkyard.percentage).to.equal(45);
+    });
+
+    it('shoplifting', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('torn_shoplifting'));
+
+        const initialReturn = await torn.torn.shoplifting();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as IShopliftingCrimeStatus;
+        expect(castedReturn.big_als[1].title).to.equal('Two guards');
+        expect(castedReturn.big_als[1].disabled).to.be.false;
     });
 
     it('stats', async () => {
