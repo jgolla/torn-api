@@ -29,7 +29,8 @@ import {
     Errorable,
     ICityShop,
     IItemDetails,
-    ISearchForCash
+    ISearchForCashCrimeStatus,
+    IShopliftingCrimeStatus
 } from './Interfaces';
 import { TornAPIBase } from './TornAPIBase';
 
@@ -254,8 +255,22 @@ export class Torn extends TornAPIBase {
         }
     }
 
-    async searchforcash(): Promise<Errorable<ISearchForCash>> {
+    /**
+     * Gets the Search For Cash crime status
+     *
+     * @returns ISearchForCashCrimeStatus object
+     */
+    async searchforcash(): Promise<Errorable<ISearchForCashCrimeStatus>> {
         return this.apiQuery({ route: 'torn', selection: 'searchforcash' });
+    }
+
+    /**
+     * Gets the Shoplifting crime status
+     *
+     * @returns IShopliftingCrimeStatus object
+     */
+    async shoplifting(): Promise<Errorable<IShopliftingCrimeStatus>> {
+        return this.apiQuery({ route: 'torn', selection: 'shoplifting' });
     }
 
     async stats(): Promise<Errorable<ITornStats>> {

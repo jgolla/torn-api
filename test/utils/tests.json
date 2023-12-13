@@ -37196,6 +37196,62 @@
             }
         }
     },
+    "torn_shoplifting": {
+        "shoplifting": {
+            "sallys_sweet_shop": [
+                {
+                    "title": "One camera",
+                    "disabled": false
+                }
+            ],
+            "Bits_n_bobs": [
+                {
+                    "title": "Two cameras",
+                    "disabled": false
+                }
+            ],
+            "tc_clothing": [
+                {
+                    "title": "One camera",
+                    "disabled": false
+                },
+                {
+                    "title": "Checkpoint",
+                    "disabled": true
+                }
+            ],
+            "super_store": [
+                {
+                    "title": "Two cameras",
+                    "disabled": false
+                },
+                {
+                    "title": "Checkpoint",
+                    "disabled": false
+                }
+            ],
+            "big_als": [
+                {
+                    "title": "Four cameras",
+                    "disabled": false
+                },
+                {
+                    "title": "Two guards",
+                    "disabled": false
+                }
+            ],
+            "jewelry_store": [
+                {
+                    "title": "Three cameras",
+                    "disabled": false
+                },
+                {
+                    "title": "One guard",
+                    "disabled": false
+                }
+            ]
+        }
+    },
     "torn_stats": {
         "stats": {
             "timestamp": 1628912947,
