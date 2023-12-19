@@ -1,6 +1,6 @@
 {
     "name": "ts-torn-api",
-    "version": "0.1.57",
+    "version": "0.1.58",
     "description": "Typescript wrapper for the Torn.com API.",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
