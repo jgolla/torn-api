@@ -87,7 +87,12 @@ export enum ApiErrorCodes {
     /**
      * Backend error occurred, please try again.
      */
-    BackendError = 17
+    BackendError = 17,
+
+    /**
+     * API key has been paused by the owner.
+     */
+    ApiKeyPaused = 18
 }
 
 export interface ITornApiError {
