@@ -121,8 +121,8 @@ export class User extends TornAPIBase {
         return await this.apiQuery({ route: 'user', selection: 'crimes', jsonOverride: 'criminalrecord', id: id });
     }
 
-    async discord(): Promise<Errorable<IDiscord>> {
-        return this.apiQuery({ route: 'user', selection: 'discord' });
+    async discord(id?: string): Promise<Errorable<IDiscord>> {
+        return this.apiQuery({ route: 'user', selection: 'discord', id: id });
     }
 
     async display(): Promise<unknown> {
