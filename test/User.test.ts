@@ -136,6 +136,7 @@ describe('User API', () => {
         const castedReturn = initialReturn as IUserSkill;
 
         expect(castedReturn.hunting).to.equal('7.81');
+        expect(castedReturn.bootlegging).to.equal('100.00');
         expect(castedReturn.reviving).to.be.undefined;
     });
 });
