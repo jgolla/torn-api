@@ -1431,9 +1431,19 @@ export interface ITerritoryWar {
 }
 
 export interface IUserSkill {
+    bootlegging?: string;
+    burglary?: string;
+    card_skimming?: string;
+    cracking?: string;
+    disposal?: string;
+    graffiti?: string;
     hunting?: string;
+    hustling?: string;
+    pickpocketing?: string;
     racing?: string;
     reviving?: string;
+    search_for_cash?: string;
+    shoplifting?: string;
     player_id: number;
 }
 
