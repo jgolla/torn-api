@@ -433,6 +433,9 @@ describe('Torn API', () => {
         const castedReturn = initialReturn as IShopliftingCrimeStatus;
         expect(castedReturn.big_als[1].title).to.equal('Two guards');
         expect(castedReturn.big_als[1].disabled).to.be.false;
+
+        expect(castedReturn.cyber_force[0].title).to.equal('Two cameras');
+        expect(castedReturn.cyber_force[0].disabled).to.be.true;
     });
 
     it('stats', async () => {

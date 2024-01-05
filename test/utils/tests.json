@@ -37240,6 +37240,16 @@
                     "disabled": false
                 }
             ],
+            "cyber_force": [
+                {
+                    "title": "Two cameras",
+                    "disabled": true
+                },
+                {
+                    "title": "One guard",
+                    "disabled": false
+                }
+            ],
             "jewelry_store": [
                 {
                     "title": "Three cameras",
