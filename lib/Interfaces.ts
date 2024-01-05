@@ -1666,6 +1666,7 @@ export interface IShopliftingCrimeStatus {
     super_store: IShopliftingCrimeStatusSubCrime[];
     big_als: IShopliftingCrimeStatusSubCrime[];
     jewelry_store: IShopliftingCrimeStatusSubCrime[];
+    cyber_force: IShopliftingCrimeStatusSubCrime[];
 }
 
 export interface IShopliftingCrimeStatusSubCrime {
