@@ -1068,6 +1068,7 @@ export interface IEffectiveness {
     merits: number;
     director_education: number;
     addiction: number;
+    inactivity: number;
     total: number;
 }
 
