@@ -212,6 +212,11 @@ export class Torn extends TornAPIBase {
         return this.apiQueryToArray({ route: 'torn', selection: 'raids' }, 'id');
     }
 
+    /**
+     * Gets all the ongoing ranked wars in Torn.
+     *
+     * @returns An array of RankedWars
+     */
     async rankedwars(): Promise<Errorable<IRankedWar[]>> {
         const response = await axios.get<{ error?: ITornApiError; rankedwars: IRankedWar[] }>(this.buildUri({ route: 'torn', selection: 'rankedwars' }));
         if (response instanceof Error) {

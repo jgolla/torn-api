@@ -21,6 +21,7 @@ import {
     IFactionReport,
     IMedical,
     INews,
+    IRankedWar,
     IReport,
     IRevives,
     IRevivesFull,
@@ -420,6 +421,23 @@ describe('Faction API', () => {
         expect(position?.default).to.equal(1);
         expect(position?.canKickMembers).to.equal(0);
         expect(position?.canUseMedicalItem).to.equal(1);
+    });
+
+    it('rankedwars', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('faction_rankedwars'));
+
+        const initialReturn = await torn.faction.rankedwars();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as IRankedWar[];
+
+        // spot check one
+        const rankedwar = castedReturn.find((x) => x.id === '253');
+        expect(rankedwar?.war.start).to.equal(1641909600);
+
+        const faction = rankedwar?.factions.find((x) => x.id === '30820');
+        expect(faction?.name).to.equal('Wolverines Gone Wild');
+        expect(faction?.score).to.equal(12604);
     });
 
     it('reports', async () => {
