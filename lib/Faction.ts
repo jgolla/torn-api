@@ -226,6 +226,34 @@ export class Faction extends TornAPIBase {
         return this.apiQueryToArray({ route: 'faction', selection: 'positions' }, 'title');
     }
 
+    /**
+     * Gets the last 100 ranked wars for the optionally specified faction.
+     *
+     * @param id optional id of the faction to get ranked wars for
+     * @returns An array of RankedWars
+     */
+    async rankedwars(id?: string): Promise<Errorable<IRankedWar[]>> {
+        const response = await axios.get<{ error?: ITornApiError; rankedwars: IRankedWar[] }>(
+            this.buildUri({ route: 'faction', selection: 'rankedwars', id: id })
+        );
+        if (response instanceof Error) {
+            return { code: 0, error: response.message };
+        } else {
+            if (response.data && response.data.error) {
+                return response.data.error;
+            } else if (response.data) {
+                const rankedWar: IRankedWar[] = this.fixStringArray(response.data.rankedwars, 'id');
+                rankedWar.forEach((item) => {
+                    item.factions = this.fixStringArray(item.factions, 'id');
+                });
+
+                return rankedWar;
+            }
+
+            return TornAPIBase.GenericAPIError;
+        }
+    }
+
     async reports(): Promise<Errorable<IFactionReport[]>> {
         return this.apiQueryToArray({ route: 'faction', selection: 'reports' });
     }

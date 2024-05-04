@@ -40928,6 +40928,70 @@
             }
         }
     },
+    "faction_rankedwars": {
+        "rankedwars": {
+            "189": {
+                "factions": {
+                    "10610": {
+                        "name": "NPO - Strength",
+                        "score": 1494,
+                        "chain": 1
+                    },
+                    "21665": {
+                        "name": "Monarch Army of Light",
+                        "score": 8798,
+                        "chain": 0
+                    }
+                },
+                "war": {
+                    "start": 1641049200,
+                    "end": 1641069182,
+                    "target": 7300,
+                    "winner": 21665
+                }
+            },
+            "253": {
+                "factions": {
+                    "10610": {
+                        "name": "NPO - Strength",
+                        "score": 3703,
+                        "chain": 1
+                    },
+                    "30820": {
+                        "name": "Wolverines Gone Wild",
+                        "score": 12604,
+                        "chain": 5660
+                    }
+                },
+                "war": {
+                    "start": 1641909600,
+                    "end": 1641939892,
+                    "target": 8900,
+                    "winner": 30820
+                }
+            },
+            "1211": {
+                "factions": {
+                    "10610": {
+                        "name": "NPO - Strength",
+                        "score": 7413,
+                        "chain": 1
+                    },
+                    "14760": {
+                        "name": "Dopeheads on Mopeds",
+                        "score": 19567,
+                        "chain": 0
+                    }
+                },
+                "war": {
+                    "start": 1651939200,
+                    "end": 1651978664,
+                    "target": 11500,
+                    "winner": 14760
+                }
+            }
+        }
+    },
     "faction_reports": {
         "reports": [
             {
