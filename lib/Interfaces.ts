@@ -1157,6 +1157,15 @@ export interface ITornCompany {
     specials: ICompanySpecial[];
 }
 
+export interface ITornDirtyBomb {
+    planted: number;
+    detonated: number;
+    injured: number;
+    respect: number;
+    faction: number;
+    user: number;
+}
+
 export interface IEducationResults {
     perk?: string[];
     manual_labor?: string[];

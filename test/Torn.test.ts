@@ -28,6 +28,7 @@ import {
     ITerritoryDetail,
     ITerritoryWar,
     ITornCompany,
+    ITornDirtyBomb,
     ITornEducation,
     ITornGym,
     ITornProperty,
@@ -142,6 +143,20 @@ describe('Torn API', () => {
         //spot check one
         const special = company?.specials.find((x) => x.name === 'High-fidelity');
         expect(special?.effect).to.equal('Reduced enemy stealth');
+    });
+
+    it('dirtybombs', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('torn_dirtybombs'));
+
+        const initialReturn = await torn.torn.dirtybombs();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as ITornDirtyBomb[];
+
+        // spot check one
+        const dirtybomb = castedReturn.find((x) => x.planted === 1693407593);
+        expect(dirtybomb?.injured).to.equal(613);
+        expect(dirtybomb?.user).to.be.null;
     });
 
     it('education', async () => {

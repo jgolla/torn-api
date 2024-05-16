@@ -6111,6 +6111,26 @@
             }
         }
     },
+    "torn_dirtybombs": {
+        "dirtybombs": [
+                {
+                        "planted": 1714309601,
+                        "detonated": 1714316465,
+                        "injured": 721,
+                        "respect": 411674,
+                        "faction": 8836,
+                        "user": 459981
+                },
+                {
+                        "planted": 1693407593,
+                        "detonated": 1693411273,
+                        "injured": 613,
+                        "respect": 616637,
+                        "faction": 8706,
+                        "user": null
+                }
+        ]
+    },
     "torn_education": {
         "education": {
             "1": {

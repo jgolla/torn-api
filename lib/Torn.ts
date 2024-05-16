@@ -30,7 +30,8 @@ import {
     ICityShop,
     IItemDetails,
     ISearchForCashCrimeStatus,
-    IShopliftingCrimeStatus
+    IShopliftingCrimeStatus,
+    ITornDirtyBomb
 } from './Interfaces';
 import { TornAPIBase } from './TornAPIBase';
 
@@ -111,6 +112,10 @@ export class Torn extends TornAPIBase {
 
             return TornAPIBase.GenericAPIError;
         }
+    }
+
+    async dirtybombs(): Promise<Errorable<ITornDirtyBomb[]>> {
+        return this.apiQueryToArray({ route: 'torn', selection: 'dirtybombs' });
     }
 
     async education(): Promise<Errorable<ITornEducation[]>> {
