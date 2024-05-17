@@ -1458,7 +1458,6 @@ export interface IUserSkill {
 }
 
 export interface IMarketItem {
-    ID: number;
     cost: number;
     quantity: number;
 }

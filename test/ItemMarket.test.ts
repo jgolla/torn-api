@@ -24,9 +24,9 @@ describe('ItemMarket API', () => {
         const castedReturn = initialReturn as IMarketItem[];
 
         // spot check one
-        const item = castedReturn.find((x) => x.ID === 46596312);
-        expect(item?.cost).to.equal(950);
-        expect(item?.quantity).to.equal(7);
+        const item = castedReturn[0];
+        expect(item?.cost).to.equal(919);
+        expect(item?.quantity).to.equal(11);
     });
 
     it('itemmarket', async () => {
@@ -39,8 +39,8 @@ describe('ItemMarket API', () => {
         const castedReturn = initialReturn as IMarketItem[];
 
         // spot check one
-        const item = castedReturn.find((x) => x.ID === 131761544);
-        expect(item?.cost).to.equal(320);
+        const item = castedReturn[0];
+        expect(item?.cost).to.equal(250);
         expect(item?.quantity).to.equal(1);
     });
 
@@ -71,12 +71,12 @@ describe('ItemMarket API', () => {
         const castedReturn = initialReturn as IMarketItem[];
 
         // spot check one from each
-        let item = castedReturn.find((x) => x.ID === 131761544);
-        expect(item?.cost).to.equal(320);
-        expect(item?.quantity).to.equal(1);
+        let item = castedReturn[0];
+        expect(item?.cost).to.equal(265);
+        expect(item?.quantity).to.equal(12);
 
-        item = castedReturn.find((x) => x.ID === 11616293);
-        expect(item?.cost).to.equal(750);
-        expect(item?.quantity).to.equal(10);
+        item = castedReturn[1];
+        expect(item?.cost).to.equal(290);
+        expect(item?.quantity).to.equal(11);
     });
 });
