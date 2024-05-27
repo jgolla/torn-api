@@ -115,7 +115,7 @@ export abstract class TornAPIBase {
     }
 
     protected buildUri(params: QueryParams): string {
-        const url = new URL(`${params.route}/${params.id}`, `https://api.torn.com`);
+        const url = new URL(`${params.route}/${params.id ?? ''}`, `https://api.torn.com`);
         url.searchParams.set('selections', params.selection);
         url.searchParams.set('key', this.apiKey);
 
