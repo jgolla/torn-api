@@ -118,8 +118,8 @@ export class Faction extends TornAPIBase {
         throw new Error('Method not implemented.');
     }
 
-    async chain(): Promise<Errorable<IChain>> {
-        return this.apiQuery({ route: 'faction', selection: 'chain' });
+    async chain(id?: string): Promise<Errorable<IChain>> {
+        return this.apiQuery({ route: 'faction', selection: 'chain', id });
     }
 
     async chainreport(): Promise<Errorable<IChainReport>> {
@@ -279,8 +279,8 @@ export class Faction extends TornAPIBase {
         return this.apiQuery({ route: 'faction', selection: 'temporary' });
     }
 
-    async territory(): Promise<Errorable<ITerritory[]>> {
-        return this.apiQueryToArray({ route: 'faction', selection: 'territory' }, 'id');
+    async territory(id?: string): Promise<Errorable<ITerritory[]>> {
+        return this.apiQueryToArray({ route: 'faction', selection: 'territory', id }, 'id');
     }
 
     async territorynews(from?: number, to?: number): Promise<Errorable<INews[]>> {
