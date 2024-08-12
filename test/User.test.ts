@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import sinon from 'sinon';
 
 import { TornAPI } from '../lib';
-import { IBasicUser, IEvents, IHOF, IMissions, IPersonalStats, IUser, IUserProperty, IUserSkill } from '../lib/Interfaces';
+import { IBasicUser, ICriminalRecord, IEvents, IHOF, IMissions, IPersonalStats, IUser, IUserProperty, IUserSkill } from '../lib/Interfaces';
 import { TestHelper } from './utils/TestUtils';
 
 describe('User API', () => {
@@ -23,6 +23,17 @@ describe('User API', () => {
         const castedReturn = initialReturn as IBasicUser;
         expect(castedReturn?.level).to.equal(80);
         expect(castedReturn?.status.until).to.equal(0);
+    });
+
+    it('criminalrecord', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('user_criminalrecord'));
+
+        const initialReturn = await torn.user.criminalrecord();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as ICriminalRecord;
+        expect(castedReturn?.counterfeiting).to.equal(7986);
+        expect(castedReturn?.total).to.equal(52258);
     });
 
     it('events', async () => {
