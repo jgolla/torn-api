@@ -14,7 +14,8 @@
         "preversion": "npm run lint",
         "version": "git add -A lib",
         "postversion": "git push && git push --tags",
-        "coverage": "nyc -r lcov -e .ts -x \"test/**/*.test.ts\" npm run test"
+        "coverage": "nyc -r lcov -e .ts -x \"test/**/*.test.ts\" npm run test",
+        "gentypes": "npx openapi-typescript ./openapi.json -o ./lib/TornOpenAPI.ts"
     },
     "commitlint": {
         "extends": [
@@ -52,6 +53,7 @@
         "husky": "^9.0.7",
         "mocha": "^10.0.0",
         "nyc": "^17.0.0",
+        "openapi-typescript": "^7.3.0",
         "prettier": "^3.0.0",
         "sinon": "^18.0.0",
         "ts-node": "^10.2.1",

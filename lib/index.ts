@@ -9,6 +9,7 @@ import { Torn } from './Torn';
 import { User } from './User';
 import { ApiKey } from './Key';
 import * as TornInterfaces from './Interfaces';
+import { Forum } from './Forum';
 
 class TornAPI {
     constructor(apiKey?: string, comment?: string) {
@@ -133,6 +134,15 @@ class TornAPI {
         }
 
         return this._apikey;
+    }
+
+    private _forum: Forum | null = null;
+    get forum(): Forum {
+        if (!this._forum) {
+            this._forum = new Forum(this.apiKey, this.comment);
+        }
+
+        return this._forum;
     }
 
     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/no-explicit-any

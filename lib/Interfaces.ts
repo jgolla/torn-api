@@ -1,3 +1,5 @@
+import { components } from './TornOpenAPI';
+
 export enum ApiErrorCodes {
     /**
      * Unhandled error, should not occur.
@@ -578,16 +580,16 @@ export interface ICrimes {
 }
 
 export interface ICriminalRecord {
-    vandalism: number
-    theft: number
-    counterfeiting: number
-    fraud: number
-    illicitservices: number
-    cybercrime: number
-    extortion: number
-    illegalproduction: number
-    total: number
-  }
+    vandalism: number;
+    theft: number;
+    counterfeiting: number;
+    fraud: number;
+    illicitservices: number;
+    cybercrime: number;
+    extortion: number;
+    illegalproduction: number;
+    total: number;
+}
 
 export interface IDiscord {
     userID: number;
@@ -1864,3 +1866,18 @@ export interface IAPIKeyInfo {
         user: IAPIUserSelection[];
     };
 }
+
+// V2
+// forum
+
+type ComponentBase = components['schemas'];
+
+export type Sort = 'DESC' | 'ASC';
+export type ForumThreadBase = ComponentBase['ForumThreadBase'];
+export type ForumCategories = {
+    id?: ComponentBase['ForumId'];
+    title?: string;
+    acronym?: string;
+    threads?: number;
+};
+export type ForumThreadExtended = ComponentBase['ForumThreadExtended'];
