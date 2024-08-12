@@ -42023,6 +42023,19 @@
             "until": 0
         }
     },
+    "user_criminalrecord": {
+        "criminalrecord": {
+                "vandalism": 2400,
+                "theft": 12695,
+                "counterfeiting": 7986,
+                "fraud": 22017,
+                "illicitservices": 1656,
+                "cybercrime": 5504,
+                "extortion": 0,
+                "illegalproduction": 0,
+                "total": 52258
+        }
+    },
     "user_events": {
         "events": {
             "81SBqTkJswWDDK6aNYGW": {

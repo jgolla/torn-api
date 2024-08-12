@@ -39,7 +39,8 @@ import {
     IUserStockTransaction,
     IMissions,
     IMissionStatus,
-    Errorable
+    Errorable,
+    ICriminalRecord
 } from './Interfaces';
 import axios from 'axios';
 
@@ -117,8 +118,12 @@ export class User extends TornAPIBase {
         return this.apiQuery({ route: 'user', selection: 'cooldowns' });
     }
 
-    async crimes(id?: string): Promise<Errorable<ICrimes>> {
+    async crimes(id?: string): Promise<Errorable<ICrimes | ICriminalRecord>> {
         return await this.apiQuery({ route: 'user', selection: 'crimes', jsonOverride: 'criminalrecord', id: id });
+    }
+
+    async criminalrecord(id?: string): Promise<Errorable<ICriminalRecord>> {
+        return await this.apiQuery({ route: 'user', selection: 'criminalrecord', id: id });
     }
 
     async discord(id?: string): Promise<Errorable<IDiscord>> {

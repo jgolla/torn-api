@@ -518,6 +518,7 @@ export interface IUserCompetition {
     teamName?: string;
     votes: number;
 }
+
 export interface IUserBar {
     current: number;
     maximum: number;
@@ -575,6 +576,18 @@ export interface ICrimes {
     other: number;
     total: number;
 }
+
+export interface ICriminalRecord {
+    vandalism: number
+    theft: number
+    counterfeiting: number
+    fraud: number
+    illicitservices: number
+    cybercrime: number
+    extortion: number
+    illegalproduction: number
+    total: number
+  }
 
 export interface IDiscord {
     userID: number;
