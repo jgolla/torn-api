@@ -146,5 +146,285 @@
             "content_raw": "<!-- Main Forum Advertisement. Last updated by echotte 26-JUL-2024 -->\n<p><a href=\"https://i.imgur.com/EOG4ArI.png\"></p>",
             "poll": null
         }
+    },
+    "racing_races": {
+        "races": [
+            {
+                "id": 12402582,
+                "title": "XP Race",
+                "track_id": 7,
+                "creator_id": 2881126,
+                "status": "open",
+                "laps": 100,
+                "participants": {
+                    "minimum": 2,
+                    "maximum": 2,
+                    "current": 1
+                },
+                "schedule": {
+                    "join_from": 1723550034,
+                    "join_until": 1723550034,
+                    "start": 1723550034,
+                    "end": null
+                },
+                "requirements": {
+                    "driver_class": null,
+                    "car_class": null,
+                    "car_item_id": null,
+                    "requires_stock_car": false,
+                    "requires_password": false,
+                    "join_fee": 0
+                }
+            },
+            {
+                "id": 12402563,
+                "title": "Quick Speedway",
+                "track_id": 21,
+                "creator_id": 2748100,
+                "status": "in_progress",
+                "laps": 100,
+                "participants": {
+                    "minimum": 2,
+                    "maximum": 2,
+                    "current": 2
+                },
+                "schedule": {
+                    "join_from": 1723549856,
+                    "join_until": 1723549856,
+                    "start": 1723549983,
+                    "end": 1723552952
+                },
+                "requirements": {
+                    "driver_class": null,
+                    "car_class": null,
+                    "car_item_id": null,
+                    "requires_stock_car": false,
+                    "requires_password": false,
+                    "join_fee": 0
+                }
+            }
+        ]
+    },
+    "racing_records": {
+        "records": [
+            {
+                "driver_id": 983221,
+                "driver_name": "Nath",
+                "car_item_id": 519,
+                "car_item_name": "Stormatti Casteon",
+                "lap_time": 26.2
+            },
+            {
+                "driver_id": 712861,
+                "driver_name": "ToxicMonkeyMZC",
+                "car_item_id": 519,
+                "car_item_name": "Stormatti Casteon",
+                "lap_time": 26.22
+            },
+            {
+                "driver_id": 943259,
+                "driver_name": "Hammer",
+                "car_item_id": 519,
+                "car_item_name": "Stormatti Casteon",
+                "lap_time": 26.24
+            },
+            {
+                "driver_id": 1343431,
+                "driver_name": "Storm1968",
+                "car_item_id": 519,
+                "car_item_name": "Stormatti Casteon",
+                "lap_time": 26.24
+            },
+            {
+                "driver_id": 168043,
+                "driver_name": "Bronx",
+                "car_item_id": 519,
+                "car_item_name": "Stormatti Casteon",
+                "lap_time": 26.25
+            },
+            {
+                "driver_id": 1636201,
+                "driver_name": "CloudJumper",
+                "car_item_id": 519,
+                "car_item_name": "Stormatti Casteon",
+                "lap_time": 26.25
+            },
+            {
+                "driver_id": 34977,
+                "driver_name": "Lindy_Lyson",
+                "car_item_id": 519,
+                "car_item_name": "Stormatti Casteon",
+                "lap_time": 26.26
+            },
+            {
+                "driver_id": 1352251,
+                "driver_name": "ChristmasBazaar",
+                "car_item_id": 519,
+                "car_item_name": "Stormatti Casteon",
+                "lap_time": 26.27
+            },
+            {
+                "driver_id": 773244,
+                "driver_name": "Stormcast",
+                "car_item_id": 519,
+                "car_item_name": "Stormatti Casteon",
+                "lap_time": 26.28
+            },
+            {
+                "driver_id": 279547,
+                "driver_name": "Salvia",
+                "car_item_id": 519,
+                "car_item_name": "Stormatti Casteon",
+                "lap_time": 26.29
+            }
+        ]
+    },
+    "racing_race": {
+        "race": {
+            "id": 12402582,
+            "title": "XP Race",
+            "track_id": 7,
+            "creator_id": 2881126,
+            "status": "in_progress",
+            "laps": 100,
+            "participants": {
+                "minimum": 2,
+                "maximum": 2,
+                "current": 2
+            },
+            "schedule": {
+                "join_from": 1723550034,
+                "join_until": 1723550034,
+                "start": 1723550224,
+                "end": 1723562841
+            },
+            "requirements": {
+                "driver_class": null,
+                "car_class": null,
+                "car_item_id": null,
+                "requires_stock_car": false,
+                "requires_password": false,
+                "join_fee": 0
+            },
+            "results": [
+                {
+                    "driver_id": 420527,
+                    "position": null,
+                    "car_id": 214348,
+                    "car_item_id": 522,
+                    "car_item_name": "Veloria LFA",
+                    "car_class": "A",
+                    "has_crashed": null,
+                    "best_lap_time": null,
+                    "race_time": null,
+                    "time_ended": null
+                },
+                {
+                    "driver_id": 2881126,
+                    "position": null,
+                    "car_id": 794766,
+                    "car_item_id": 522,
+                    "car_item_name": "Veloria LFA",
+                    "car_class": "A",
+                    "has_crashed": null,
+                    "best_lap_time": null,
+                    "race_time": null,
+                    "time_ended": null
+                }
+            ]
+        }
+    },
+    "racing_cars": {
+        "cars": [
+            {
+                "car_item_id": 77,
+                "car_item_name": "Tabata RM2",
+                "top_speed": 25,
+                "acceleration": 20,
+                "braking": 15,
+                "dirt": 15,
+                "handling": 20,
+                "safety": 20,
+                "tarmac": 20,
+                "class": "D"
+            },
+            {
+                "car_item_id": 78,
+                "car_item_name": "Edomondo NSX",
+                "top_speed": 45,
+                "acceleration": 45,
+                "braking": 55,
+                "dirt": 35,
+                "handling": 55,
+                "safety": 50,
+                "tarmac": 50,
+                "class": "A"
+            }
+        ]
+    },
+    "racing_tracks": {
+        "tracks": [
+            {
+                "id": 6,
+                "title": "Uptown",
+                "description ": "A simple yet slightly unnerving track in one of the richer districts of Torn, including smooth bends of all shapes and sizes. Drivers will probably find speed and acceleration more rewarding due to the two lengthy straights and lack of hard corners."
+            },
+            {
+                "id": 7,
+                "title": "Withdrawal",
+                "description ": "This ginormous track loops around the bay and crosses both bridges to and from the financial district. With few tight corners, those with a higher top speed will be more likely to come out on top."
+            },
+            {
+                "id": 8,
+                "title": "Underdog",
+                "description ": "A short and sweet track just outside of the official raceway with tight corners and short straights, favouring cars with higher acceleration. A common unofficial track for drivers of all skill levels."
+            }
+        ]
+    },
+    "racing_carupgrades": {
+        "carupgrades": [
+            {
+                "id": 1,
+                "class_required": "E",
+                "name": "Strip Out",
+                "description": "By removing all of the unnecessary interior from the car you can increase the power to weight ratio, therefore increasing speed and acceleration. The car will also handle better and brake quicker as there is less mass to maneuver and stop.",
+                "category": "Weight Reduction",
+                "subcategory": "Strip out",
+                "effects": {
+                    "top_speed": 1,
+                    "acceleration": 1,
+                    "braking": 1,
+                    "handling": 1,
+                    "safety": 0,
+                    "dirt": 0,
+                    "tarmac": 0
+                },
+                "cost": {
+                    "points": 1,
+                    "cash": 0
+                }
+            },
+            {
+                "id": 4,
+                "class_required": "E",
+                "name": "Uprated Springs (Soft)",
+                "description": "These replace the original springs and allow for improved handling off road.",
+                "category": "Suspension",
+                "subcategory": "Springs",
+                "effects": {
+                    "top_speed": 0,
+                    "acceleration": 0,
+                    "braking": 0,
+                    "handling": 1,
+                    "safety": 0,
+                    "dirt": 1,
+                    "tarmac": -1
+                },
+                "cost": {
+                    "points": 2,
+                    "cash": 3500
+                }
+            }
+        ]
     }
 }

@@ -1868,11 +1868,10 @@ export interface IAPIKeyInfo {
 }
 
 // V2
-// forum
-
 type ComponentBase = components['schemas'];
-
 export type Sort = 'DESC' | 'ASC';
+
+// forum
 export type ForumThreadBase = ComponentBase['ForumThreadBase'];
 export type ForumCategories = {
     id?: ComponentBase['ForumId'];
@@ -1881,3 +1880,13 @@ export type ForumCategories = {
     threads?: number;
 };
 export type ForumThreadExtended = ComponentBase['ForumThreadExtended'];
+
+// racing
+export type RaceCategory = 'official' | 'custom';
+export type Race = ComponentBase['Race'];
+export type RaceClassEnum = ComponentBase['RaceClassEnum'];
+export type RaceRecord = ComponentBase['RaceRecord'];
+export type RaceCar = ComponentBase['RaceCar'];
+export type RaceCarUpgrade = ComponentBase['RaceCarUpgrade'];
+export type RaceTrack = ComponentBase['RaceTrack'];
+export type UserRaceCarDetails = ComponentBase['UserRaceCarDetails'];

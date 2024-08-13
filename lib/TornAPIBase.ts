@@ -244,4 +244,5 @@ interface QueryParams {
     timestamp?: number;
     additionalSelections?: Record<string, string>;
     sort?: string;
+    cat?: string;
 }

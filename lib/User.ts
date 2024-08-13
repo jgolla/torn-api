@@ -40,7 +40,11 @@ import {
     IMissions,
     IMissionStatus,
     Errorable,
-    ICriminalRecord
+    ICriminalRecord,
+    Sort,
+    RaceCategory,
+    Race,
+    UserRaceCarDetails
 } from './Interfaces';
 import axios from 'axios';
 
@@ -139,8 +143,15 @@ export class User extends TornAPIBase {
     }
 
     /**
+     * Returns a list of all user enlisted cars
+     * @returns UserRaceCarDetails
+     */
+    async enlistedcars(): Promise<Errorable<UserRaceCarDetails>> {
+        return this.apiQueryV2({ route: 'user', selection: 'enlistedcars' });
+    }
+
+    /**
      * Gets an array of user events.
-     *
      * @param limit option limit of number of events
      * @returns An array of User events
      */
@@ -287,6 +298,19 @@ export class User extends TornAPIBase {
 
     async properties(): Promise<Errorable<IUserProperty[]>> {
         return this.apiQueryToArray({ route: 'user', selection: 'properties' }, 'id');
+    }
+
+    /**
+     * Returns a list of user races, ordered by race start timestamp
+     * @param limit
+     * @param from Timestamp after when started races are returned (scheduled.start)
+     * @param to Timestamp until when started races are returned (schedule.start)
+     * @param sort Sorted by schedule.start field, ASC | DESC
+     * @param cat Category of races returned, official | custom
+     * @returns Race[]
+     */
+    async races(limit?: number, from?: number, to?: number, sort?: Sort, cat?: RaceCategory): Promise<Errorable<Race[]>> {
+        return this.apiQueryV2({ route: 'user', selection: 'races', limit: limit, to: to, from: from, sort: sort, cat: cat });
     }
 
     async refills(): Promise<Errorable<IRefills>> {
