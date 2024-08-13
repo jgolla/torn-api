@@ -245,4 +245,5 @@ interface QueryParams {
     additionalSelections?: Record<string, string>;
     sort?: string;
     cat?: string;
+    offset?: number;
 }

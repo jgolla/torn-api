@@ -1880,6 +1880,11 @@ export type ForumCategories = {
     threads?: number;
 };
 export type ForumThreadExtended = ComponentBase['ForumThreadExtended'];
+export type PostContentType = 'raw' | 'plain';
+export type ForumPosts = {
+    posts?: ComponentBase['ForumPost'][];
+    _links?: ComponentBase['RequestLinks'];
+};
 
 // racing
 export type RaceCategory = 'official' | 'custom';
