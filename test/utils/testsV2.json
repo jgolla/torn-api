@@ -426,5 +426,82 @@
                 }
             }
         ]
+    },
+    "torn_calendar": {
+        "calendar": {
+            "competitions": [
+                {
+                    "title": "Christmas Town",
+                    "description": "Torn's very own festive theme park opens its doors to the public, with citizens able to scour both official and player-created maps to search for treasure and avoid traps!",
+                    "start": 1734566400,
+                    "end": 1735689599
+                }
+            ],
+            "events": [
+                {
+                    "title": "Awareness Awareness Week",
+                    "description": "Increased awareness for one week",
+                    "start": 1705276800,
+                    "end": 1705881599
+                },
+                {
+                    "title": "Weekend Road Trip",
+                    "description": "Double racing points & racing skill",
+                    "start": 1706918400,
+                    "end": 1707004799
+                }
+            ]
+        }
+    },
+    "torn_crimes": {
+        "crimes": [
+            {
+                "id": 1,
+                "name": "Search for Cash",
+                "category_id": 2,
+                "category_name": "Theft",
+                "enhancer_id": 564,
+                "enhancer_name": "Glasses",
+                "unique_outcomes_count": 34,
+                "unique_outcomes_ids": [
+                    786, 11325, 468, 508, 545, 586, 619, 1143, 11628, 442, 656, 675, 694, 11369, 11803, 13042, 905, 953, 1027, 1033, 1547, 3577, 11384, 12450,
+                    12451, 11426, 11429, 11456, 11458, 1201, 11513, 11522, 11551, 11626
+                ]
+            },
+            {
+                "id": 2,
+                "name": "Bootlegging",
+                "category_id": 3,
+                "category_name": "Counterfeiting",
+                "enhancer_id": 565,
+                "enhancer_name": "High-Speed Drive",
+                "unique_outcomes_count": 4,
+                "unique_outcomes_ids": [11762, 11763, 11764, 11926]
+            }
+        ]
+    },
+    "torn_subcrimes": {
+        "subcrimes": [
+            {
+                "id": 60,
+                "name": "Recover College Campus",
+                "nerve_cost": 4
+            },
+            {
+                "id": 51,
+                "name": "Sell Card Details",
+                "nerve_cost": 6
+            },
+            {
+                "id": 53,
+                "name": "Install College Campus",
+                "nerve_cost": 6
+            },
+            {
+                "id": 64,
+                "name": "Recover Casino Lobby",
+                "nerve_cost": 4
+            }
+        ]
     }
 }

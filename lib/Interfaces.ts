@@ -1890,3 +1890,11 @@ export type RaceCar = ComponentBase['RaceCar'];
 export type RaceCarUpgrade = ComponentBase['RaceCarUpgrade'];
 export type RaceTrack = ComponentBase['RaceTrack'];
 export type UserRaceCarDetails = ComponentBase['UserRaceCarDetails'];
+
+// torn
+export type Calendar = {
+    competitions?: ComponentBase['TornCalendarActivity'][];
+    events?: ComponentBase['TornCalendarActivity'][];
+};
+export type TornCrime = ComponentBase['TornCrime'];
+export type TornSubcrime = ComponentBase['TornSubcrime'];

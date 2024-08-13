@@ -4,6 +4,7 @@ import sinon from 'sinon';
 
 import { TornAPI } from '../lib';
 import {
+    Calendar,
     IBank,
     ICard,
     IChainReport,
@@ -32,7 +33,9 @@ import {
     ITornEducation,
     ITornGym,
     ITornProperty,
-    ITornStats
+    ITornStats,
+    TornCrime,
+    TornSubcrime
 } from '../lib/Interfaces';
 import { TestHelper } from './utils/TestUtils';
 
@@ -56,6 +59,22 @@ describe('Torn API', () => {
         expect(castedReturn['1m']).to.equal(49.37);
         expect(castedReturn['2m']).to.equal(47.38);
         expect(castedReturn['3m']).to.equal(54.87);
+    });
+
+    it('calendar', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSONV2('torn_calendar'));
+
+        const initialReturn = await torn.torn.calendar();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as Calendar;
+
+        // spot check
+        let event = castedReturn?.competitions?.find((x) => x.title === 'Christmas Town');
+        expect(event?.start).to.equal(1734566400);
+
+        event = castedReturn?.events?.find((x) => x.title === 'Weekend Road Trip');
+        expect(event?.start).to.equal(1706918400);
     });
 
     it('cards', async () => {
@@ -143,6 +162,20 @@ describe('Torn API', () => {
         //spot check one
         const special = company?.specials.find((x) => x.name === 'High-fidelity');
         expect(special?.effect).to.equal('Reduced enemy stealth');
+    });
+
+    it('crimes', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSONV2('torn_crimes'));
+
+        const initialReturn = await torn.torn.crimes();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as TornCrime[];
+
+        // spot check one
+        const card = castedReturn.find((x) => x.id === 2);
+        expect(card?.name).to.equal('Bootlegging');
+        expect(card?.enhancer_id).to.equal(565);
     });
 
     it('dirtybombs', async () => {
@@ -496,6 +529,19 @@ describe('Torn API', () => {
         const history = castedReturn.history.find((x) => x.timestamp === 1628943960);
         expect(history?.change).to.equal(-0.07);
         expect(history?.price).to.equal(695.19);
+    });
+
+    it('subcrimes', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSONV2('torn_subcrimes'));
+
+        const initialReturn = await torn.torn.subcrimes(6);
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as TornSubcrime[];
+
+        // spot check one
+        const card = castedReturn.find((x) => x.id === 53);
+        expect(card?.name).to.equal('Install College Campus');
     });
 
     it('territory by id', async () => {
