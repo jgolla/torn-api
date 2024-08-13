@@ -35,3 +35,8 @@ if (TornAPI.isError(myBattleStats)) {
 1. Clone this repo, `git clone https://github.com/jgolla/torn-api`
 1. Install the dependencies, `npm install`
 1. Build the library, `npm run build`
+
+## Importing TornOpenAPI types
+
+1. Download https://www.torn.com/swagger/openapi.json locally to the main directory
+1. Run 'npm run gentypes'

@@ -8,6 +8,8 @@ import { Property } from './Property';
 import { Torn } from './Torn';
 import { User } from './User';
 import { ApiKey } from './Key';
+import { Forum } from './Forum';
+import { Racing } from './Racing';
 import * as TornInterfaces from './Interfaces';
 
 class TornAPI {
@@ -133,6 +135,24 @@ class TornAPI {
         }
 
         return this._apikey;
+    }
+
+    private _forum: Forum | null = null;
+    get forum(): Forum {
+        if (!this._forum) {
+            this._forum = new Forum(this.apiKey, this.comment);
+        }
+
+        return this._forum;
+    }
+
+    private _racing: Racing | null = null;
+    get racing(): Racing {
+        if (!this._racing) {
+            this._racing = new Racing(this.apiKey, this.comment);
+        }
+
+        return this._racing;
     }
 
     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/no-explicit-any

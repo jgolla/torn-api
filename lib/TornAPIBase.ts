@@ -39,6 +39,33 @@ export abstract class TornAPIBase {
         return TornAPIBase.GenericAPIError;
     }
 
+    protected async apiQueryV2<T>(params: QueryParams): Promise<T | ITornApiError> {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const response = await axios.get<any>(this.buildUriV2(params));
+        if (response instanceof Error) {
+            return { code: 0, error: response.message };
+        } else {
+            if (response.data && response.data.error) {
+                return response.data.error;
+            } else if (response.data) {
+                let jsonSelection = response.data;
+                if (params.jsonOverride) {
+                    jsonSelection = response.data[params.jsonOverride];
+                } else if (params.selection) {
+                    jsonSelection = response.data[params.selection];
+                }
+
+                if (jsonSelection) {
+                    return jsonSelection;
+                } else {
+                    return response.data;
+                }
+            }
+        }
+
+        return TornAPIBase.GenericAPIError;
+    }
+
     protected async apiQueryToArray<T>(params: QueryParams, keyField?: string): Promise<T[] | ITornApiError> {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const response = await axios.get<any>(this.buildUri(params));
@@ -148,6 +175,46 @@ export abstract class TornAPIBase {
         return url.toString();
     }
 
+    protected buildUriV2(params: QueryParams): string {
+        const url = new URL(`v2/${params.route}/`, `https://api.torn.com`);
+        url.searchParams.set('selections', params.selection);
+        url.searchParams.set('key', this.apiKey);
+
+        if (params.id) {
+            url.searchParams.set('id', params.id.toString());
+        }
+
+        if (params.ids) {
+            params.ids.forEach((id) => {
+                url.searchParams.append('id', id.toString());
+            });
+        }
+
+        if (params.additionalSelections) {
+            for (const key in params.additionalSelections) {
+                url.searchParams.set(key, params.additionalSelections[key]);
+            }
+        }
+
+        if (params.from) {
+            url.searchParams.set('from', params.from.toString());
+        }
+
+        if (params.to) {
+            url.searchParams.set('to', params.to.toString());
+        }
+
+        if (params.limit) {
+            url.searchParams.set('limit', params.limit.toString());
+        }
+
+        if (params.timestamp) {
+            url.searchParams.set('timestamp', params.timestamp.toString());
+        }
+
+        return url.toString();
+    }
+
     protected async multiQuery<T>(route: string, endpoints: string[], id?: string): Promise<ITornApiError | Record<string, T>> {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const response = await axios.get<any>(this.buildUri({ route: route, selection: endpoints.join(','), id: id }));
@@ -168,11 +235,15 @@ export abstract class TornAPIBase {
 interface QueryParams {
     route: string;
     selection: string;
-    id?: string;
+    id?: string | number;
+    ids?: number[];
     jsonOverride?: string;
     from?: number;
     to?: number;
     limit?: number;
     timestamp?: number;
     additionalSelections?: Record<string, string>;
+    sort?: string;
+    cat?: string;
+    offset?: number;
 }

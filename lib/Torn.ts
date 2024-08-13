@@ -31,7 +31,10 @@ import {
     IItemDetails,
     ISearchForCashCrimeStatus,
     IShopliftingCrimeStatus,
-    ITornDirtyBomb
+    ITornDirtyBomb,
+    Calendar,
+    TornCrime,
+    TornSubcrime
 } from './Interfaces';
 import { TornAPIBase } from './TornAPIBase';
 
@@ -46,6 +49,14 @@ export class Torn extends TornAPIBase {
 
     async bank(): Promise<Errorable<IBank>> {
         return this.apiQuery({ route: 'torn', selection: 'bank' });
+    }
+
+    /**
+     * Get the details about competitions & events in the running year.
+     * @returns Calendar
+     */
+    async calendar(): Promise<Errorable<Calendar>> {
+        return this.apiQueryV2({ route: 'torn', selection: 'calendar' });
     }
 
     async cards(): Promise<Errorable<ICard[]>> {
@@ -112,6 +123,14 @@ export class Torn extends TornAPIBase {
 
             return TornAPIBase.GenericAPIError;
         }
+    }
+
+    /**
+     * Return the details about released crimes.
+     * @returns TornCrime[]
+     */
+    async crimes(): Promise<Errorable<TornCrime[]>> {
+        return this.apiQueryV2({ route: 'torn', selection: 'crimes' });
     }
 
     async dirtybombs(): Promise<Errorable<ITornDirtyBomb[]>> {
@@ -267,7 +286,6 @@ export class Torn extends TornAPIBase {
 
     /**
      * Gets the Search For Cash crime status
-     *
      * @returns ISearchForCashCrimeStatus object
      */
     async searchforcash(): Promise<Errorable<ISearchForCashCrimeStatus>> {
@@ -276,7 +294,6 @@ export class Torn extends TornAPIBase {
 
     /**
      * Gets the Shoplifting crime status
-     *
      * @returns IShopliftingCrimeStatus object
      */
     async shoplifting(): Promise<Errorable<IShopliftingCrimeStatus>> {
@@ -308,13 +325,21 @@ export class Torn extends TornAPIBase {
         }
     }
 
+    /**
+     * Return the details about possible actions for a specific crime.
+     * @param id Crime id
+     * @returns TornSubcrime[]
+     */
+    async subcrimes(id: number): Promise<Errorable<TornSubcrime[]>> {
+        return this.apiQueryV2({ route: 'torn', selection: 'subcrimes', id: id });
+    }
+
     async timestamp(): Promise<Errorable<number>> {
         return this.apiQuery({ route: 'torn', selection: 'timestamp' });
     }
 
     /**
      * Gets an array of ITerritoryDetail for the specified input territory list.
-     *
      * @param terriorties Comma separated list of territories to get the details for. Max 50
      * @returns An array of ITerritoryDetail
      */

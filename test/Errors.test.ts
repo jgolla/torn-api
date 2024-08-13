@@ -4,6 +4,8 @@ import sinon from 'sinon';
 
 import { ItemMarket, TornAPI, Torn, Company, Faction, Property, User } from '../lib';
 import { TestHelper } from './utils/TestUtils';
+import { Forum } from '../lib/Forum';
+import { Racing } from '../lib/Racing';
 
 describe('Check error handling', () => {
     describe('Well formed Error', () => {
@@ -13,7 +15,7 @@ describe('Check error handling', () => {
 
         afterEach(sinon.restore);
 
-        type TornType = ItemMarket | Torn | Company | Faction | Property | User;
+        type TornType = ItemMarket | Torn | Company | Faction | Property | User | Forum | Racing;
 
         function testErrors(name: string, className: TornType, ignoreList: string[], unimplementedList: string[] = []) {
             const torn = new TornAPI('myKey');
@@ -49,12 +51,20 @@ describe('Check error handling', () => {
             testErrors('faction', Faction.prototype, ['constructor', 'fixStringMap'], ['cesium', 'contributors']);
         });
 
+        describe('forum', () => {
+            testErrors('forum', Forum.prototype, ['constructor']);
+        });
+
         describe('item market', () => {
             testErrors('itemmarket', ItemMarket.prototype, ['constructor']);
         });
 
         describe('property', () => {
             testErrors('property', Property.prototype, ['constructor']);
+        });
+
+        describe('racing', () => {
+            testErrors('racing', Racing.prototype, ['constructor']);
         });
 
         describe('torn', () => {

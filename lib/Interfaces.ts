@@ -1,3 +1,5 @@
+import { components } from './TornOpenAPI';
+
 export enum ApiErrorCodes {
     /**
      * Unhandled error, should not occur.
@@ -578,16 +580,16 @@ export interface ICrimes {
 }
 
 export interface ICriminalRecord {
-    vandalism: number
-    theft: number
-    counterfeiting: number
-    fraud: number
-    illicitservices: number
-    cybercrime: number
-    extortion: number
-    illegalproduction: number
-    total: number
-  }
+    vandalism: number;
+    theft: number;
+    counterfeiting: number;
+    fraud: number;
+    illicitservices: number;
+    cybercrime: number;
+    extortion: number;
+    illegalproduction: number;
+    total: number;
+}
 
 export interface IDiscord {
     userID: number;
@@ -1864,3 +1866,40 @@ export interface IAPIKeyInfo {
         user: IAPIUserSelection[];
     };
 }
+
+// V2
+type ComponentBase = components['schemas'];
+export type Sort = 'DESC' | 'ASC';
+
+// forum
+export type ForumThreadBase = ComponentBase['ForumThreadBase'];
+export type ForumCategories = {
+    id?: ComponentBase['ForumId'];
+    title?: string;
+    acronym?: string;
+    threads?: number;
+};
+export type ForumThreadExtended = ComponentBase['ForumThreadExtended'];
+export type PostContentType = 'raw' | 'plain';
+export type ForumPosts = {
+    posts?: ComponentBase['ForumPost'][];
+    _links?: ComponentBase['RequestLinks'];
+};
+
+// racing
+export type RaceCategory = 'official' | 'custom';
+export type Race = ComponentBase['Race'];
+export type RaceClassEnum = ComponentBase['RaceClassEnum'];
+export type RaceRecord = ComponentBase['RaceRecord'];
+export type RaceCar = ComponentBase['RaceCar'];
+export type RaceCarUpgrade = ComponentBase['RaceCarUpgrade'];
+export type RaceTrack = ComponentBase['RaceTrack'];
+export type UserRaceCarDetails = ComponentBase['UserRaceCarDetails'];
+
+// torn
+export type Calendar = {
+    competitions?: ComponentBase['TornCalendarActivity'][];
+    events?: ComponentBase['TornCalendarActivity'][];
+};
+export type TornCrime = ComponentBase['TornCrime'];
+export type TornSubcrime = ComponentBase['TornSubcrime'];
