@@ -39,4 +39,4 @@ if (TornAPI.isError(myBattleStats)) {
 ## Importing TornOpenAPI types
 
 1. Download https://www.torn.com/swagger/openapi.json locally to the main directory
-1. Run 'npm run gentypes'
+1. Run `npm run gentypes`
