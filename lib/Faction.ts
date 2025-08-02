@@ -169,7 +169,7 @@ export class Faction extends TornAPIBase {
                 const participants: ICrimeParticipant[] = [];
                 for (let i = 0; i < internalParticipants.length; i++) {
                     const participantMap = this.fixStringMap<Partial<ICrimeParticipant>>(internalParticipants[i]);
-                    const id = participantMap.keys().next().value;
+                    const id = participantMap.keys().next().value || '';
                     const value = participantMap.get(id);
 
                     const participant: ICrimeParticipant = {
