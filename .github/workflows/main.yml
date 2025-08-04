@@ -8,7 +8,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [20, 22, 24, latest]
+        node-version: [20, 22, 24]
 
     steps:
       - uses: actions/checkout@v4
@@ -28,7 +28,7 @@ jobs:
     continue-on-error: true
     strategy:
       matrix:
-        node-version: [25]
+        node-version: [latest]
 
     steps:
       - uses: actions/checkout@v4
