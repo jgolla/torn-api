@@ -295,7 +295,7 @@ export class Faction extends TornAPIBase {
         return this.apiQuery({ route: 'faction', selection: 'weapons' });
     }
 
-    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/no-explicit-any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     private fixStringMap<V>(mapLike: any): Map<string, V> {
         const returnMap = new Map<string, V>();
 
