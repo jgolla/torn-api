@@ -121,7 +121,7 @@ export abstract class TornAPIBase {
         return TornAPIBase.GenericAPIError;
     }
 
-    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/no-explicit-any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     protected fixStringArray<T>(mapLike: any, keyField: string): T[] {
         const returnArray: T[] = [];
         if (mapLike) {
