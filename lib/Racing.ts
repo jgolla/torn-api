@@ -7,6 +7,15 @@ export class Racing extends TornAPIBase {
     }
 
     /**
+     * Get any racing selection.
+     * @param selections Selections to get
+     * @returns The requested selections
+     */
+    async racing(selections: RacingSelectionName[]): Promise<Errorable<RaceCar[] | RaceCarUpgrade[] | RaceTrack[] | RacingSelectionName[] | Race[] | RaceRecord[]>> {
+        return this.apiQueryV2({ route: 'racing', selection: selections.join(',') });
+    }
+
+    /**
      * Return the stat details about racing cars.
      * @returns RaceCar[]
      */
