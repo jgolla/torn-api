@@ -40,7 +40,7 @@ describe('Key Info API', () => {
     it('key->info', async () => {
         sinon.stub(axios, 'get').resolves(TestHelper.getJSON('api_key_info'));
 
-        const initialReturn = await torn.key.key('info');
+        const initialReturn = await torn.key.key(['info']);
         expect(TornAPI.isError(initialReturn)).to.be.false;
 
         const castedReturn = initialReturn as KeyInfoResponse;
@@ -63,7 +63,7 @@ describe('Key Info API', () => {
     it('key->log', async () => {
         sinon.stub(axios, 'get').resolves(TestHelper.getJSON('api_key_log'));
 
-        const initialReturn = await torn.key.key('log');
+        const initialReturn = await torn.key.key(['log']);
         expect(TornAPI.isError(initialReturn)).to.be.false;
 
         const castedReturn = initialReturn as KeyLogResponse;
