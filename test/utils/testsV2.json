@@ -427,6 +427,18 @@
             }
         ]
     },
+    "racing_lookup": {
+        "selections": [
+            "cars",
+            "carupgrades",
+            "lookup",
+            "race",
+            "races",
+            "records",
+            "timestamp",
+            "tracks"
+        ]
+    },
     "torn_calendar": {
         "calendar": {
             "competitions": [

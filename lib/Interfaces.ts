@@ -1764,6 +1764,7 @@ export type RaceCar = ComponentBase['RaceCar'];
 export type RaceCarUpgrade = ComponentBase['RaceCarUpgrade'];
 export type RaceTrack = ComponentBase['RaceTrack'];
 export type UserRaceCarDetails = ComponentBase['UserRaceCarDetails'];
+export type RacingLookupResponse = ComponentBase['RacingLookupResponse']['selections'];
 
 // torn
 export type Calendar = {
