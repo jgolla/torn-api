@@ -4,7 +4,7 @@ import sinon from 'sinon';
 
 import { TornAPI } from '../lib';
 import { TestHelper } from './utils/TestUtils';
-import { Race, RaceCar, RaceCarUpgrade, RaceRecord, RaceTrack } from '../lib/Interfaces';
+import { Race, RaceCar, RaceCarUpgrade, RaceRecord, RaceTrack, RacingSelectionName } from '../lib/Interfaces';
 
 describe('Racing API', () => {
     let torn: TornAPI;
@@ -92,5 +92,18 @@ describe('Racing API', () => {
         // spot check one
         const upgrade = castedReturn.find((x) => x.id === 4);
         expect(upgrade?.name).to.equal('Uprated Springs (Soft)');
+    });
+
+    it('lookup', async () => {
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSONV2('racing_lookup'));
+
+        const initialReturn = await torn.racing.lookup();
+        expect(TornAPI.isError(initialReturn)).to.be.false;
+
+        const castedReturn = initialReturn as RacingSelectionName[];
+
+        // spot check one
+        expect(castedReturn.length).to.equal(8);
+        expect(castedReturn[1]).to.equal('carupgrades');
     });
 });

@@ -15,7 +15,7 @@ describe('Key Info API', () => {
     afterEach(sinon.restore);
 
     it('info', async () => {
-        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('api_key_info'));
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSONV2('api_key_info'));
 
         const initialReturn = await torn.key.info();
         expect(TornAPI.isError(initialReturn)).to.be.false;
@@ -38,7 +38,7 @@ describe('Key Info API', () => {
     });
 
     it('key->info', async () => {
-        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('api_key_info'));
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSONV2('api_key_info'));
 
         const initialReturn = await torn.key.key(['info']);
         expect(TornAPI.isError(initialReturn)).to.be.false;
@@ -61,7 +61,7 @@ describe('Key Info API', () => {
     });
 
     it('key->log', async () => {
-        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('api_key_log'));
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSONV2('api_key_log'));
 
         const initialReturn = await torn.key.key(['log']);
         expect(TornAPI.isError(initialReturn)).to.be.false;
@@ -74,7 +74,7 @@ describe('Key Info API', () => {
     });
     
     it('log', async () => {
-        sinon.stub(axios, 'get').resolves(TestHelper.getJSON('api_key_log'));
+        sinon.stub(axios, 'get').resolves(TestHelper.getJSONV2('api_key_log'));
 
         const initialReturn = await torn.key.log();
         expect(TornAPI.isError(initialReturn)).to.be.false;

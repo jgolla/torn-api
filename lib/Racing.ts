@@ -1,9 +1,18 @@
 import { TornAPIBase } from './TornAPIBase';
-import { Errorable, Race, RaceCar, RaceCarUpgrade, RaceCategory, RaceClassEnum, RaceRecord, RaceTrack, Sort } from './Interfaces';
+import { Errorable, Race, RaceCar, RaceCarUpgrade, RaceCategory, RaceClassEnum, RaceRecord, RaceTrack, RacingSelectionName, Sort } from './Interfaces';
 
 export class Racing extends TornAPIBase {
     constructor(apiKey: string, comment: string) {
         super(apiKey, comment);
+    }
+
+    /**
+     * Get any racing selection.
+     * @param selections Selections to get
+     * @returns The requested selections
+     */
+    async racing(selections: RacingSelectionName[]): Promise<Errorable<RaceCar[] | RaceCarUpgrade[] | RaceTrack[] | RacingSelectionName[] | Race[] | RaceRecord[]>> {
+        return this.apiQueryV2({ route: 'racing', selection: selections.join(',') });
     }
 
     /**
@@ -20,6 +29,15 @@ export class Racing extends TornAPIBase {
      */
     async carupgrades(): Promise<Errorable<RaceCarUpgrade[]>> {
         return this.apiQueryV2({ route: 'racing', selection: 'carupgrades' });
+    }
+
+    /**
+     * Get all available racing selections
+     * 
+     * @returns RacingLookupResponse
+     */
+    async lookup(): Promise<Errorable<RacingSelectionName[]>> {
+        return this.apiQueryV2({ route: 'racing', selection: 'lookup', jsonOverride: 'selections' });
     }
 
     /**
