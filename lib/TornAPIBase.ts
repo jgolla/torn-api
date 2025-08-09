@@ -212,6 +212,10 @@ export abstract class TornAPIBase {
             url.searchParams.set('timestamp', params.timestamp.toString());
         }
 
+        if (this.comment) {
+            url.searchParams.set('comment', this.comment);
+        }
+
         return url.toString();
     }
 

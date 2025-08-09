@@ -6140,8 +6140,12 @@
                 "tier": 1,
                 "duration": 604800,
                 "results": {
-                    "intelligence": ["50"],
-                    "endurance": ["10"]
+                    "intelligence": [
+                        "50"
+                    ],
+                    "endurance": [
+                        "10"
+                    ]
                 },
                 "prerequisites": []
             },
@@ -6152,12 +6156,22 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "perk": ["Gain 2% productivity for your company"],
-                    "manual_labor": ["5"],
-                    "intelligence": ["60"],
-                    "endurance": ["25"]
+                    "perk": [
+                        "Gain 2% productivity for your company"
+                    ],
+                    "manual_labor": [
+                        "5"
+                    ],
+                    "intelligence": [
+                        "60"
+                    ],
+                    "endurance": [
+                        "25"
+                    ]
                 },
-                "prerequisites": [1]
+                "prerequisites": [
+                    1
+                ]
             },
             "3": {
                 "name": "Communication",
@@ -6166,11 +6180,19 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "perk": ["Gain 5% employee effectiveness for your company"],
-                    "intelligence": ["65"],
-                    "endurance": ["20"]
+                    "perk": [
+                        "Gain 5% employee effectiveness for your company"
+                    ],
+                    "intelligence": [
+                        "65"
+                    ],
+                    "endurance": [
+                        "20"
+                    ]
                 },
-                "prerequisites": [1]
+                "prerequisites": [
+                    1
+                ]
             },
             "4": {
                 "name": "Marketing",
@@ -6179,12 +6201,22 @@
                 "tier": 2,
                 "duration": 1814400,
                 "results": {
-                    "perk": ["Gain an increase in advertising effectiveness for your company"],
-                    "manual_labor": ["15"],
-                    "intelligence": ["75"],
-                    "endurance": ["15"]
+                    "perk": [
+                        "Gain an increase in advertising effectiveness for your company"
+                    ],
+                    "manual_labor": [
+                        "15"
+                    ],
+                    "intelligence": [
+                        "75"
+                    ],
+                    "endurance": [
+                        "15"
+                    ]
                 },
-                "prerequisites": [1]
+                "prerequisites": [
+                    1
+                ]
             },
             "5": {
                 "name": "Corporate Finance",
@@ -6193,11 +6225,19 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "perk": ["Gain 2% productivity for your company"],
-                    "intelligence": ["80"],
-                    "endurance": ["20"]
+                    "perk": [
+                        "Gain 2% productivity for your company"
+                    ],
+                    "intelligence": [
+                        "80"
+                    ],
+                    "endurance": [
+                        "20"
+                    ]
                 },
-                "prerequisites": [1]
+                "prerequisites": [
+                    1
+                ]
             },
             "6": {
                 "name": "Corporate Strategy",
@@ -6206,11 +6246,19 @@
                 "tier": 2,
                 "duration": 2419200,
                 "results": {
-                    "perk": ["Gain 7% employee effectiveness for your company"],
-                    "intelligence": ["95"],
-                    "endurance": ["10"]
+                    "perk": [
+                        "Gain 7% employee effectiveness for your company"
+                    ],
+                    "intelligence": [
+                        "95"
+                    ],
+                    "endurance": [
+                        "10"
+                    ]
                 },
-                "prerequisites": [1]
+                "prerequisites": [
+                    1
+                ]
             },
             "7": {
                 "name": "Pricing Strategy",
@@ -6219,11 +6267,19 @@
                 "tier": 2,
                 "duration": 2419200,
                 "results": {
-                    "perk": ["Gain the ability to increase product prices by 10% without losing customers"],
-                    "intelligence": ["75"],
-                    "endurance": ["20"]
+                    "perk": [
+                        "Gain the ability to increase product prices by 10% without losing customers"
+                    ],
+                    "intelligence": [
+                        "75"
+                    ],
+                    "endurance": [
+                        "20"
+                    ]
                 },
-                "prerequisites": [1]
+                "prerequisites": [
+                    1
+                ]
             },
             "8": {
                 "name": "Logistics",
@@ -6232,12 +6288,22 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "perk": ["Gain 2% productivity for your company"],
-                    "manual_labor": ["25"],
-                    "intelligence": ["50"],
-                    "endurance": ["15"]
+                    "perk": [
+                        "Gain 2% productivity for your company"
+                    ],
+                    "manual_labor": [
+                        "25"
+                    ],
+                    "intelligence": [
+                        "50"
+                    ],
+                    "endurance": [
+                        "15"
+                    ]
                 },
-                "prerequisites": [1]
+                "prerequisites": [
+                    1
+                ]
             },
             "9": {
                 "name": "Product Management",
@@ -6246,12 +6312,22 @@
                 "tier": 2,
                 "duration": 1814400,
                 "results": {
-                    "perk": ["Gain the ability to increase product prices by 5% without losing customers"],
-                    "manual_labor": ["10"],
-                    "intelligence": ["60"],
-                    "endurance": ["15"]
+                    "perk": [
+                        "Gain the ability to increase product prices by 5% without losing customers"
+                    ],
+                    "manual_labor": [
+                        "10"
+                    ],
+                    "intelligence": [
+                        "60"
+                    ],
+                    "endurance": [
+                        "15"
+                    ]
                 },
-                "prerequisites": [1]
+                "prerequisites": [
+                    1
+                ]
             },
             "10": {
                 "name": "Business Ethics",
@@ -6260,11 +6336,19 @@
                 "tier": 2,
                 "duration": 1814400,
                 "results": {
-                    "perk": ["Gain 2% productivity for your company"],
-                    "intelligence": ["60"],
-                    "endurance": ["15"]
+                    "perk": [
+                        "Gain 2% productivity for your company"
+                    ],
+                    "intelligence": [
+                        "60"
+                    ],
+                    "endurance": [
+                        "15"
+                    ]
                 },
-                "prerequisites": [1]
+                "prerequisites": [
+                    1
+                ]
             },
             "11": {
                 "name": "Human Resource Management",
@@ -6273,12 +6357,22 @@
                 "tier": 2,
                 "duration": 1814400,
                 "results": {
-                    "perk": ["Gain a passive bonus to employee working stats in your company"],
-                    "manual_labor": ["20"],
-                    "intelligence": ["50"],
-                    "endurance": ["15"]
+                    "perk": [
+                        "Gain a passive bonus to employee working stats in your company"
+                    ],
+                    "manual_labor": [
+                        "20"
+                    ],
+                    "intelligence": [
+                        "50"
+                    ],
+                    "endurance": [
+                        "15"
+                    ]
                 },
-                "prerequisites": [1]
+                "prerequisites": [
+                    1
+                ]
             },
             "12": {
                 "name": "E-Commerce",
@@ -6287,11 +6381,19 @@
                 "tier": 2,
                 "duration": 1814400,
                 "results": {
-                    "perk": ["Gain 2% productivity for your company"],
-                    "intelligence": ["50"],
-                    "endurance": ["40"]
+                    "perk": [
+                        "Gain 2% productivity for your company"
+                    ],
+                    "intelligence": [
+                        "50"
+                    ],
+                    "endurance": [
+                        "40"
+                    ]
                 },
-                "prerequisites": [1]
+                "prerequisites": [
+                    1
+                ]
             },
             "13": {
                 "name": "Bachelor of Commerce",
@@ -6300,10 +6402,27 @@
                 "tier": 3,
                 "duration": 3024000,
                 "results": {
-                    "perk": ["Unlock new size, storage size & staff room upgrades for your company"],
-                    "intelligence": ["100"]
+                    "perk": [
+                        "Unlock new size, storage size & staff room upgrades for your company"
+                    ],
+                    "intelligence": [
+                        "100"
+                    ]
                 },
-                "prerequisites": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+                "prerequisites": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12
+                ]
             },
             "14": {
                 "name": "Introduction to History",
@@ -6312,8 +6431,12 @@
                 "tier": 1,
                 "duration": 604800,
                 "results": {
-                    "intelligence": ["30"],
-                    "endurance": ["25"]
+                    "intelligence": [
+                        "30"
+                    ],
+                    "endurance": [
+                        "25"
+                    ]
                 },
                 "prerequisites": []
             },
@@ -6324,11 +6447,19 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "manual_labor": ["15"],
-                    "intelligence": ["135"],
-                    "endurance": ["75"]
+                    "manual_labor": [
+                        "15"
+                    ],
+                    "intelligence": [
+                        "135"
+                    ],
+                    "endurance": [
+                        "75"
+                    ]
                 },
-                "prerequisites": [14]
+                "prerequisites": [
+                    14
+                ]
             },
             "16": {
                 "name": "Ancient Japanese History",
@@ -6337,12 +6468,22 @@
                 "tier": 2,
                 "duration": 1814400,
                 "results": {
-                    "perk": ["Gain a 10% damage increase with Japanese blade weapons"],
-                    "manual_labor": ["20"],
-                    "intelligence": ["15"],
-                    "endurance": ["20"]
+                    "perk": [
+                        "Gain a 10% damage increase with Japanese blade weapons"
+                    ],
+                    "manual_labor": [
+                        "20"
+                    ],
+                    "intelligence": [
+                        "15"
+                    ],
+                    "endurance": [
+                        "20"
+                    ]
                 },
-                "prerequisites": [14]
+                "prerequisites": [
+                    14
+                ]
             },
             "17": {
                 "name": "Medieval History",
@@ -6351,12 +6492,22 @@
                 "tier": 2,
                 "duration": 2419200,
                 "results": {
-                    "perk": ["Gain a 2% bonus to all melee damage"],
-                    "manual_labor": ["25"],
-                    "intelligence": ["15"],
-                    "endurance": ["25"]
+                    "perk": [
+                        "Gain a 2% bonus to all melee damage"
+                    ],
+                    "manual_labor": [
+                        "25"
+                    ],
+                    "intelligence": [
+                        "15"
+                    ],
+                    "endurance": [
+                        "25"
+                    ]
                 },
-                "prerequisites": [14]
+                "prerequisites": [
+                    14
+                ]
             },
             "18": {
                 "name": "Medieval Archaeology",
@@ -6365,12 +6516,22 @@
                 "tier": 2,
                 "duration": 1814400,
                 "results": {
-                    "perk": ["Gain the ability to find medieval coins"],
-                    "manual_labor": ["35"],
-                    "intelligence": ["10"],
-                    "endurance": ["40"]
+                    "perk": [
+                        "Gain the ability to find medieval coins"
+                    ],
+                    "manual_labor": [
+                        "35"
+                    ],
+                    "intelligence": [
+                        "10"
+                    ],
+                    "endurance": [
+                        "40"
+                    ]
                 },
-                "prerequisites": [14]
+                "prerequisites": [
+                    14
+                ]
             },
             "19": {
                 "name": "South Asian Archaeology",
@@ -6379,12 +6540,22 @@
                 "tier": 2,
                 "duration": 1814400,
                 "results": {
-                    "perk": ["Gain the ability to find Asian sculptures and pages from the Quran"],
-                    "manual_labor": ["15"],
-                    "intelligence": ["35"],
-                    "endurance": ["35"]
+                    "perk": [
+                        "Gain the ability to find Asian sculptures and pages from the Quran"
+                    ],
+                    "manual_labor": [
+                        "15"
+                    ],
+                    "intelligence": [
+                        "35"
+                    ],
+                    "endurance": [
+                        "35"
+                    ]
                 },
-                "prerequisites": [14]
+                "prerequisites": [
+                    14
+                ]
             },
             "20": {
                 "name": "Egyptian Archaeology",
@@ -6393,12 +6564,22 @@
                 "tier": 2,
                 "duration": 1814400,
                 "results": {
-                    "perk": ["Gain the ability to find Senet board pieces and amulets"],
-                    "manual_labor": ["10"],
-                    "intelligence": ["35"],
-                    "endurance": ["45"]
+                    "perk": [
+                        "Gain the ability to find Senet board pieces and amulets"
+                    ],
+                    "manual_labor": [
+                        "10"
+                    ],
+                    "intelligence": [
+                        "35"
+                    ],
+                    "endurance": [
+                        "45"
+                    ]
                 },
-                "prerequisites": [14]
+                "prerequisites": [
+                    14
+                ]
             },
             "21": {
                 "name": "Bachelor of History",
@@ -6407,11 +6588,25 @@
                 "tier": 3,
                 "duration": 3628800,
                 "results": {
-                    "perk": ["Unlock the museum, sets of artifacts and other collectibles can be exchanged here for points"],
-                    "intelligence": ["50"],
-                    "endurance": ["55"]
+                    "perk": [
+                        "Unlock the museum, sets of artifacts and other collectibles can be exchanged here for points"
+                    ],
+                    "intelligence": [
+                        "50"
+                    ],
+                    "endurance": [
+                        "55"
+                    ]
                 },
-                "prerequisites": [14, 15, 16, 17, 18, 19, 20]
+                "prerequisites": [
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20
+                ]
             },
             "22": {
                 "name": "Introduction to Mathematics",
@@ -6420,8 +6615,12 @@
                 "tier": 1,
                 "duration": 604800,
                 "results": {
-                    "intelligence": ["35"],
-                    "endurance": ["10"]
+                    "intelligence": [
+                        "35"
+                    ],
+                    "endurance": [
+                        "10"
+                    ]
                 },
                 "prerequisites": []
             },
@@ -6432,12 +6631,22 @@
                 "tier": 2,
                 "duration": 1814400,
                 "results": {
-                    "perk": ["Gain a 1% passive bonus to speed"],
-                    "manual_labor": ["10"],
-                    "intelligence": ["40"],
-                    "endurance": ["15"]
+                    "perk": [
+                        "Gain a 1% passive bonus to speed"
+                    ],
+                    "manual_labor": [
+                        "10"
+                    ],
+                    "intelligence": [
+                        "40"
+                    ],
+                    "endurance": [
+                        "15"
+                    ]
                 },
-                "prerequisites": [22]
+                "prerequisites": [
+                    22
+                ]
             },
             "25": {
                 "name": "Intermediate Mathematics",
@@ -6446,11 +6655,19 @@
                 "tier": 2,
                 "duration": 1814400,
                 "results": {
-                    "perk": ["Gain a 1% passive bonus to speed"],
-                    "intelligence": ["50"],
-                    "endurance": ["15"]
+                    "perk": [
+                        "Gain a 1% passive bonus to speed"
+                    ],
+                    "intelligence": [
+                        "50"
+                    ],
+                    "endurance": [
+                        "15"
+                    ]
                 },
-                "prerequisites": [22]
+                "prerequisites": [
+                    22
+                ]
             },
             "26": {
                 "name": "Geometry",
@@ -6459,11 +6676,19 @@
                 "tier": 2,
                 "duration": 1814400,
                 "results": {
-                    "perk": ["Gain a 1% passive bonus to defense"],
-                    "intelligence": ["55"],
-                    "endurance": ["20"]
+                    "perk": [
+                        "Gain a 1% passive bonus to defense"
+                    ],
+                    "intelligence": [
+                        "55"
+                    ],
+                    "endurance": [
+                        "20"
+                    ]
                 },
-                "prerequisites": [22]
+                "prerequisites": [
+                    22
+                ]
             },
             "27": {
                 "name": "Algebra",
@@ -6472,10 +6697,16 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "intelligence": ["165"],
-                    "endurance": ["15"]
+                    "intelligence": [
+                        "165"
+                    ],
+                    "endurance": [
+                        "15"
+                    ]
                 },
-                "prerequisites": [22]
+                "prerequisites": [
+                    22
+                ]
             },
             "28": {
                 "name": "Probability",
@@ -6484,11 +6715,19 @@
                 "tier": 2,
                 "duration": 1814400,
                 "results": {
-                    "perk": ["Gain 1% productivity for your company"],
-                    "intelligence": ["75"],
-                    "endurance": ["20"]
+                    "perk": [
+                        "Gain 1% productivity for your company"
+                    ],
+                    "intelligence": [
+                        "75"
+                    ],
+                    "endurance": [
+                        "20"
+                    ]
                 },
-                "prerequisites": [22]
+                "prerequisites": [
+                    22
+                ]
             },
             "29": {
                 "name": "Trigonometry",
@@ -6497,10 +6736,16 @@
                 "tier": 2,
                 "duration": 1814400,
                 "results": {
-                    "intelligence": ["100"],
-                    "endurance": ["145"]
+                    "intelligence": [
+                        "100"
+                    ],
+                    "endurance": [
+                        "145"
+                    ]
                 },
-                "prerequisites": [22]
+                "prerequisites": [
+                    22
+                ]
             },
             "30": {
                 "name": "Calculus",
@@ -6509,10 +6754,16 @@
                 "tier": 2,
                 "duration": 2419200,
                 "results": {
-                    "intelligence": ["120"],
-                    "endurance": ["95"]
+                    "intelligence": [
+                        "120"
+                    ],
+                    "endurance": [
+                        "95"
+                    ]
                 },
-                "prerequisites": [22]
+                "prerequisites": [
+                    22
+                ]
             },
             "31": {
                 "name": "Discrete Mathematics",
@@ -6521,11 +6772,19 @@
                 "tier": 2,
                 "duration": 2419200,
                 "results": {
-                    "perk": ["Gain a 5% bonus to ammo conservation"],
-                    "intelligence": ["80"],
-                    "endurance": ["25"]
+                    "perk": [
+                        "Gain a 5% bonus to ammo conservation"
+                    ],
+                    "intelligence": [
+                        "80"
+                    ],
+                    "endurance": [
+                        "25"
+                    ]
                 },
-                "prerequisites": [22]
+                "prerequisites": [
+                    22
+                ]
             },
             "32": {
                 "name": "Geometry 2",
@@ -6534,11 +6793,20 @@
                 "tier": 2,
                 "duration": 1814400,
                 "results": {
-                    "perk": ["Gain a 2% passive bonus to defense"],
-                    "intelligence": ["120"],
-                    "endurance": ["35"]
+                    "perk": [
+                        "Gain a 2% passive bonus to defense"
+                    ],
+                    "intelligence": [
+                        "120"
+                    ],
+                    "endurance": [
+                        "35"
+                    ]
                 },
-                "prerequisites": [22, 26]
+                "prerequisites": [
+                    22,
+                    26
+                ]
             },
             "33": {
                 "name": "Bachelor of Mathematics",
@@ -6547,12 +6815,31 @@
                 "tier": 3,
                 "duration": 3628800,
                 "results": {
-                    "perk": ["Gain a 20% bonus to ammo conservation"],
-                    "manual_labor": ["10"],
-                    "intelligence": ["150"],
-                    "endurance": ["40"]
+                    "perk": [
+                        "Gain a 20% bonus to ammo conservation"
+                    ],
+                    "manual_labor": [
+                        "10"
+                    ],
+                    "intelligence": [
+                        "150"
+                    ],
+                    "endurance": [
+                        "40"
+                    ]
                 },
-                "prerequisites": [22, 24, 25, 26, 27, 28, 29, 30, 31, 32]
+                "prerequisites": [
+                    22,
+                    24,
+                    25,
+                    26,
+                    27,
+                    28,
+                    29,
+                    30,
+                    31,
+                    32
+                ]
             },
             "34": {
                 "name": "Introduction to Biochemistry",
@@ -6561,9 +6848,15 @@
                 "tier": 1,
                 "duration": 604800,
                 "results": {
-                    "manual_labor": ["5"],
-                    "intelligence": ["50"],
-                    "endurance": ["5"]
+                    "manual_labor": [
+                        "5"
+                    ],
+                    "intelligence": [
+                        "50"
+                    ],
+                    "endurance": [
+                        "5"
+                    ]
                 },
                 "prerequisites": []
             },
@@ -6574,11 +6867,19 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "perk": ["Gain a 1% damage bonus to all weapons"],
-                    "intelligence": ["50"],
-                    "endurance": ["10"]
+                    "perk": [
+                        "Gain a 1% damage bonus to all weapons"
+                    ],
+                    "intelligence": [
+                        "50"
+                    ],
+                    "endurance": [
+                        "10"
+                    ]
                 },
-                "prerequisites": [34]
+                "prerequisites": [
+                    34
+                ]
             },
             "36": {
                 "name": "Intermediate Biochemistry",
@@ -6587,12 +6888,22 @@
                 "tier": 2,
                 "duration": 2419200,
                 "results": {
-                    "perk": ["Gain a bonus of 10% to medical item effectiveness"],
-                    "manual_labor": ["5"],
-                    "intelligence": ["55"],
-                    "endurance": ["15"]
+                    "perk": [
+                        "Gain a bonus of 10% to medical item effectiveness"
+                    ],
+                    "manual_labor": [
+                        "5"
+                    ],
+                    "intelligence": [
+                        "55"
+                    ],
+                    "endurance": [
+                        "15"
+                    ]
                 },
-                "prerequisites": [34]
+                "prerequisites": [
+                    34
+                ]
             },
             "37": {
                 "name": "Advanced Biochemistry",
@@ -6601,11 +6912,20 @@
                 "tier": 2,
                 "duration": 2419200,
                 "results": {
-                    "perk": ["Gain a further 10% bonus to medical item effectiveness"],
-                    "intelligence": ["65"],
-                    "endurance": ["10"]
+                    "perk": [
+                        "Gain a further 10% bonus to medical item effectiveness"
+                    ],
+                    "intelligence": [
+                        "65"
+                    ],
+                    "endurance": [
+                        "10"
+                    ]
                 },
-                "prerequisites": [34, 36]
+                "prerequisites": [
+                    34,
+                    36
+                ]
             },
             "38": {
                 "name": "Fundamentals of Neurobiology",
@@ -6614,11 +6934,19 @@
                 "tier": 2,
                 "duration": 1814400,
                 "results": {
-                    "perk": ["Gain a 10% damage increase when hitting an opponent's neck"],
-                    "intelligence": ["65"],
-                    "endurance": ["15"]
+                    "perk": [
+                        "Gain a 10% damage increase when hitting an opponent's neck"
+                    ],
+                    "intelligence": [
+                        "65"
+                    ],
+                    "endurance": [
+                        "15"
+                    ]
                 },
-                "prerequisites": [34]
+                "prerequisites": [
+                    34
+                ]
             },
             "39": {
                 "name": "Chromosomes and Gene Functions",
@@ -6627,11 +6955,19 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "manual_labor": ["5"],
-                    "intelligence": ["170"],
-                    "endurance": ["120"]
+                    "manual_labor": [
+                        "5"
+                    ],
+                    "intelligence": [
+                        "170"
+                    ],
+                    "endurance": [
+                        "120"
+                    ]
                 },
-                "prerequisites": [34]
+                "prerequisites": [
+                    34
+                ]
             },
             "40": {
                 "name": "Forensic Science",
@@ -6640,12 +6976,22 @@
                 "tier": 2,
                 "duration": 2419200,
                 "results": {
-                    "perk": ["Decrease an opponent's stealthiness"],
-                    "manual_labor": ["10"],
-                    "intelligence": ["80"],
-                    "endurance": ["20"]
+                    "perk": [
+                        "Decrease an opponent's stealthiness"
+                    ],
+                    "manual_labor": [
+                        "10"
+                    ],
+                    "intelligence": [
+                        "80"
+                    ],
+                    "endurance": [
+                        "20"
+                    ]
                 },
-                "prerequisites": [34]
+                "prerequisites": [
+                    34
+                ]
             },
             "41": {
                 "name": "Anatomy",
@@ -6654,12 +7000,22 @@
                 "tier": 2,
                 "duration": 1814400,
                 "results": {
-                    "perk": ["Gain a 3% chance increase of achieving a critical hit"],
-                    "manual_labor": ["15"],
-                    "intelligence": ["75"],
-                    "endurance": ["20"]
+                    "perk": [
+                        "Gain a 3% chance increase of achieving a critical hit"
+                    ],
+                    "manual_labor": [
+                        "15"
+                    ],
+                    "intelligence": [
+                        "75"
+                    ],
+                    "endurance": [
+                        "20"
+                    ]
                 },
-                "prerequisites": [34]
+                "prerequisites": [
+                    34
+                ]
             },
             "42": {
                 "name": "Bachelor of Biology",
@@ -6668,12 +7024,30 @@
                 "tier": 3,
                 "duration": 3024000,
                 "results": {
-                    "perk": ["Gain the ability to equip life and stat boosters in your temporary slot and unlock the pharmacy"],
-                    "manual_labor": ["25"],
-                    "intelligence": ["75"],
-                    "endurance": ["30"]
+                    "perk": [
+                        "Gain the ability to equip life and stat boosters in your temporary slot and unlock the pharmacy"
+                    ],
+                    "manual_labor": [
+                        "25"
+                    ],
+                    "intelligence": [
+                        "75"
+                    ],
+                    "endurance": [
+                        "30"
+                    ]
                 },
-                "prerequisites": [34, 35, 36, 37, 38, 39, 40, 41, 127]
+                "prerequisites": [
+                    34,
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41,
+                    127
+                ]
             },
             "43": {
                 "name": "Introduction to Sports Science",
@@ -6682,8 +7056,12 @@
                 "tier": 1,
                 "duration": 604800,
                 "results": {
-                    "manual_labor": ["50"],
-                    "endurance": ["10"]
+                    "manual_labor": [
+                        "50"
+                    ],
+                    "endurance": [
+                        "10"
+                    ]
                 },
                 "prerequisites": []
             },
@@ -6694,12 +7072,22 @@
                 "tier": 2,
                 "duration": 1814400,
                 "results": {
-                    "perk": ["Gain a 1% bonus to strength gains in the gym"],
-                    "manual_labor": ["55"],
-                    "intelligence": ["5"],
-                    "endurance": ["15"]
+                    "perk": [
+                        "Gain a 1% bonus to strength gains in the gym"
+                    ],
+                    "manual_labor": [
+                        "55"
+                    ],
+                    "intelligence": [
+                        "5"
+                    ],
+                    "endurance": [
+                        "15"
+                    ]
                 },
-                "prerequisites": [43]
+                "prerequisites": [
+                    43
+                ]
             },
             "45": {
                 "name": "Physiological Testing",
@@ -6708,11 +7096,19 @@
                 "tier": 2,
                 "duration": 1814400,
                 "results": {
-                    "perk": ["Gain a 1% bonus to speed gains in the gym"],
-                    "manual_labor": ["45"],
-                    "endurance": ["55"]
+                    "perk": [
+                        "Gain a 1% bonus to speed gains in the gym"
+                    ],
+                    "manual_labor": [
+                        "45"
+                    ],
+                    "endurance": [
+                        "55"
+                    ]
                 },
-                "prerequisites": [43]
+                "prerequisites": [
+                    43
+                ]
             },
             "46": {
                 "name": "Human Movement Analysis",
@@ -6721,12 +7117,22 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "perk": ["Gain a 1% bonus to defense gains in the gym"],
-                    "manual_labor": ["60"],
-                    "intelligence": ["5"],
-                    "endurance": ["45"]
+                    "perk": [
+                        "Gain a 1% bonus to defense gains in the gym"
+                    ],
+                    "manual_labor": [
+                        "60"
+                    ],
+                    "intelligence": [
+                        "5"
+                    ],
+                    "endurance": [
+                        "45"
+                    ]
                 },
-                "prerequisites": [43]
+                "prerequisites": [
+                    43
+                ]
             },
             "47": {
                 "name": "Bio Mechanical Determinants of Skill",
@@ -6735,12 +7141,22 @@
                 "tier": 2,
                 "duration": 1814400,
                 "results": {
-                    "perk": ["Gain a 1% bonus to dexterity gains in the gym"],
-                    "manual_labor": ["55"],
-                    "intelligence": ["10"],
-                    "endurance": ["35"]
+                    "perk": [
+                        "Gain a 1% bonus to dexterity gains in the gym"
+                    ],
+                    "manual_labor": [
+                        "55"
+                    ],
+                    "intelligence": [
+                        "10"
+                    ],
+                    "endurance": [
+                        "35"
+                    ]
                 },
-                "prerequisites": [43]
+                "prerequisites": [
+                    43
+                ]
             },
             "48": {
                 "name": "Sports Medicine",
@@ -6749,12 +7165,22 @@
                 "tier": 2,
                 "duration": 2419200,
                 "results": {
-                    "perk": ["Gain a 10% increase in temporary booster effectiveness"],
-                    "manual_labor": ["15"],
-                    "intelligence": ["75"],
-                    "endurance": ["15"]
+                    "perk": [
+                        "Gain a 10% increase in temporary booster effectiveness"
+                    ],
+                    "manual_labor": [
+                        "15"
+                    ],
+                    "intelligence": [
+                        "75"
+                    ],
+                    "endurance": [
+                        "15"
+                    ]
                 },
-                "prerequisites": [43]
+                "prerequisites": [
+                    43
+                ]
             },
             "49": {
                 "name": "Nutritional Science",
@@ -6763,12 +7189,22 @@
                 "tier": 2,
                 "duration": 1814400,
                 "results": {
-                    "perk": ["Gain a 2% passive bonus to speed and strength"],
-                    "manual_labor": ["10"],
-                    "intelligence": ["65"],
-                    "endurance": ["15"]
+                    "perk": [
+                        "Gain a 2% passive bonus to speed and strength"
+                    ],
+                    "manual_labor": [
+                        "10"
+                    ],
+                    "intelligence": [
+                        "65"
+                    ],
+                    "endurance": [
+                        "15"
+                    ]
                 },
-                "prerequisites": [43]
+                "prerequisites": [
+                    43
+                ]
             },
             "50": {
                 "name": "Analysis and Performance",
@@ -6777,12 +7213,22 @@
                 "tier": 2,
                 "duration": 1814400,
                 "results": {
-                    "perk": ["Gain a 2% passive bonus to defense and dexterity"],
-                    "manual_labor": ["65"],
-                    "intelligence": ["5"],
-                    "endurance": ["15"]
+                    "perk": [
+                        "Gain a 2% passive bonus to defense and dexterity"
+                    ],
+                    "manual_labor": [
+                        "65"
+                    ],
+                    "intelligence": [
+                        "5"
+                    ],
+                    "endurance": [
+                        "15"
+                    ]
                 },
-                "prerequisites": [43]
+                "prerequisites": [
+                    43
+                ]
             },
             "51": {
                 "name": "Bachelor of Sports Science",
@@ -6791,12 +7237,30 @@
                 "tier": 3,
                 "duration": 3628800,
                 "results": {
-                    "perk": ["Gain a further 1% boost in all gym gains"],
-                    "manual_labor": ["95"],
-                    "intelligence": ["15"],
-                    "endurance": ["65"]
+                    "perk": [
+                        "Gain a further 1% boost in all gym gains"
+                    ],
+                    "manual_labor": [
+                        "95"
+                    ],
+                    "intelligence": [
+                        "15"
+                    ],
+                    "endurance": [
+                        "65"
+                    ]
                 },
-                "prerequisites": [43, 44, 45, 46, 47, 48, 49, 50, 126]
+                "prerequisites": [
+                    43,
+                    44,
+                    45,
+                    46,
+                    47,
+                    48,
+                    49,
+                    50,
+                    126
+                ]
             },
             "52": {
                 "name": "Introduction to Computing",
@@ -6805,9 +7269,15 @@
                 "tier": 1,
                 "duration": 604800,
                 "results": {
-                    "perk": ["Gain the ability to code simple viruses"],
-                    "intelligence": ["45"],
-                    "endurance": ["50"]
+                    "perk": [
+                        "Gain the ability to code simple viruses"
+                    ],
+                    "intelligence": [
+                        "45"
+                    ],
+                    "endurance": [
+                        "50"
+                    ]
                 },
                 "prerequisites": []
             },
@@ -6818,11 +7288,19 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "perk": ["Gain the ability to code Polymorphic and Tunneling viruses"],
-                    "intelligence": ["65"],
-                    "endurance": ["20"]
+                    "perk": [
+                        "Gain the ability to code Polymorphic and Tunneling viruses"
+                    ],
+                    "intelligence": [
+                        "65"
+                    ],
+                    "endurance": [
+                        "20"
+                    ]
                 },
-                "prerequisites": [52]
+                "prerequisites": [
+                    52
+                ]
             },
             "54": {
                 "name": "Networking",
@@ -6831,11 +7309,19 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "perk": ["Gain access to hacking crimes"],
-                    "intelligence": ["75"],
-                    "endurance": ["35"]
+                    "perk": [
+                        "Gain access to hacking crimes"
+                    ],
+                    "intelligence": [
+                        "75"
+                    ],
+                    "endurance": [
+                        "35"
+                    ]
                 },
-                "prerequisites": [52]
+                "prerequisites": [
+                    52
+                ]
             },
             "55": {
                 "name": "Computer Repair",
@@ -6844,11 +7330,19 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "manual_labor": ["25"],
-                    "intelligence": ["90"],
-                    "endurance": ["55"]
+                    "manual_labor": [
+                        "25"
+                    ],
+                    "intelligence": [
+                        "90"
+                    ],
+                    "endurance": [
+                        "55"
+                    ]
                 },
-                "prerequisites": [52]
+                "prerequisites": [
+                    52
+                ]
             },
             "56": {
                 "name": "Algorithms and Advanced Programming",
@@ -6857,11 +7351,20 @@
                 "tier": 2,
                 "duration": 1814400,
                 "results": {
-                    "perk": ["Gain the ability to code Armored and Stealth viruses"],
-                    "intelligence": ["100"],
-                    "endurance": ["50"]
+                    "perk": [
+                        "Gain the ability to code Armored and Stealth viruses"
+                    ],
+                    "intelligence": [
+                        "100"
+                    ],
+                    "endurance": [
+                        "50"
+                    ]
                 },
-                "prerequisites": [52, 53]
+                "prerequisites": [
+                    52,
+                    53
+                ]
             },
             "57": {
                 "name": "Fundamentals of Computer Architecture",
@@ -6870,10 +7373,16 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "intelligence": ["150"],
-                    "endurance": ["95"]
+                    "intelligence": [
+                        "150"
+                    ],
+                    "endurance": [
+                        "95"
+                    ]
                 },
-                "prerequisites": [52]
+                "prerequisites": [
+                    52
+                ]
             },
             "58": {
                 "name": "Software Engineering",
@@ -6882,11 +7391,19 @@
                 "tier": 2,
                 "duration": 1814400,
                 "results": {
-                    "perk": ["Gain a 20% decrease in virus coding times"],
-                    "intelligence": ["120"],
-                    "endurance": ["65"]
+                    "perk": [
+                        "Gain a 20% decrease in virus coding times"
+                    ],
+                    "intelligence": [
+                        "120"
+                    ],
+                    "endurance": [
+                        "65"
+                    ]
                 },
-                "prerequisites": [52]
+                "prerequisites": [
+                    52
+                ]
             },
             "59": {
                 "name": "Quantum Computing",
@@ -6895,10 +7412,16 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "intelligence": ["250"],
-                    "endurance": ["30"]
+                    "intelligence": [
+                        "250"
+                    ],
+                    "endurance": [
+                        "30"
+                    ]
                 },
-                "prerequisites": [52]
+                "prerequisites": [
+                    52
+                ]
             },
             "60": {
                 "name": "Natural Language Engineering",
@@ -6907,11 +7430,19 @@
                 "tier": 2,
                 "duration": 1814400,
                 "results": {
-                    "perk": ["Gain a 10% decrease in virus coding times"],
-                    "intelligence": ["275"],
-                    "endurance": ["55"]
+                    "perk": [
+                        "Gain a 10% decrease in virus coding times"
+                    ],
+                    "intelligence": [
+                        "275"
+                    ],
+                    "endurance": [
+                        "55"
+                    ]
                 },
-                "prerequisites": [52]
+                "prerequisites": [
+                    52
+                ]
             },
             "61": {
                 "name": "Computer Security and Defense",
@@ -6920,11 +7451,20 @@
                 "tier": 2,
                 "duration": 2419200,
                 "results": {
-                    "perk": ["Gain a 10% increase in hacking crime success rate"],
-                    "intelligence": ["175"],
-                    "endurance": ["55"]
+                    "perk": [
+                        "Gain a 10% increase in hacking crime success rate"
+                    ],
+                    "intelligence": [
+                        "175"
+                    ],
+                    "endurance": [
+                        "55"
+                    ]
                 },
-                "prerequisites": [52, 54]
+                "prerequisites": [
+                    52,
+                    54
+                ]
             },
             "62": {
                 "name": "Bachelor of Computer Science",
@@ -6933,11 +7473,28 @@
                 "tier": 3,
                 "duration": 4233600,
                 "results": {
-                    "perk": ["Gain the ability to send mails and cash anonymously"],
-                    "intelligence": ["115"],
-                    "endurance": ["25"]
+                    "perk": [
+                        "Gain the ability to send mails and cash anonymously"
+                    ],
+                    "intelligence": [
+                        "115"
+                    ],
+                    "endurance": [
+                        "25"
+                    ]
                 },
-                "prerequisites": [52, 53, 54, 55, 56, 57, 58, 59, 60, 61]
+                "prerequisites": [
+                    52,
+                    53,
+                    54,
+                    55,
+                    56,
+                    57,
+                    58,
+                    59,
+                    60,
+                    61
+                ]
             },
             "63": {
                 "name": "Introduction to Psychology",
@@ -6946,7 +7503,9 @@
                 "tier": 1,
                 "duration": 604800,
                 "results": {
-                    "intelligence": ["50"]
+                    "intelligence": [
+                        "50"
+                    ]
                 },
                 "prerequisites": []
             },
@@ -6957,11 +7516,19 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "perk": ["Gain a 1% passive bonus to dexterity"],
-                    "manual_labor": ["65"],
-                    "intelligence": ["100"]
+                    "perk": [
+                        "Gain a 1% passive bonus to dexterity"
+                    ],
+                    "manual_labor": [
+                        "65"
+                    ],
+                    "intelligence": [
+                        "100"
+                    ]
                 },
-                "prerequisites": [63]
+                "prerequisites": [
+                    63
+                ]
             },
             "65": {
                 "name": "Brain and Behaviour",
@@ -6970,11 +7537,19 @@
                 "tier": 2,
                 "duration": 1814400,
                 "results": {
-                    "perk": ["Gain a 2% passive bonus to dexterity"],
-                    "intelligence": ["80"],
-                    "endurance": ["15"]
+                    "perk": [
+                        "Gain a 2% passive bonus to dexterity"
+                    ],
+                    "intelligence": [
+                        "80"
+                    ],
+                    "endurance": [
+                        "15"
+                    ]
                 },
-                "prerequisites": [63]
+                "prerequisites": [
+                    63
+                ]
             },
             "66": {
                 "name": "Quantitative Methods in Psychology",
@@ -6983,11 +7558,19 @@
                 "tier": 2,
                 "duration": 1814400,
                 "results": {
-                    "perk": ["Gain a 4% passive bonus to dexterity"],
-                    "intelligence": ["100"],
-                    "endurance": ["10"]
+                    "perk": [
+                        "Gain a 4% passive bonus to dexterity"
+                    ],
+                    "intelligence": [
+                        "100"
+                    ],
+                    "endurance": [
+                        "10"
+                    ]
                 },
-                "prerequisites": [63]
+                "prerequisites": [
+                    63
+                ]
             },
             "67": {
                 "name": "Applied Decision Methods",
@@ -6996,10 +7579,16 @@
                 "tier": 2,
                 "duration": 2419200,
                 "results": {
-                    "perk": ["Gain an 8% passive bonus to dexterity"],
-                    "intelligence": ["125"]
+                    "perk": [
+                        "Gain an 8% passive bonus to dexterity"
+                    ],
+                    "intelligence": [
+                        "125"
+                    ]
                 },
-                "prerequisites": [63]
+                "prerequisites": [
+                    63
+                ]
             },
             "68": {
                 "name": "Attention and Awareness",
@@ -7008,10 +7597,16 @@
                 "tier": 2,
                 "duration": 2419200,
                 "results": {
-                    "perk": ["Gain a 10% increase to awareness"],
-                    "intelligence": ["115"]
+                    "perk": [
+                        "Gain a 10% increase to awareness"
+                    ],
+                    "intelligence": [
+                        "115"
+                    ]
                 },
-                "prerequisites": [63]
+                "prerequisites": [
+                    63
+                ]
             },
             "69": {
                 "name": "Bachelor of Psychological Sciences",
@@ -7020,10 +7615,21 @@
                 "tier": 3,
                 "duration": 4233600,
                 "results": {
-                    "perk": ["Gain a 10% increase in crime success rate"],
-                    "intelligence": ["120"]
+                    "perk": [
+                        "Gain a 10% increase in crime success rate"
+                    ],
+                    "intelligence": [
+                        "120"
+                    ]
                 },
-                "prerequisites": [63, 64, 65, 66, 67, 68]
+                "prerequisites": [
+                    63,
+                    64,
+                    65,
+                    66,
+                    67,
+                    68
+                ]
             },
             "70": {
                 "name": "Introduction to Self Defense",
@@ -7032,9 +7638,15 @@
                 "tier": 1,
                 "duration": 604800,
                 "results": {
-                    "manual_labor": ["50"],
-                    "intelligence": ["50"],
-                    "endurance": ["50"]
+                    "manual_labor": [
+                        "50"
+                    ],
+                    "intelligence": [
+                        "50"
+                    ],
+                    "endurance": [
+                        "50"
+                    ]
                 },
                 "prerequisites": []
             },
@@ -7045,11 +7657,19 @@
                 "tier": 2,
                 "duration": 1814400,
                 "results": {
-                    "perk": ["Gain a 1% passive bonus to defense"],
-                    "manual_labor": ["65"],
-                    "endurance": ["50"]
+                    "perk": [
+                        "Gain a 1% passive bonus to defense"
+                    ],
+                    "manual_labor": [
+                        "65"
+                    ],
+                    "endurance": [
+                        "50"
+                    ]
                 },
-                "prerequisites": [70]
+                "prerequisites": [
+                    70
+                ]
             },
             "72": {
                 "name": "Kick Boxing",
@@ -7058,11 +7678,19 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "perk": ["Unlock kick attack when in a battle"],
-                    "manual_labor": ["75"],
-                    "endurance": ["45"]
+                    "perk": [
+                        "Unlock kick attack when in a battle"
+                    ],
+                    "manual_labor": [
+                        "75"
+                    ],
+                    "endurance": [
+                        "45"
+                    ]
                 },
-                "prerequisites": [70]
+                "prerequisites": [
+                    70
+                ]
             },
             "73": {
                 "name": "Krav Maga",
@@ -7071,11 +7699,19 @@
                 "tier": 2,
                 "duration": 2419200,
                 "results": {
-                    "perk": ["Gain a 2% passive bonus to defense"],
-                    "manual_labor": ["90"],
-                    "endurance": ["75"]
+                    "perk": [
+                        "Gain a 2% passive bonus to defense"
+                    ],
+                    "manual_labor": [
+                        "90"
+                    ],
+                    "endurance": [
+                        "75"
+                    ]
                 },
-                "prerequisites": [70]
+                "prerequisites": [
+                    70
+                ]
             },
             "74": {
                 "name": "Jujitsu",
@@ -7084,11 +7720,19 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "perk": ["Gain a 3% passive bonus to defense"],
-                    "manual_labor": ["75"],
-                    "endurance": ["70"]
+                    "perk": [
+                        "Gain a 3% passive bonus to defense"
+                    ],
+                    "manual_labor": [
+                        "75"
+                    ],
+                    "endurance": [
+                        "70"
+                    ]
                 },
-                "prerequisites": [70]
+                "prerequisites": [
+                    70
+                ]
             },
             "75": {
                 "name": "Tae Kwon Do",
@@ -7097,11 +7741,19 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "perk": ["Gain a 2% passive bonus to speed"],
-                    "manual_labor": ["80"],
-                    "endurance": ["45"]
+                    "perk": [
+                        "Gain a 2% passive bonus to speed"
+                    ],
+                    "manual_labor": [
+                        "80"
+                    ],
+                    "endurance": [
+                        "45"
+                    ]
                 },
-                "prerequisites": [70]
+                "prerequisites": [
+                    70
+                ]
             },
             "76": {
                 "name": "Muay Thai",
@@ -7110,11 +7762,19 @@
                 "tier": 2,
                 "duration": 1814400,
                 "results": {
-                    "perk": ["Gain a 3% passive bonus to speed"],
-                    "manual_labor": ["100"],
-                    "endurance": ["75"]
+                    "perk": [
+                        "Gain a 3% passive bonus to speed"
+                    ],
+                    "manual_labor": [
+                        "100"
+                    ],
+                    "endurance": [
+                        "75"
+                    ]
                 },
-                "prerequisites": [70]
+                "prerequisites": [
+                    70
+                ]
             },
             "77": {
                 "name": "Bachelor of Self Defense",
@@ -7123,12 +7783,28 @@
                 "tier": 3,
                 "duration": 3024000,
                 "results": {
-                    "perk": ["Gain a 100% increase in damage dealt when using fists alone"],
-                    "manual_labor": ["150"],
-                    "intelligence": ["10"],
-                    "endurance": ["75"]
+                    "perk": [
+                        "Gain a 100% increase in damage dealt when using fists alone"
+                    ],
+                    "manual_labor": [
+                        "150"
+                    ],
+                    "intelligence": [
+                        "10"
+                    ],
+                    "endurance": [
+                        "75"
+                    ]
                 },
-                "prerequisites": [70, 71, 72, 73, 74, 75, 76]
+                "prerequisites": [
+                    70,
+                    71,
+                    72,
+                    73,
+                    74,
+                    75,
+                    76
+                ]
             },
             "78": {
                 "name": "Introduction to Combat",
@@ -7137,8 +7813,12 @@
                 "tier": 1,
                 "duration": 604800,
                 "results": {
-                    "manual_labor": ["50"],
-                    "intelligence": ["50"]
+                    "manual_labor": [
+                        "50"
+                    ],
+                    "intelligence": [
+                        "50"
+                    ]
                 },
                 "prerequisites": []
             },
@@ -7149,11 +7829,19 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "perk": ["Gain a 1% passive bonus to speed"],
-                    "manual_labor": ["45"],
-                    "intelligence": ["55"]
+                    "perk": [
+                        "Gain a 1% passive bonus to speed"
+                    ],
+                    "manual_labor": [
+                        "45"
+                    ],
+                    "intelligence": [
+                        "55"
+                    ]
                 },
-                "prerequisites": [78]
+                "prerequisites": [
+                    78
+                ]
             },
             "80": {
                 "name": "Study of War and Technology",
@@ -7162,10 +7850,16 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "manual_labor": ["20"],
-                    "intelligence": ["95"]
+                    "manual_labor": [
+                        "20"
+                    ],
+                    "intelligence": [
+                        "95"
+                    ]
                 },
-                "prerequisites": [78]
+                "prerequisites": [
+                    78
+                ]
             },
             "81": {
                 "name": "Study of Society and Warfare",
@@ -7174,10 +7868,16 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "manual_labor": ["20"],
-                    "intelligence": ["110"]
+                    "manual_labor": [
+                        "20"
+                    ],
+                    "intelligence": [
+                        "110"
+                    ]
                 },
-                "prerequisites": [78]
+                "prerequisites": [
+                    78
+                ]
             },
             "82": {
                 "name": "Study of Machine Guns",
@@ -7186,11 +7886,19 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "perk": ["Gain a +1.00 accuracy increase with Machine Guns"],
-                    "manual_labor": ["30"],
-                    "intelligence": ["70"]
+                    "perk": [
+                        "Gain a +1.00 accuracy increase with Machine Guns"
+                    ],
+                    "manual_labor": [
+                        "30"
+                    ],
+                    "intelligence": [
+                        "70"
+                    ]
                 },
-                "prerequisites": [78]
+                "prerequisites": [
+                    78
+                ]
             },
             "83": {
                 "name": "Study of Submachine Guns",
@@ -7199,11 +7907,19 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "perk": ["Gain a +1.00 accuracy increase with Submachine guns"],
-                    "manual_labor": ["30"],
-                    "intelligence": ["70"]
+                    "perk": [
+                        "Gain a +1.00 accuracy increase with Submachine guns"
+                    ],
+                    "manual_labor": [
+                        "30"
+                    ],
+                    "intelligence": [
+                        "70"
+                    ]
                 },
-                "prerequisites": [78]
+                "prerequisites": [
+                    78
+                ]
             },
             "84": {
                 "name": "Study of Pistols",
@@ -7212,11 +7928,19 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "perk": ["Gain a +1.00 accuracy increase with Pistols"],
-                    "manual_labor": ["30"],
-                    "intelligence": ["70"]
+                    "perk": [
+                        "Gain a +1.00 accuracy increase with Pistols"
+                    ],
+                    "manual_labor": [
+                        "30"
+                    ],
+                    "intelligence": [
+                        "70"
+                    ]
                 },
-                "prerequisites": [78]
+                "prerequisites": [
+                    78
+                ]
             },
             "85": {
                 "name": "Study of Rifles",
@@ -7225,11 +7949,19 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "perk": ["Gain a +1.00 accuracy increase with Rifles"],
-                    "manual_labor": ["30"],
-                    "intelligence": ["70"]
+                    "perk": [
+                        "Gain a +1.00 accuracy increase with Rifles"
+                    ],
+                    "manual_labor": [
+                        "30"
+                    ],
+                    "intelligence": [
+                        "70"
+                    ]
                 },
-                "prerequisites": [78]
+                "prerequisites": [
+                    78
+                ]
             },
             "86": {
                 "name": "Study of Heavy Artillery",
@@ -7238,11 +7970,19 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "perk": ["Gain a +1.00 accuracy increase with Heavy Artillery"],
-                    "manual_labor": ["30"],
-                    "intelligence": ["70"]
+                    "perk": [
+                        "Gain a +1.00 accuracy increase with Heavy Artillery"
+                    ],
+                    "manual_labor": [
+                        "30"
+                    ],
+                    "intelligence": [
+                        "70"
+                    ]
                 },
-                "prerequisites": [78]
+                "prerequisites": [
+                    78
+                ]
             },
             "87": {
                 "name": "Bachelor of Military Arts and Science",
@@ -7251,11 +7991,28 @@
                 "tier": 3,
                 "duration": 4233600,
                 "results": {
-                    "perk": ["Start gaining weapon experience, specializing in individual weapons for increased damage and accuracy"],
-                    "manual_labor": ["75"],
-                    "intelligence": ["75"]
+                    "perk": [
+                        "Start gaining weapon experience, specializing in individual weapons for increased damage and accuracy"
+                    ],
+                    "manual_labor": [
+                        "75"
+                    ],
+                    "intelligence": [
+                        "75"
+                    ]
                 },
-                "prerequisites": [78, 79, 80, 81, 82, 83, 84, 85, 86, 125]
+                "prerequisites": [
+                    78,
+                    79,
+                    80,
+                    81,
+                    82,
+                    83,
+                    84,
+                    85,
+                    86,
+                    125
+                ]
             },
             "88": {
                 "name": "Introduction to Law",
@@ -7264,8 +8021,12 @@
                 "tier": 1,
                 "duration": 604800,
                 "results": {
-                    "intelligence": ["50"],
-                    "endurance": ["25"]
+                    "intelligence": [
+                        "50"
+                    ],
+                    "endurance": [
+                        "25"
+                    ]
                 },
                 "prerequisites": []
             },
@@ -7276,11 +8037,19 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "perk": ["Reduce the chance of being caught when trying to escape from jail"],
-                    "intelligence": ["45"],
-                    "endurance": ["25"]
+                    "perk": [
+                        "Reduce the chance of being caught when trying to escape from jail"
+                    ],
+                    "intelligence": [
+                        "45"
+                    ],
+                    "endurance": [
+                        "25"
+                    ]
                 },
-                "prerequisites": [88]
+                "prerequisites": [
+                    88
+                ]
             },
             "90": {
                 "name": "Common Law",
@@ -7289,11 +8058,19 @@
                 "tier": 2,
                 "duration": 1814400,
                 "results": {
-                    "perk": ["Gain the ability to buy yourself and others out of jail while you are in jail yourself"],
-                    "intelligence": ["65"],
-                    "endurance": ["15"]
+                    "perk": [
+                        "Gain the ability to buy yourself and others out of jail while you are in jail yourself"
+                    ],
+                    "intelligence": [
+                        "65"
+                    ],
+                    "endurance": [
+                        "15"
+                    ]
                 },
-                "prerequisites": [88]
+                "prerequisites": [
+                    88
+                ]
             },
             "91": {
                 "name": "Law of Property",
@@ -7302,11 +8079,19 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "perk": ["Gain a 5% discount when buying properties from the estate agents"],
-                    "intelligence": ["75"],
-                    "endurance": ["25"]
+                    "perk": [
+                        "Gain a 5% discount when buying properties from the estate agents"
+                    ],
+                    "intelligence": [
+                        "75"
+                    ],
+                    "endurance": [
+                        "25"
+                    ]
                 },
-                "prerequisites": [88]
+                "prerequisites": [
+                    88
+                ]
             },
             "92": {
                 "name": "Criminal Law",
@@ -7315,11 +8100,19 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "perk": ["Gain a 5% bonus to your skill in busting"],
-                    "intelligence": ["75"],
-                    "endurance": ["15"]
+                    "perk": [
+                        "Gain a 5% bonus to your skill in busting"
+                    ],
+                    "intelligence": [
+                        "75"
+                    ],
+                    "endurance": [
+                        "15"
+                    ]
                 },
-                "prerequisites": [88]
+                "prerequisites": [
+                    88
+                ]
             },
             "93": {
                 "name": "Administrative Law",
@@ -7328,11 +8121,19 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "perk": ["Gain a 5% discount when buying people out of jail"],
-                    "intelligence": ["85"],
-                    "endurance": ["10"]
+                    "perk": [
+                        "Gain a 5% discount when buying people out of jail"
+                    ],
+                    "intelligence": [
+                        "85"
+                    ],
+                    "endurance": [
+                        "10"
+                    ]
                 },
-                "prerequisites": [88]
+                "prerequisites": [
+                    88
+                ]
             },
             "94": {
                 "name": "Commercial and Consumer Law",
@@ -7341,10 +8142,16 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "intelligence": ["120"],
-                    "endurance": ["35"]
+                    "intelligence": [
+                        "120"
+                    ],
+                    "endurance": [
+                        "35"
+                    ]
                 },
-                "prerequisites": [88]
+                "prerequisites": [
+                    88
+                ]
             },
             "95": {
                 "name": "Family Law",
@@ -7353,10 +8160,16 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "intelligence": ["125"],
-                    "endurance": ["25"]
+                    "intelligence": [
+                        "125"
+                    ],
+                    "endurance": [
+                        "25"
+                    ]
                 },
-                "prerequisites": [88]
+                "prerequisites": [
+                    88
+                ]
             },
             "96": {
                 "name": "Labor Law",
@@ -7365,10 +8178,16 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "intelligence": ["135"],
-                    "endurance": ["20"]
+                    "intelligence": [
+                        "135"
+                    ],
+                    "endurance": [
+                        "20"
+                    ]
                 },
-                "prerequisites": [88]
+                "prerequisites": [
+                    88
+                ]
             },
             "97": {
                 "name": "Social and Economic Law",
@@ -7377,9 +8196,13 @@
                 "tier": 2,
                 "duration": 1814400,
                 "results": {
-                    "perk": ["Gain a 10% bonus to your skill in busting"]
+                    "perk": [
+                        "Gain a 10% bonus to your skill in busting"
+                    ]
                 },
-                "prerequisites": [88]
+                "prerequisites": [
+                    88
+                ]
             },
             "98": {
                 "name": "Use of Force in International Law",
@@ -7388,11 +8211,19 @@
                 "tier": 2,
                 "duration": 1814400,
                 "results": {
-                    "perk": ["Gain a 10% discount when buying people out of jail"],
-                    "intelligence": ["75"],
-                    "endurance": ["20"]
+                    "perk": [
+                        "Gain a 10% discount when buying people out of jail"
+                    ],
+                    "intelligence": [
+                        "75"
+                    ],
+                    "endurance": [
+                        "20"
+                    ]
                 },
-                "prerequisites": [88]
+                "prerequisites": [
+                    88
+                ]
             },
             "99": {
                 "name": "International Human Rights",
@@ -7401,11 +8232,19 @@
                 "tier": 2,
                 "duration": 1814400,
                 "results": {
-                    "perk": ["Use less nerve when trying to escape from jail"],
-                    "intelligence": ["70"],
-                    "endurance": ["25"]
+                    "perk": [
+                        "Use less nerve when trying to escape from jail"
+                    ],
+                    "intelligence": [
+                        "70"
+                    ],
+                    "endurance": [
+                        "25"
+                    ]
                 },
-                "prerequisites": [88]
+                "prerequisites": [
+                    88
+                ]
             },
             "100": {
                 "name": "Media Law",
@@ -7414,11 +8253,19 @@
                 "tier": 2,
                 "duration": 1814400,
                 "results": {
-                    "perk": ["Gain an increase in advertising effectiveness for your company"],
-                    "intelligence": ["85"],
-                    "endurance": ["20"]
+                    "perk": [
+                        "Gain an increase in advertising effectiveness for your company"
+                    ],
+                    "intelligence": [
+                        "85"
+                    ],
+                    "endurance": [
+                        "20"
+                    ]
                 },
-                "prerequisites": [88]
+                "prerequisites": [
+                    88
+                ]
             },
             "101": {
                 "name": "Revenue Law",
@@ -7427,10 +8274,16 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "intelligence": ["175"],
-                    "endurance": ["40"]
+                    "intelligence": [
+                        "175"
+                    ],
+                    "endurance": [
+                        "40"
+                    ]
                 },
-                "prerequisites": [88]
+                "prerequisites": [
+                    88
+                ]
             },
             "102": {
                 "name": "Bachelor of Law",
@@ -7439,11 +8292,32 @@
                 "tier": 3,
                 "duration": 3628800,
                 "results": {
-                    "perk": ["Gain two bonuses: Busting is 50% easier and buying is 50% cheaper"],
-                    "intelligence": ["125"],
-                    "endurance": ["20"]
+                    "perk": [
+                        "Gain two bonuses: Busting is 50% easier and buying is 50% cheaper"
+                    ],
+                    "intelligence": [
+                        "125"
+                    ],
+                    "endurance": [
+                        "20"
+                    ]
                 },
-                "prerequisites": [88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101]
+                "prerequisites": [
+                    88,
+                    89,
+                    90,
+                    91,
+                    92,
+                    93,
+                    94,
+                    95,
+                    96,
+                    97,
+                    98,
+                    99,
+                    100,
+                    101
+                ]
             },
             "103": {
                 "name": "Introduction to Health and Fitness",
@@ -7452,8 +8326,12 @@
                 "tier": 1,
                 "duration": 604800,
                 "results": {
-                    "manual_labor": ["75"],
-                    "endurance": ["15"]
+                    "manual_labor": [
+                        "75"
+                    ],
+                    "endurance": [
+                        "15"
+                    ]
                 },
                 "prerequisites": []
             },
@@ -7464,11 +8342,19 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "perk": ["Gain a 1% passive bonus to dexterity"],
-                    "manual_labor": ["65"],
-                    "endurance": ["20"]
+                    "perk": [
+                        "Gain a 1% passive bonus to dexterity"
+                    ],
+                    "manual_labor": [
+                        "65"
+                    ],
+                    "endurance": [
+                        "20"
+                    ]
                 },
-                "prerequisites": [103]
+                "prerequisites": [
+                    103
+                ]
             },
             "105": {
                 "name": "Acrobatics",
@@ -7477,11 +8363,19 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "perk": ["Gain a 1% passive bonus to speed"],
-                    "manual_labor": ["65"],
-                    "endurance": ["15"]
+                    "perk": [
+                        "Gain a 1% passive bonus to speed"
+                    ],
+                    "manual_labor": [
+                        "65"
+                    ],
+                    "endurance": [
+                        "15"
+                    ]
                 },
-                "prerequisites": [103]
+                "prerequisites": [
+                    103
+                ]
             },
             "106": {
                 "name": "Power Lifting",
@@ -7490,11 +8384,19 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "perk": ["Gain a 1% passive bonus to strength"],
-                    "manual_labor": ["125"],
-                    "endurance": ["25"]
+                    "perk": [
+                        "Gain a 1% passive bonus to strength"
+                    ],
+                    "manual_labor": [
+                        "125"
+                    ],
+                    "endurance": [
+                        "25"
+                    ]
                 },
-                "prerequisites": [103]
+                "prerequisites": [
+                    103
+                ]
             },
             "107": {
                 "name": "Yoga",
@@ -7503,11 +8405,19 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "perk": ["Gain a 2% passive bonus to strength"],
-                    "manual_labor": ["75"],
-                    "endurance": ["45"]
+                    "perk": [
+                        "Gain a 2% passive bonus to strength"
+                    ],
+                    "manual_labor": [
+                        "75"
+                    ],
+                    "endurance": [
+                        "45"
+                    ]
                 },
-                "prerequisites": [103]
+                "prerequisites": [
+                    103
+                ]
             },
             "108": {
                 "name": "Swimming",
@@ -7516,11 +8426,19 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "perk": ["Gain a 1% passive bonus to dexterity"],
-                    "manual_labor": ["95"],
-                    "endurance": ["25"]
+                    "perk": [
+                        "Gain a 1% passive bonus to dexterity"
+                    ],
+                    "manual_labor": [
+                        "95"
+                    ],
+                    "endurance": [
+                        "25"
+                    ]
                 },
-                "prerequisites": [103]
+                "prerequisites": [
+                    103
+                ]
             },
             "109": {
                 "name": "Marathon Training",
@@ -7529,11 +8447,19 @@
                 "tier": 2,
                 "duration": 2419200,
                 "results": {
-                    "perk": ["Gain a 3% passive bonus to speed"],
-                    "manual_labor": ["150"],
-                    "endurance": ["75"]
+                    "perk": [
+                        "Gain a 3% passive bonus to speed"
+                    ],
+                    "manual_labor": [
+                        "150"
+                    ],
+                    "endurance": [
+                        "75"
+                    ]
                 },
-                "prerequisites": [103]
+                "prerequisites": [
+                    103
+                ]
             },
             "110": {
                 "name": "Sailing",
@@ -7542,10 +8468,16 @@
                 "tier": 2,
                 "duration": 1814400,
                 "results": {
-                    "manual_labor": ["65"],
-                    "endurance": ["45"]
+                    "manual_labor": [
+                        "65"
+                    ],
+                    "endurance": [
+                        "45"
+                    ]
                 },
-                "prerequisites": [103]
+                "prerequisites": [
+                    103
+                ]
             },
             "111": {
                 "name": "Bachelor of Health Sciences",
@@ -7554,12 +8486,29 @@
                 "tier": 3,
                 "duration": 3024000,
                 "results": {
-                    "perk": ["Gain a 25% increase in speed during an opponent's escape attempt"],
-                    "manual_labor": ["75"],
-                    "intelligence": ["20"],
-                    "endurance": ["65"]
+                    "perk": [
+                        "Gain a 25% increase in speed during an opponent's escape attempt"
+                    ],
+                    "manual_labor": [
+                        "75"
+                    ],
+                    "intelligence": [
+                        "20"
+                    ],
+                    "endurance": [
+                        "65"
+                    ]
                 },
-                "prerequisites": [103, 104, 105, 106, 107, 108, 109, 110]
+                "prerequisites": [
+                    103,
+                    104,
+                    105,
+                    106,
+                    107,
+                    108,
+                    109,
+                    110
+                ]
             },
             "112": {
                 "name": "Introduction to General Studies",
@@ -7568,9 +8517,15 @@
                 "tier": 1,
                 "duration": 604800,
                 "results": {
-                    "manual_labor": ["25"],
-                    "intelligence": ["25"],
-                    "endurance": ["25"]
+                    "manual_labor": [
+                        "25"
+                    ],
+                    "intelligence": [
+                        "25"
+                    ],
+                    "endurance": [
+                        "25"
+                    ]
                 },
                 "prerequisites": []
             },
@@ -7581,12 +8536,22 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "perk": ["Gain access to driving related crimes"],
-                    "manual_labor": ["25"],
-                    "intelligence": ["35"],
-                    "endurance": ["10"]
+                    "perk": [
+                        "Gain access to driving related crimes"
+                    ],
+                    "manual_labor": [
+                        "25"
+                    ],
+                    "intelligence": [
+                        "35"
+                    ],
+                    "endurance": [
+                        "10"
+                    ]
                 },
-                "prerequisites": [112]
+                "prerequisites": [
+                    112
+                ]
             },
             "114": {
                 "name": "Astronomy",
@@ -7595,10 +8560,16 @@
                 "tier": 2,
                 "duration": 604800,
                 "results": {
-                    "intelligence": ["75"],
-                    "endurance": ["15"]
+                    "intelligence": [
+                        "75"
+                    ],
+                    "endurance": [
+                        "15"
+                    ]
                 },
-                "prerequisites": [112]
+                "prerequisites": [
+                    112
+                ]
             },
             "115": {
                 "name": "Mechanical Arts",
@@ -7607,11 +8578,19 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "manual_labor": ["45"],
-                    "intelligence": ["75"],
-                    "endurance": ["45"]
+                    "manual_labor": [
+                        "45"
+                    ],
+                    "intelligence": [
+                        "75"
+                    ],
+                    "endurance": [
+                        "45"
+                    ]
                 },
-                "prerequisites": [112]
+                "prerequisites": [
+                    112
+                ]
             },
             "116": {
                 "name": "General Mechanics",
@@ -7620,12 +8599,22 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "perk": ["Gain a +1.00 accuracy increase with Temporary weapons"],
-                    "manual_labor": ["25"],
-                    "intelligence": ["35"],
-                    "endurance": ["10"]
+                    "perk": [
+                        "Gain a +1.00 accuracy increase with Temporary weapons"
+                    ],
+                    "manual_labor": [
+                        "25"
+                    ],
+                    "intelligence": [
+                        "35"
+                    ],
+                    "endurance": [
+                        "10"
+                    ]
                 },
-                "prerequisites": [112]
+                "prerequisites": [
+                    112
+                ]
             },
             "117": {
                 "name": "Basic English",
@@ -7634,10 +8623,16 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "intelligence": ["75"],
-                    "endurance": ["15"]
+                    "intelligence": [
+                        "75"
+                    ],
+                    "endurance": [
+                        "15"
+                    ]
                 },
-                "prerequisites": [112]
+                "prerequisites": [
+                    112
+                ]
             },
             "118": {
                 "name": "Creative Writing",
@@ -7646,10 +8641,16 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "intelligence": ["85"],
-                    "endurance": ["20"]
+                    "intelligence": [
+                        "85"
+                    ],
+                    "endurance": [
+                        "20"
+                    ]
                 },
-                "prerequisites": [112]
+                "prerequisites": [
+                    112
+                ]
             },
             "119": {
                 "name": "General Science",
@@ -7658,11 +8659,19 @@
                 "tier": 2,
                 "duration": 1814400,
                 "results": {
-                    "perk": ["Gain a 5% damage increase with Temporary weapons"],
-                    "intelligence": ["100"],
-                    "endurance": ["20"]
+                    "perk": [
+                        "Gain a 5% damage increase with Temporary weapons"
+                    ],
+                    "intelligence": [
+                        "100"
+                    ],
+                    "endurance": [
+                        "20"
+                    ]
                 },
-                "prerequisites": [112]
+                "prerequisites": [
+                    112
+                ]
             },
             "120": {
                 "name": "Survival Skills",
@@ -7671,12 +8680,22 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "perk": ["Gain a 15% hunting bonus"],
-                    "manual_labor": ["75"],
-                    "intelligence": ["45"],
-                    "endurance": ["55"]
+                    "perk": [
+                        "Gain a 15% hunting bonus"
+                    ],
+                    "manual_labor": [
+                        "75"
+                    ],
+                    "intelligence": [
+                        "45"
+                    ],
+                    "endurance": [
+                        "55"
+                    ]
                 },
-                "prerequisites": [112]
+                "prerequisites": [
+                    112
+                ]
             },
             "121": {
                 "name": "Bachelor of General Studies",
@@ -7685,12 +8704,32 @@
                 "tier": 3,
                 "duration": 3628800,
                 "results": {
-                    "perk": ["Gain a 10% working stat increase bonus for all future educations that are completed"],
-                    "manual_labor": ["75"],
-                    "intelligence": ["25"],
-                    "endurance": ["35"]
+                    "perk": [
+                        "Gain a 10% working stat increase bonus for all future educations that are completed"
+                    ],
+                    "manual_labor": [
+                        "75"
+                    ],
+                    "intelligence": [
+                        "25"
+                    ],
+                    "endurance": [
+                        "35"
+                    ]
                 },
-                "prerequisites": [112, 113, 114, 115, 116, 117, 118, 119, 120, 122, 123]
+                "prerequisites": [
+                    112,
+                    113,
+                    114,
+                    115,
+                    116,
+                    117,
+                    118,
+                    119,
+                    120,
+                    122,
+                    123
+                ]
             },
             "122": {
                 "name": "Newtonian Physics",
@@ -7699,10 +8738,16 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "intelligence": ["125"],
-                    "endurance": ["25"]
+                    "intelligence": [
+                        "125"
+                    ],
+                    "endurance": [
+                        "25"
+                    ]
                 },
-                "prerequisites": [112]
+                "prerequisites": [
+                    112
+                ]
             },
             "123": {
                 "name": "Ivory Crafting",
@@ -7711,11 +8756,19 @@
                 "tier": 2,
                 "duration": 1814400,
                 "results": {
-                    "manual_labor": ["40"],
-                    "intelligence": ["60"],
-                    "endurance": ["20"]
+                    "manual_labor": [
+                        "40"
+                    ],
+                    "intelligence": [
+                        "60"
+                    ],
+                    "endurance": [
+                        "20"
+                    ]
                 },
-                "prerequisites": [112]
+                "prerequisites": [
+                    112
+                ]
             },
             "125": {
                 "name": "Study of Shotguns",
@@ -7724,11 +8777,19 @@
                 "tier": 2,
                 "duration": 1209600,
                 "results": {
-                    "perk": ["Gain a +1.00 accuracy increase with Shotguns"],
-                    "manual_labor": ["30"],
-                    "intelligence": ["70"]
+                    "perk": [
+                        "Gain a +1.00 accuracy increase with Shotguns"
+                    ],
+                    "manual_labor": [
+                        "30"
+                    ],
+                    "intelligence": [
+                        "70"
+                    ]
                 },
-                "prerequisites": [78]
+                "prerequisites": [
+                    78
+                ]
             },
             "126": {
                 "name": "Sports Administration",
@@ -7737,12 +8798,22 @@
                 "tier": 2,
                 "duration": 604800,
                 "results": {
-                    "perk": ["Unlock the sports shop"],
-                    "manual_labor": ["20"],
-                    "intelligence": ["5"],
-                    "endurance": ["30"]
+                    "perk": [
+                        "Unlock the sports shop"
+                    ],
+                    "manual_labor": [
+                        "20"
+                    ],
+                    "intelligence": [
+                        "5"
+                    ],
+                    "endurance": [
+                        "30"
+                    ]
                 },
-                "prerequisites": [43]
+                "prerequisites": [
+                    43
+                ]
             },
             "127": {
                 "name": "Intravenous Therapy",
@@ -7751,11 +8822,19 @@
                 "tier": 2,
                 "duration": 1814400,
                 "results": {
-                    "perk": ["Ability to withdraw and deliver blood"],
-                    "intelligence": ["40"],
-                    "endurance": ["35"]
+                    "perk": [
+                        "Ability to withdraw and deliver blood"
+                    ],
+                    "intelligence": [
+                        "40"
+                    ],
+                    "endurance": [
+                        "35"
+                    ]
                 },
-                "prerequisites": [34]
+                "prerequisites": [
+                    34
+                ]
             }
         }
     },
@@ -34775,7 +35854,10 @@
                 "cost": 5000,
                 "happy": 110,
                 "upkeep": 10,
-                "upgrades_available": ["Sufficient Interior Modification", "Superior Interior Modification"],
+                "upgrades_available": [
+                    "Sufficient Interior Modification",
+                    "Superior Interior Modification"
+                ],
                 "staff_available": []
             },
             "2": {
@@ -34783,7 +35865,10 @@
                 "cost": 25000,
                 "happy": 125,
                 "upkeep": 25,
-                "upgrades_available": ["Sufficient Interior Modification", "Superior Interior Modification"],
+                "upgrades_available": [
+                    "Sufficient Interior Modification",
+                    "Superior Interior Modification"
+                ],
                 "staff_available": []
             },
             "3": {
@@ -34791,7 +35876,12 @@
                 "cost": 75000,
                 "happy": 150,
                 "upkeep": 70,
-                "upgrades_available": ["Sufficient Interior Modification", "Superior Interior Modification", "Hot Tub", "Sauna"],
+                "upgrades_available": [
+                    "Sufficient Interior Modification",
+                    "Superior Interior Modification",
+                    "Hot Tub",
+                    "Sauna"
+                ],
                 "staff_available": []
             },
             "4": {
@@ -34873,7 +35963,10 @@
                     "Medium Pool",
                     "Large Pool"
                 ],
-                "staff_available": ["Maid", "Butler"]
+                "staff_available": [
+                    "Maid",
+                    "Butler"
+                ]
             },
             "9": {
                 "name": "Mansion",
@@ -34890,7 +35983,11 @@
                     "Medium Pool",
                     "Large Pool"
                 ],
-                "staff_available": ["Maid", "Butler", "Guard"]
+                "staff_available": [
+                    "Maid",
+                    "Butler",
+                    "Guard"
+                ]
             },
             "10": {
                 "name": "Ranch",
@@ -34908,7 +36005,11 @@
                     "Large Pool",
                     "Advanced Shooting Range"
                 ],
-                "staff_available": ["Maid", "Butler", "Guard"]
+                "staff_available": [
+                    "Maid",
+                    "Butler",
+                    "Guard"
+                ]
             },
             "11": {
                 "name": "Palace",
@@ -34929,7 +36030,11 @@
                     "Large Vault",
                     "Extra Large Vault"
                 ],
-                "staff_available": ["Maid", "Butler", "Guard"]
+                "staff_available": [
+                    "Maid",
+                    "Butler",
+                    "Guard"
+                ]
             },
             "12": {
                 "name": "Castle",
@@ -34952,7 +36057,12 @@
                     "Medical Facility",
                     "Advanced Shooting Range"
                 ],
-                "staff_available": ["Maid", "Butler", "Guard", "Doctor"]
+                "staff_available": [
+                    "Maid",
+                    "Butler",
+                    "Guard",
+                    "Doctor"
+                ]
             },
             "13": {
                 "name": "Private Island",
@@ -34977,7 +36087,13 @@
                     "Airstrip",
                     "Private Yacht"
                 ],
-                "staff_available": ["Maid", "Butler", "Guard", "Doctor", "Pilot"]
+                "staff_available": [
+                    "Maid",
+                    "Butler",
+                    "Guard",
+                    "Doctor",
+                    "Pilot"
+                ]
             },
             "14": {
                 "name": "Eagle Island",
@@ -35002,7 +36118,13 @@
                     "Airstrip",
                     "Private Yacht"
                 ],
-                "staff_available": ["Maid", "Butler", "Guard", "Doctor", "Pilot"]
+                "staff_available": [
+                    "Maid",
+                    "Butler",
+                    "Guard",
+                    "Doctor",
+                    "Pilot"
+                ]
             },
             "15": {
                 "name": "Silo X17",
@@ -35026,7 +36148,13 @@
                     "Advanced Shooting Range",
                     "Airstrip"
                 ],
-                "staff_available": ["Maid", "Butler", "Guard", "Doctor", "Pilot"]
+                "staff_available": [
+                    "Maid",
+                    "Butler",
+                    "Guard",
+                    "Doctor",
+                    "Pilot"
+                ]
             },
             "16": {
                 "name": "Drakkar Sea Fort",
@@ -35050,7 +36178,12 @@
                     "Advanced Shooting Range",
                     "Private Yacht"
                 ],
-                "staff_available": ["Maid", "Butler", "Guard", "Doctor"]
+                "staff_available": [
+                    "Maid",
+                    "Butler",
+                    "Guard",
+                    "Doctor"
+                ]
             },
             "17": {
                 "name": "Queen Eleanor",
@@ -35073,7 +36206,12 @@
                     "Medical Facility",
                     "Advanced Shooting Range"
                 ],
-                "staff_available": ["Maid", "Butler", "Guard", "Doctor"]
+                "staff_available": [
+                    "Maid",
+                    "Butler",
+                    "Guard",
+                    "Doctor"
+                ]
             },
             "18": {
                 "name": "Cerium Temple",
@@ -35096,7 +36234,12 @@
                     "Medical Facility",
                     "Advanced Shooting Range"
                 ],
-                "staff_available": ["Maid", "Butler", "Guard", "Doctor"]
+                "staff_available": [
+                    "Maid",
+                    "Butler",
+                    "Guard",
+                    "Doctor"
+                ]
             },
             "19": {
                 "name": "Trekant Tower",
@@ -35119,7 +36262,12 @@
                     "Medical Facility",
                     "Advanced Shooting Range"
                 ],
-                "staff_available": ["Maid", "Butler", "Guard", "Doctor"]
+                "staff_available": [
+                    "Maid",
+                    "Butler",
+                    "Guard",
+                    "Doctor"
+                ]
             },
             "20": {
                 "name": "Iron Fist Hill",
@@ -35143,7 +36291,13 @@
                     "Advanced Shooting Range",
                     "Airstrip"
                 ],
-                "staff_available": ["Maid", "Butler", "Guard", "Doctor", "Pilot"]
+                "staff_available": [
+                    "Maid",
+                    "Butler",
+                    "Guard",
+                    "Doctor",
+                    "Pilot"
+                ]
             },
             "21": {
                 "name": "USS Bloodbath",
@@ -35163,7 +36317,12 @@
                     "Medical Facility",
                     "Advanced Shooting Range"
                 ],
-                "staff_available": ["Maid", "Butler", "Guard", "Doctor"]
+                "staff_available": [
+                    "Maid",
+                    "Butler",
+                    "Guard",
+                    "Doctor"
+                ]
             },
             "22": {
                 "name": "Royal Penthouse",
@@ -35186,7 +36345,12 @@
                     "Medical Facility",
                     "Advanced Shooting Range"
                 ],
-                "staff_available": ["Maid", "Butler", "Guard", "Doctor"]
+                "staff_available": [
+                    "Maid",
+                    "Butler",
+                    "Guard",
+                    "Doctor"
+                ]
             },
             "23": {
                 "name": "Presidential Bunker",
@@ -35210,7 +36374,13 @@
                     "Advanced Shooting Range",
                     "Airstrip"
                 ],
-                "staff_available": ["Maid", "Butler", "Guard", "Doctor", "Pilot"]
+                "staff_available": [
+                    "Maid",
+                    "Butler",
+                    "Guard",
+                    "Doctor",
+                    "Pilot"
+                ]
             },
             "24": {
                 "name": "Maidengrave",
@@ -35234,7 +36404,13 @@
                     "Advanced Shooting Range",
                     "Airstrip"
                 ],
-                "staff_available": ["Maid", "Butler", "Guard", "Doctor", "Pilot"]
+                "staff_available": [
+                    "Maid",
+                    "Butler",
+                    "Guard",
+                    "Doctor",
+                    "Pilot"
+                ]
             },
             "25": {
                 "name": "St. Pauls Abbey",
@@ -35257,7 +36433,12 @@
                     "Medical Facility",
                     "Advanced Shooting Range"
                 ],
-                "staff_available": ["Maid", "Butler", "Guard", "Doctor"]
+                "staff_available": [
+                    "Maid",
+                    "Butler",
+                    "Guard",
+                    "Doctor"
+                ]
             }
         }
     },
@@ -38201,7 +39382,19 @@
                 "faction": 7969,
                 "coordinate_x": "5480.74",
                 "coordinate_y": "663.71",
-                "neighbors": ["RAC", "YBC", "ZBC", "UCC", "KCC", "VDC", "TTE", "NME", "OME", "NFG", "QFG"]
+                "neighbors": [
+                    "RAC",
+                    "YBC",
+                    "ZBC",
+                    "UCC",
+                    "KCC",
+                    "VDC",
+                    "TTE",
+                    "NME",
+                    "OME",
+                    "NFG",
+                    "QFG"
+                ]
             },
             "CAA": {
                 "sector": 6,
@@ -38212,12 +39405,25 @@
                 "faction": 8989,
                 "coordinate_x": "592.37",
                 "coordinate_y": "367.33",
-                "neighbors": ["KTB", "MTB", "NUB", "OUB", "PUB", "MUB", "NVB", "OVB"]
+                "neighbors": [
+                    "KTB",
+                    "MTB",
+                    "NUB",
+                    "OUB",
+                    "PUB",
+                    "MUB",
+                    "NVB",
+                    "OVB"
+                ]
             }
         }
     },
     "torn_territorynames": {
-        "territorynames": ["tn1", "tn2", "tn3"]
+        "territorynames": [
+            "tn1",
+            "tn2",
+            "tn3"
+        ]
     },
     "torn_territorywars": {
         "territorywars": {
@@ -38247,8 +39453,15 @@
                 "required_score": 1300000,
                 "started": 1696126178,
                 "ends": 1696385378,
-                "assaulters": [3917189, 4969998],
-                "defenders": [1917189, 2969998, 2416494]
+                "assaulters": [
+                    3917189,
+                    4969998
+                ],
+                "defenders": [
+                    1917189,
+                    2969998,
+                    2416494
+                ]
             },
             "YQF": {
                 "assaulting_faction": 10960,
@@ -38321,8 +39534,24 @@
             "property_type": 13,
             "happy": 4500,
             "upkeep": 100000,
-            "upgrades": ["Superior interior", "Large pool", "Large vault", "Hottub", "Sauna", "Bar", "Shooting range", "Medical facility", "Airstrip"],
-            "staff": ["5x Maid service", "3x Butler service", "10x Guards", "Doctor", "Pilot"],
+            "upgrades": [
+                "Superior interior",
+                "Large pool",
+                "Large vault",
+                "Hottub",
+                "Sauna",
+                "Bar",
+                "Shooting range",
+                "Medical facility",
+                "Airstrip"
+            ],
+            "staff": [
+                "5x Maid service",
+                "3x Butler service",
+                "10x Guards",
+                "Doctor",
+                "Pilot"
+            ],
             "rented": {
                 "user_id": 2487726,
                 "days_left": 54,
@@ -41209,7 +42438,11 @@
         }
     },
     "faction_crimeexp": {
-        "crimeexp": [1, 3, 2]
+        "crimeexp": [
+            1,
+            3,
+            2
+        ]
     },
     "faction_crimenews": {
         "crimenews": {
@@ -42351,11 +43584,40 @@
         "name": "Mudbottom",
         "property_id": 487997,
         "revivable": 0,
-        "life": { "current": 7500, "maximum": 7500, "increment": 450, "interval": 300, "ticktime": 271, "fulltime": 0 },
-        "status": { "description": "Okay", "details": "", "state": "Okay", "color": "green", "until": 0 },
-        "job": { "job": "Director", "position": "Employee", "company_id": 92523, "company_name": "Lawyers, Guns, and Money", "company_type": 2 },
-        "faction": { "position": "Bluesman", "faction_id": 13274, "days_in_faction": 1468, "faction_name": "SPECTRE", "faction_tag": "SPCR" },
-        "married": { "spouse_id": 1886602, "spouse_name": "Althea", "duration": 2776 },
+        "life": {
+            "current": 7500,
+            "maximum": 7500,
+            "increment": 450,
+            "interval": 300,
+            "ticktime": 271,
+            "fulltime": 0
+        },
+        "status": {
+            "description": "Okay",
+            "details": "",
+            "state": "Okay",
+            "color": "green",
+            "until": 0
+        },
+        "job": {
+            "job": "Director",
+            "position": "Employee",
+            "company_id": 92523,
+            "company_name": "Lawyers, Guns, and Money",
+            "company_type": 2
+        },
+        "faction": {
+            "position": "Bluesman",
+            "faction_id": 13274,
+            "days_in_faction": 1468,
+            "faction_name": "SPECTRE",
+            "faction_tag": "SPCR"
+        },
+        "married": {
+            "spouse_id": 1886602,
+            "spouse_name": "Althea",
+            "duration": 2776
+        },
         "basicicons": {
             "icon5": "Level 100",
             "icon6": "Male",
@@ -42364,9 +43626,22 @@
             "icon27": "Company - Attorney of Lawyers, Guns, and Money (Law Firm)",
             "icon9": "Faction - Bluesman of SPECTRE"
         },
-        "states": { "hospital_timestamp": 0, "jail_timestamp": 0 },
-        "last_action": { "status": "Online", "timestamp": 1663183762, "relative": "1 minute ago" },
-        "competition": { "name": "Elimination", "score": 0, "team": "laughing-stock", "teamName": "laughing-stock", "attacks": 75 }
+        "states": {
+            "hospital_timestamp": 0,
+            "jail_timestamp": 0
+        },
+        "last_action": {
+            "status": "Online",
+            "timestamp": 1663183762,
+            "relative": "1 minute ago"
+        },
+        "competition": {
+            "name": "Elimination",
+            "score": 0,
+            "team": "laughing-stock",
+            "teamName": "laughing-stock",
+            "attacks": 75
+        }
     },
     "user_properties": {
         "properties": {
@@ -42451,131 +43726,260 @@
         "player_id": 1575
     },
     "api_key_info": {
-        "access_level": 4,
-        "access_type": "Full Access",
-        "selections": {
-            "company": ["applications", "companies", "detailed", "employees", "news", "newsfull", "profile", "stock", "timestamp", "lookup"],
-            "faction": [
-                "applications",
-                "armor",
-                "armorynews",
-                "attacknews",
-                "attacks",
-                "attacksfull",
-                "basic",
-                "boosters",
-                "cesium",
-                "chain",
-                "chainreport",
-                "chains",
-                "contributors",
-                "crimenews",
-                "crimes",
-                "currency",
-                "donations",
-                "drugs",
-                "fundsnews",
-                "mainnews",
-                "medical",
-                "membershipnews",
-                "positions",
-                "reports",
-                "revives",
-                "revivesfull",
-                "stats",
-                "temporary",
-                "territory",
-                "territorynews",
-                "timestamp",
-                "upgrades",
-                "weapons",
-                "lookup",
-                "crimeexp"
-            ],
-            "market": ["bazaar", "itemmarket", "pointsmarket", "timestamp", "lookup"],
-            "property": ["property", "timestamp", "lookup"],
-            "torn": [
-                "bank",
-                "cards",
-                "chainreport",
-                "companies",
-                "competition",
-                "education",
-                "factiontree",
-                "gyms",
-                "honors",
-                "items",
-                "itemstats",
-                "logcategories",
-                "logtypes",
-                "medals",
-                "organisedcrimes",
-                "pawnshop",
-                "pokertables",
-                "properties",
-                "rackets",
-                "raids",
-                "rankedwars",
-                "rankedwarreport",
-                "stats",
-                "stocks",
-                "territory",
-                "territorywars",
-                "timestamp",
-                "lookup",
-                "cityshops",
-                "itemdetails",
-                "territorynames"
-            ],
-            "user": [
-                "ammo",
-                "attacks",
-                "attacksfull",
-                "bars",
-                "basic",
-                "battlestats",
-                "bazaar",
-                "cooldowns",
-                "crimes",
-                "discord",
-                "display",
-                "education",
-                "events",
-                "gym",
-                "hof",
-                "honors",
-                "icons",
-                "inventory",
-                "jobpoints",
-                "log",
-                "medals",
-                "merits",
-                "messages",
-                "missions",
-                "money",
-                "networth",
-                "newevents",
-                "newmessages",
-                "notifications",
-                "perks",
-                "personalstats",
-                "profile",
-                "properties",
-                "receivedevents",
-                "refills",
-                "reports",
-                "revives",
-                "revivesfull",
-                "skills",
-                "stocks",
-                "timestamp",
-                "travel",
-                "weaponexp",
-                "workstats",
-                "lookup",
-                "publicstatus"
-            ],
-            "key": ["info"]
+        "info": {
+            "selections": {
+                "company": [
+                    "applications",
+                    "companies",
+                    "detailed",
+                    "employees",
+                    "news",
+                    "profile",
+                    "stock",
+                    "timestamp",
+                    "lookup"
+                ],
+                "faction": [
+                    "applications",
+                    "armor",
+                    "armorynews",
+                    "attacknews",
+                    "attacks",
+                    "attacksfull",
+                    "basic",
+                    "boosters",
+                    "cesium",
+                    "chain",
+                    "chainreport",
+                    "chains",
+                    "contributors",
+                    "crimenews",
+                    "crimes",
+                    "currency",
+                    "donations",
+                    "drugs",
+                    "fundsnews",
+                    "mainnews",
+                    "medical",
+                    "membershipnews",
+                    "positions",
+                    "reports",
+                    "revives",
+                    "revivesfull",
+                    "stats",
+                    "temporary",
+                    "territory",
+                    "rankedwars",
+                    "territorynews",
+                    "timestamp",
+                    "upgrades",
+                    "weapons",
+                    "lookup",
+                    "caches",
+                    "crimeexp",
+                    "hof",
+                    "members",
+                    "wars",
+                    "news",
+                    "rankedwarreport",
+                    "crime",
+                    "balance",
+                    "territoryownership",
+                    "rackets",
+                    "territorywarreport",
+                    "territorywars",
+                    "search",
+                    "warfare",
+                    "raids",
+                    "raidreport"
+                ],
+                "market": [
+                    "bazaar",
+                    "itemmarket",
+                    "pointsmarket",
+                    "timestamp",
+                    "lookup",
+                    "properties",
+                    "rentals"
+                ],
+                "property": [
+                    "property",
+                    "timestamp",
+                    "lookup"
+                ],
+                "torn": [
+                    "bank",
+                    "cards",
+                    "chainreport",
+                    "companies",
+                    "competition",
+                    "education",
+                    "factiontree",
+                    "gyms",
+                    "honors",
+                    "items",
+                    "itemstats",
+                    "logcategories",
+                    "logtypes",
+                    "medals",
+                    "organisedcrimes",
+                    "pawnshop",
+                    "pokertables",
+                    "properties",
+                    "rackets",
+                    "raids",
+                    "dirtybombs",
+                    "rankedwars",
+                    "rankedwarreport",
+                    "territorywarreport",
+                    "raidreport",
+                    "stats",
+                    "stocks",
+                    "territory",
+                    "territorywars",
+                    "timestamp",
+                    "lookup",
+                    "cityshops",
+                    "itemdetails",
+                    "territorynames",
+                    "searchforcash",
+                    "shoplifting",
+                    "rockpaperscissors",
+                    "crimes",
+                    "subcrimes",
+                    "calendar",
+                    "hof",
+                    "factionhof",
+                    "bounties",
+                    "attacklog",
+                    "itemmods",
+                    "itemammo",
+                    "organizedcrimes"
+                ],
+                "user": [
+                    "ammo",
+                    "attacks",
+                    "attacksfull",
+                    "bars",
+                    "basic",
+                    "battlestats",
+                    "bazaar",
+                    "cooldowns",
+                    "crimes",
+                    "discord",
+                    "display",
+                    "education",
+                    "events",
+                    "gym",
+                    "hof",
+                    "honors",
+                    "icons",
+                    "inventory",
+                    "equipment",
+                    "jobpoints",
+                    "medals",
+                    "merits",
+                    "messages",
+                    "missions",
+                    "money",
+                    "networth",
+                    "newevents",
+                    "newmessages",
+                    "notifications",
+                    "perks",
+                    "personalstats",
+                    "profile",
+                    "properties",
+                    "refills",
+                    "reports",
+                    "revives",
+                    "revivesfull",
+                    "skills",
+                    "stocks",
+                    "timestamp",
+                    "travel",
+                    "weaponexp",
+                    "workstats",
+                    "lookup",
+                    "publicstatus",
+                    "criminalrecord",
+                    "enlistedcars",
+                    "races",
+                    "forumposts",
+                    "forumsubscribedthreads",
+                    "forumthreads",
+                    "forumfeed",
+                    "forumfriends",
+                    "calendar",
+                    "bounties",
+                    "jobranks",
+                    "itemmarket",
+                    "organizedcrime",
+                    "factionbalance",
+                    "list",
+                    "property",
+                    "racingrecords"
+                ],
+                "racing": [
+                    "cars",
+                    "carupgrades",
+                    "tracks",
+                    "races",
+                    "race",
+                    "records",
+                    "timestamp",
+                    "lookup"
+                ],
+                "forum": [
+                    "categories",
+                    "threads",
+                    "thread",
+                    "posts",
+                    "timestamp",
+                    "lookup"
+                ],
+                "key": [
+                    "info",
+                    "log"
+                ]
+            },
+            "access": {
+                "level": 3,
+                "type": "Limited Access",
+                "faction": true,
+                "faction_id": 10610,
+                "company": true,
+                "company_id": 116294,
+                "log": {
+                    "custom_permissions": false,
+                    "available": []
+                }
+            },
+            "user": {
+                "id": 2491575,
+                "faction_id": 10610,
+                "company_id": 116294
+            }
         }
+    },
+    "api_key_log": {
+        "log": [
+            {
+                "timestamp": 1754689027,
+                "type": "key",
+                "selections": "info",
+                "id": null,
+                "ip": "73.xxx.xxx.70",
+                "comment": null
+            },
+            {
+                "timestamp": 1754680210,
+                "type": "user",
+                "selections": "bars,cooldowns,icons,refills",
+                "id": 2491575,
+                "ip": "45.xxx.xxx.19",
+                "comment": null
+            }
+        ]
     }
 }
