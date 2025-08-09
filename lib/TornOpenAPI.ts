@@ -4,7 +4,7 @@
  */
 
 export interface paths {
-    '/forum/?selections=categories': {
+    "/user/attacks": {
         parameters: {
             query?: never;
             header?: never;
@@ -12,32 +12,10 @@ export interface paths {
             cookie?: never;
         };
         /**
-         * Get a list of publicly available forum categories
-         * @description It is possible to get threads from returned public categories
+         * Get your detailed attacks
+         * @description Requires limited access key. <br>
          */
-        get: {
-            parameters: {
-                query: {
-                    /** @description API key (Public) */
-                    key: string;
-                };
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description Successful operation */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        'application/json': components['schemas']['ForumCategories'];
-                    };
-                };
-            };
-        };
+        get: operations["3acc98a3016974b786cb01e04e1ced04"];
         put?: never;
         post?: never;
         delete?: never;
@@ -46,7 +24,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    '/forum/?selections=threads': {
+    "/user/attacksfull": {
         parameters: {
             query?: never;
             header?: never;
@@ -54,43 +32,10 @@ export interface paths {
             cookie?: never;
         };
         /**
-         * Get threads
-         * @description Returns a list of threads for the chosen forum category (or categories)
+         * Get your simplified attacks
+         * @description Requires limited access key. <br>Returns up to 1,000 rows. <br>
          */
-        get: {
-            parameters: {
-                query: {
-                    /** @description API key (Public) */
-                    key: string;
-                    limit?: number;
-                    /** @description Sorted by the greatest of first_post_time and last_post_time timestamps */
-                    sort?: 'DESC' | 'ASC';
-                    /** @description Returns threads created before this timestamp */
-                    to?: number;
-                    /** @description Returns threads created after this timestamp */
-                    from?: number;
-                    /** @description The forum ID or a list of forum IDs */
-                    id?: components['schemas']['ForumId'][];
-                };
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description Successful operation */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        'application/json': {
-                            threads?: components['schemas']['ForumThreadBase'][];
-                        };
-                    };
-                };
-            };
-        };
+        get: operations["e995691fd9845c8b4a91f065ac9c8420"];
         put?: never;
         post?: never;
         delete?: never;
@@ -99,7 +44,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    '/forum/?selections=thread': {
+    "/user/bounties": {
         parameters: {
             query?: never;
             header?: never;
@@ -107,36 +52,10 @@ export interface paths {
             cookie?: never;
         };
         /**
-         * Get specific thread details
-         * @description Return the details of a thread including topic content and poll (if any).
+         * Get bounties placed on you
+         * @description Requires public access key. <br>
          */
-        get: {
-            parameters: {
-                query: {
-                    /** @description API key (Public) */
-                    key: string;
-                    /** @description Thread id */
-                    id: components['schemas']['ForumThreadId'];
-                };
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description Successful operation */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        'application/json': {
-                            thread?: components['schemas']['ForumThreadExtended'];
-                        };
-                    };
-                };
-            };
-        };
+        get: operations["c85fd102a25aaec3aa98611d0da6c219"];
         put?: never;
         post?: never;
         delete?: never;
@@ -145,7 +64,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    '/forum/?selections=posts': {
+    "/user/{id}/bounties": {
         parameters: {
             query?: never;
             header?: never;
@@ -153,40 +72,10 @@ export interface paths {
             cookie?: never;
         };
         /**
-         * Get specific thread posts
-         * @description Returns 20 posts per page for the specific thread.
+         * Get bounties placed on a specific user
+         * @description Requires public access key. <br>
          */
-        get: {
-            parameters: {
-                query: {
-                    /** @description API key (Public) */
-                    key: string;
-                    offset?: number;
-                    /** @description Determines if the 'content' field returns raw HTML or plain text */
-                    cat?: 'raw' | 'plain';
-                    /** @description Thread id */
-                    id: components['schemas']['ForumThreadId'];
-                };
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description Successful operation */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        'application/json': {
-                            posts?: components['schemas']['ForumPost'][];
-                            _links?: components['schemas']['RequestLinks'];
-                        };
-                    };
-                };
-            };
-        };
+        get: operations["eb5eca5c6b978ee23ef74035c14ff4cc"];
         put?: never;
         post?: never;
         delete?: never;
@@ -195,7 +84,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    '/racing/?selections=races': {
+    "/user/calendar": {
         parameters: {
             query?: never;
             header?: never;
@@ -203,41 +92,10 @@ export interface paths {
             cookie?: never;
         };
         /**
-         * Get races
-         * @description Returns a list of races, ordered by race start timestamp
+         * Get your competition's event start time
+         * @description Requires minimal access key. <br>Only available to yourself.
          */
-        get: {
-            parameters: {
-                query: {
-                    /** @description API key (Public) */
-                    key: string;
-                    limit?: number;
-                    /** @description Sorted by schedule.start field */
-                    sort?: 'DESC' | 'ASC';
-                    /** @description Timestamp until when started races are returned (schedule.start) */
-                    to?: number;
-                    /** @description Timestamp after when started races are returned (scheduled.start) */
-                    from?: number;
-                    /** @description Category of races returned */
-                    cat?: 'official' | 'custom';
-                };
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description Successful operation */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        'application/json': components['schemas']['Races'];
-                    };
-                };
-            };
-        };
+        get: operations["4cc4cc6fa3764f9732db9589e91d7739"];
         put?: never;
         post?: never;
         delete?: never;
@@ -246,7 +104,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    '/racing/?selections=records': {
+    "/user/{crimeId}/crimes": {
         parameters: {
             query?: never;
             header?: never;
@@ -254,36 +112,10 @@ export interface paths {
             cookie?: never;
         };
         /**
-         * Get track records
-         * @description Returns a list of 10 best lap records for the chosen track and car class. Results are cached globally 1 hour
+         * Get your crime statistics
+         * @description Requires minimal access key. <br>Return the details and statistics about for a specific crime.
          */
-        get: {
-            parameters: {
-                query: {
-                    /** @description API key (Public) */
-                    key: string;
-                    /** @description Track id */
-                    id: components['schemas']['RaceTrackId'];
-                    /** @description Car class */
-                    cat: components['schemas']['RaceClassEnum'];
-                };
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description Successful operation */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        'application/json': components['schemas']['RaceRecords'];
-                    };
-                };
-            };
-        };
+        get: operations["37f1e394f9d6e3f6fd436fae3e9b9ac4"];
         put?: never;
         post?: never;
         delete?: never;
@@ -292,7 +124,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    '/racing/?selections=race': {
+    "/user/education": {
         parameters: {
             query?: never;
             header?: never;
@@ -300,34 +132,10 @@ export interface paths {
             cookie?: never;
         };
         /**
-         * Get specific race details
-         * @description Return the details of a race.
+         * Get your education information
+         * @description The response contains a list of complete eduactions and of a current education (if any).
          */
-        get: {
-            parameters: {
-                query: {
-                    /** @description API key (Public) */
-                    key: string;
-                    /** @description Race id */
-                    id: components['schemas']['RaceId'];
-                };
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description Successful operation */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        'application/json': components['schemas']['RaceDetails'];
-                    };
-                };
-            };
-        };
+        get: operations["fddc6adc5139d8a1e0a151d80816dba7"];
         put?: never;
         post?: never;
         delete?: never;
@@ -336,361 +144,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    '/racing/?selections=cars': {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get cars and their racing stats
-         * @description Return the stat details about racing cars.
-         */
-        get: {
-            parameters: {
-                query: {
-                    /** @description API key (Public) */
-                    key: string;
-                };
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description Successful operation */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        'application/json': components['schemas']['RaceCars'];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    '/racing/?selections=tracks': {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get race tracks and descriptions
-         * @description Return the details about racing tracks.
-         */
-        get: {
-            parameters: {
-                query: {
-                    /** @description API key (Public) */
-                    key: string;
-                };
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description Successful operation */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        'application/json': components['schemas']['RaceTracks'];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    '/racing/?selections=carupgrades': {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get all possible car upgrades
-         * @description Return the details about all possible car upgrades.
-         */
-        get: {
-            parameters: {
-                query: {
-                    /** @description API key (Public) */
-                    key: string;
-                };
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description Successful operation */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        'application/json': components['schemas']['RaceCarUpgrades'];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    '/torn/?selections=subcrimes': {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get Subcrimes information
-         * @description Return the details about possible actions for a specific crime.
-         */
-        get: {
-            parameters: {
-                query: {
-                    /** @description API key (Public) */
-                    key: string;
-                    /** @description Crime id */
-                    id: string;
-                };
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description Successful operation */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        'application/json': components['schemas']['TornSubcrimes'];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    '/torn/?selections=crimes': {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get crimes information
-         * @description Return the details about released crimes.
-         */
-        get: {
-            parameters: {
-                query: {
-                    /** @description API key (Public) */
-                    key: string;
-                };
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description Successful operation */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        'application/json': components['schemas']['TornCrimes'];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    '/torn/?selections=calendar': {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get calendar information
-         * @description Get the details about competitions & events in the running year.
-         */
-        get: {
-            parameters: {
-                query: {
-                    /** @description API key (Public) */
-                    key: string;
-                };
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description Success */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        'application/json': {
-                            calendar?: {
-                                competitions?: components['schemas']['TornCalendarActivity'][];
-                                events?: components['schemas']['TornCalendarActivity'][];
-                            };
-                        };
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    '/user/?selections=crimes': {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get user's crime statistics
-         * @description Return the details and statistics about a user's specific crime.
-         */
-        get: {
-            parameters: {
-                query: {
-                    /** @description API key (Minimal) */
-                    key: string;
-                    /** @description Crime id */
-                    id: string;
-                };
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description Successful operation */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        'application/json': components['schemas']['UserCrimeDetails'];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    '/user/?selections=races': {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get user races
-         * @description Returns a list of user races, ordered by race start timestamp
-         */
-        get: {
-            parameters: {
-                query: {
-                    /** @description API key (Minimal) */
-                    key: string;
-                    limit?: number;
-                    /** @description Sorted by schedule.start field */
-                    sort?: 'DESC' | 'ASC';
-                    /** @description Timestamp until when started races are returned (schedule.start) */
-                    to?: number;
-                    /** @description Timestamp after when started races are returned (scheduled.start) */
-                    from?: number;
-                    /** @description Category of races returned */
-                    cat?: 'official' | 'custom';
-                };
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description Successful operation */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        'application/json': components['schemas']['RaceDetails'];
-                    };
-                };
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    '/user/?selections=enlistedcars': {
+    "/user/enlistedcars": {
         parameters: {
             query?: never;
             header?: never;
@@ -699,31 +153,2602 @@ export interface paths {
         };
         /**
          * Get user enlisted cars
-         * @description Returns a list of all user enlisted cars
+         * @description Requires minimal access key. <br>Returns a list of all user enlisted cars.
          */
-        get: {
-            parameters: {
-                query: {
-                    /** @description API key (Minimal) */
-                    key: string;
-                };
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description Successful operation */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        'application/json': components['schemas']['UserRaceCarDetails'];
-                    };
-                };
-            };
+        get: operations["dc3deee7629610931240be337c47a8ee"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/user/factionbalance": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
         };
+        /**
+         * Get your current faction balance
+         * @description Requires limited access key. <br>
+         */
+        get: operations["b7ebbeea51dc2ef56c3ed5fd9d94e680"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/user/forumfeed": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get updates on your threads and posts
+         * @description Requires minimal access key. <br>This selection returns data visible in 'Feed' section on forum page. Feed is sorted by timestamp descending. Only a maximum of 100 rows are returned.
+         */
+        get: operations["17f99b99fac9601887dd1d001b95bb08"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/user/forumfriends": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get updates on your friends' activity
+         * @description Requires minimal access key. <br>This selection returns data visible in 'Friends' section on forum page. Feed is sorted by timestamp descending. Only a maximum of 100 rows are returned.
+         */
+        get: operations["2ceb7f08dc5f06a01d1fbe50425414c1"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/user/forumposts": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get your posts
+         * @description Requires public access key. <br>Returns 20 posts per page.
+         */
+        get: operations["cc3a21ed98c1a80ffeeda4e33c75b9a0"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/user/{id}/forumposts": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get posts for a specific player
+         * @description Requires public access key. <br>Returns 20 posts per page for a specific player.
+         */
+        get: operations["423ceffcad89f9ee7abfb85bed32b692"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/user/forumsubscribedthreads": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get updates on threads you subscribed to
+         * @description Requires minimal access key. <br>This selection returns data visible in 'Subscribed Threads' section on forum page. Threads are sorted in the same way as on site.
+         */
+        get: operations["92c7e86065c3d18b000e825aa6688eed"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/user/forumthreads": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get your threads
+         * @description Requires public access key. <br>Returns 100 threads per page. The field 'new_posts' is also available, indicating the amount of unread posts with a Minimum API key (or higher).
+         */
+        get: operations["807adc6a64d86e07d629a15dde8c6105"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/user/{id}/forumthreads": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get threads for a specific player
+         * @description Requires public access key. <br>Returns 100 threads per page for a specific player. When requesting data for the key owner, a field 'new_posts' is also available, indicating the amount of unread posts. Minimum API key is required for that.
+         */
+        get: operations["481c6645dae298b54f0630ef7de81dba"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/user/hof": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get your hall of fame rankings
+         * @description Requires public access key. <br>When requesting selection with Limited, Full or Custom key, battle_stats selection will be populated.
+         */
+        get: operations["959a3a302d736b416ec1edd4def8fe91"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/user/{id}/hof": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get hall of fame rankings for a specific player
+         * @description Requires public access key. <br>The battle_stats selection will be populated only when requesting selection with Limited, Full or Custom key and for yourself.
+         */
+        get: operations["f86d41c9434e42d22f9ff46ecc4e5b88"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/user/itemmarket": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get your item market listings for a specific item
+         * @description Requires limited access key. <br>
+         */
+        get: operations["8fcbe4dcf8a3a28e31e2eaab877feea1"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/user/jobranks": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get your starter job positions
+         * @description Requires minimal access key. <br>
+         */
+        get: operations["facf1ddeef80a440229941f49aec6ccc"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/user/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get your friends, enemies or targets list
+         * @description Requires limited access key. <br>
+         */
+        get: operations["e93ba44fcc7ad2eb3063dec7469ee2f6"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/user/log": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get your logs
+         * @description Requires limited access key. <br> It's possible to pass a list of log ids or a log category id.<br>
+         */
+        get: operations["f354f40bc5d6cbadf57fdecb453c976f"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/user/organizedcrime": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get your current ongoing organized crime
+         * @description Requires minimal access key. <br>
+         */
+        get: operations["3c6f8acbfcb398592e3f3b65ab91a40f"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/user/personalstats": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get your personal stats
+         * @description Requires public access key. <br>
+         *      * UserPersonalStatsFull is returned only when this selection is requested with Limited, Full or Custom key access key.
+         *      * UserPersonalStatsFullPublic is returned when the requested category is 'all'.
+         *      * UserPersonalStatsPopular is returned when the requested category is 'popular'. Please try to use UserPersonalStatsPopular over UserPersonalStatsFullPublic wherever possible in order to reduce the server load.
+         *      * Otherwise, UserPersonalStatsCategory is returned for the matched category.
+         *      * It's possible to request specific stats via 'stat' parameter. In this case the response will vary depending on the stats requested. Private stats are still available only to the key owner (with Limited or higher key).
+         *      * Additionally, historical stats can also be fetched via 'stat' query parameter, but 'timestamp' parameter must be provided as well. It's only possible to pass up to 10 historical stats at once (the rest is trimmed). When requesting historical stats the response will be of type UserPersonalStatsHistoric.
+         */
+        get: operations["388e8008ae1c2645819af76d71ef92a5"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/user/{id}/personalstats": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get a player's personal stats
+         * @description Requires public access key. <br>
+         *      *  UserPersonalStatsFull is returned only when this selection is requested for the key owner with Limited, Full or Custom key.
+         *      *  UserPersonalStatsFullPublic is returned when the requested category is 'all'.
+         *      *  UserPersonalStatsPopular is returned when the requested category is 'popular'. Please try to use UserPersonalStatsPopular over UserPersonalStatsFullPublic wherever possible in order to reduce the server load.
+         *      *  Otherwise, UserPersonalStatsCategory is returned for the matched category.
+         *      *  It's possible to request specific stats via 'stat' parameter. In this case the response will vary depending on the stats requested. Private stats are still available only to the key owner (with Limited or higher key).
+         *      *  Additionally, historical stats can also be fetched via 'stat' query parameter, but 'timestamp' parameter must be provided as well. It's only possible to pass up to 10 historical stats at once (the rest is trimmed). When requesting historical stats the response will be of type UserPersonalStatsHistoric.
+         */
+        get: operations["6ac851069df2c33e53cc69eecae44f1e"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/user/properties": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get your own properties
+         * @description Requires public access key. <br>Extended responses are available when requesting the data with Limited or higher access keys.
+         */
+        get: operations["574a416ca46717830f03a2f685955b87"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/user/{id}/properties": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get specific user's properties
+         * @description Requires public access key. <br>Extended responses are available when requesting the data with Limited or higher access keys for yourself or your spouse.
+         */
+        get: operations["601f7b38ac25e1ac47b33fb64120198b"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/user/property": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get your current property
+         * @description Requires public access key. <br>
+         */
+        get: operations["0452cb8fd031b80d3b7e9fcb7b0bdf09"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/user/{id}/property": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get specific user's property
+         * @description Requires public access key. <br>
+         */
+        get: operations["f36ce18449194dd9d2b62bccd4bb8343"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/user/races": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get user races
+         * @description Requires minimal access key. <br>Returns a list of user races, ordered by race start timestamp.
+         */
+        get: operations["ba6e495bf0c6b2e87db337c1a09f4852"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/user/racingrecords": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get your current racing records
+         * @description Requires minimal access key. <br>
+         */
+        get: operations["e1b2c1039ea41f7607b9c94660fc72cb"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/user/reports": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get your reports
+         * @description Requires limited access key. <br>
+         *      * The default limit is set to 25. However, the limit can be set to 100 for the 'stats' category.
+         */
+        get: operations["6ba15a813fe1cc014564e9dba892e022"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/user/revives": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get your detailed revives
+         * @description Requires limited access key. <br>
+         */
+        get: operations["3c847eb1325040798f37a7492108e094"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/user/revivesFull": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get your simplified revives
+         * @description Requires limited access key. <br>
+         */
+        get: operations["8820cd889afde899353037ca5a0f9a07"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/user/lookup": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get all available user selections
+         * @description Requires public access key. <br>
+         */
+        get: operations["c0a6c91697cd1683c39b3c0649a18ec8"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/user/timestamp": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get current server time
+         * @description Requires public access key. <br>
+         */
+        get: operations["a72308321da0c4a2c31c60218acc7a85"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/user": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get any User selection
+         * @description Key access level depends on the required selections. <br>Choose one or more selections (comma separated).
+         */
+        get: operations["ce480599312126b8a5d77ced3ab8caa8"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/faction/applications": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get your faction's applications
+         * @description Requires minimal access key with faction API access permissions. <br>
+         */
+        get: operations["9f7dccb023d81a8da7f5f6a359658a64"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/faction/attacks": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get your faction's detailed attacks
+         * @description Requires limited access key with faction API access permissions. <br>
+         */
+        get: operations["cb5b38ba64c389e706526df8bc8af9b6"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/faction/attacksfull": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get your faction's simplified attacks
+         * @description Requires limited access key with faction API access permissions. <br>
+         */
+        get: operations["8551280aaaf9819aa94be5c469a523de"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/faction/balance": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get your faction's & member's balance details
+         * @description Requires limited access key with faction API access permissions. <br>
+         */
+        get: operations["3ca2c0319f960b728ffece8e322cf40f"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/faction/basic": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get your faction's basic details
+         * @description Requires public access key. <br> The 'is_enlisted' value will be populated if you have API faction permissions (with custom, limited or full access keys), otherwise it will be set as null.
+         */
+        get: operations["fb363bf0e1d54296bd4d5dd554ad9825"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/faction/{id}/basic": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get a faction's basic details
+         * @description Requires public access key. <br> The 'is_enlisted' value will be populated if you're requesting data for your faction and have faction permissions (with custom, limited or full access keys), otherwise it will be set as null.
+         */
+        get: operations["a09da2d5f951a49d974dbec3149b3a24"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/faction/chain": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get your faction's current chain
+         * @description Requires public access key. <br>
+         */
+        get: operations["aee5679a81c6a7bcd3862c0aafd6b558"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/faction/{id}/chain": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get a faction's current chain
+         * @description Requires public access key. <br>
+         */
+        get: operations["ec8f82e15a321adbb20e615024d9dff6"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/faction/chains": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get a list of your faction's completed chains
+         * @description Requires public access key. <br>
+         */
+        get: operations["dfc0adb55af4aeeeebc2d82309c71eea"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/faction/{id}/chains": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get a list of a faction's completed chains
+         * @description Requires public access key. <br>
+         */
+        get: operations["dd88ca1ffafed80457916da5298a3422"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/faction/chainreport": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get your faction's latest chain report
+         * @description Requires public access key. <br> This includes currently ongoing chains.
+         */
+        get: operations["614a2f2bdd7fb6df778b7657c75d1113"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/faction/{chainId}/chainreport": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get a chain report
+         * @description Requires public access key. <br> Chain reports for ongoing chains are available only for your own faction.
+         */
+        get: operations["21a251c2ec9f6c93b89fb715196bb8be"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/faction/contributors": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get your faction's challenge contributors
+         * @description Requires limiteed access key with faction API access permissions. <br>
+         */
+        get: operations["40eb7627818eb777fdc713ed78209c6b"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/faction/crimes": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get your faction's organized crimes
+         * @description Requires minimal access key with faction API access permissions. <br> It's possible to get older entries either by timestamp range (from, to) or with offset.<br> Crimes are ordered depending on the category chosen:
+         *      * For categories 'all' & 'available', the ordering field is 'created_at'.
+         *      * For categories 'successful', 'failed' & 'completed', the ordering field is 'executed_at'.
+         *      * For categories 'recruiting' & 'expired', the ordering field is 'expired_at'.
+         *      * For category 'planning', the ordering field is 'ready_at'.
+         */
+        get: operations["72e5db8a773908fedff4bb002f3f4406"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/faction/{crimeId}/crime": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get a specific organized crime
+         * @description Requires minimal access key with faction API access permissions. <br>
+         */
+        get: operations["b4867db9b02fa7dcd31b2073f2a936ce"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/faction/hof": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get your faction's hall of fame rankings.
+         * @description Requires public access key. <br>
+         */
+        get: operations["e104b0b606664d06d9638111702301f3"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/faction/{id}/hof": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get a faction's hall of fame rankings.
+         * @description Requires public access key. <br>
+         */
+        get: operations["a775ca7831f4cad88c308be28f50e597"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/faction/members": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get a list of your faction's members
+         * @description Requires public access key. <br> The 'revive_setting' value will be populated (not Unknown) if you have faction permissions (with custom, limited or full access keys), otherwise it will be set as 'Unknown'.
+         */
+        get: operations["03d304564e4f84e3f258e5b8059bcc22"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/faction/{id}/members": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get a list of a faction's members
+         * @description Requires public access key. <br> The 'revive_setting' value will be populated (not Unknown) if you're requesting data for your own faction and have faction permissions (with custom, limited or full access keys), otherwise it will be set as 'Unknown'.
+         */
+        get: operations["99a899c0094645475fd6254b423fea43"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/faction/news": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get your faction's news details
+         * @description Requires minimal access key with faction API access permissions. <br> It is possible to pass up to 10 categories at the time (comma separated). Categories 'attack', 'depositFunds' and 'giveFunds' are only available with 'Custom', 'Limited' or 'Full' access keys.
+         */
+        get: operations["1da64889366de71140f2c15ad14b67b1"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/faction/positions": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get your faction's positions details
+         * @description Requires minimal access key with faction API access permissions. <br>
+         */
+        get: operations["77dae3b930e2e2f9f7608567db0b94f4"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/faction/rackets": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get a list of current rackets
+         * @description Requires public access key. <br>
+         */
+        get: operations["f750d219e54329ae300c4db384dd5dcd"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/faction/{raidWarId}/raidreport": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get raid war details
+         * @description Requires public access key. <br>
+         */
+        get: operations["9a48477c16e86235efce00a11d56510f"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/faction/raids": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get raids history for your faction
+         * @description Requires public access key. <br>
+         */
+        get: operations["6a2b0604d0ebe31933f93facfa69f171"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/faction/{id}/raids": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get a faction's raids history
+         * @description Requires public access key. <br>
+         */
+        get: operations["67622543dbbc4857f1ea575be5af7fcd"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/faction/rankedwars": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get ranked wars history for your faction
+         * @description Requires public access key. <br>
+         */
+        get: operations["4f5d624a86e2d389a7a738b6b3ce8c9e"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/faction/{id}/rankedwars": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get a faction's ranked wars history
+         * @description Requires public access key. <br>
+         */
+        get: operations["5b6646714e5ae1cc397bdec877f55691"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/faction/{rankedWarId}/rankedwarreport": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get ranked war details
+         * @description Requires public access key. <br>
+         */
+        get: operations["db49842d88e193777dc695e54769113e"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/faction/reports": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get faction reports
+         * @description Requires limited access key. <br>
+         *      *  The default limit is set to 25. However, the limit can be set to 100 for the 'stats' category.
+         */
+        get: operations["e8bd37f10cc5e0e8d6694bb306f3a1e4"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/faction/revives": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get your faction's detailed revives
+         * @description Requires limited access key with faction API access permissions. <br>
+         */
+        get: operations["486fcda26ed1aa6aba8ec7091080723b"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/faction/revivesFull": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get your faction's simplified revives
+         * @description Requires limited access key with faction API access permissions. <br>
+         */
+        get: operations["f17a4064779e8de5200238816c233c02"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/faction/search": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Search factions by name or other criteria
+         * @description Requires public access key. <br>This selection is standalone and cannot be used together with other selections.
+         */
+        get: operations["01c192f9b41ce29372df54667bea2b43"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/faction/stats": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get your faction's challenges stats
+         * @description Requires minimal access key with faction API access permissions. <br>
+         */
+        get: operations["806d9dc7e5fcf9e1ee9c3cdf7f035392"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/faction/territory": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get a list of your faction's territories
+         * @description Requires public access key. <br>
+         */
+        get: operations["fa6b3fbb14e5f3a71279b058bd751754"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/faction/{id}/territory": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get a list of a faction's territories
+         * @description Requires public access key. <br>
+         */
+        get: operations["4dce518364dad91fb3503e0382adfadf"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/faction/territoryownership": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get a list of your faction's territories
+         * @description Requires public access key. <br>
+         */
+        get: operations["bf56fb8aba4d6810e9b96402e25b931d"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/faction/territorywars": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get territory wars history for your faction
+         * @description Requires public access key. <br>
+         */
+        get: operations["0258963246159d1e3e54547c32aac7c8"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/faction/{id}/territorywars": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get a faction's territory wars history
+         * @description Requires public access key. <br>
+         */
+        get: operations["76ce672d50a66fc0a832f9088e5436af"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/faction/{territoryWarId}/territorywarreport": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get territory war details
+         * @description Requires public access key. <br>
+         */
+        get: operations["4e8aeafde7b5fc9918d166cda150fa91"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/faction/upgrades": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get your faction's upgrades
+         * @description Requires minimal access key with faction API access permissions. <br>
+         */
+        get: operations["959f415abf48cb753414cec179b1b039"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/faction/warfare": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get faction warfare
+         * @description Requires public access key. <br>The response depends on the selected category.
+         */
+        get: operations["ae7f06db4618d3e7927fd700cfa58f16"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/faction/wars": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get your faction's wars & pacts details
+         * @description Requires public access key. <br>
+         */
+        get: operations["b31cce9916e77431c08822844a0dbf2b"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/faction/{id}/wars": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get a faction's wars & pacts details
+         * @description Requires public access key. <br>
+         */
+        get: operations["c370823454d5ea28fc0df9a5b6a24c54"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/faction/lookup": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Requires public access key. <br> */
+        get: operations["065bcbaa654fc44ce7b8ea574b84f7b9"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/faction/timestamp": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get current server time
+         * @description Requires public access key. <br>
+         */
+        get: operations["627df4d7d8b91c62dacb66ff373aab5c"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/faction": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get any Faction selection
+         * @description Key access level depends on the required selections. <br> Choose one or more selections (comma separated).
+         */
+        get: operations["dd89e28b1f1ed88853b09ecc982e4e66"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/forum/categories": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get publicly available forum categories
+         * @description Requires public access key. <br>
+         */
+        get: operations["79b21191b87da275f3b87a7a1a233d04"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/forum/{threadId}/posts": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get specific forum thread posts
+         * @description Requires public access key. <br>Returns 20 posts per page for a specific thread.
+         */
+        get: operations["9c5eeb1aebb102b7c62fab11974c359a"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/forum/{threadId}/thread": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get specific thread details
+         * @description Requires public access key. <br>Contains details of a thread including topic content and poll (if any).
+         */
+        get: operations["a4618a3901c01413c14b75e984495a9b"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/forum/threads": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get threads across all forum categories
+         * @description Requires public access key. <br>
+         */
+        get: operations["d2d64a69cedfdce19a50eff117e2c166"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/forum/{categoryIds}/threads": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get threads for specific public forum category or categories
+         * @description Requires public access key. <br>
+         */
+        get: operations["715cb3a4df0a9bf8094a53dc3259b633"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/forum/lookup": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get all available forum selections
+         * @description Requires public access key. <br>
+         */
+        get: operations["f0805d0b7ad26c62ddd2fa8d0d332ba4"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/forum/timestamp": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get current server time
+         * @description Requires public access key. <br>
+         */
+        get: operations["ec72c2a8cd96c88e4d228221bf6bf42f"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/forum": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get any Forum selection
+         * @description Requires public access key. <br>Choose one or more selections (comma separated).
+         */
+        get: operations["21915cf0228ce3677261cdce27fb39e2"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/key/log": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get current key log history
+         * @description Available for any key. <br>
+         *      * This selection contains up to last 250 request logs.
+         */
+        get: operations["0d6dae59c9b3419c18d2a4ca0da757e6"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/key/info": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get current key info
+         * @description Available for any key. <br>
+         */
+        get: operations["e6d387f16971004628eeca2d6473f825"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/key": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get any Key selection */
+        get: operations["c6ccbb0a05ebf3b307c82a4c89275e52"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/market/bazaar": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get bazaar directory
+         * @description Requires public access key. <br> The default response is of type 'BazaarWeekly', but if a category is chosen, the response will be of type 'BazaarSpecialized'.
+         */
+        get: operations["422876deda064e2f3a2cc3c4bf6d73a9"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/market/{id}/bazaar": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get item specialized bazaar directory
+         * @description Requires public access key. <br>
+         */
+        get: operations["8254489388603bf1b21740e6f71bef06"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/market/{id}/itemmarket": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get item market listings
+         * @description Requires public access key. <br>
+         */
+        get: operations["f535a33bf405e7bd60918e536f827e5c"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/market/{propertyTypeId}/properties": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get properties market listings
+         * @description Requires public access key. <br>
+         */
+        get: operations["17e406574ff1eb686891c0fb0e15343a"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/market/{propertyTypeId}/rentals": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get properties rental listings
+         * @description Requires public access key. <br>
+         */
+        get: operations["38cd1a2c47e266a703a13e0dd401f4a9"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/market/lookup": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get all available market selections
+         * @description Requires public access key. <br>
+         */
+        get: operations["22a00095ad734485b6dacdc12c1f62ff"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/market/timestamp": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get current server time
+         * @description Requires public access key. <br>
+         */
+        get: operations["ad0c908328835d9672d157fe84eac884"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/market": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get any Market selection
+         * @description Requires public access key. <br>Choose one or more selections (comma separated).
+         */
+        get: operations["8e78be3fa3d353f59f8654fcc1c2199c"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/racing/cars": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get cars and their racing stats
+         * @description Requires public access key. <br>Returns the stat details about racing cars.
+         */
+        get: operations["ab5b44b00bf70d7a8587a3c2c9deeb17"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/racing/carupgrades": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get all possible car upgrades
+         * @description Requires public access key. <br>Returns the details about all possible car upgrades.
+         */
+        get: operations["c9e76cf48aa3c4bac4c8b33f1c0c9a17"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/racing/races": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get races
+         * @description Requires public access key. <br>Returns a list of races, ordered by race start timestamp.
+         */
+        get: operations["4be921a67d32b5e82c68835ef56175d0"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/racing/{raceId}/race": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get specific race details
+         * @description Requires public access key. <br>Returns the details of a race.
+         */
+        get: operations["76925256951bb63fd28534c8c479b27b"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/racing/{trackId}/records": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get track records
+         * @description Requires public access key. <br>Returns a list of 5 best lap records for the chosen track and car class.
+         */
+        get: operations["5fbc62db3b9380b155d7e33100620da7"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/racing/tracks": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get race tracks and descriptions
+         * @description Requires public access key. <br>Returns the details about racing tracks.
+         */
+        get: operations["6e4507cc442d6f099d0170b78a35bf8d"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/racing/lookup": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get all available racing selections
+         * @description Requires public access key. <br>
+         */
+        get: operations["8bd16be9aa517fedf717c9a79ff47e2c"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/racing/timestamp": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get current server time
+         * @description Requires public access key. <br>
+         */
+        get: operations["eb1ae216aa2949a8db0702df474d174c"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/racing": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get any Racing selection
+         * @description Requires public access key. <br>Choose one or more selections (comma separated).
+         */
+        get: operations["39b8ce36e3fffc9e2aa1d0aed9ebccda"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/property/{id}/property": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get a specific property
+         * @description Requires public access key. <br>
+         */
+        get: operations["87bd73ddaf3749bce7cbf5aa28e921e2"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/property/lookup": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get all available property selections
+         * @description Requires public access key. <br>
+         */
+        get: operations["87fe6e3a7ec186e108922fed781c8d6d"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/property/timestamp": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get current server time
+         * @description Requires public access key. <br>
+         */
+        get: operations["423c130a5cdf6bc801c42537c07fddec"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/property": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get any property selection
+         * @description Requires public access key. <br>Choose one or more selections (comma separated).
+         */
+        get: operations["2a45b6d9d77224d9a1e13d0b698f6c4b"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/torn/attacklog": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get attack log details
+         * @description Requires public key. <br>
+         */
+        get: operations["61c2d0bc6980cf8d730fe48eb81f417b"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/torn/bounties": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get bounties
+         * @description Requires public key. <br>
+         */
+        get: operations["279e811630fa497fb2cae268c70992e2"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/torn/calendar": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get calendar information
+         * @description Requires public access key. <br> Get the details about competitions & events in the running year.
+         */
+        get: operations["e95c96ef528248341647a5704630320e"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/torn/crimes": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get crimes information
+         * @description Requires public access key. <br> Return the details about released crimes.
+         */
+        get: operations["b73ff4e5a9dd28905060da24ca76efde"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/torn/education": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get education information
+         * @description Requires public access key.<br>
+         */
+        get: operations["992f8b71435ca78ba96f1e5298c25152"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/torn/factionhof": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get faction hall of fame positions for a specific category
+         * @description Requires public access key. <br>
+         */
+        get: operations["2a67e4b84813ee97a398be48e544abf5"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/torn/factiontree": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get full faction tree
+         * @description Requires public access key. <br>
+         */
+        get: operations["f45431b364546bb20b0ca909e9ac686e"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/torn/hof": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get player hall of fame positions for a specific category
+         * @description Requires public key.
+         */
+        get: operations["911d56b49218cef2102be3de73f82f01"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/torn/itemammo": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get information about ammo
+         * @description Requires public key.
+         */
+        get: operations["2e799e84fcfa9b722f856e859df909f8"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/torn/itemmods": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get information about weapon upgrades
+         * @description Requires public key.
+         */
+        get: operations["80ad6ebd50b6c075427c04d2f54d7af5"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/torn/items": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get information about items
+         * @description Requires public key.<br>Default category is 'All'.<br>Details are not populated when requesting the category 'All'.
+         */
+        get: operations["0f4c4c07e1dfacbda689b2a0d62ccda4"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/torn/{ids}/items": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get information about items
+         * @description Requires public key.<br>Details are always populated when available.
+         */
+        get: operations["a4fedadcac3aada40131288e4e3d6c2d"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/torn/logcategories": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get available log categories
+         * @description Requires public key. <br>
+         */
+        get: operations["2f68d7e04d218e26005be3eeca6de583"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/torn/logtypes": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get all available log ids
+         * @description Requires public key. <br>
+         */
+        get: operations["d4cb87bc2502a517c49525b910a6dd82"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/torn/{logCategoryId}/logtypes": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get available log ids for a specific log category
+         * @description Requires public key. <br>
+         */
+        get: operations["7be904fbcb98a7bb724f0c5b02a37a25"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/torn/organizedcrimes": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get organized crimes information
+         * @description Requires public access key. <br> Return the details about released faction organized crimes.
+         */
+        get: operations["b64b8cf22cd9e9c8916bc01439f6b069"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/torn/properties": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get properties details
+         * @description Requires public access key. <br>
+         */
+        get: operations["c44f572f4672071280a28e6f8217c3b6"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/torn/{crimeId}/subcrimes": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Subcrimes information
+         * @description Requires public access key. <br> Return the details about possible actions for a specific crime.
+         */
+        get: operations["ad45b0f57a1109977f605581fc294bda"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/torn/territory": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get territory details
+         * @description Requires public access key. <br>
+         */
+        get: operations["37f1828422f3080da21f9eb4aa576686"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/torn/lookup": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get all available torn selections
+         * @description Requires public key. <br>
+         */
+        get: operations["2baae03f953cd57fd5303dd1d04efae0"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/torn/timestamp": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get current server time
+         * @description Requires public key. <br>
+         */
+        get: operations["6f8cffcdae9fe97110b8d46c3991f109"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/torn": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get any Torn selection
+         * @description Requires public access key. <br> Choose one or more selections (comma separated).
+         */
+        get: operations["1846c4cf1e6878553e36571dc9cac29f"];
         put?: never;
         post?: never;
         delete?: never;
@@ -737,409 +2762,7998 @@ export type webhooks = Record<string, never>;
 export interface components {
     schemas: {
         /** @enum {string} */
-        RaceClassEnum: 'A' | 'B' | 'C' | 'D' | 'E';
+        RaceClassEnum: "A" | "B" | "C" | "D" | "E";
         /** @enum {string} */
-        RaceStatusEnum: 'open' | 'in_progress' | 'finished';
+        CountryEnum: "Mexico" | "Hawaii" | "South Africa" | "Japan" | "China" | "Argentina" | "Switzerland" | "Canada" | "United Kingdom" | "UAE" | "Cayman Islands";
         /** @enum {string} */
-        RaceCarUpgradeCategory:
-            | 'Aerodynamics'
-            | 'Brakes'
-            | 'Engine'
-            | 'Exhaust and Induction'
-            | 'Fuel'
-            | 'Safety'
-            | 'Suspension'
-            | 'Transmission'
-            | 'Weight Reduction'
-            | 'Wheels and Tyres';
+        ReportTypeEnum: "mostwanted" | "money" | "stats" | "references" | "friendorfoe" | "companyfinancials" | "truelevel" | "stockanalysis" | "anonymousbounties" | "investment";
         /** @enum {string} */
-        RaceCarUpgradeSubCategory:
-            | 'Engine Cooling'
-            | 'Front Diffuser'
-            | 'Rear Diffuser'
-            | 'Spoiler'
-            | 'Brake Accessory'
-            | 'Brake Control'
-            | 'Callipers'
-            | 'Discs'
-            | 'Brake Cooling'
-            | 'Fluid'
-            | 'Rear Control Arms'
-            | 'Springs'
-            | 'Upper Front Brace'
-            | 'Clutch'
-            | 'Differential'
-            | 'Flywheel'
-            | 'Gearbox'
-            | 'Shifting'
-            | 'Boot'
-            | 'Hood'
-            | 'Interior'
-            | 'Roof'
-            | 'Steering wheel'
-            | 'Strip out'
-            | 'Windows'
-            | 'Tyres'
-            | 'Wheels'
-            | 'Rear Bushes'
-            | 'Rear Brace'
-            | 'Lower Front Brace'
-            | 'Front Tie Rods'
-            | 'Front Bushes'
-            | 'Seat'
-            | 'Safety Accessory'
-            | 'Roll cage'
-            | 'Overalls'
-            | 'Helmet'
-            | 'Fire Extinguisher'
-            | 'Cut-off'
-            | 'Fuel'
-            | 'Manifold'
-            | 'Exhaust'
-            | 'Air Filter'
-            | 'Turbo'
-            | 'Pistons'
-            | 'Intercooler'
-            | 'Gasket'
-            | 'Fuel Pump'
-            | 'Engine Porting'
-            | 'Engine Cleaning'
-            | 'Computer'
-            | 'Camshaft'
-            | 'Pads'
-            | 'Fluid';
+        ApiKeyAccessTypeEnum: "Custom" | "Public Only" | "Minimal Access" | "Limited Access" | "Full Access";
+        /** @enum {string} */
+        FactionTerritoryEnum: "AAB" | "AAC" | "AAD" | "AAE" | "AAF" | "AAG" | "ABA" | "ABB" | "ABC" | "ABD" | "ABE" | "ABF" | "ACA" | "ACB" | "ACC" | "ACD" | "ACE" | "ACF" | "ACG" | "ADA" | "ADB" | "ADC" | "ADD" | "ADE" | "ADF" | "ADG" | "AEA" | "AEB" | "AEC" | "AED" | "AEE" | "AEF" | "AFA" | "AFB" | "AFC" | "AFD" | "AFE" | "AFF" | "AFG" | "AGA" | "AGB" | "AGC" | "AGD" | "AGE" | "AGF" | "AGG" | "AHA" | "AHB" | "AHC" | "AHD" | "AHE" | "AHF" | "AIA" | "AIB" | "AIC" | "AID" | "AIE" | "AIF" | "AJA" | "AJB" | "AJC" | "AJD" | "AJE" | "AJF" | "AKA" | "AKB" | "AKC" | "AKD" | "AKE" | "AKF" | "ALA" | "ALB" | "ALC" | "ALD" | "ALE" | "ALF" | "AMA" | "AMB" | "AMC" | "AMD" | "AME" | "AMF" | "ANB" | "ANC" | "AND" | "ANE" | "ANF" | "ANG" | "AOB" | "AOC" | "AOD" | "AOE" | "AOF" | "AOG" | "APB" | "APC" | "APD" | "APE" | "APF" | "APG" | "AQB" | "AQC" | "AQD" | "AQE" | "AQF" | "AQG" | "ARB" | "ARC" | "ARD" | "ARE" | "ARF" | "ASB" | "ASC" | "ASD" | "ASE" | "ASF" | "ASG" | "ATB" | "ATC" | "ATD" | "ATE" | "ATF" | "ATG" | "AUB" | "AUC" | "AUD" | "AUE" | "AUF" | "AUG" | "AVB" | "AVC" | "AVD" | "AVE" | "AVF" | "AVG" | "AWB" | "AWC" | "AWD" | "AWE" | "AWF" | "AWG" | "AXB" | "AXC" | "AXD" | "AXE" | "AXF" | "AXG" | "AYB" | "AYC" | "AYD" | "AYE" | "AYF" | "AYG" | "AZB" | "AZC" | "AZD" | "AZE" | "AZF" | "AZG" | "BAA" | "BAB" | "BAC" | "BAD" | "BAE" | "BAF" | "BAG" | "BBA" | "BBB" | "BBC" | "BBD" | "BBE" | "BBF" | "BBG" | "BCA" | "BCB" | "BCC" | "BCD" | "BCE" | "BCF" | "BCG" | "BDA" | "BDB" | "BDC" | "BDD" | "BDE" | "BDF" | "BDG" | "BEA" | "BEB" | "BEC" | "BED" | "BEE" | "BEF" | "BFA" | "BFB" | "BFC" | "BFD" | "BFE" | "BFF" | "BFG" | "BGA" | "BGB" | "BGC" | "BGD" | "BGE" | "BGF" | "BGG" | "BHA" | "BHB" | "BHC" | "BHD" | "BHE" | "BHF" | "BIA" | "BIB" | "BIC" | "BID" | "BIE" | "BIF" | "BJA" | "BJB" | "BJC" | "BJD" | "BJE" | "BJF" | "BKA" | "BKB" | "BKC" | "BKD" | "BKE" | "BKF" | "BLA" | "BLB" | "BLC" | "BLD" | "BLE" | "BLF" | "BMA" | "BMB" | "BMC" | "BMD" | "BME" | "BMF" | "BNB" | "BNC" | "BND" | "BNE" | "BNF" | "BNG" | "BOB" | "BOC" | "BOD" | "BOE" | "BOF" | "BPB" | "BPC" | "BPD" | "BPE" | "BPF" | "BPG" | "BQB" | "BQC" | "BQD" | "BQF" | "BQG" | "BRB" | "BRC" | "BRD" | "BRE" | "BRF" | "BRG" | "BSB" | "BSC" | "BSD" | "BSE" | "BSF" | "BTB" | "BTC" | "BTD" | "BTE" | "BTF" | "BTG" | "BUB" | "BUC" | "BUD" | "BUE" | "BUF" | "BUG" | "BVB" | "BVC" | "BVD" | "BVE" | "BVF" | "BVG" | "BWB" | "BWC" | "BWD" | "BWE" | "BWF" | "BWG" | "BXB" | "BXC" | "BXD" | "BXE" | "BXF" | "BXG" | "BYB" | "BYC" | "BYD" | "BYE" | "BYF" | "BYG" | "BZB" | "BZC" | "BZD" | "BZE" | "BZF" | "BZG" | "CAA" | "CAB" | "CAC" | "CAD" | "CAE" | "CAF" | "CAG" | "CBA" | "CBB" | "CBC" | "CBD" | "CBE" | "CBF" | "CBG" | "CCA" | "CCB" | "CCC" | "CCD" | "CCE" | "CCF" | "CCG" | "CDA" | "CDB" | "CDC" | "CDD" | "CDE" | "CDF" | "CDG" | "CEA" | "CEB" | "CEC" | "CED" | "CEE" | "CEF" | "CFA" | "CFB" | "CFC" | "CFD" | "CFE" | "CFG" | "CGA" | "CGB" | "CGC" | "CGD" | "CGE" | "CGF" | "CGG" | "CHA" | "CHB" | "CHC" | "CHD" | "CHE" | "CHF" | "CIA" | "CIB" | "CIC" | "CID" | "CIE" | "CIF" | "CJA" | "CJB" | "CJC" | "CJD" | "CJE" | "CJF" | "CKA" | "CKB" | "CKC" | "CKD" | "CKE" | "CKF" | "CLA" | "CLB" | "CLC" | "CLD" | "CLE" | "CLF" | "CMA" | "CMB" | "CMC" | "CMD" | "CME" | "CMF" | "CNB" | "CNC" | "CND" | "CNE" | "CNF" | "CNG" | "COB" | "COC" | "COD" | "COE" | "COF" | "COG" | "CPB" | "CPC" | "CPD" | "CPE" | "CPF" | "CPG" | "CQB" | "CQC" | "CQD" | "CQF" | "CQG" | "CRB" | "CRC" | "CRD" | "CRE" | "CRF" | "CRG" | "CSB" | "CSC" | "CSD" | "CSE" | "CSF" | "CSG" | "CTB" | "CTC" | "CTD" | "CTE" | "CTF" | "CTG" | "CUB" | "CUC" | "CUD" | "CUE" | "CUF" | "CUG" | "CVB" | "CVC" | "CVD" | "CVE" | "CVF" | "CVG" | "CWB" | "CWC" | "CWD" | "CWE" | "CWF" | "CWG" | "CXB" | "CXC" | "CXD" | "CXE" | "CXF" | "CXG" | "CYB" | "CYC" | "CYD" | "CYE" | "CYF" | "CZB" | "CZC" | "CZD" | "CZE" | "CZF" | "CZG" | "DAA" | "DAB" | "DAC" | "DAD" | "DAE" | "DAF" | "DAG" | "DBA" | "DBB" | "DBC" | "DBD" | "DBE" | "DBF" | "DBG" | "DCA" | "DCB" | "DCC" | "DCD" | "DCE" | "DCF" | "DCG" | "DDA" | "DDB" | "DDC" | "DDD" | "DDE" | "DDF" | "DDG" | "DEA" | "DEB" | "DEC" | "DED" | "DEE" | "DEF" | "DFA" | "DFB" | "DFC" | "DFD" | "DFE" | "DFF" | "DFG" | "DGA" | "DGB" | "DGC" | "DGD" | "DGE" | "DGF" | "DGG" | "DHA" | "DHB" | "DHC" | "DHD" | "DHE" | "DHF" | "DIA" | "DIB" | "DIC" | "DID" | "DIE" | "DIF" | "DJA" | "DJB" | "DJC" | "DJD" | "DJE" | "DKA" | "DKB" | "DKC" | "DKD" | "DKE" | "DKF" | "DLA" | "DLB" | "DLC" | "DLD" | "DLE" | "DLF" | "DMA" | "DMB" | "DMC" | "DMD" | "DME" | "DMF" | "DNB" | "DNC" | "DND" | "DNE" | "DNF" | "DNG" | "DOB" | "DOC" | "DOD" | "DOE" | "DOF" | "DOG" | "DPB" | "DPC" | "DPD" | "DPE" | "DPF" | "DPG" | "DQB" | "DQC" | "DQD" | "DQF" | "DQG" | "DRB" | "DRC" | "DRD" | "DRE" | "DRF" | "DRG" | "DSB" | "DSC" | "DSD" | "DSE" | "DSF" | "DSG" | "DTB" | "DTC" | "DTD" | "DTE" | "DTF" | "DTG" | "DUB" | "DUC" | "DUD" | "DUE" | "DUF" | "DUG" | "DVB" | "DVC" | "DVD" | "DVE" | "DVF" | "DVG" | "DWB" | "DWC" | "DWD" | "DWE" | "DWF" | "DWG" | "DXB" | "DXC" | "DXD" | "DXE" | "DXF" | "DXG" | "DYB" | "DYC" | "DYD" | "DYE" | "DYF" | "DYG" | "DZB" | "DZC" | "DZD" | "DZE" | "DZF" | "DZG" | "EAA" | "EAB" | "EAC" | "EAD" | "EAE" | "EAF" | "EAG" | "EBA" | "EBB" | "EBC" | "EBD" | "EBE" | "EBF" | "EBG" | "ECA" | "ECB" | "ECC" | "ECD" | "ECE" | "ECF" | "ECG" | "EDA" | "EDB" | "EDC" | "EDD" | "EDE" | "EDF" | "EDG" | "EEA" | "EEB" | "EEC" | "EED" | "EEE" | "EEF" | "EFA" | "EFB" | "EFC" | "EFD" | "EFE" | "EFF" | "EFG" | "EGA" | "EGB" | "EGC" | "EGD" | "EGE" | "EGF" | "EHA" | "EHB" | "EHC" | "EHD" | "EHE" | "EHF" | "EIA" | "EIB" | "EIC" | "EID" | "EIE" | "EIF" | "EJA" | "EJB" | "EJC" | "EJD" | "EJE" | "EKA" | "EKB" | "EKC" | "EKD" | "EKE" | "EKF" | "ELA" | "ELB" | "ELC" | "ELD" | "ELE" | "ELF" | "EMA" | "EMB" | "EMC" | "EMD" | "EME" | "EMF" | "ENB" | "ENC" | "END" | "ENE" | "ENF" | "ENG" | "EOB" | "EOC" | "EOD" | "EOE" | "EOF" | "EPB" | "EPC" | "EPD" | "EPE" | "EPF" | "EPG" | "EQB" | "EQC" | "EQD" | "EQF" | "EQG" | "ERB" | "ERC" | "ERD" | "ERE" | "ERF" | "ERG" | "ESB" | "ESC" | "ESD" | "ESE" | "ESF" | "ESG" | "ETB" | "ETC" | "ETD" | "ETE" | "ETF" | "ETG" | "EUB" | "EUC" | "EUD" | "EUE" | "EUF" | "EUG" | "EVB" | "EVC" | "EVD" | "EVE" | "EVF" | "EVG" | "EWB" | "EWC" | "EWD" | "EWE" | "EWF" | "EWG" | "EXB" | "EXC" | "EXD" | "EXE" | "EXF" | "EXG" | "EYB" | "EYC" | "EYD" | "EYE" | "EYF" | "EYG" | "EZB" | "EZC" | "EZD" | "EZE" | "EZF" | "EZG" | "FAA" | "FAB" | "FAC" | "FAD" | "FAE" | "FAF" | "FAG" | "FBA" | "FBB" | "FBC" | "FBD" | "FBF" | "FBG" | "FCA" | "FCB" | "FCC" | "FCD" | "FCE" | "FCF" | "FCG" | "FDA" | "FDB" | "FDC" | "FDD" | "FDE" | "FDF" | "FDG" | "FEA" | "FEB" | "FEC" | "FED" | "FEE" | "FEF" | "FFA" | "FFB" | "FFC" | "FFD" | "FFE" | "FFF" | "FFG" | "FGA" | "FGB" | "FGC" | "FGD" | "FGE" | "FGF" | "FGG" | "FHA" | "FHB" | "FHC" | "FHD" | "FHE" | "FHF" | "FIA" | "FIB" | "FIC" | "FID" | "FIE" | "FIF" | "FJA" | "FJB" | "FJC" | "FJD" | "FJE" | "FJF" | "FKA" | "FKB" | "FKC" | "FKD" | "FKE" | "FKF" | "FLA" | "FLB" | "FLC" | "FLD" | "FLE" | "FLF" | "FMA" | "FMC" | "FMD" | "FME" | "FMF" | "FNB" | "FNC" | "FND" | "FNE" | "FNF" | "FNG" | "FOB" | "FOC" | "FOD" | "FOE" | "FOF" | "FPB" | "FPC" | "FPD" | "FPE" | "FPF" | "FPG" | "FQB" | "FQC" | "FQD" | "FQF" | "FQG" | "FRB" | "FRC" | "FRD" | "FRE" | "FRF" | "FRG" | "FSB" | "FSC" | "FSD" | "FSE" | "FSF" | "FSG" | "FTB" | "FTC" | "FTD" | "FTE" | "FTF" | "FTG" | "FUB" | "FUC" | "FUD" | "FUE" | "FUF" | "FUG" | "FVB" | "FVC" | "FVD" | "FVE" | "FVF" | "FVG" | "FWB" | "FWC" | "FWD" | "FWE" | "FWF" | "FWG" | "FXB" | "FXC" | "FXD" | "FXE" | "FXF" | "FXG" | "FYB" | "FYC" | "FYD" | "FYE" | "FYF" | "FYG" | "FZB" | "FZC" | "FZD" | "FZE" | "FZF" | "FZG" | "GAA" | "GAB" | "GAC" | "GAD" | "GAE" | "GAF" | "GAG" | "GBA" | "GBB" | "GBC" | "GBD" | "GBE" | "GBF" | "GCA" | "GCB" | "GCC" | "GCD" | "GCE" | "GCF" | "GCG" | "GDA" | "GDB" | "GDC" | "GDD" | "GDE" | "GDF" | "GDG" | "GEA" | "GEB" | "GEC" | "GED" | "GEE" | "GEF" | "GFA" | "GFB" | "GFC" | "GFD" | "GFE" | "GFF" | "GFG" | "GGA" | "GGB" | "GGC" | "GGD" | "GGE" | "GGF" | "GHA" | "GHB" | "GHC" | "GHD" | "GHE" | "GHF" | "GIA" | "GIB" | "GIC" | "GID" | "GIE" | "GJA" | "GJB" | "GJC" | "GJD" | "GJE" | "GJF" | "GKA" | "GKB" | "GKC" | "GKD" | "GKE" | "GKF" | "GLA" | "GLB" | "GLC" | "GLD" | "GLE" | "GLF" | "GMA" | "GMC" | "GMD" | "GME" | "GMF" | "GNB" | "GNC" | "GND" | "GNE" | "GNF" | "GNG" | "GOB" | "GOC" | "GOD" | "GOE" | "GOF" | "GPB" | "GPC" | "GPD" | "GPE" | "GPF" | "GPG" | "GQC" | "GQD" | "GQF" | "GQG" | "GRB" | "GRC" | "GRD" | "GRE" | "GRF" | "GRG" | "GSB" | "GSC" | "GSD" | "GSE" | "GSF" | "GSG" | "GTB" | "GTC" | "GTD" | "GTE" | "GTF" | "GTG" | "GUB" | "GUC" | "GUD" | "GUF" | "GUG" | "GVB" | "GVC" | "GVD" | "GVE" | "GVF" | "GVG" | "GWB" | "GWC" | "GWD" | "GWE" | "GWF" | "GWG" | "GXB" | "GXC" | "GXD" | "GXE" | "GXF" | "GXG" | "GYB" | "GYC" | "GYD" | "GYE" | "GYF" | "GYG" | "GZB" | "GZC" | "GZD" | "GZE" | "GZF" | "GZG" | "HAA" | "HAB" | "HAC" | "HAD" | "HAE" | "HAF" | "HAG" | "HBA" | "HBB" | "HBC" | "HBD" | "HBE" | "HBF" | "HCA" | "HCB" | "HCC" | "HCD" | "HCE" | "HCF" | "HCG" | "HDA" | "HDB" | "HDC" | "HDD" | "HDE" | "HDF" | "HDG" | "HEA" | "HEB" | "HEC" | "HED" | "HEE" | "HEF" | "HFA" | "HFB" | "HFC" | "HFD" | "HFE" | "HFF" | "HGA" | "HGB" | "HGC" | "HGD" | "HGE" | "HGF" | "HHA" | "HHB" | "HHC" | "HHD" | "HHE" | "HHF" | "HIA" | "HIB" | "HIC" | "HID" | "HIE" | "HJA" | "HJB" | "HJC" | "HJD" | "HJE" | "HJF" | "HKA" | "HKB" | "HKC" | "HKD" | "HKE" | "HKF" | "HLA" | "HLB" | "HLC" | "HLD" | "HLE" | "HLF" | "HMA" | "HMC" | "HMD" | "HME" | "HMF" | "HNB" | "HNC" | "HND" | "HNE" | "HNF" | "HNG" | "HOB" | "HOC" | "HOD" | "HOE" | "HOF" | "HPB" | "HPC" | "HPD" | "HPE" | "HPF" | "HPG" | "HQB" | "HQC" | "HQD" | "HQF" | "HQG" | "HRB" | "HRC" | "HRD" | "HRE" | "HRF" | "HRG" | "HSB" | "HSC" | "HSD" | "HSE" | "HSF" | "HSG" | "HTB" | "HTC" | "HTD" | "HTE" | "HTF" | "HTG" | "HUB" | "HUC" | "HUD" | "HUE" | "HUF" | "HUG" | "HVB" | "HVC" | "HVD" | "HVE" | "HVF" | "HVG" | "HWB" | "HWC" | "HWD" | "HWE" | "HWF" | "HWG" | "HXB" | "HXC" | "HXD" | "HXE" | "HXF" | "HXG" | "HYB" | "HYC" | "HYD" | "HYE" | "HYF" | "HYG" | "HZB" | "HZC" | "HZD" | "HZE" | "HZF" | "HZG" | "IAA" | "IAB" | "IAC" | "IAD" | "IAE" | "IAF" | "IAG" | "IBA" | "IBB" | "IBC" | "IBD" | "IBE" | "IBF" | "ICA" | "ICB" | "ICC" | "ICD" | "ICE" | "ICF" | "ICG" | "IDA" | "IDB" | "IDC" | "IDD" | "IDE" | "IDF" | "IDG" | "IEA" | "IEB" | "IEC" | "IED" | "IEE" | "IEF" | "IFA" | "IFB" | "IFC" | "IFD" | "IFE" | "IFF" | "IFG" | "IGA" | "IGB" | "IGC" | "IGD" | "IGE" | "IGF" | "IGG" | "IHA" | "IHB" | "IHC" | "IHD" | "IHE" | "IHF" | "IIA" | "IIB" | "IIC" | "IID" | "IIE" | "IJA" | "IJB" | "IJC" | "IJD" | "IJE" | "IJF" | "IKA" | "IKB" | "IKC" | "IKD" | "IKE" | "IKF" | "ILA" | "ILB" | "ILC" | "ILD" | "ILE" | "ILF" | "IMA" | "IMB" | "IMC" | "IMD" | "IME" | "IMF" | "INB" | "INC" | "IND" | "INE" | "INF" | "ING" | "IOB" | "IOC" | "IOD" | "IOE" | "IOF" | "IPB" | "IPC" | "IPD" | "IPE" | "IPF" | "IPG" | "IQB" | "IQC" | "IQD" | "IQF" | "IQG" | "IRB" | "IRC" | "IRD" | "IRE" | "IRF" | "IRG" | "ISB" | "ISC" | "ISD" | "ISE" | "ISF" | "ISG" | "ITB" | "ITC" | "ITD" | "ITE" | "ITF" | "ITG" | "IUB" | "IUC" | "IUD" | "IUE" | "IUF" | "IUG" | "IVB" | "IVC" | "IVD" | "IVE" | "IVF" | "IVG" | "IWB" | "IWC" | "IWD" | "IWE" | "IWF" | "IWG" | "IXB" | "IXC" | "IXD" | "IXE" | "IXF" | "IXG" | "IYB" | "IYC" | "IYD" | "IYE" | "IYF" | "IYG" | "IZB" | "IZC" | "IZD" | "IZE" | "IZF" | "IZG" | "JAA" | "JAB" | "JAC" | "JAD" | "JAE" | "JAF" | "JAG" | "JBA" | "JBB" | "JBC" | "JBD" | "JBE" | "JBF" | "JCA" | "JCB" | "JCC" | "JCD" | "JCE" | "JCF" | "JCG" | "JDA" | "JDB" | "JDC" | "JDD" | "JDE" | "JDF" | "JDG" | "JEA" | "JEB" | "JEC" | "JED" | "JEE" | "JEF" | "JFA" | "JFB" | "JFC" | "JFD" | "JFE" | "JFF" | "JFG" | "JGA" | "JGB" | "JGC" | "JGD" | "JGE" | "JGF" | "JHA" | "JHB" | "JHC" | "JHD" | "JHE" | "JHF" | "JIA" | "JIB" | "JIC" | "JID" | "JIE" | "JIF" | "JJA" | "JJB" | "JJC" | "JJD" | "JJE" | "JJF" | "JKA" | "JKB" | "JKC" | "JKD" | "JKE" | "JKF" | "JLA" | "JLB" | "JLC" | "JLD" | "JLE" | "JLF" | "JMA" | "JMC" | "JMD" | "JME" | "JMF" | "JNB" | "JNC" | "JND" | "JNE" | "JNF" | "JNG" | "JOB" | "JOC" | "JOD" | "JOE" | "JOF" | "JPB" | "JPC" | "JPD" | "JPE" | "JPF" | "JPG" | "JQB" | "JQC" | "JQD" | "JQF" | "JQG" | "JRB" | "JRC" | "JRD" | "JRE" | "JRF" | "JRG" | "JSB" | "JSC" | "JSD" | "JSE" | "JSF" | "JSG" | "JTB" | "JTC" | "JTD" | "JTE" | "JTF" | "JTG" | "JUB" | "JUC" | "JUD" | "JUE" | "JUF" | "JUG" | "JVB" | "JVC" | "JVD" | "JVE" | "JVF" | "JVG" | "JWB" | "JWC" | "JWD" | "JWE" | "JWF" | "JWG" | "JXB" | "JXC" | "JXD" | "JXE" | "JXF" | "JXG" | "JYB" | "JYC" | "JYD" | "JYE" | "JYF" | "JYG" | "JZB" | "JZC" | "JZD" | "JZE" | "JZF" | "JZG" | "KAA" | "KAB" | "KAC" | "KAD" | "KAE" | "KAF" | "KAG" | "KBA" | "KBB" | "KBC" | "KBD" | "KBE" | "KBF" | "KBG" | "KCA" | "KCB" | "KCC" | "KCD" | "KCE" | "KCF" | "KCG" | "KDA" | "KDB" | "KDC" | "KDD" | "KDE" | "KEA" | "KEB" | "KEC" | "KED" | "KEE" | "KEF" | "KFA" | "KFB" | "KFC" | "KFD" | "KFE" | "KFF" | "KFG" | "KGA" | "KGB" | "KGC" | "KGD" | "KGE" | "KGF" | "KGG" | "KHA" | "KHB" | "KHC" | "KHD" | "KHE" | "KHF" | "KIA" | "KIB" | "KIC" | "KID" | "KIE" | "KIF" | "KJA" | "KJB" | "KJC" | "KJD" | "KJE" | "KJF" | "KKA" | "KKB" | "KKC" | "KKD" | "KKE" | "KKF" | "KLA" | "KLB" | "KLC" | "KLD" | "KLE" | "KLF" | "KMA" | "KMC" | "KMD" | "KME" | "KMF" | "KNB" | "KNC" | "KND" | "KNE" | "KNF" | "KNG" | "KOB" | "KOC" | "KOD" | "KOE" | "KOF" | "KPB" | "KPC" | "KPD" | "KPE" | "KPF" | "KPG" | "KQB" | "KQC" | "KQD" | "KQE" | "KQF" | "KQG" | "KRB" | "KRC" | "KRD" | "KRE" | "KRF" | "KRG" | "KSB" | "KSC" | "KSD" | "KSE" | "KSF" | "KSG" | "KTB" | "KTC" | "KTD" | "KTE" | "KTF" | "KTG" | "KUB" | "KUC" | "KUD" | "KUE" | "KUF" | "KUG" | "KVB" | "KVC" | "KVD" | "KVE" | "KVF" | "KVG" | "KWB" | "KWC" | "KWD" | "KWE" | "KWF" | "KWG" | "KXB" | "KXC" | "KXD" | "KXE" | "KXF" | "KXG" | "KYB" | "KYC" | "KYD" | "KYE" | "KYF" | "KYG" | "KZB" | "KZC" | "KZD" | "KZE" | "KZF" | "KZG" | "LAA" | "LAB" | "LAC" | "LAD" | "LAE" | "LAF" | "LAG" | "LBA" | "LBB" | "LBC" | "LBD" | "LBE" | "LBF" | "LBG" | "LCA" | "LCB" | "LCC" | "LCD" | "LCE" | "LCF" | "LCG" | "LDA" | "LDB" | "LDC" | "LDD" | "LDE" | "LDF" | "LEA" | "LEB" | "LEC" | "LED" | "LEE" | "LEF" | "LFA" | "LFB" | "LFC" | "LFD" | "LFE" | "LFF" | "LFG" | "LGA" | "LGB" | "LGC" | "LGD" | "LGE" | "LGF" | "LGG" | "LHA" | "LHB" | "LHC" | "LHD" | "LHE" | "LHF" | "LIA" | "LIB" | "LIC" | "LID" | "LIE" | "LIF" | "LJA" | "LJB" | "LJC" | "LJD" | "LJE" | "LJF" | "LKA" | "LKB" | "LKC" | "LKD" | "LKE" | "LKF" | "LLA" | "LLB" | "LLC" | "LLD" | "LLE" | "LLF" | "LMA" | "LMC" | "LMD" | "LME" | "LMF" | "LNB" | "LNC" | "LND" | "LNE" | "LNF" | "LNG" | "LOB" | "LOC" | "LOD" | "LOE" | "LOF" | "LPB" | "LPC" | "LPD" | "LPE" | "LPF" | "LPG" | "LQB" | "LQC" | "LQD" | "LQE" | "LQF" | "LQG" | "LRB" | "LRC" | "LRD" | "LRE" | "LRF" | "LRG" | "LSB" | "LSC" | "LSD" | "LSE" | "LSF" | "LSG" | "LTB" | "LTC" | "LTD" | "LTE" | "LTF" | "LTG" | "LUB" | "LUC" | "LUD" | "LUE" | "LUF" | "LUG" | "LVB" | "LVC" | "LVD" | "LVE" | "LVF" | "LVG" | "LWB" | "LWC" | "LWD" | "LWE" | "LWF" | "LWG" | "LXB" | "LXC" | "LXD" | "LXE" | "LXF" | "LXG" | "LYB" | "LYC" | "LYD" | "LYE" | "LYF" | "LYG" | "LZB" | "LZC" | "LZD" | "LZE" | "LZF" | "LZG" | "MAA" | "MAB" | "MAC" | "MAD" | "MAE" | "MAF" | "MAG" | "MBA" | "MBB" | "MBC" | "MBD" | "MBE" | "MBF" | "MBG" | "MCA" | "MCB" | "MCC" | "MCD" | "MCE" | "MCF" | "MCG" | "MDA" | "MDB" | "MDC" | "MDD" | "MDE" | "MDF" | "MDG" | "MEA" | "MEB" | "MEC" | "MED" | "MEE" | "MEF" | "MEG" | "MFA" | "MFB" | "MFC" | "MFD" | "MFE" | "MFF" | "MFG" | "MGA" | "MGB" | "MGC" | "MGD" | "MGE" | "MGF" | "MGG" | "MHA" | "MHB" | "MHC" | "MHD" | "MHE" | "MHF" | "MIA" | "MIB" | "MIC" | "MID" | "MIE" | "MIF" | "MJA" | "MJB" | "MJC" | "MJD" | "MJE" | "MKA" | "MKB" | "MKC" | "MKD" | "MKE" | "MKF" | "MLA" | "MLB" | "MLC" | "MLD" | "MLE" | "MLF" | "MMA" | "MMC" | "MMD" | "MME" | "MMF" | "MNB" | "MNC" | "MND" | "MNE" | "MNF" | "MNG" | "MOB" | "MOC" | "MOD" | "MOE" | "MOF" | "MPB" | "MPC" | "MPD" | "MPE" | "MPF" | "MPG" | "MQB" | "MQC" | "MQD" | "MQE" | "MQF" | "MQG" | "MRB" | "MRC" | "MRD" | "MRE" | "MRF" | "MRG" | "MSB" | "MSC" | "MSD" | "MSE" | "MSF" | "MSG" | "MTB" | "MTC" | "MTD" | "MTE" | "MTF" | "MTG" | "MUB" | "MUC" | "MUD" | "MUE" | "MUF" | "MUG" | "MVB" | "MVC" | "MVD" | "MVE" | "MVF" | "MVG" | "MWB" | "MWC" | "MWD" | "MWE" | "MWF" | "MWG" | "MXB" | "MXC" | "MXD" | "MXE" | "MXF" | "MXG" | "MYB" | "MYC" | "MYD" | "MYE" | "MYF" | "MYG" | "MZB" | "MZC" | "MZD" | "MZE" | "MZF" | "MZG" | "NAB" | "NAC" | "NAD" | "NAE" | "NAF" | "NAG" | "NBA" | "NBB" | "NBC" | "NBD" | "NBE" | "NBF" | "NBG" | "NCA" | "NCB" | "NCC" | "NCD" | "NCE" | "NCF" | "NCG" | "NDA" | "NDB" | "NDC" | "NDD" | "NDE" | "NDF" | "NDG" | "NEA" | "NEB" | "NEC" | "NED" | "NEE" | "NEF" | "NEG" | "NFA" | "NFB" | "NFC" | "NFD" | "NFE" | "NFF" | "NFG" | "NGA" | "NGB" | "NGC" | "NGD" | "NGE" | "NGF" | "NGG" | "NHA" | "NHB" | "NHC" | "NHD" | "NHE" | "NHF" | "NIA" | "NIB" | "NIC" | "NID" | "NIE" | "NIF" | "NJA" | "NJB" | "NJC" | "NJD" | "NJE" | "NJF" | "NKA" | "NKB" | "NKC" | "NKD" | "NKE" | "NKF" | "NLA" | "NLB" | "NLC" | "NLD" | "NLE" | "NLF" | "NMA" | "NMB" | "NMC" | "NMD" | "NME" | "NMF" | "NNB" | "NND" | "NNE" | "NNF" | "NNG" | "NOB" | "NOC" | "NOD" | "NOE" | "NOF" | "NOG" | "NPB" | "NPC" | "NPD" | "NPE" | "NPF" | "NQB" | "NQC" | "NQD" | "NQE" | "NQF" | "NQG" | "NRB" | "NRC" | "NRD" | "NRE" | "NRF" | "NRG" | "NSB" | "NSC" | "NSD" | "NSE" | "NSF" | "NSG" | "NTB" | "NTC" | "NTD" | "NTE" | "NTF" | "NTG" | "NUB" | "NUC" | "NUD" | "NUE" | "NUF" | "NUG" | "NVB" | "NVC" | "NVD" | "NVE" | "NVF" | "NVG" | "NWB" | "NWC" | "NWD" | "NWE" | "NWF" | "NWG" | "NXB" | "NXC" | "NXD" | "NXE" | "NXF" | "NXG" | "NYB" | "NYC" | "NYD" | "NYE" | "NYF" | "NYG" | "NZB" | "NZC" | "NZD" | "NZE" | "NZF" | "NZG" | "OAB" | "OAC" | "OAD" | "OAE" | "OAF" | "OAG" | "OBA" | "OBB" | "OBC" | "OBD" | "OBE" | "OBF" | "OCA" | "OCB" | "OCC" | "OCD" | "OCE" | "OCF" | "OCG" | "ODA" | "ODB" | "ODC" | "ODD" | "ODE" | "ODF" | "ODG" | "OEA" | "OEB" | "OEC" | "OED" | "OEE" | "OEF" | "OFA" | "OFB" | "OFC" | "OFD" | "OFE" | "OFF" | "OFG" | "OGA" | "OGB" | "OGC" | "OGD" | "OGE" | "OGF" | "OGG" | "OHA" | "OHB" | "OHC" | "OHD" | "OHE" | "OHF" | "OIA" | "OIB" | "OIC" | "OID" | "OIE" | "OIF" | "OJA" | "OJB" | "OJC" | "OJD" | "OJE" | "OJF" | "OKA" | "OKB" | "OKC" | "OKD" | "OKE" | "OKF" | "OLA" | "OLB" | "OLC" | "OLD" | "OLE" | "OLF" | "OMA" | "OMB" | "OMC" | "OMD" | "OME" | "OMF" | "ONB" | "OND" | "ONE" | "ONF" | "ONG" | "OOB" | "OOC" | "OOD" | "OOE" | "OOF" | "OOG" | "OPB" | "OPC" | "OPD" | "OPE" | "OPF" | "OQB" | "OQC" | "OQD" | "OQE" | "OQF" | "OQG" | "ORB" | "ORC" | "ORD" | "ORE" | "ORF" | "ORG" | "OSB" | "OSC" | "OSD" | "OSE" | "OSF" | "OTB" | "OTC" | "OTD" | "OTE" | "OTG" | "OUB" | "OUC" | "OUD" | "OUE" | "OUF" | "OUG" | "OVB" | "OVC" | "OVD" | "OVE" | "OVF" | "OVG" | "OWB" | "OWC" | "OWD" | "OWE" | "OWF" | "OWG" | "OXB" | "OXC" | "OXD" | "OXE" | "OXF" | "OXG" | "OYB" | "OYC" | "OYD" | "OYE" | "OYF" | "OYG" | "OZB" | "OZC" | "OZD" | "OZE" | "OZF" | "OZG" | "PAB" | "PAC" | "PAD" | "PAE" | "PAF" | "PAG" | "PBA" | "PBB" | "PBC" | "PBD" | "PBE" | "PBF" | "PCA" | "PCB" | "PCC" | "PCD" | "PCE" | "PCF" | "PCG" | "PDA" | "PDB" | "PDC" | "PDD" | "PDE" | "PDF" | "PDG" | "PEA" | "PEB" | "PEC" | "PED" | "PEE" | "PEF" | "PFA" | "PFB" | "PFC" | "PFD" | "PFE" | "PFF" | "PFG" | "PGA" | "PGB" | "PGC" | "PGD" | "PGE" | "PGF" | "PGG" | "PHA" | "PHB" | "PHC" | "PHD" | "PHE" | "PHF" | "PIA" | "PIB" | "PIC" | "PID" | "PIE" | "PIF" | "PJA" | "PJB" | "PJC" | "PJD" | "PJE" | "PJF" | "PKA" | "PKB" | "PKC" | "PKD" | "PKE" | "PKF" | "PLA" | "PLB" | "PLC" | "PLD" | "PLE" | "PLF" | "PMA" | "PMB" | "PMC" | "PMD" | "PME" | "PMF" | "PNB" | "PND" | "PNE" | "PNF" | "PNG" | "POB" | "POC" | "POD" | "POE" | "POF" | "POG" | "PPB" | "PPC" | "PPD" | "PPE" | "PPF" | "PQB" | "PQC" | "PQD" | "PQE" | "PQF" | "PQG" | "PRB" | "PRC" | "PRD" | "PRE" | "PRF" | "PRG" | "PSB" | "PSC" | "PSD" | "PSE" | "PSF" | "PTB" | "PTC" | "PTD" | "PTE" | "PTF" | "PTG" | "PUB" | "PUC" | "PUD" | "PUE" | "PUF" | "PUG" | "PVB" | "PVC" | "PVD" | "PVE" | "PVF" | "PVG" | "PWB" | "PWC" | "PWD" | "PWE" | "PWF" | "PWG" | "PXB" | "PXC" | "PXD" | "PXE" | "PXF" | "PXG" | "PYB" | "PYC" | "PYD" | "PYE" | "PYF" | "PYG" | "PZB" | "PZC" | "PZD" | "PZE" | "PZF" | "PZG" | "QAB" | "QAC" | "QAD" | "QAE" | "QAF" | "QAG" | "QBA" | "QBB" | "QBC" | "QBD" | "QBE" | "QBF" | "QCA" | "QCB" | "QCC" | "QCD" | "QCE" | "QCF" | "QCG" | "QDA" | "QDB" | "QDC" | "QDD" | "QDE" | "QDG" | "QEA" | "QEB" | "QEC" | "QED" | "QEE" | "QEF" | "QFA" | "QFB" | "QFC" | "QFD" | "QFE" | "QFF" | "QFG" | "QGA" | "QGB" | "QGC" | "QGD" | "QGE" | "QGF" | "QGG" | "QHA" | "QHB" | "QHC" | "QHD" | "QHE" | "QHF" | "QIA" | "QIB" | "QIC" | "QID" | "QIE" | "QIF" | "QJA" | "QJB" | "QJC" | "QJD" | "QJE" | "QJF" | "QKA" | "QKB" | "QKC" | "QKD" | "QKE" | "QKF" | "QLA" | "QLB" | "QLC" | "QLD" | "QLE" | "QLF" | "QMA" | "QMB" | "QMC" | "QMD" | "QME" | "QMF" | "QNB" | "QND" | "QNE" | "QNF" | "QNG" | "QOB" | "QOC" | "QOD" | "QOE" | "QOF" | "QOG" | "QPB" | "QPC" | "QPD" | "QPE" | "QPF" | "QQB" | "QQC" | "QQD" | "QQE" | "QQF" | "QQG" | "QRB" | "QRC" | "QRD" | "QRE" | "QRF" | "QRG" | "QSB" | "QSC" | "QSD" | "QSE" | "QSF" | "QSG" | "QTB" | "QTC" | "QTD" | "QTE" | "QTF" | "QTG" | "QUB" | "QUC" | "QUD" | "QUE" | "QUF" | "QUG" | "QVB" | "QVC" | "QVD" | "QVE" | "QVF" | "QWB" | "QWC" | "QWD" | "QWE" | "QWF" | "QWG" | "QXB" | "QXC" | "QXD" | "QXE" | "QXF" | "QXG" | "QYB" | "QYC" | "QYD" | "QYE" | "QYF" | "QYG" | "QZB" | "QZC" | "QZD" | "QZE" | "QZF" | "QZG" | "RAB" | "RAC" | "RAD" | "RAE" | "RAF" | "RAG" | "RBA" | "RBB" | "RBC" | "RBD" | "RBE" | "RBF" | "RCA" | "RCB" | "RCC" | "RCD" | "RCE" | "RCF" | "RCG" | "RDA" | "RDB" | "RDC" | "RDD" | "RDE" | "RDF" | "RDG" | "REA" | "REB" | "REC" | "RED" | "REE" | "REF" | "RFA" | "RFB" | "RFC" | "RFD" | "RFE" | "RFF" | "RFG" | "RGA" | "RGB" | "RGC" | "RGD" | "RGE" | "RGF" | "RGG" | "RHA" | "RHB" | "RHC" | "RHD" | "RHE" | "RHF" | "RIA" | "RIB" | "RIC" | "RID" | "RIE" | "RIF" | "RJA" | "RJB" | "RJC" | "RJD" | "RJE" | "RJF" | "RKA" | "RKB" | "RKC" | "RKD" | "RKE" | "RKF" | "RLA" | "RLB" | "RLC" | "RLD" | "RLE" | "RLF" | "RMA" | "RMB" | "RMC" | "RMD" | "RME" | "RMF" | "RNB" | "RND" | "RNE" | "RNF" | "RNG" | "ROB" | "ROC" | "ROD" | "ROE" | "ROF" | "ROG" | "RPB" | "RPC" | "RPD" | "RPE" | "RPF" | "RQB" | "RQC" | "RQD" | "RQE" | "RQF" | "RQG" | "RRC" | "RRD" | "RRE" | "RRF" | "RRG" | "RSB" | "RSC" | "RSD" | "RSE" | "RSF" | "RTB" | "RTC" | "RTD" | "RTE" | "RTF" | "RTG" | "RUB" | "RUC" | "RUD" | "RUE" | "RUF" | "RUG" | "RVB" | "RVC" | "RVD" | "RVE" | "RVF" | "RVG" | "RWB" | "RWC" | "RWD" | "RWE" | "RWF" | "RWG" | "RXB" | "RXC" | "RXD" | "RXE" | "RXF" | "RXG" | "RYB" | "RYC" | "RYD" | "RYE" | "RYF" | "RYG" | "RZB" | "RZC" | "RZD" | "RZE" | "RZF" | "RZG" | "SAB" | "SAC" | "SAD" | "SAE" | "SAF" | "SAG" | "SBA" | "SBB" | "SBC" | "SBD" | "SBE" | "SBF" | "SCA" | "SCB" | "SCC" | "SCD" | "SCE" | "SCF" | "SCG" | "SDA" | "SDB" | "SDC" | "SDD" | "SDE" | "SDF" | "SDG" | "SEA" | "SEB" | "SEC" | "SED" | "SEE" | "SEF" | "SFA" | "SFB" | "SFC" | "SFD" | "SFE" | "SFF" | "SFG" | "SGA" | "SGB" | "SGC" | "SGD" | "SGE" | "SGF" | "SGG" | "SHA" | "SHB" | "SHC" | "SHD" | "SHE" | "SHF" | "SIA" | "SIB" | "SIC" | "SID" | "SIE" | "SIF" | "SJA" | "SJB" | "SJC" | "SJD" | "SJE" | "SJF" | "SKA" | "SKB" | "SKC" | "SKD" | "SKE" | "SKF" | "SLA" | "SLB" | "SLC" | "SLD" | "SLE" | "SLF" | "SMA" | "SMB" | "SMC" | "SMD" | "SME" | "SMF" | "SNB" | "SND" | "SNE" | "SNF" | "SNG" | "SOB" | "SOC" | "SOD" | "SOE" | "SOF" | "SOG" | "SPB" | "SPC" | "SPD" | "SPE" | "SPF" | "SPG" | "SQB" | "SQC" | "SQD" | "SQE" | "SQF" | "SQG" | "SRB" | "SRC" | "SRD" | "SRE" | "SRF" | "SRG" | "SSB" | "SSC" | "SSD" | "SSE" | "SSF" | "SSG" | "STB" | "STC" | "STD" | "STE" | "STF" | "STG" | "SUB" | "SUC" | "SUD" | "SUE" | "SUF" | "SUG" | "SVB" | "SVC" | "SVD" | "SVE" | "SVF" | "SVG" | "SWB" | "SWC" | "SWD" | "SWE" | "SWF" | "SWG" | "SXB" | "SXC" | "SXD" | "SXE" | "SXF" | "SXG" | "SYB" | "SYC" | "SYD" | "SYE" | "SYF" | "SYG" | "SZB" | "SZC" | "SZD" | "SZE" | "SZF" | "SZG" | "TAB" | "TAC" | "TAD" | "TAE" | "TAF" | "TAG" | "TBA" | "TBB" | "TBC" | "TBD" | "TBE" | "TBF" | "TCA" | "TCB" | "TCC" | "TCD" | "TCE" | "TCF" | "TCG" | "TDA" | "TDB" | "TDC" | "TDD" | "TDE" | "TDF" | "TDG" | "TEA" | "TEB" | "TEC" | "TED" | "TEE" | "TEF" | "TFA" | "TFB" | "TFC" | "TFD" | "TFE" | "TFF" | "TFG" | "TGA" | "TGB" | "TGC" | "TGD" | "TGE" | "TGF" | "TGG" | "THA" | "THB" | "THC" | "THD" | "THE" | "THF" | "TIA" | "TIB" | "TIC" | "TID" | "TIE" | "TIF" | "TJA" | "TJB" | "TJC" | "TJD" | "TJE" | "TJF" | "TKA" | "TKB" | "TKC" | "TKD" | "TKE" | "TKF" | "TLA" | "TLB" | "TLC" | "TLD" | "TLE" | "TLF" | "TMA" | "TMB" | "TMC" | "TMD" | "TME" | "TMF" | "TNB" | "TNC" | "TND" | "TNE" | "TNF" | "TNG" | "TOB" | "TOC" | "TOD" | "TOE" | "TOF" | "TOG" | "TPB" | "TPC" | "TPD" | "TPE" | "TPF" | "TPG" | "TQB" | "TQC" | "TQD" | "TQE" | "TQF" | "TQG" | "TRB" | "TRC" | "TRD" | "TRE" | "TRF" | "TRG" | "TSB" | "TSC" | "TSD" | "TSE" | "TSF" | "TSG" | "TTB" | "TTC" | "TTD" | "TTE" | "TTF" | "TTG" | "TUB" | "TUD" | "TUE" | "TUF" | "TUG" | "TVB" | "TVC" | "TVD" | "TVE" | "TVF" | "TVG" | "TWB" | "TWC" | "TWD" | "TWE" | "TWF" | "TWG" | "TXB" | "TXC" | "TXD" | "TXE" | "TXF" | "TXG" | "TYB" | "TYC" | "TYD" | "TYE" | "TYF" | "TYG" | "TZB" | "TZC" | "TZD" | "TZE" | "TZF" | "TZG" | "UAB" | "UAC" | "UAD" | "UAE" | "UAF" | "UAG" | "UBA" | "UBB" | "UBC" | "UBD" | "UBE" | "UBF" | "UCA" | "UCB" | "UCC" | "UCD" | "UCE" | "UCF" | "UCG" | "UDA" | "UDB" | "UDC" | "UDD" | "UDE" | "UDF" | "UDG" | "UEA" | "UEB" | "UEC" | "UED" | "UEE" | "UEF" | "UFA" | "UFB" | "UFC" | "UFD" | "UFF" | "UFG" | "UGA" | "UGB" | "UGC" | "UGD" | "UGE" | "UGF" | "UGG" | "UHA" | "UHB" | "UHC" | "UHD" | "UHE" | "UHF" | "UIA" | "UIB" | "UIC" | "UID" | "UIE" | "UIF" | "UJA" | "UJB" | "UJC" | "UJD" | "UJE" | "UJF" | "UKA" | "UKB" | "UKC" | "UKD" | "UKE" | "UKF" | "ULA" | "ULB" | "ULC" | "ULD" | "ULE" | "ULF" | "UMA" | "UMB" | "UMC" | "UMD" | "UME" | "UMF" | "UNB" | "UNC" | "UND" | "UNE" | "UNF" | "UNG" | "UOB" | "UOC" | "UOD" | "UOE" | "UOF" | "UOG" | "UPB" | "UPC" | "UPD" | "UPE" | "UPF" | "UPG" | "UQB" | "UQC" | "UQD" | "UQE" | "UQF" | "UQG" | "URB" | "URC" | "URD" | "URE" | "URF" | "URG" | "USB" | "USC" | "USD" | "USE" | "USF" | "USG" | "UTB" | "UTC" | "UTD" | "UTE" | "UTF" | "UTG" | "UUB" | "UUC" | "UUD" | "UUE" | "UUF" | "UUG" | "UVB" | "UVC" | "UVD" | "UVE" | "UVF" | "UVG" | "UWB" | "UWC" | "UWD" | "UWE" | "UWF" | "UWG" | "UXB" | "UXC" | "UXD" | "UXE" | "UXF" | "UXG" | "UYB" | "UYC" | "UYD" | "UYE" | "UYF" | "UYG" | "UZB" | "UZC" | "UZD" | "UZE" | "UZF" | "UZG" | "VAB" | "VAC" | "VAD" | "VAE" | "VAF" | "VAG" | "VBA" | "VBB" | "VBC" | "VBD" | "VBE" | "VBF" | "VBG" | "VCA" | "VCB" | "VCC" | "VCD" | "VCE" | "VCF" | "VCG" | "VDA" | "VDB" | "VDC" | "VDD" | "VDE" | "VDF" | "VDG" | "VEA" | "VEB" | "VEC" | "VED" | "VEE" | "VEF" | "VFA" | "VFB" | "VFC" | "VFD" | "VFE" | "VFF" | "VFG" | "VGA" | "VGB" | "VGC" | "VGD" | "VGE" | "VGF" | "VGG" | "VHA" | "VHB" | "VHC" | "VHD" | "VHE" | "VHF" | "VIA" | "VIB" | "VIC" | "VID" | "VIE" | "VIF" | "VJA" | "VJB" | "VJC" | "VJD" | "VJE" | "VKA" | "VKB" | "VKC" | "VKD" | "VKE" | "VKF" | "VLA" | "VLB" | "VLC" | "VLD" | "VLE" | "VLF" | "VMA" | "VMB" | "VMC" | "VMD" | "VME" | "VMF" | "VNB" | "VNC" | "VND" | "VNE" | "VNF" | "VNG" | "VOB" | "VOC" | "VOD" | "VOE" | "VOF" | "VOG" | "VPB" | "VPC" | "VPD" | "VPE" | "VPF" | "VPG" | "VQB" | "VQC" | "VQD" | "VQE" | "VQF" | "VQG" | "VRB" | "VRC" | "VRD" | "VRE" | "VRF" | "VRG" | "VSB" | "VSC" | "VSD" | "VSE" | "VSF" | "VSG" | "VTB" | "VTC" | "VTD" | "VTE" | "VTF" | "VTG" | "VUB" | "VUC" | "VUD" | "VUE" | "VUF" | "VUG" | "VVB" | "VVC" | "VVD" | "VVE" | "VVF" | "VVG" | "VWB" | "VWC" | "VWD" | "VWE" | "VWF" | "VWG" | "VXC" | "VXD" | "VXE" | "VXF" | "VXG" | "VYB" | "VYC" | "VYD" | "VYE" | "VYF" | "VYG" | "VZB" | "VZC" | "VZD" | "VZE" | "VZF" | "VZG" | "WAB" | "WAC" | "WAD" | "WAE" | "WAF" | "WAG" | "WBA" | "WBB" | "WBC" | "WBD" | "WBE" | "WBF" | "WBG" | "WCA" | "WCB" | "WCC" | "WCD" | "WCE" | "WCF" | "WCG" | "WDA" | "WDC" | "WDD" | "WDE" | "WDF" | "WDG" | "WEA" | "WEB" | "WEC" | "WED" | "WEE" | "WEF" | "WFA" | "WFB" | "WFC" | "WFD" | "WFE" | "WFF" | "WFG" | "WGA" | "WGB" | "WGC" | "WGD" | "WGE" | "WGF" | "WGG" | "WHA" | "WHB" | "WHC" | "WHD" | "WHE" | "WHF" | "WIA" | "WIB" | "WIC" | "WID" | "WIE" | "WIF" | "WJA" | "WJB" | "WJC" | "WJD" | "WJE" | "WJF" | "WKA" | "WKB" | "WKC" | "WKD" | "WKE" | "WKF" | "WLA" | "WLB" | "WLC" | "WLD" | "WLE" | "WLF" | "WMA" | "WMB" | "WMC" | "WMD" | "WME" | "WMF" | "WNB" | "WNC" | "WND" | "WNE" | "WNF" | "WNG" | "WOB" | "WOC" | "WOD" | "WOE" | "WOF" | "WOG" | "WPB" | "WPC" | "WPD" | "WPE" | "WPF" | "WPG" | "WQB" | "WQC" | "WQD" | "WQE" | "WQF" | "WQG" | "WRB" | "WRC" | "WRD" | "WRE" | "WRF" | "WRG" | "WSB" | "WSC" | "WSD" | "WSE" | "WSF" | "WSG" | "WTB" | "WTC" | "WTD" | "WTE" | "WTF" | "WTG" | "WUB" | "WUC" | "WUD" | "WUE" | "WUF" | "WUG" | "WVB" | "WVC" | "WVD" | "WVE" | "WVF" | "WVG" | "WWB" | "WWC" | "WWD" | "WWE" | "WWF" | "WWG" | "WXB" | "WXC" | "WXD" | "WXE" | "WXF" | "WXG" | "WYB" | "WYC" | "WYD" | "WYE" | "WYF" | "WYG" | "WZB" | "WZC" | "WZD" | "WZE" | "WZF" | "WZG" | "XAC" | "XAD" | "XAE" | "XAF" | "XBA" | "XBB" | "XBC" | "XBD" | "XBE" | "XBF" | "XBG" | "XCA" | "XCB" | "XCC" | "XCD" | "XCE" | "XCF" | "XCG" | "XDA" | "XDB" | "XDC" | "XDD" | "XDE" | "XDF" | "XDG" | "XEA" | "XEB" | "XEC" | "XED" | "XEE" | "XEF" | "XFA" | "XFB" | "XFC" | "XFD" | "XFE" | "XFF" | "XFG" | "XGA" | "XGB" | "XGC" | "XGD" | "XGE" | "XGF" | "XGG" | "XHA" | "XHB" | "XHC" | "XHD" | "XHE" | "XHF" | "XIA" | "XIB" | "XIC" | "XID" | "XIE" | "XIF" | "XJA" | "XJB" | "XJC" | "XJD" | "XJE" | "XJF" | "XKA" | "XKB" | "XKC" | "XKD" | "XKE" | "XKF" | "XLA" | "XLB" | "XLC" | "XLD" | "XLE" | "XLF" | "XMA" | "XMB" | "XMC" | "XMD" | "XME" | "XMF" | "XNB" | "XNC" | "XND" | "XNE" | "XNF" | "XNG" | "XOB" | "XOC" | "XOD" | "XOE" | "XOF" | "XOG" | "XPB" | "XPC" | "XPD" | "XPE" | "XPF" | "XPG" | "XQB" | "XQC" | "XQD" | "XQF" | "XQG" | "XRB" | "XRC" | "XRD" | "XRE" | "XRF" | "XRG" | "XSB" | "XSC" | "XSD" | "XSE" | "XSF" | "XSG" | "XTB" | "XTC" | "XTD" | "XTE" | "XTF" | "XTG" | "XUB" | "XUC" | "XUD" | "XUE" | "XUF" | "XUG" | "XVB" | "XVC" | "XVD" | "XVE" | "XVF" | "XVG" | "XWB" | "XWC" | "XWD" | "XWE" | "XWF" | "XWG" | "XXB" | "XXC" | "XXD" | "XXE" | "XXF" | "XXG" | "XYB" | "XYC" | "XYD" | "XYE" | "XYF" | "XYG" | "XZB" | "XZC" | "XZD" | "XZE" | "XZF" | "XZG" | "YAB" | "YAC" | "YAD" | "YAE" | "YAF" | "YAG" | "YBA" | "YBB" | "YBC" | "YBD" | "YBE" | "YBF" | "YCA" | "YCB" | "YCD" | "YCE" | "YCF" | "YCG" | "YDA" | "YDB" | "YDC" | "YDD" | "YDE" | "YDF" | "YDG" | "YEA" | "YEB" | "YEC" | "YED" | "YEE" | "YEF" | "YFA" | "YFB" | "YFC" | "YFD" | "YFE" | "YFG" | "YGA" | "YGB" | "YGC" | "YGD" | "YGE" | "YGF" | "YGG" | "YHA" | "YHB" | "YHC" | "YHD" | "YHE" | "YHF" | "YIA" | "YIB" | "YIC" | "YID" | "YIE" | "YIF" | "YJA" | "YJB" | "YJC" | "YJD" | "YJE" | "YJF" | "YKA" | "YKB" | "YKC" | "YKD" | "YKE" | "YKF" | "YLA" | "YLB" | "YLC" | "YLD" | "YLE" | "YLF" | "YMA" | "YMB" | "YMC" | "YMD" | "YME" | "YMF" | "YNB" | "YNC" | "YND" | "YNE" | "YNF" | "YNG" | "YOB" | "YOC" | "YOD" | "YOE" | "YOF" | "YOG" | "YPB" | "YPC" | "YPD" | "YPE" | "YPF" | "YPG" | "YQB" | "YQC" | "YQD" | "YQF" | "YQG" | "YRB" | "YRC" | "YRD" | "YRE" | "YRF" | "YRG" | "YSB" | "YSC" | "YSD" | "YSE" | "YSF" | "YSG" | "YTB" | "YTC" | "YTD" | "YTE" | "YTF" | "YTG" | "YUB" | "YUC" | "YUD" | "YUE" | "YUF" | "YUG" | "YVB" | "YVC" | "YVD" | "YVE" | "YVF" | "YVG" | "YWB" | "YWC" | "YWD" | "YWE" | "YWF" | "YWG" | "YXB" | "YXC" | "YXD" | "YXE" | "YXF" | "YXG" | "YYB" | "YYC" | "YYD" | "YYE" | "YYF" | "YYG" | "YZB" | "YZC" | "YZD" | "YZE" | "YZF" | "YZG" | "ZAB" | "ZAD" | "ZAE" | "ZAF" | "ZAG" | "ZBA" | "ZBB" | "ZBC" | "ZBD" | "ZBE" | "ZBF" | "ZCA" | "ZCB" | "ZCC" | "ZCD" | "ZCE" | "ZCF" | "ZCG" | "ZDA" | "ZDB" | "ZDC" | "ZDD" | "ZDE" | "ZDF" | "ZDG" | "ZEA" | "ZEB" | "ZEC" | "ZED" | "ZEE" | "ZEF" | "ZFA" | "ZFB" | "ZFC" | "ZFD" | "ZFE" | "ZFF" | "ZFG" | "ZGA" | "ZGB" | "ZGC" | "ZGD" | "ZGE" | "ZGF" | "ZGG" | "ZHA" | "ZHB" | "ZHC" | "ZHD" | "ZHE" | "ZHF" | "ZIA" | "ZIB" | "ZIC" | "ZID" | "ZIE" | "ZIF" | "ZJA" | "ZJB" | "ZJC" | "ZJD" | "ZJE" | "ZJF" | "ZKA" | "ZKB" | "ZKC" | "ZKD" | "ZKE" | "ZKF" | "ZLA" | "ZLB" | "ZLC" | "ZLD" | "ZLE" | "ZLF" | "ZMA" | "ZMB" | "ZMC" | "ZMD" | "ZME" | "ZMF" | "ZNB" | "ZNC" | "ZND" | "ZNE" | "ZNF" | "ZNG" | "ZOB" | "ZOC" | "ZOD" | "ZOE" | "ZOF" | "ZPB" | "ZPC" | "ZPD" | "ZPE" | "ZPF" | "ZPG" | "ZQB" | "ZQC" | "ZQD" | "ZQF" | "ZQG" | "ZRB" | "ZRC" | "ZRD" | "ZRE" | "ZRF" | "ZRG" | "ZSB" | "ZSC" | "ZSD" | "ZSE" | "ZSF" | "ZSG" | "ZTB" | "ZTC" | "ZTD" | "ZTE" | "ZTF" | "ZTG" | "ZUB" | "ZUC" | "ZUD" | "ZUE" | "ZUF" | "ZUG" | "ZVB" | "ZVC" | "ZVD" | "ZVE" | "ZVF" | "ZVG" | "ZWB" | "ZWC" | "ZWD" | "ZWE" | "ZWF" | "ZWG" | "ZXB" | "ZXC" | "ZXD" | "ZXE" | "ZXF" | "ZXG" | "ZYB" | "ZYC" | "ZYD" | "ZYE" | "ZYF" | "ZYG" | "ZZB" | "ZZC" | "ZZD" | "ZZE" | "ZZF" | "ZZG";
+        /** @enum {string} */
+        FactionStatEnum: "medicalitemsused" | "criminaloffences" | "organisedcrimerespect" | "organisedcrimemoney" | "organisedcrimesuccess" | "organisedcrimefail" | "attackswon" | "attackslost" | "attackschain" | "attacksleave" | "attacksmug" | "attackshosp" | "bestchain" | "busts" | "revives" | "jails" | "hosps" | "medicalitemrecovery" | "medicalcooldownused" | "gymtrains" | "gymstrength" | "gymspeed" | "gymenergy" | "gymdefense" | "gymdexterity" | "candyused" | "alcoholused" | "energydrinkused" | "drugsused" | "drugoverdoses" | "rehabs" | "caymaninterest" | "traveltimes" | "traveltime" | "hunting" | "attacksdamagehits" | "attacksdamage" | "hosptimegiven" | "hosptimereceived" | "attacksdamaging" | "attacksrunaway" | "highestterritories" | "territoryrespect" | "membersamount" | "factionage" | "upgradesamount";
+        /** @enum {string} */
+        FactionBranchStateEnum: "war" | "peace";
+        /** @enum {string} */
+        RacingRaceTypeEnum: "official" | "custom";
+        /** @enum {string} */
+        MarketSpecializedBazaarCategoryEnum: "Alcohol" | "Artifact" | "Booster" | "Candy" | "Car" | "Clothing" | "Collectible" | "Defensive" | "Drug" | "Energy Drink" | "Enhancer" | "Flower" | "Jewelry" | "Material" | "Medical" | "Melee" | "Other" | "Plushie" | "Primary" | "Secondary" | "Special" | "Supply Pack" | "Temporary" | "Tool";
+        /** @enum {string} */
+        FactionPositionAbilityEnum: "Medical Item Usage" | "Booster Item Usage" | "Drug Item Usage" | "Energy Refill Usage" | "Nerve Refill Usage" | "Temporary Item Loaning" | "Weapon & Armor Loaning" | "Item Retrieving" | "Organised Crimes" | "Faction API Access" | "Item Giving" | "Money Giving" | "Points Giving" | "Forum Management" | "Application Management" | "Kick Members" | "Balance Adjustment" | "War Management" | "Upgrade Management" | "Newsletter Sending" | "Announcement Changes" | "Description Changes";
+        /** @enum {string} */
+        FactionOrganizedCrimePayoutType: "balance" | "wallet" | "inventory";
+        /** @enum {string} */
+        TornRacketType: "Item" | "Points" | "Money";
+        /** @enum {string} */
+        FactionNewsCategory: "main" | "attack" | "armoryDeposit" | "armoryAction" | "territoryWar" | "rankedWar" | "territoryGain" | "chain" | "crime" | "membership" | "depositFunds" | "giveFunds";
+        /** @enum {string} */
+        FactionRankEnum: "Unranked" | "Bronze" | "Silver" | "Gold" | "Platinum" | "Diamond";
+        /** @enum {string} */
+        UserCrimeUniquesRewardAmmoEnum: "standard" | "special";
+        /** @enum {string} */
+        RaceStatusEnum: "open" | "in_progress" | "finished";
+        /** @enum {string} */
+        TornHofCategory: "level" | "busts" | "rank" | "traveltime" | "workstats" | "networth" | "revives" | "defends" | "offences" | "attacks" | "awards" | "racingwins" | "racingpoints" | "racingskill";
+        /** @enum {string} */
+        TornFactionHofCategory: "respect" | "chains" | "rank";
+        /** @enum {string} */
+        TornOrganizedCrimePositionId: "P1" | "P2" | "P3" | "P4" | "P5" | "P6";
+        /** @enum {string} */
+        FactionTerritoryWarResultEnum: "success_assault" | "fail_assault" | "end_with_nap" | "end_with_destroy_attack" | "end_with_destroy_defense" | "end_with_peace_treaty";
+        /** @enum {string} */
+        FactionAttackResult: "None" | "Attacked" | "Mugged" | "Hospitalized" | "Arrested" | "Looted" | "Lost" | "Stalemate" | "Assist" | "Escape" | "Timeout" | "Special" | "Bounty" | "Interrupted";
+        /** @enum {string} */
+        RaceCarUpgradeCategory: "Aerodynamics" | "Brakes" | "Engine" | "Exhaust and Induction" | "Fuel" | "Safety" | "Suspension" | "Transmission" | "Weight Reduction" | "Wheels and Tyres";
+        /** @enum {string} */
+        JobPositionArmyEnum: "Private" | "Corporal" | "Sergeant" | "Master Sergeant" | "Warrant Officer" | "Lieutenant" | "Major" | "Colonel" | "Brigadier" | "General";
+        /** @enum {string} */
+        JobPositionGrocerEnum: "Bagboy" | "Price Labeler" | "Cashier" | "Food Delivery" | "Manager";
+        /** @enum {string} */
+        WeaponBonusEnum: "Any" | "Double" | "Yellow" | "Orange" | "Red" | "Achilles" | "Assassinate" | "Backstab" | "Berserk" | "Bleed" | "Blindfire" | "Blindside" | "Bloodlust" | "Burn" | "Comeback" | "Conserve" | "Cripple" | "Crusher" | "Cupid" | "Deadeye" | "Deadly" | "Demoralize" | "Disarm" | "Double-edged" | "Double Tap" | "Emasculate" | "Empower" | "Eviscerate" | "Execute" | "Expose" | "Finale" | "Focus" | "Freeze" | "Frenzy" | "Fury" | "Grace" | "Hazardous" | "Home run" | "Irradiate" | "Lacerate" | "Motivation" | "Paralyze" | "Parry" | "Penetrate" | "Plunder" | "Poison" | "Powerful" | "Proficience" | "Puncture" | "Quicken" | "Rage" | "Revitalize" | "Roshambo" | "Shock" | "Sleep" | "Slow" | "Smash" | "Smurf" | "Specialist" | "Spray" | "Storage" | "Stricken" | "Stun" | "Suppress" | "Sure Shot" | "Throttle" | "Toxin" | "Warlord" | "Weaken" | "Wind-up" | "Wither";
+        /** @enum {string} */
+        UserListEnum: "Friends" | "Enemies" | "Targets";
+        /** @enum {string} */
+        JobPositionCasinoEnum: "Gaming Consultant" | "Marketing Manager" | "Revenue Manager" | "Casino Manager" | "Casino President";
+        /** @enum {string} */
+        AttackFinishingHitEffect: "proficience" | "stricken" | "revitalize" | "warlord" | "plunder" | "irradiate";
+        /** @enum {string} */
+        JobPositionMedicalEnum: "Medical Student" | "Houseman" | "Senior Houseman" | "GP" | "Consultant" | "Surgeon" | "Brain Surgeon";
+        /** @enum {string} */
+        JobPositionLawEnum: "Law Student" | "Paralegal" | "Probate Lawyer" | "Trial Lawyer" | "Circuit Court Judge" | "Federal Judge";
+        /** @enum {string} */
+        JobPositionEducationEnum: "Recess Supervisor" | "Substitute Teacher" | "Elementary Teacher" | "Secondary Teacher" | "Professor" | "Vice-Principal" | "Principal";
+        /** @enum {string} */
+        RaceCarUpgradeSubCategory: "Engine Cooling" | "Front Diffuser" | "Rear Diffuser" | "Spoiler" | "Brake Accessory" | "Brake Control" | "Callipers" | "Discs" | "Brake Cooling" | "Fluid" | "Rear Control Arms" | "Springs" | "Upper Front Brace" | "Clutch" | "Differential" | "Flywheel" | "Gearbox" | "Shifting" | "Boot" | "Hood" | "Interior" | "Roof" | "Steering wheel" | "Strip out" | "Windows" | "Tyres" | "Wheels" | "Rear Bushes" | "Rear Brace" | "Lower Front Brace" | "Front Tie Rods" | "Front Bushes" | "Seat" | "Safety Accessory" | "Roll cage" | "Overalls" | "Helmet" | "Fire Extinguisher" | "Cut-off" | "Fuel" | "Manifold" | "Exhaust" | "Air Filter" | "Turbo" | "Pistons" | "Intercooler" | "Gasket" | "Fuel Pump" | "Engine Porting" | "Engine Cleaning" | "Computer" | "Camshaft" | "Pads";
+        /** @enum {string} */
+        FactionApplicationStatusEnum: "accepted" | "declined" | "withdrawn" | "active";
+        /** @enum {string} */
+        FactionRankedWarsCategoryEnum: "all" | "ongoing";
+        /** @enum {string} */
+        FactionTerritoryWarsCategoryEnum: "finsihed" | "ongoing";
+        /** @enum {string} */
+        FactionCrimeUserOutcome: "Successful" | "Failed" | "Jailed" | "Injured" | "Hospitalized";
+        /** @enum {string} */
+        FactionCrimeUserItemOutcomeEnum: "user" | "faction";
+        /** @enum {string} */
+        FactionCrimeItemOutcomeEnum: "lost" | "used";
+        /** Format: int32 */
         RaceId: number;
+        OrganizedCrimeName: string;
+        /** Format: int32 */
+        PropertyTypeId: number;
+        /** Format: int64 */
+        PropertyId: number;
+        /** Format: int32 */
+        DirtyBombId: number;
+        /** Format: int32 */
         RaceTrackId: number;
+        /** Format: int32 */
         RaceCarId: number;
+        /** Format: int32 */
         RaceCarUpgradeId: number;
+        /** Format: int64 */
         ItemId: number;
+        /** Format: int32 */
+        ItemModId: number;
+        /** Format: int32 */
+        AmmoId: number;
+        /** Format: int32 */
+        RankedWarId: number;
+        /** Format: int32 */
+        TerritoryWarId: number;
+        /** Format: int32 */
+        RaidWarId: number;
+        /** Format: int64 */
+        ItemUid: number;
+        /** Format: int32 */
         UserId: number;
+        /** Format: int32 */
+        ReviveId: number;
+        /** Format: int32 */
+        LogId: number;
+        UserLogId: string;
+        /** Format: int32 */
+        LogCategoryId: number;
+        /** Format: int32 */
+        FactionId: number;
+        /** Format: int32 */
+        CompanyId: number;
+        /** Format: int32 */
+        EducationId: number;
+        /** Format: int32 */
+        FactionBranchId: number;
+        /** Format: int64 */
+        FactionCrimeId: number;
+        /** Format: int32 */
+        TornCrimeId: number;
+        /** Format: int32 */
+        ChainId: number;
+        /** Format: int32 */
+        AttackId: number;
+        AttackCode: string;
+        /** Format: int32 */
         ForumId: number;
+        /** Format: int32 */
         ForumThreadId: number;
+        /** Format: int32 */
         ForumPostId: number;
         RequestLinks: {
-            /** @description Auto-generated link to get the next set of records */
-            next?: string | null;
-            /** @description Auto-generated link to get the prev set of records */
-            prev?: string | null;
+            /** @description Auto-generated link to get the next set of records. */
+            next: string | null;
+            /** @description Auto-generated link to get the prev set of records. */
+            prev: string | null;
         };
-        ForumCategories: {
-            categories?: {
-                id?: components['schemas']['ForumId'];
-                title?: string;
-                acronym?: string;
-                threads?: number;
+        RequestMetadata: {
+            links: components["schemas"]["RequestLinks"];
+        };
+        RequestMetadataWithLinks: {
+            links: components["schemas"]["RequestLinks"];
+        };
+        RequestMetadataWithLinksAndTotal: {
+            links: components["schemas"]["RequestLinks"];
+            /** Format: int64 */
+            total?: number;
+        };
+        /**
+         * Format: int32
+         * @description This represents the type of the activity. Values range from 1 to 8 where:
+         *      *                    1 = 'X posted on a thread',
+         *      *                    2 = 'X created a thread',
+         *      *                    3 = 'X liked your thread',
+         *      *                    4 = 'X disliked your thread',
+         *      *                    5 = 'X liked your post',
+         *      *                    6 = 'X disliked your post',
+         *      *                    7 = 'X quoted your post'.
+         * @enum {integer}
+         */
+        ForumFeedTypeEnum: 1 | 2 | 3 | 4 | 5 | 6 | 7;
+        Parameters: ("destroyed" | "notDestroyed" | "recruiting" | "notRecruiting") | string;
+        /** @enum {string} */
+        ReviveSetting: "Everyone" | "Friends & faction" | "No one" | "Unknown";
+        /** @enum {string} */
+        FactionWarfareTypeEnum: "ranked" | "territory" | "raid" | "chain" | "db";
+        /** @enum {string} */
+        PropertyModificationEnum: "Hot Tub" | "Sauna" | "Open Bar" | "Small Pool" | "Medium Pool" | "Large Pool" | "Small Vault" | "Medium Vault" | "Large Vault" | "Extra Large Vault" | "Medical Facility" | "Advanced Shooting Range" | "Airstrip" | "Private Yacht" | "Sufficient Interior Modification" | "Superior Interior Modification";
+        /** @enum {string} */
+        PropertyStaffEnum: "Maid" | "Guard" | "Doctor" | "Pilot" | "Butler";
+        /** @enum {string} */
+        FactionCrimeStatusEnum: "Recruiting" | "Planning" | "Successful" | "Failure" | "Expired";
+        /** @enum {string} */
+        AttackActionEnum: "attackerhosp" | "busy" | "critical hit" | "attackerjail" | "escapefail" | "hit" | "hosp" | "joinfight" | "leave" | "loot" | "lost" | "missed" | "mug" | "noAmmo" | "onItemUseEff" | "opponenthosp" | "opponentjail" | "paralyzed" | "reload" | "runaway" | "specialTemp" | "specialTempI" | "stalemate" | "startfight" | "stunned" | "suppressed" | "timeout" | "won";
+        /** @enum {string} */
+        TornItemAmmoTypeEnum: "Standard" | "Hollow Point" | "Piercing" | "Tracer" | "Incendiary";
+        /** @enum {string} */
+        TornItemWeaponTypeEnum: "Heavy artillery" | "Machine gun" | "Pistol" | "Rifle" | "Shotgun" | "SMG" | "Temporary" | "Clubbing" | "Piercing" | "Slashing" | "Mechanical";
+        /** @enum {string} */
+        TornItemWeaponCategoryEnum: "Melee" | "Secondary" | "Primary" | "Temporary";
+        /** @enum {string} */
+        TornItemTypeEnum: "Alcohol" | "Armor" | "Artifact" | "Book" | "Booster" | "Candy" | "Car" | "Clothing" | "Collectible" | "Drug" | "Energy Drink" | "Enhancer" | "Flower" | "Jewelry" | "Material" | "Medical" | "Other" | "Plushie" | "Special" | "Supply Pack" | "Tool" | "Unused" | "Weapon";
+        /** @enum {string} */
+        TornItemCategory: "All" | "Alcohol" | "Armor" | "Artifact" | "Book" | "Booster" | "Candy" | "Car" | "Clothing" | "Collectible" | "Defensive" | "Drug" | "Energy Drink" | "Enhancer" | "Flower" | "Jewelry" | "Material" | "Medical" | "Melee" | "Other" | "Plushie" | "Primary" | "Secondary" | "Special" | "Supply Pack" | "Temporary" | "Tool" | "Unused" | "Weapon";
+        /** @enum {string} */
+        TornItemArmorCoveragePartEnum: "Full Body" | "Heart" | "Stomach" | "Chest" | "Arm" | "Groin" | "Leg" | "Throat" | "Hand" | "Foot" | "Head";
+        AttackPlayerFaction: {
+            id: components["schemas"]["FactionId"];
+            name: string;
+        };
+        AttackPlayer: {
+            id: components["schemas"]["UserId"];
+            name: string;
+            /** Format: int32 */
+            level: number;
+            faction: components["schemas"]["AttackPlayerFaction"] | null;
+        };
+        AttackPlayerSimplified: {
+            id: components["schemas"]["UserId"];
+            faction_id: components["schemas"]["FactionId"] | null;
+        };
+        AttackingFinishingHitEffects: {
+            name: components["schemas"]["AttackFinishingHitEffect"];
+            /**
+             * Format: int32
+             * @description Advanced weapon bonus value in percentage.
+             */
+            value: number;
+        };
+        Attack: {
+            id: components["schemas"]["AttackId"];
+            code: components["schemas"]["AttackCode"];
+            /**
+             * Format: int32
+             * @description Attack start timestamp.
+             */
+            started: number;
+            /**
+             * Format: int32
+             * @description Attack end timestamp.
+             */
+            ended: number;
+            attacker: components["schemas"]["AttackPlayer"] | null;
+            defender: components["schemas"]["AttackPlayer"];
+            result: components["schemas"]["FactionAttackResult"];
+            /** Format: float */
+            respect_gain: number;
+            /** Format: float */
+            respect_loss: number;
+            /** Format: int32 */
+            chain: number;
+            /** @description This is an experimental flag which should help determine 'assist' attacks which have not contributed to the chain. For example, attacks such as where the opponent lost to someoene else before the attacker could finish the attack. This flag might not work entirely correctly, so use with caution. */
+            is_interrupted: boolean;
+            is_stealthed: boolean;
+            is_raid: boolean;
+            is_ranked_war: boolean;
+            finishing_hit_effects: components["schemas"]["AttackingFinishingHitEffects"][];
+            modifiers: {
+                /** Format: float */
+                fair_fight: number;
+                /** Format: float */
+                war: number;
+                /** Format: float */
+                retaliation: number;
+                /** Format: float */
+                group: number;
+                /** Format: float */
+                overseas: number;
+                /** Format: float */
+                chain: number;
+                /** Format: float */
+                warlord: number;
+            };
+        };
+        AttackSimplified: {
+            id: components["schemas"]["AttackId"];
+            code: components["schemas"]["AttackCode"];
+            /**
+             * Format: int32
+             * @description Attack start timestamp.
+             */
+            started: number;
+            /**
+             * Format: int32
+             * @description Attack end timestamp.
+             */
+            ended: number;
+            attacker: components["schemas"]["AttackPlayerSimplified"] | null;
+            defender: components["schemas"]["AttackPlayerSimplified"];
+            result: components["schemas"]["FactionAttackResult"];
+            /** Format: float */
+            respect_gain: number;
+            /** Format: float */
+            respect_loss: number;
+        };
+        ReviveSimplified: {
+            id: components["schemas"]["ReviveId"];
+            reviver: {
+                id: components["schemas"]["UserId"];
+                faction_id: components["schemas"]["FactionId"] | null;
+            };
+            target: {
+                id: components["schemas"]["UserId"];
+                faction_id: components["schemas"]["FactionId"] | null;
+                hospital_reason: string;
+                early_discharge: boolean;
+                /** Format: int32 */
+                last_action: number;
+                online_status: string;
+            };
+            /** Format: float */
+            success_chance: number;
+            result: string;
+            /** Format: int32 */
+            timestamp: number;
+        };
+        Revive: {
+            id: components["schemas"]["ReviveId"];
+            reviver: {
+                id: components["schemas"]["UserId"];
+                name: string;
+                faction: {
+                    id: components["schemas"]["FactionId"];
+                    name: string;
+                } | null;
+                /** @description Entries before 16/06/2025 will have this field set as null. */
+                skill: number | null;
+            };
+            target: {
+                id: components["schemas"]["UserId"];
+                name: string;
+                faction: {
+                    id: components["schemas"]["FactionId"];
+                    name: string;
+                } | null;
+                hospital_reason: string;
+                early_discharge: boolean;
+                /** Format: int32 */
+                last_action: number;
+                online_status: string;
+            };
+            /** Format: float */
+            success_chance: number;
+            result: string;
+            /** Format: int32 */
+            timestamp: number;
+        };
+        RevivesResponse: {
+            revives: components["schemas"]["Revive"][];
+            _metadata: components["schemas"]["RequestMetadataWithLinks"];
+        };
+        RevivesFullResponse: {
+            revives: components["schemas"]["ReviveSimplified"][];
+            _metadata: components["schemas"]["RequestMetadataWithLinks"];
+        };
+        TimestampResponse: {
+            /** Format: int32 */
+            timestamp: number;
+        };
+        ReportBase: {
+            type: components["schemas"]["ReportTypeEnum"];
+            /** @description The target ID if applicable. */
+            target_id: components["schemas"]["UserId"] | null;
+            reporter_id: components["schemas"]["UserId"];
+            /** @description Reporter's faction ID if applicable. */
+            faction_id: components["schemas"]["FactionId"] | null;
+            /** Format: int32 */
+            timestamp: number;
+        };
+        ReportWarrantDetails: {
+            id: components["schemas"]["UserId"];
+            name: string;
+            /** Format: int32 */
+            warrant: number;
+        };
+        ReportMostWanted: {
+            top: components["schemas"]["ReportWarrantDetails"][];
+            notable: components["schemas"]["ReportWarrantDetails"][];
+        };
+        ReportMoney: {
+            /** Format: int32 */
+            money: number;
+        };
+        ReportInvestment: {
+            /** Format: int64 */
+            amount: number;
+            /** Format: int32 */
+            until: number;
+        };
+        ReportTrueLevel: {
+            /** Format: int32 */
+            level: number;
+        };
+        ReportStats: {
+            strength: number | null;
+            speed: number | null;
+            dexterity: number | null;
+            defense: number | null;
+            total: number | null;
+        };
+        ReportHistoryFaction: {
+            id: components["schemas"]["FactionId"];
+            name: string;
+            /** Format: date */
+            joined: string;
+            left: string | null;
+        };
+        ReportHistoryCompany: {
+            id: components["schemas"]["CompanyId"];
+            name: string;
+            /** Format: date */
+            joined: string;
+            left: string | null;
+        };
+        ReportHistory: {
+            factions: components["schemas"]["ReportHistoryFaction"][];
+            companies: components["schemas"]["ReportHistoryCompany"][];
+        };
+        ReportFriendOrFoeUser: {
+            id: components["schemas"]["UserId"];
+            name: string;
+        };
+        ReportFriendOrFoe: {
+            friends: components["schemas"]["ReportFriendOrFoeUser"][];
+            enemies: components["schemas"]["ReportFriendOrFoeUser"][];
+        };
+        ReportCompanyFinancials: {
+            /** Format: int64 */
+            balance: number;
+            /** Format: int32 */
+            employees: number;
+            wages: {
+                /** Format: int32 */
+                highest: number;
+                /** Format: int32 */
+                lowest: number;
+                /** Format: int32 */
+                average: number;
+            };
+        };
+        ReportStockAnalysis: {
+            items: {
+                country: components["schemas"]["CountryEnum"];
+                item: {
+                    id: components["schemas"]["ItemId"];
+                    name: string;
+                    /** Format: int32 */
+                    price: number;
+                    /** Format: int32 */
+                    value: number;
+                    due: number | null;
+                };
+                /** Format: int32 */
+                trip_duration: number;
+                /** Format: int32 */
+                hourly_profit: number;
             }[];
         };
-        ForumThreadAuthor: {
-            id?: components['schemas']['UserId'];
-            username?: string;
-            karma?: number;
+        ReportAnonymousBounties: {
+            bounties: {
+                text: string;
+                /** Format: int64 */
+                bounty: number;
+                user: {
+                    id: components["schemas"]["UserId"];
+                    name: string;
+                } | null;
+            }[];
         };
-        ForumPollVote: {
-            answer?: string;
-            votes?: number;
+        ReportReport: {
+            report: components["schemas"]["ReportMoney"] | components["schemas"]["ReportStats"] | components["schemas"]["ReportMostWanted"] | components["schemas"]["ReportHistory"] | components["schemas"]["ReportFriendOrFoe"] | components["schemas"]["ReportCompanyFinancials"] | components["schemas"]["ReportTrueLevel"] | components["schemas"]["ReportStockAnalysis"] | components["schemas"]["ReportAnonymousBounties"] | components["schemas"]["ReportInvestment"];
         };
-        ForumPoll: {
-            question?: string;
-            answers_count?: number;
-            answers?: components['schemas']['ForumPollVote'][];
+        Report: components["schemas"]["ReportBase"] & components["schemas"]["ReportReport"];
+        ReportsResponse: {
+            reports: components["schemas"]["Report"][];
+            _metadata: components["schemas"]["RequestMetadataWithLinks"];
         };
-        ForumThreadBase: {
-            id?: components['schemas']['ForumThreadId'];
-            title?: string;
-            forum_id?: components['schemas']['ForumId'];
-            posts?: number;
-            rating?: number;
-            views?: number;
-            author?: components['schemas']['ForumThreadAuthor'];
-            last_poster?: components['schemas']['ForumThreadAuthor'];
-            first_post_time?: number;
-            last_post_time?: number | null;
-            has_poll?: boolean;
-            is_locked?: boolean;
-            is_sticky?: boolean;
-        };
-        ForumThreadExtended: {
-            content?: string;
-            content_raw?: string;
-            poll?: components['schemas']['ForumPoll'];
-        } & components['schemas']['ForumThreadBase'];
-        ForumPost: {
-            id?: components['schemas']['ForumPostId'];
-            author?: components['schemas']['ForumThreadAuthor'];
-            /** @description Indicates whether post was made using the old formatting engine which doesn't use HTML */
-            is_legacy?: boolean;
-            is_topic?: boolean;
-            is_edited?: boolean;
-            is_pinned?: boolean;
-            created_time?: number;
-            edited_by?: components['schemas']['UserId'];
-            has_quote?: boolean;
-            /** @description 'quoted_post_id' is null when 'has_quote' is false. */
-            quoted_post_id?: number | null;
-            /** @description depending on the input 'cat' parameter, this will either return raw value (with HTML) or plain text. Legacy posts are returned as is, they can't be stripped of tags. */
-            content?: string;
-            likes?: number;
-            dislikes?: number;
-        };
-        RaceCars: {
-            cars?: components['schemas']['RaceCar'][];
-        };
-        RaceCar: {
-            car_item_id?: components['schemas']['ItemId'];
-            car_item_name?: string;
-            top_speed?: number;
-            acceleration?: number;
-            braking?: number;
-            dirt?: number;
-            handling?: number;
-            safety?: number;
-            tarmac?: number;
-            class?: components['schemas']['RaceClassEnum'];
-        };
-        RaceTracks: {
-            tracks?: components['schemas']['RaceTrack'][];
-        };
-        RaceTrack: {
-            id?: components['schemas']['RaceTrackId'];
-            title?: string;
-            description?: string;
-        };
-        RaceCarUpgrades: {
-            carupgrades?: components['schemas']['RaceCarUpgrade'][];
-        };
-        RaceCarUpgrade: {
-            id?: components['schemas']['RaceCarUpgradeId'];
-            class_required?: components['schemas']['RaceClassEnum'];
-            name?: string;
-            description?: string;
-            category?: components['schemas']['RaceCarUpgradeCategory'];
-            subcategory?: components['schemas']['RaceCarUpgradeSubCategory'];
-            effects?: {
-                top_speed?: number;
-                acceleration?: number;
-                braking?: number;
-                handling?: number;
-                safety?: number;
-                dirt?: number;
-                tarmac?: number;
+        SelectionCategoryEnum: components["schemas"]["ReportTypeEnum"] | components["schemas"]["UserListEnum"] | components["schemas"]["PersonalStatsCategoryEnum"] | components["schemas"]["RacingRaceTypeEnum"];
+        UserLog: {
+            id: components["schemas"]["UserLogId"];
+            /** Format: int32 */
+            timestamp: number;
+            details: {
+                id: components["schemas"]["LogId"];
+                title: string;
+                category: string;
             };
-            cost?: {
-                points?: number;
-                cash?: number;
+            /** @description Dynamic key-value pairs related to the log. */
+            data: Record<string, never>;
+            /** @description Dynamic key-value pairs related to the log. */
+            params: Record<string, never>;
+        };
+        UserLogsResponse: {
+            log: components["schemas"]["UserLog"][];
+            _metadata: components["schemas"]["RequestMetadataWithLinks"];
+        };
+        BasicUser: {
+            id: components["schemas"]["UserId"];
+            name: string;
+        };
+        UserPropertyBasicDetails: {
+            id: components["schemas"]["PropertyId"];
+            owner: components["schemas"]["BasicUser"];
+            property: components["schemas"]["BasicProperty"];
+            /** Format: int32 */
+            happy: number;
+            upkeep: {
+                /** Format: int32 */
+                property: number;
+                /** Format: int32 */
+                staff: number;
             };
+            /** Format: int64 */
+            market_price: number;
+            modifications: components["schemas"]["PropertyModificationEnum"][];
+            staff: {
+                type: components["schemas"]["PropertyStaffEnum"];
+                /** Format: int32 */
+                amount: number;
+            }[];
         };
-        Races: {
-            races?: components['schemas']['Race'][];
+        UserPropertyDetailsExtended: components["schemas"]["UserPropertyBasicDetails"] & {
+            used_by: components["schemas"]["BasicUser"][];
+            /** @enum {string} */
+            status: "none" | "in_use";
         };
-        Race: {
-            id?: components['schemas']['RaceId'];
-            title?: string;
-            track_id?: components['schemas']['RaceTrackId'];
-            creator_id?: components['schemas']['UserId'];
-            status?: components['schemas']['RaceStatusEnum'];
-            laps?: number;
-            participants?: {
-                minimum?: number;
-                maximum?: number;
-                current?: number;
-            };
-            schedule?: {
-                join_from?: number;
-                join_until?: number;
-                start?: number;
-                end?: number | null;
-            };
-            requirements?: {
-                car_class?: components['schemas']['RaceClassEnum'];
-                driver_class?: components['schemas']['RaceClassEnum'];
-                car_item_id?: components['schemas']['ItemId'];
-                requires_stock_car?: boolean;
-                requires_password?: boolean;
-                join_fee?: number;
-            };
+        UserPropertyDetailsExtendedWithRent: components["schemas"]["UserPropertyBasicDetails"] & {
+            used_by: components["schemas"]["BasicUser"][];
+            /** @enum {string} */
+            status: "none" | "in_use";
+            rented_by?: components["schemas"]["BasicUser"];
         };
-        RaceRecords: {
-            records?: components['schemas']['RaceRecord'][];
+        UserPropertyDetails: components["schemas"]["UserPropertyBasicDetails"] & {
+            used_by: components["schemas"]["BasicUser"][];
         };
-        RaceRecord: {
-            driver_id?: components['schemas']['UserId'];
-            driver_name?: string;
-            car_item_id?: components['schemas']['ItemId'];
-            lap_time?: number;
-            car_item_name?: string;
+        UserPropertyDetailsExtendedRented: components["schemas"]["UserPropertyBasicDetails"] & {
+            used_by: components["schemas"]["BasicUser"][];
+            /** @enum {string} */
+            status: "rented";
+            /** Format: int64 */
+            cost: number;
+            /** Format: int64 */
+            cost_per_day: number;
+            /** Format: int32 */
+            rental_period: number;
+            /** Format: int32 */
+            rental_period_remaining: number;
+            rented_by: components["schemas"]["BasicUser"];
         };
-        RacerDetails: {
-            driver_id?: components['schemas']['UserId'];
-            position?: number | null;
-            car_id?: components['schemas']['RaceCarId'];
-            car_item_id?: components['schemas']['ItemId'];
-            car_item_name?: string;
-            car_class?: components['schemas']['RaceClassEnum'];
-            has_crashed?: boolean | null;
-            /** Format: float */
-            best_lap_time?: number | null;
-            /** Format: float */
-            race_time?: number | null;
-            time_ended?: number | null;
+        UserPropertyDetailsExtendedForRent: components["schemas"]["UserPropertyBasicDetails"] & {
+            used_by: components["schemas"]["BasicUser"][];
+            /** @enum {string} */
+            status: "for_rent";
+            /** Format: int64 */
+            cost: number;
+            /** Format: int64 */
+            cost_per_day: number;
+            /** Format: int32 */
+            rental_period: number;
+            renter_asked?: components["schemas"]["BasicUser"];
         };
-        RaceDetails: {
-            results?: components['schemas']['RacerDetails'][];
-        } & components['schemas']['Race'];
-        TornSubcrimes: {
-            subcrimes?: components['schemas']['TornSubcrime'][];
+        UserPropertyDetailsExtendedForSale: components["schemas"]["UserPropertyBasicDetails"] & {
+            used_by: components["schemas"]["BasicUser"][];
+            /** @enum {string} */
+            status: "for_sale";
+            /** Format: int64 */
+            cost: number;
         };
-        TornSubcrime: {
-            id?: number;
-            name?: string;
-            nerve_cost?: number;
+        UserPropertiesResponse: {
+            properties: (components["schemas"]["UserPropertyBasicDetails"] | components["schemas"]["UserPropertyDetailsExtended"] | components["schemas"]["UserPropertyDetailsExtendedRented"] | components["schemas"]["UserPropertyDetailsExtendedForRent"] | components["schemas"]["UserPropertyDetailsExtendedForSale"])[];
+            _metadata: components["schemas"]["RequestMetadataWithLinks"];
         };
-        TornCrimes: {
-            crimes?: components['schemas']['TornCrime'][];
+        UserPropertyResponse: {
+            property: components["schemas"]["UserPropertyDetails"];
         };
-        TornCrime: {
-            id?: number;
-            name?: string;
-            category_id?: number;
-            category_name?: string;
-            enhancer_id?: number;
-            enhancer_name?: string;
-            unique_outcomes_count?: number;
-            unique_outcomes_ids?: number[];
-            notes?: string[];
+        PropertyPropertyResponse: {
+            property: components["schemas"]["UserPropertyDetailsExtendedWithRent"];
         };
-        TornCalendarActivity: {
-            title?: string;
-            description?: string;
-            start?: number;
-            end?: number;
+        UserCurrentEducation: {
+            id: components["schemas"]["EducationId"];
+            /** Format: int32 */
+            until: number;
+        };
+        UserEducation: {
+            complete: components["schemas"]["EducationId"][];
+            current: components["schemas"]["UserCurrentEducation"] | null;
+        };
+        UserEducationResponse: {
+            education: components["schemas"]["UserEducation"];
         };
         UserCrimeDetailsBootlegging: {
-            /** @description Online store statistics */
-            online_store?: {
-                earnings?: number;
-                visits?: number;
-                customers?: number;
-                sales?: number;
+            /** @description Online store statistics. */
+            online_store: {
+                /** Format: int32 */
+                earnings: number;
+                /** Format: int32 */
+                visits: number;
+                /** Format: int32 */
+                customers: number;
+                /** Format: int32 */
+                sales: number;
             };
-            /** @description DVD sales statistics */
-            dvd_sales?: {
-                action?: number;
-                comedy?: number;
-                drama?: number;
-                fantasy?: number;
-                horror?: number;
-                romance?: number;
-                thriller?: number;
-                'sci-fi'?: number;
-                total?: number;
-                earnings?: number;
+            /** @description DVD sales statistics. */
+            dvd_sales: {
+                /** Format: int32 */
+                action: number;
+                /** Format: int32 */
+                comedy: number;
+                /** Format: int32 */
+                drama: number;
+                /** Format: int32 */
+                fantasy: number;
+                /** Format: int32 */
+                horror: number;
+                /** Format: int32 */
+                romance: number;
+                /** Format: int32 */
+                thriller: number;
+                /** Format: int32 */
+                sci_fi: number;
+                /** Format: int32 */
+                total: number;
+                /** Format: int32 */
+                earnings: number;
             };
+            /** Format: int32 */
             dvds_copied?: number;
         };
         UserCrimeDetailsGraffiti: {
-            cans_used?: number;
-            most_graffiti_in_one_area?: number;
-            most_graffiti_simultaneously?: number;
-            graffiti_removed?: number;
-            cost_to_city?: number;
+            /** Format: int32 */
+            cans_used: number;
+            /** Format: int32 */
+            most_graffiti_in_one_area: number;
+            /** Format: int32 */
+            most_graffiti_simultaneously: number;
+            /** Format: int32 */
+            graffiti_removed: number;
+            /** Format: int32 */
+            cost_to_city: number;
         };
         UserCrimeDetailsShoplifting: {
-            average_notoriety?: number;
+            /** Format: int32 */
+            average_notoriety: number;
         };
         UserCrimeDetailsCardSkimming: {
-            card_details?: {
-                recoverable?: number;
-                recovered?: number;
-                sold?: number;
-                lost?: number;
-                areas?: {
-                    id?: number;
-                    amount?: number;
+            card_details: {
+                /** Format: int32 */
+                recoverable: number;
+                /** Format: int32 */
+                recovered: number;
+                /** Format: int32 */
+                sold: number;
+                /** Format: int32 */
+                lost: number;
+                areas: {
+                    /** Format: int32 */
+                    id: number;
+                    /** Format: int32 */
+                    amount: number;
                 }[];
             };
-            skimmers?: {
-                active?: number;
-                most_lucrative?: number;
-                oldest_recovered?: number;
-                lost?: number;
+            skimmers: {
+                /** Format: int32 */
+                active: number;
+                /** Format: int32 */
+                most_lucrative: number;
+                /** Format: int32 */
+                oldest_recovered: number;
+                /** Format: int32 */
+                lost: number;
             };
         };
         UserCrimeDetailsHustling: {
-            total_audience_gathered?: number;
-            biggest_money_won?: number;
-            shill_money_collected?: number;
-            pickpocket_money_collected?: number;
+            /** Format: int32 */
+            total_audience_gathered: number;
+            /** Format: int32 */
+            biggest_money_won: number;
+            /** Format: int32 */
+            shill_money_collected: number;
+            /** Format: int32 */
+            pickpocket_money_collected: number;
         };
         UserCrimeDetailsCracking: {
-            brute_force_cycles?: number;
-            encryption_layers_broken?: number;
-            highest_mips?: number;
-            chars_guessed?: number;
-            chars_guessed_total?: number;
+            /** Format: int32 */
+            brute_force_cycles: number;
+            /** Format: int32 */
+            encryption_layers_broken: number;
+            /** Format: int32 */
+            highest_mips: number;
+            /** Format: int32 */
+            chars_guessed: number;
+            /** Format: int32 */
+            chars_guessed_total: number;
+        };
+        UserCrimeDetailsScamming: {
+            /**
+             * Format: int32
+             * @default 0
+             */
+            most_responses: number;
+            zones: {
+                /**
+                 * Format: int32
+                 * @default 0
+                 */
+                red: number;
+                /**
+                 * Format: int32
+                 * @default 0
+                 */
+                neutral: number;
+                /**
+                 * Format: int32
+                 * @default 0
+                 */
+                concern: number;
+                /**
+                 * Format: int32
+                 * @default 0
+                 */
+                sensitivity: number;
+                /**
+                 * Format: int32
+                 * @default 0
+                 */
+                temptation: number;
+                /**
+                 * Format: int32
+                 * @default 0
+                 */
+                hesitation: number;
+                /**
+                 * Format: int32
+                 * @default 0
+                 */
+                low_reward: number;
+                /**
+                 * Format: int32
+                 * @default 0
+                 */
+                medium_reward: number;
+                /**
+                 * Format: int32
+                 * @default 0
+                 */
+                high_reward: number;
+            };
+            concerns: {
+                /**
+                 * Format: int32
+                 * @default 0
+                 */
+                attempts: number;
+                /**
+                 * Format: int32
+                 * @default 0
+                 */
+                resolved: number;
+            };
+            payouts: {
+                /**
+                 * Format: int32
+                 * @default 0
+                 */
+                low: number;
+                /**
+                 * Format: int32
+                 * @default 0
+                 */
+                medium: number;
+                /**
+                 * Format: int32
+                 * @default 0
+                 */
+                high: number;
+            };
+            emails: {
+                /**
+                 * Format: int32
+                 * @default 0
+                 */
+                scraper: number;
+                /**
+                 * Format: int32
+                 * @default 0
+                 */
+                phisher: number;
+            };
         };
         UserSubcrime: {
-            id?: number;
-            total?: number;
-            success?: number;
-            fail?: number;
+            /** Format: int32 */
+            id: number;
+            /** Format: int32 */
+            total: number;
+            /** Format: int32 */
+            success: number;
+            /** Format: int32 */
+            fail: number;
         };
         UserCrimeRewardAmmo: {
-            standard?: number;
-            special?: number;
+            /** Format: int32 */
+            standard: number;
+            /** Format: int32 */
+            special: number;
         };
         UserCrimeRewardItem: {
-            id?: number;
-            amount?: number;
+            /** Format: int32 */
+            id: number;
+            /** Format: int32 */
+            amount: number;
         };
         UserCrimeRewards: {
-            money?: number;
-            ammo?: components['schemas']['UserCrimeRewardAmmo'];
-            items?: components['schemas']['UserCrimeRewardItem'][];
+            /** Format: int64 */
+            money: number;
+            ammo: components["schemas"]["UserCrimeRewardAmmo"];
+            items: components["schemas"]["UserCrimeRewardItem"][];
         };
         UserCrimeAttempts: {
-            total?: number;
-            success?: number;
-            fail?: number;
-            critical_fail?: number;
-            subcrimes?: components['schemas']['UserSubcrime'][];
+            /** Format: int32 */
+            total: number;
+            /** Format: int32 */
+            success: number;
+            /** Format: int32 */
+            fail: number;
+            /** Format: int32 */
+            critical_fail: number;
+            subcrimes: components["schemas"]["UserSubcrime"][];
         };
-        UserCrimeDetails: {
-            crimes?: components['schemas']['UserCrime'];
+        UserCrimeUniquesRewardMoney: {
+            /** Format: int32 */
+            min: number;
+            /** Format: int32 */
+            max: number;
+        };
+        UserCrimeUniquesRewardAmmo: {
+            /** Format: int32 */
+            amount: number;
+            type: components["schemas"]["UserCrimeUniquesRewardAmmoEnum"];
+        };
+        UserCrimeUniquesReward: {
+            items: components["schemas"]["UserCrimeRewardItem"][];
+            money: components["schemas"]["UserCrimeUniquesRewardMoney"] | null;
+            ammo: components["schemas"]["UserCrimeUniquesRewardAmmo"] | null;
+        };
+        UserCrimeUniques: {
+            /**
+             * Format: int64
+             * @description Unique result id.
+             */
+            id: number;
+            rewards: components["schemas"]["UserCrimeUniquesReward"];
+        };
+        UserCrimesResponse: {
+            crimes: components["schemas"]["UserCrime"];
         };
         UserCrime: {
-            nerve_spent?: number;
-            skill?: number;
-            progression_bonus?: number;
-            achieved_uniques?: number[];
-            rewards?: components['schemas']['UserCrimeRewards'];
-            attempts?: components['schemas']['UserCrimeAttempts'];
+            /** Format: int32 */
+            nerve_spent: number;
+            /** Format: int32 */
+            skill: number;
+            /** Format: int32 */
+            progression_bonus: number;
+            rewards: components["schemas"]["UserCrimeRewards"];
+            attempts: components["schemas"]["UserCrimeAttempts"];
+            uniques: components["schemas"]["UserCrimeUniques"][];
             /** @description  Miscellaneous stats for specific crime. Results differ based on the cat id. */
-            miscellaneous?:
-                | components['schemas']['UserCrimeDetailsBootlegging']
-                | components['schemas']['UserCrimeDetailsGraffiti']
-                | components['schemas']['UserCrimeDetailsShoplifting']
-                | components['schemas']['UserCrimeDetailsCardSkimming']
-                | components['schemas']['UserCrimeDetailsHustling']
-                | components['schemas']['UserCrimeDetailsCracking'];
+            miscellaneous: components["schemas"]["UserCrimeDetailsBootlegging"] | components["schemas"]["UserCrimeDetailsGraffiti"] | components["schemas"]["UserCrimeDetailsShoplifting"] | components["schemas"]["UserCrimeDetailsCardSkimming"] | components["schemas"]["UserCrimeDetailsHustling"] | components["schemas"]["UserCrimeDetailsCracking"] | components["schemas"]["UserCrimeDetailsScamming"] | null;
         };
-        UserRaceCarDetails: {
-            id?: components['schemas']['RaceCarId'];
-            name?: string;
-            worth?: number;
-            points_spent?: number;
-            races_entered?: number;
-            races_won?: number;
-            is_removed?: boolean;
-            parts?: components['schemas']['RaceCarUpgradeId'][];
-        } & components['schemas']['RaceCar'];
+        UserRacesResponse: {
+            races: components["schemas"]["RacingRaceDetails"][];
+            _metadata: components["schemas"]["RequestMetadataWithLinks"];
+        };
+        UserRaceCarDetails: components["schemas"]["RaceCar"] & {
+            id: components["schemas"]["RaceCarId"];
+            name: string | null;
+            /** Format: int64 */
+            worth: number;
+            /** Format: int32 */
+            points_spent: number;
+            /** Format: int32 */
+            races_entered: number;
+            /** Format: int32 */
+            races_won: number;
+            is_removed: boolean;
+            parts: components["schemas"]["RaceCarUpgradeId"][];
+        };
+        UserEnlistedCarsResponse: {
+            enlistedcars: components["schemas"]["UserRaceCarDetails"][];
+        };
+        UserForumPostsResponse: {
+            forumPosts: components["schemas"]["ForumPost"][];
+            _metadata: components["schemas"]["RequestMetadataWithLinks"];
+        };
+        UserForumThreadsResponse: {
+            forumThreads: components["schemas"]["ForumThreadUserExtended"][];
+            _metadata: components["schemas"]["RequestMetadataWithLinks"];
+        };
+        UserForumSubscribedThreadsResponse: {
+            forumSubscribedThreads?: components["schemas"]["ForumSubscribedThread"][];
+        };
+        UserForumFeedResponse: {
+            forumFeed: components["schemas"]["ForumFeed"][];
+        };
+        UserForumFriendsResponse: {
+            forumFriends: components["schemas"]["ForumFeed"][];
+        };
+        HofValue: {
+            /** Format: int64 */
+            value: number;
+            /** Format: int32 */
+            rank: number;
+        };
+        HofValueFloat: {
+            /** Format: float */
+            value: number;
+            /** Format: int32 */
+            rank: number;
+        };
+        HofValueString: {
+            value: string;
+            rank: number | null;
+        };
+        UserHofStats: {
+            attacks: components["schemas"]["HofValue"];
+            busts: components["schemas"]["HofValue"];
+            defends: components["schemas"]["HofValue"];
+            networth: components["schemas"]["HofValue"];
+            offences: components["schemas"]["HofValue"];
+            revives: components["schemas"]["HofValue"];
+            level: components["schemas"]["HofValue"];
+            rank: components["schemas"]["HofValue"];
+            awards: components["schemas"]["HofValue"];
+            racing_skill: components["schemas"]["HofValueFloat"];
+            racing_points: components["schemas"]["HofValue"];
+            racing_wins: components["schemas"]["HofValue"];
+            travel_time: components["schemas"]["HofValue"];
+            working_stats: components["schemas"]["HofValue"];
+            battle_stats: components["schemas"]["HofValue"] | null;
+        };
+        UserHofResponse: {
+            hof: components["schemas"]["UserHofStats"];
+        };
+        UserCalendar: {
+            /** @description Event start time displayed in TCT. */
+            start_time: string;
+        };
+        UserCalendarResponse: {
+            calendar: components["schemas"]["UserCalendar"];
+        };
+        UserBountiesResponse: {
+            bounties: components["schemas"]["Bounty"][];
+        };
+        UserJobRanks: {
+            army: components["schemas"]["JobPositionArmyEnum"];
+            grocer: components["schemas"]["JobPositionGrocerEnum"];
+            casino: components["schemas"]["JobPositionCasinoEnum"];
+            medical: components["schemas"]["JobPositionMedicalEnum"];
+            law: components["schemas"]["JobPositionLawEnum"];
+            education: components["schemas"]["JobPositionEducationEnum"];
+        };
+        UserJobRanksResponse: {
+            jobranks: components["schemas"]["UserJobRanks"];
+        };
+        UserItemMarkeListingItemDetails: {
+            /** Format: int64 */
+            id: number;
+            name: string;
+            type: string;
+            rarity: ("yellow" | "orange" | "red") | null;
+            uid: components["schemas"]["ItemUid"] | null;
+            stats: components["schemas"]["ItemMarketListingItemStats"] | null;
+            bonuses: components["schemas"]["ItemMarketListingItemBonus"][];
+        };
+        UserItemMarketListing: {
+            /** Format: int64 */
+            id: number;
+            /** Format: int64 */
+            price: number;
+            /** Format: int64 */
+            average_price: number;
+            /** Format: int32 */
+            amount: number;
+            is_anonymous: boolean;
+            /**
+             * Format: int32
+             * @description Amount remaining in the inventory.
+             */
+            available: number;
+            item: components["schemas"]["UserItemMarkeListingItemDetails"];
+        };
+        UserItemMarketResponse: {
+            itemmarket: components["schemas"]["UserItemMarketListing"][];
+            _metadata: components["schemas"]["RequestMetadataWithLinks"];
+        };
+        UserFactionBalance: {
+            /** Format: int64 */
+            money: number;
+            /** Format: int64 */
+            points: number;
+        };
+        UserFactionBalanceResponse: {
+            factionBalance: components["schemas"]["UserFactionBalance"] | null;
+        };
+        UserOrganizedCrimeResponse: {
+            organizedCrime: components["schemas"]["FactionCrime"] | null;
+        };
+        UserList: {
+            id: components["schemas"]["UserId"];
+            name: string;
+            /** Format: int32 */
+            level: number;
+            faction_id: components["schemas"]["FactionId"] | null;
+            last_action: components["schemas"]["UserLastAction"];
+            status: components["schemas"]["UserStatus"];
+        };
+        UserListResponse: {
+            list: components["schemas"]["UserList"][];
+            _metadata: components["schemas"]["RequestMetadataWithLinks"];
+        };
+        UserSelectionName: ("attacks" | "attacksfull" | "bounties" | "calendar" | "crimes" | "enlistedcars" | "factionbalance" | "forumfeed" | "forumfriends" | "forumposts" | "forumsubscribedthreads" | "forumthreads" | "hof" | "itemmarket" | "jobranks" | "list" | "lookup" | "organizedcrime" | "personalstats" | "properties" | "property" | "races" | "racingrecords" | "revives" | "revivesfull" | "timestamp" | "ammo" | "bars" | "basic" | "battlestats" | "bazaar" | "cooldowns" | "criminalrecord" | "discord" | "display" | "education" | "equipment" | "events" | "gym" | "honors" | "icons" | "inventory" | "jobpoints" | "log" | "medals" | "merits" | "messages" | "missions" | "money" | "networth" | "newevents" | "newmessages" | "notifications" | "perks" | "profile" | "refills" | "reports" | "skills" | "stocks" | "travel" | "weaponexp" | "workstats") | string;
+        UserLookupResponse: {
+            selections: components["schemas"]["UserSelectionName"][];
+        };
+        PersonalStatsOther: {
+            other: {
+                activity: {
+                    /**
+                     * Format: int32
+                     * @description Time played in seconds
+                     */
+                    time: number;
+                    streak: {
+                        /** Format: int32 */
+                        best: number;
+                        /** Format: int32 */
+                        current: number;
+                    };
+                };
+                /** Format: int32 */
+                awards: number;
+                /** Format: int32 */
+                merits_bought: number;
+                refills: {
+                    /** Format: int32 */
+                    energy: number;
+                    /** Format: int32 */
+                    nerve: number;
+                    /** Format: int32 */
+                    token: number;
+                };
+                /** Format: int32 */
+                donator_days: number;
+                /** Format: int32 */
+                ranked_war_wins: number;
+            };
+        };
+        PersonalStatsOtherPopular: {
+            other: {
+                activity: {
+                    /**
+                     * Format: int32
+                     * @description Time played in seconds
+                     */
+                    time: number;
+                    streak: {
+                        /** Format: int32 */
+                        best: number;
+                        /** Format: int32 */
+                        current: number;
+                    };
+                };
+                /** Format: int32 */
+                awards: number;
+                /** Format: int32 */
+                merits_bought: number;
+                refills: {
+                    /** Format: int32 */
+                    energy: number;
+                    /** Format: int32 */
+                    nerve: number;
+                };
+                /** Format: int32 */
+                donator_days: number;
+                /** Format: int32 */
+                ranked_war_wins: number;
+            };
+        };
+        PersonalStatsNetworthExtended: {
+            networth: {
+                /** Format: int64 */
+                total: number;
+                /** Format: int64 */
+                wallet: number;
+                /** Format: int64 */
+                vaults: number;
+                /** Format: int64 */
+                bank: number;
+                /** Format: int64 */
+                overseas_bank: number;
+                /** Format: int64 */
+                points: number;
+                /** Format: int64 */
+                inventory: number;
+                /** Format: int64 */
+                display_case: number;
+                /** Format: int64 */
+                bazaar: number;
+                /** Format: int64 */
+                item_market: number;
+                /** Format: int64 */
+                property: number;
+                /** Format: int64 */
+                stock_market: number;
+                /** Format: int64 */
+                auction_house: number;
+                /** Format: int64 */
+                bookie: number;
+                /** Format: int64 */
+                company: number;
+                /** Format: int64 */
+                enlisted_cars: number;
+                /** Format: int64 */
+                piggy_bank: number;
+                /** Format: int64 */
+                pending: number;
+                /** Format: int64 */
+                loans: number;
+                /** Format: int64 */
+                unpaid_fees: number;
+            };
+        };
+        PersonalStatsNetworthPublic: {
+            networth: {
+                /** Format: int64 */
+                total: number;
+            };
+        };
+        PersonalStatsRacing: {
+            racing: {
+                /** Format: int32 */
+                skill: number;
+                /** Format: int32 */
+                points: number;
+                races: {
+                    /** Format: int32 */
+                    entered: number;
+                    /** Format: int32 */
+                    won: number;
+                };
+            };
+        };
+        PersonalStatsMissions: {
+            missions: {
+                /** Format: int32 */
+                missions: number;
+                contracts: {
+                    /** Format: int32 */
+                    total: number;
+                    /** Format: int32 */
+                    duke: number;
+                };
+                /** Format: int32 */
+                credits: number;
+            };
+        };
+        PersonalStatsDrugs: {
+            drugs: {
+                /** Format: int32 */
+                cannabis: number;
+                /** Format: int32 */
+                ecstasy: number;
+                /** Format: int32 */
+                ketamine: number;
+                /** Format: int32 */
+                lsd: number;
+                /** Format: int32 */
+                opium: number;
+                /** Format: int32 */
+                pcp: number;
+                /** Format: int32 */
+                shrooms: number;
+                /** Format: int32 */
+                speed: number;
+                /** Format: int32 */
+                vicodin: number;
+                /** Format: int32 */
+                xanax: number;
+                /** Format: int32 */
+                total: number;
+                /** Format: int32 */
+                overdoses: number;
+                rehabilitations: {
+                    /** Format: int32 */
+                    amount: number;
+                    /** Format: int64 */
+                    fees: number;
+                };
+            };
+        };
+        PersonalStatsTravel: {
+            travel: {
+                /** Format: int32 */
+                total: number;
+                /** Format: int32 */
+                time_spent: number;
+                /** Format: int32 */
+                items_bought: number;
+                hunting: {
+                    /** Format: int32 */
+                    skill: number;
+                };
+                /** Format: int32 */
+                attacks_won: number;
+                /** Format: int32 */
+                defends_lost: number;
+                /** Format: int32 */
+                argentina: number;
+                /** Format: int32 */
+                canada: number;
+                /** Format: int32 */
+                cayman_islands: number;
+                /** Format: int32 */
+                china: number;
+                /** Format: int32 */
+                hawaii: number;
+                /** Format: int32 */
+                japan: number;
+                /** Format: int32 */
+                mexico: number;
+                /** Format: int32 */
+                united_arab_emirates: number;
+                /** Format: int32 */
+                united_kingdom: number;
+                /** Format: int32 */
+                south_africa: number;
+                /** Format: int32 */
+                switzerland: number;
+            };
+        };
+        PersonalStatsTravelPopular: {
+            travel: {
+                /** Format: int32 */
+                total: number;
+                /** Format: int32 */
+                time_spent: number;
+            };
+        };
+        PersonalStatsItems: {
+            items: {
+                found: {
+                    /** Format: int32 */
+                    city: number;
+                    /** Format: int32 */
+                    dump: number;
+                    /** Format: int32 */
+                    easter_eggs: number;
+                };
+                /** Format: int32 */
+                trashed: number;
+                used: {
+                    /** Format: int32 */
+                    books: number;
+                    /** Format: int32 */
+                    boosters: number;
+                    /** Format: int32 */
+                    consumables: number;
+                    /** Format: int32 */
+                    candy: number;
+                    /** Format: int32 */
+                    alcohol: number;
+                    /** Format: int32 */
+                    energy_drinks: number;
+                    /** Format: int32 */
+                    stat_enhancers: number;
+                    /** Format: int32 */
+                    easter_eggs: number;
+                };
+                /** Format: int32 */
+                viruses_coded: number;
+            };
+        };
+        PersonalStatsItemsPopular: {
+            items: {
+                found: {
+                    /** Format: int32 */
+                    dump: number;
+                };
+                used: {
+                    /** Format: int32 */
+                    books: number;
+                    /** Format: int32 */
+                    boosters: number;
+                    /** Format: int32 */
+                    consumables: number;
+                    /** Format: int32 */
+                    candy: number;
+                    /** Format: int32 */
+                    alcohol: number;
+                    /** Format: int32 */
+                    energy_drinks: number;
+                    /** Format: int32 */
+                    stat_enhancers: number;
+                    /** Format: int32 */
+                    easter_eggs: number;
+                };
+            };
+        };
+        PersonalStatsInvestments: {
+            investments: {
+                bank: {
+                    /** Format: int64 */
+                    total: number;
+                    /** Format: int64 */
+                    profit: number;
+                    /** Format: int64 */
+                    current: number;
+                    /** Format: int32 */
+                    time_remaining: number;
+                };
+                stocks: {
+                    /** Format: int64 */
+                    profits: number;
+                    /** Format: int64 */
+                    losses: number;
+                    /** Format: int64 */
+                    fees: number;
+                    /** Format: int64 */
+                    net_profits: number;
+                    /** Format: int64 */
+                    payouts: number;
+                };
+            };
+        };
+        PersonalStatsBounties: {
+            bounties: {
+                placed: {
+                    /** Format: int32 */
+                    amount: number;
+                    /** Format: int64 */
+                    value: number;
+                };
+                collected: {
+                    /** Format: int32 */
+                    amount: number;
+                    /** Format: int64 */
+                    value: number;
+                };
+                received: {
+                    /** Format: int32 */
+                    amount: number;
+                    /** Format: int64 */
+                    value: number;
+                };
+            };
+        };
+        PersonalStatsCrimesV2: {
+            offenses: {
+                /** Format: int32 */
+                vandalism: number;
+                /** Format: int32 */
+                fraud: number;
+                /** Format: int32 */
+                theft: number;
+                /** Format: int32 */
+                counterfeiting: number;
+                /** Format: int32 */
+                illicit_services: number;
+                /** Format: int32 */
+                cybercrime: number;
+                /** Format: int32 */
+                extortion: number;
+                /** Format: int32 */
+                illegal_production: number;
+                /** Format: int32 */
+                organized_crimes: number;
+                /** Format: int32 */
+                total: number;
+            };
+            skills: {
+                /** Format: int32 */
+                search_for_cash: number;
+                /** Format: int32 */
+                bootlegging: number;
+                /** Format: int32 */
+                graffiti: number;
+                /** Format: int32 */
+                shoplifting: number;
+                /** Format: int32 */
+                pickpocketing: number;
+                /** Format: int32 */
+                card_skimming: number;
+                /** Format: int32 */
+                burglary: number;
+                /** Format: int32 */
+                hustling: number;
+                /** Format: int32 */
+                disposal: number;
+                /** Format: int32 */
+                cracking: number;
+                /** Format: int32 */
+                forgery: number;
+                /** Format: int32 */
+                scamming: number;
+            };
+            version: string;
+        };
+        PersonalStatsCrimesV1: {
+            /** Format: int32 */
+            total: number;
+            /** Format: int32 */
+            sell_illegal_goods: number;
+            /** Format: int32 */
+            theft: number;
+            /** Format: int32 */
+            auto_theft: number;
+            /** Format: int32 */
+            drug_deals: number;
+            /** Format: int32 */
+            computer: number;
+            /** Format: int32 */
+            fraud: number;
+            /** Format: int32 */
+            murder: number;
+            /** Format: int32 */
+            other: number;
+            /** Format: int32 */
+            organized_crimes: number;
+            version: string;
+        };
+        PersonalStatsCrimesPopular: {
+            crimes: {
+                /** Format: int32 */
+                total: number;
+                version: string;
+            };
+        };
+        PersonalStatsCommunication: {
+            communication: {
+                mails_sent: {
+                    /** Format: int32 */
+                    total: number;
+                    /** Format: int32 */
+                    friends: number;
+                    /** Format: int32 */
+                    faction: number;
+                    /** Format: int32 */
+                    colleagues: number;
+                    /** Format: int32 */
+                    spouse: number;
+                };
+                /** Format: int32 */
+                classified_ads: number;
+                /** Format: int32 */
+                personals: number;
+            };
+        };
+        PersonalStatsFinishingHits: {
+            finishing_hits: {
+                /** Format: int32 */
+                heavy_artillery: number;
+                /** Format: int32 */
+                machine_guns: number;
+                /** Format: int32 */
+                rifles: number;
+                /** Format: int32 */
+                sub_machine_guns: number;
+                /** Format: int32 */
+                shotguns: number;
+                /** Format: int32 */
+                pistols: number;
+                /** Format: int32 */
+                temporary: number;
+                /** Format: int32 */
+                piercing: number;
+                /** Format: int32 */
+                slashing: number;
+                /** Format: int32 */
+                clubbing: number;
+                /** Format: int32 */
+                mechanical: number;
+                /** Format: int32 */
+                hand_to_hand: number;
+            };
+        };
+        PersonalStatsHospital: {
+            hospital: {
+                /** Format: int32 */
+                times_hospitalized: number;
+                /** Format: int32 */
+                medical_items_used: number;
+                /** Format: int32 */
+                blood_withdrawn: number;
+                reviving: {
+                    /** Format: int32 */
+                    skill: number;
+                    /** Format: int32 */
+                    revives: number;
+                    /** Format: int32 */
+                    revives_received: number;
+                };
+            };
+        };
+        PersonalStatsHospitalPopular: {
+            hospital: {
+                /** Format: int32 */
+                medical_items_used: number;
+                reviving: {
+                    /** Format: int32 */
+                    skill: number;
+                    /** Format: int32 */
+                    revives: number;
+                };
+            };
+        };
+        PersonalStatsJail: {
+            jail: {
+                /** Format: int32 */
+                times_jailed: number;
+                busts: {
+                    /** Format: int32 */
+                    success: number;
+                    /** Format: int32 */
+                    fails: number;
+                };
+                bails: {
+                    /** Format: int32 */
+                    amount: number;
+                    /** Format: int64 */
+                    fees: number;
+                };
+            };
+        };
+        PersonalStatsTrading: {
+            trading: {
+                items: {
+                    bought: {
+                        /** Format: int32 */
+                        market: number;
+                        /** Format: int32 */
+                        shops: number;
+                    };
+                    auctions: {
+                        /** Format: int32 */
+                        won: number;
+                        /** Format: int32 */
+                        sold: number;
+                    };
+                    /** Format: int32 */
+                    sent: number;
+                };
+                /** Format: int32 */
+                trades: number;
+                points: {
+                    /** Format: int32 */
+                    bought: number;
+                    /** Format: int32 */
+                    sold: number;
+                };
+                bazaar: {
+                    /** Format: int32 */
+                    customers: number;
+                    /** Format: int32 */
+                    sales: number;
+                    /** Format: int64 */
+                    profit: number;
+                };
+                item_market?: {
+                    /** Format: int32 */
+                    customers: number;
+                    /** Format: int32 */
+                    sales: number;
+                    /** Format: int64 */
+                    revenue: number;
+                    /** Format: int64 */
+                    fees: number;
+                };
+            };
+        };
+        PersonalStatsJobsPublic: {
+            jobs: {
+                /** Format: int32 */
+                job_points_used: number;
+                /** Format: int32 */
+                trains_received: number;
+            };
+        };
+        PersonalStatsJobsExtended: {
+            jobs: {
+                /** Format: int32 */
+                job_points_used: number;
+                /** Format: int32 */
+                trains_received: number;
+                stats: {
+                    /** Format: int32 */
+                    manual: number;
+                    /** Format: int32 */
+                    intelligence: number;
+                    /** Format: int32 */
+                    endurance: number;
+                    /** Format: int32 */
+                    total: number;
+                };
+            };
+        };
+        PersonalStatsBattleStats: {
+            battle_stats: {
+                /** Format: int64 */
+                strength: number;
+                /** Format: int64 */
+                defense: number;
+                /** Format: int64 */
+                speed: number;
+                /** Format: int64 */
+                dexterity: number;
+                /** Format: int64 */
+                total: number;
+            };
+        };
+        PersonalStatsAttackingPublic: {
+            attacking: {
+                attacks: {
+                    /** Format: int32 */
+                    won: number;
+                    /** Format: int32 */
+                    lost: number;
+                    /** Format: int32 */
+                    stalemate: number;
+                    /** Format: int32 */
+                    assist: number;
+                    /** Format: int32 */
+                    stealth: number;
+                };
+                defends: {
+                    /** Format: int32 */
+                    won: number;
+                    /** Format: int32 */
+                    lost: number;
+                    /** Format: int32 */
+                    stalemate: number;
+                    /** Format: int32 */
+                    total: number;
+                };
+                /** Format: int32 */
+                elo: number;
+                /** Format: int32 */
+                unarmored_wins: number;
+                /** Format: int32 */
+                highest_level_beaten: number;
+                escapes?: {
+                    /** Format: int32 */
+                    player: number;
+                    /** Format: int32 */
+                    foes: number;
+                };
+                killstreak: {
+                    /** Format: int32 */
+                    best: number;
+                };
+                hits: {
+                    /** Format: int32 */
+                    success: number;
+                    /** Format: int32 */
+                    miss: number;
+                    /** Format: int32 */
+                    critical: number;
+                    /** Format: int32 */
+                    one_hit_kills: number;
+                };
+                damage: {
+                    /** Format: int64 */
+                    total: number;
+                    /** Format: int32 */
+                    best: number;
+                };
+                networth: {
+                    /** Format: int64 */
+                    money_mugged: number;
+                    /** Format: int64 */
+                    largest_mug: number;
+                    /** Format: int32 */
+                    items_looted: number;
+                };
+                ammunition: {
+                    /** Format: int32 */
+                    total: number;
+                    /** Format: int32 */
+                    special: number;
+                    /** Format: int32 */
+                    hollow_point: number;
+                    /** Format: int32 */
+                    tracer: number;
+                    /** Format: int32 */
+                    piercing: number;
+                    /** Format: int32 */
+                    incendiary: number;
+                };
+                faction: {
+                    /** Format: int32 */
+                    respect: number;
+                    /** Format: int32 */
+                    retaliations: number;
+                    /** Format: int32 */
+                    ranked_war_hits: number;
+                    /** Format: int32 */
+                    raid_hits: number;
+                    territory: {
+                        /** Format: int32 */
+                        wall_joins: number;
+                        /** Format: int32 */
+                        wall_clears: number;
+                        /** Format: int32 */
+                        wall_time: number;
+                    };
+                };
+            };
+        };
+        PersonalStatsAttackingExtended: {
+            attacking: {
+                attacks: {
+                    /** Format: int32 */
+                    won: number;
+                    /** Format: int32 */
+                    lost: number;
+                    /** Format: int32 */
+                    stalemate: number;
+                    /** Format: int32 */
+                    assist: number;
+                    /** Format: int32 */
+                    stealth: number;
+                };
+                defends: {
+                    /** Format: int32 */
+                    won: number;
+                    /** Format: int32 */
+                    lost: number;
+                    /** Format: int32 */
+                    stalemate: number;
+                    /** Format: int32 */
+                    total: number;
+                };
+                /** Format: int32 */
+                elo: number;
+                /** Format: int32 */
+                unarmored_wins: number;
+                /** Format: int32 */
+                highest_level_beaten: number;
+                escapes: {
+                    /** Format: int32 */
+                    player: number;
+                    /** Format: int32 */
+                    foes: number;
+                };
+                killstreak: {
+                    /** Format: int32 */
+                    best: number;
+                    /** Format: int32 */
+                    current: number;
+                };
+                hits: {
+                    /** Format: int32 */
+                    success: number;
+                    /** Format: int32 */
+                    miss: number;
+                    /** Format: int32 */
+                    critical: number;
+                    /** Format: int32 */
+                    one_hit_kills: number;
+                };
+                damage: {
+                    /** Format: int64 */
+                    total: number;
+                    /** Format: int32 */
+                    best: number;
+                };
+                networth: {
+                    /** Format: int64 */
+                    money_mugged: number;
+                    /** Format: int64 */
+                    largest_mug: number;
+                    /** Format: int32 */
+                    items_looted: number;
+                };
+                ammunition: {
+                    /** Format: int32 */
+                    total: number;
+                    /** Format: int32 */
+                    special: number;
+                    /** Format: int32 */
+                    hollow_point: number;
+                    /** Format: int32 */
+                    tracer: number;
+                    /** Format: int32 */
+                    piercing: number;
+                    /** Format: int32 */
+                    incendiary: number;
+                };
+                faction: {
+                    /** Format: int32 */
+                    respect: number;
+                    /** Format: int32 */
+                    retaliations: number;
+                    /** Format: int32 */
+                    ranked_war_hits: number;
+                    /** Format: int32 */
+                    raid_hits: number;
+                    territory: {
+                        /** Format: int32 */
+                        wall_joins: number;
+                        /** Format: int32 */
+                        wall_clears: number;
+                        /** Format: int32 */
+                        wall_time: number;
+                    };
+                };
+            };
+        };
+        PersonalStatsAttackingPopular: {
+            attacking: {
+                attacks: {
+                    /** Format: int32 */
+                    won: number;
+                    /** Format: int32 */
+                    lost: number;
+                    /** Format: int32 */
+                    stalemate: number;
+                    /** Format: int32 */
+                    assist: number;
+                };
+                defends: {
+                    /** Format: int32 */
+                    won: number;
+                    /** Format: int32 */
+                    lost: number;
+                    /** Format: int32 */
+                    stalemate: number;
+                };
+                /** Format: int32 */
+                elo: number;
+                escapes: {
+                    /** Format: int32 */
+                    player: number;
+                    /** Format: int32 */
+                    foes: number;
+                };
+                killstreak: {
+                    /** Format: int32 */
+                    best: number;
+                };
+                hits: {
+                    /** Format: int32 */
+                    success: number;
+                    /** Format: int32 */
+                    miss: number;
+                    /** Format: int32 */
+                    critical: number;
+                    /** Format: int32 */
+                    one_hit_kills: number;
+                };
+                damage: {
+                    /** Format: int64 */
+                    total: number;
+                    /** Format: int32 */
+                    best: number;
+                };
+                networth: {
+                    /** Format: int64 */
+                    money_mugged: number;
+                    /** Format: int64 */
+                    largest_mug: number;
+                    /** Format: int32 */
+                    items_looted: number;
+                };
+                ammunition: {
+                    /** Format: int32 */
+                    total: number;
+                    /** Format: int32 */
+                    special: number;
+                    /** Format: int32 */
+                    hollow_point: number;
+                    /** Format: int32 */
+                    tracer: number;
+                    /** Format: int32 */
+                    piercing: number;
+                    /** Format: int32 */
+                    incendiary: number;
+                };
+                faction: {
+                    /** Format: int32 */
+                    respect: number;
+                    /** Format: int32 */
+                    ranked_war_hits: number;
+                };
+            };
+        };
+        PersonalStatsHistoricStat: {
+            /** @description Requested stat name */
+            name: string;
+            /** Format: int64 */
+            value: number;
+            /**
+             * Format: int32
+             * @description Timestamp when the stat was last updated
+             */
+            timestamp: number;
+        };
+        UserPersonalStatsHistoric: {
+            personalstats: components["schemas"]["PersonalStatsHistoricStat"][];
+        };
+        /** @description Response for PersonalStatsCrimes depends on which crime version user is currently. */
+        PersonalStatsCrimes: {
+            crimes: components["schemas"]["PersonalStatsCrimesV1"] | components["schemas"]["PersonalStatsCrimesV2"];
+        };
+        UserPersonalStatsPopular: {
+            personalstats: components["schemas"]["PersonalStatsAttackingPopular"] & components["schemas"]["PersonalStatsJobsPublic"] & components["schemas"]["PersonalStatsHospitalPopular"] & components["schemas"]["PersonalStatsCrimesPopular"] & components["schemas"]["PersonalStatsItemsPopular"] & components["schemas"]["PersonalStatsTravelPopular"] & components["schemas"]["PersonalStatsDrugs"] & components["schemas"]["PersonalStatsNetworthPublic"] & components["schemas"]["PersonalStatsOtherPopular"];
+        };
+        /** @description Schema name corresponds to the requested category */
+        UserPersonalStatsCategory: {
+            personalstats: components["schemas"]["PersonalStatsAttackingPublic"] | components["schemas"]["PersonalStatsJobsPublic"] | components["schemas"]["PersonalStatsTrading"] | components["schemas"]["PersonalStatsJail"] | components["schemas"]["PersonalStatsHospital"] | components["schemas"]["PersonalStatsFinishingHits"] | components["schemas"]["PersonalStatsCommunication"] | components["schemas"]["PersonalStatsCrimes"] | components["schemas"]["PersonalStatsBounties"] | components["schemas"]["PersonalStatsItems"] | components["schemas"]["PersonalStatsTravel"] | components["schemas"]["PersonalStatsDrugs"] | components["schemas"]["PersonalStatsMissions"] | components["schemas"]["PersonalStatsRacing"] | components["schemas"]["PersonalStatsNetworthPublic"] | components["schemas"]["PersonalStatsOther"];
+        };
+        UserPersonalStatsFull: {
+            personalstats: components["schemas"]["PersonalStatsAttackingExtended"] & components["schemas"]["PersonalStatsBattleStats"] & components["schemas"]["PersonalStatsJobsExtended"] & components["schemas"]["PersonalStatsTrading"] & components["schemas"]["PersonalStatsJail"] & components["schemas"]["PersonalStatsHospital"] & components["schemas"]["PersonalStatsFinishingHits"] & components["schemas"]["PersonalStatsCommunication"] & components["schemas"]["PersonalStatsCrimes"] & components["schemas"]["PersonalStatsBounties"] & components["schemas"]["PersonalStatsInvestments"] & components["schemas"]["PersonalStatsItems"] & components["schemas"]["PersonalStatsTravel"] & components["schemas"]["PersonalStatsDrugs"] & components["schemas"]["PersonalStatsMissions"] & components["schemas"]["PersonalStatsRacing"] & components["schemas"]["PersonalStatsNetworthExtended"] & components["schemas"]["PersonalStatsOther"];
+        };
+        UserPersonalStatsFullPublic: {
+            personalstats: components["schemas"]["PersonalStatsAttackingPublic"] & components["schemas"]["PersonalStatsJobsPublic"] & components["schemas"]["PersonalStatsTrading"] & components["schemas"]["PersonalStatsJail"] & components["schemas"]["PersonalStatsHospital"] & components["schemas"]["PersonalStatsFinishingHits"] & components["schemas"]["PersonalStatsCommunication"] & components["schemas"]["PersonalStatsCrimes"] & components["schemas"]["PersonalStatsBounties"] & components["schemas"]["PersonalStatsItems"] & components["schemas"]["PersonalStatsTravel"] & components["schemas"]["PersonalStatsDrugs"] & components["schemas"]["PersonalStatsMissions"] & components["schemas"]["PersonalStatsRacing"] & components["schemas"]["PersonalStatsNetworthPublic"] & components["schemas"]["PersonalStatsOther"];
+        };
+        UserPersonalStatsResponse: components["schemas"]["UserPersonalStatsFull"] | components["schemas"]["UserPersonalStatsFullPublic"] | components["schemas"]["UserPersonalStatsPopular"] | components["schemas"]["UserPersonalStatsCategory"] | components["schemas"]["UserPersonalStatsHistoric"];
+        /** @enum {string} */
+        PersonalStatsCategoryEnum: "all" | "popular" | "attacking" | "battle_stats" | "jobs" | "trading" | "jail" | "hospital" | "finishing_hits" | "communication" | "crimes" | "bounties" | "investments" | "items" | "travel" | "drugs" | "missions" | "racing" | "networth" | "other" | "itemmarketcustomers" | "itemmarketsales" | "itemmarketrevenue" | "itemmarketfees";
+        /** @enum {string} */
+        PersonalStatsStatName: "attackswon" | "attackslost" | "attacksdraw" | "attacksassisted" | "defendswon" | "defendslost" | "defendsstalemated" | "elo" | "yourunaway" | "theyrunaway" | "unarmoredwon" | "bestkillstreak" | "attackhits" | "attackmisses" | "attackdamage" | "bestdamage" | "onehitkills" | "attackcriticalhits" | "roundsfired" | "specialammoused" | "hollowammoused" | "tracerammoused" | "piercingammoused" | "incendiaryammoused" | "attacksstealthed" | "retals" | "moneymugged" | "largestmug" | "itemslooted" | "highestbeaten" | "respectforfaction" | "rankedwarhits" | "raidhits" | "territoryjoins" | "territoryclears" | "territorytime" | "jobpointsused" | "trainsreceived" | "marketitemsbought" | "auctionswon" | "auctionsells" | "itemssent" | "trades" | "cityitemsbought" | "pointsbought" | "pointssold" | "bazaarcustomers" | "bazaarsales" | "bazaarprofit" | "jailed" | "peoplebusted" | "failedbusts" | "peoplebought" | "peopleboughtspent" | "hospital" | "medicalitemsused" | "bloodwithdrawn" | "reviveskill" | "revives" | "revivesreceived" | "heavyhits" | "machinehits" | "riflehits" | "smghits" | "shotgunhits" | "pistolhits" | "temphits" | "piercinghits" | "slashinghits" | "clubbinghits" | "mechanicalhits" | "h2hhits" | "mailssent" | "friendmailssent" | "factionmailssent" | "companymailssent" | "spousemailssent" | "classifiedadsplaced" | "personalsplaced" | "criminaloffensesold" | "sellillegalgoods" | "theftold" | "autotheftcrime" | "drugdealscrime" | "computercrime" | "fraudold" | "murdercrime" | "othercrime" | "organizedcrimes" | "bountiesplaced" | "totalbountyspent" | "bountiescollected" | "totalbountyreward" | "bountiesreceived" | "receivedbountyvalue" | "cityfinds" | "dumpfinds" | "itemsdumped" | "booksread" | "boostersused" | "consumablesused" | "candyused" | "alcoholused" | "energydrinkused" | "statenhancersused" | "eastereggsfound" | "eastereggsused" | "virusescoded" | "traveltimes" | "timespenttraveling" | "itemsboughtabroad" | "attackswonabroad" | "defendslostabroad" | "argtravel" | "mextravel" | "uaetravel" | "hawtravel" | "japtravel" | "uktravel" | "satravel" | "switravel" | "chitravel" | "cantravel" | "caytravel" | "drugsused" | "overdosed" | "rehabs" | "rehabcost" | "cantaken" | "exttaken" | "kettaken" | "lsdtaken" | "opitaken" | "pcptaken" | "shrtaken" | "spetaken" | "victaken" | "xantaken" | "missionscompleted" | "contractscompleted" | "dukecontractscompleted" | "missioncreditsearned" | "racingskill" | "racingpointsearned" | "racesentered" | "raceswon" | "networth" | "timeplayed" | "activestreak" | "bestactivestreak" | "awards" | "refills" | "nerverefills" | "tokenrefills" | "meritsbought" | "daysbeendonator" | "criminaloffenses" | "vandalism" | "theft" | "counterfeiting" | "fraud" | "illicitservices" | "cybercrime" | "extortion" | "illegalproduction" | "currentkillstreak" | "strength" | "defense" | "speed" | "dexterity" | "totalstats" | "manuallabor" | "intelligence" | "endurance" | "totalworkingstats" | "moneyinvested" | "investedprofit" | "investamount" | "banktimeleft" | "stockprofits" | "stocklosses" | "stockfees" | "stocknetprofits" | "stockpayouts" | "networthwallet" | "networthvault" | "networthbank" | "networthcayman" | "networthpoints" | "networthitems" | "networthdisplaycase" | "networthbazaar" | "networthitemmarket" | "networthproperties" | "networthstockmarket" | "networthauctionhouse" | "networthbookie" | "networthcompany" | "networthenlistedcars" | "networthpiggybank" | "networthpending" | "networthloan" | "networthunpaidfees" | "huntingskill" | "searchforcashskill" | "bootleggingskill" | "graffitiskill" | "shopliftingskill" | "pickpocketingskill" | "cardskimmingskill" | "burglaryskill" | "hustlingskill" | "disposalskill" | "crackingskill" | "forgeryskill" | "scammingskill";
+        FactionRaidReport: {
+            id: components["schemas"]["RaidWarId"];
+            /** Format: int32 */
+            start: number;
+            /** Format: int32 */
+            end: number;
+            aggressor: components["schemas"]["FactionRaidReportFaction"];
+            defender: components["schemas"]["FactionRaidReportFaction"];
+        };
+        FactionRaidReportFaction: {
+            id: components["schemas"]["FactionId"];
+            name: string;
+            /** Format: float */
+            score: number;
+            attackers: components["schemas"]["FactionRaidReportAttacker"][];
+            non_attackers: components["schemas"]["FactionRaidReportUser"][];
+        };
+        FactionRaidReportAttacker: {
+            user: components["schemas"]["FactionRaidReportUser"];
+            /** Format: int32 */
+            attacks: number;
+            /** Format: float */
+            damage: number;
+        };
+        FactionRaidReportUser: {
+            id: components["schemas"]["UserId"];
+            name: string;
+        };
+        FactionRaidWarReportResponse: {
+            raidreport: components["schemas"]["FactionRaidReport"][];
+        };
+        FactionWarfareDirtyBomb: {
+            id: components["schemas"]["DirtyBombId"];
+            /** Format: int32 */
+            planted_at: number;
+            /** Format: int32 */
+            detonated_at: number;
+            faction: components["schemas"]["FactionWarfareDirtyBombTargetFaction"];
+            user: components["schemas"]["FactionWarfareDirtyBombPlanter"] | null;
+        };
+        FactionWarfareDirtyBombTargetFaction: {
+            id: components["schemas"]["FactionId"];
+            name: string;
+            /** Format: int32 */
+            respect_lost: number;
+        };
+        FactionWarfareDirtyBombPlanter: {
+            id: components["schemas"]["UserId"];
+            name: string;
+        };
+        FactionRaidWarfare: {
+            id: components["schemas"]["RaidWarId"];
+            /** Format: int32 */
+            start: number;
+            end: number | null;
+            aggressor: components["schemas"]["FactionRaidWarfareFaction"];
+            defender: components["schemas"]["FactionRaidWarfareFaction"];
+        };
+        /** @description The field 'chain' exists only if the field 'end' is NOT populated in FactionRaidWarfare schema. */
+        FactionRaidWarfareFaction: {
+            id: components["schemas"]["FactionId"];
+            name: string;
+            /** Format: float */
+            score: number;
+            /** Format: int32 */
+            chain?: number;
+        };
+        FactionTerritoryWarfare: {
+            id: components["schemas"]["TerritoryWarId"];
+            territory: components["schemas"]["FactionTerritoryEnum"];
+            /** Format: int32 */
+            start: number;
+            /** Format: int32 */
+            end: number;
+            /** Format: int32 */
+            target: number;
+            aggressor: components["schemas"]["FactionTerritoryWarFaction"];
+            defender: components["schemas"]["FactionTerritoryWarFaction"];
+            result: string;
+        };
+        FactionTerritoryWarFactionWallPlayers: {
+            id: components["schemas"]["UserId"];
+            name: string;
+        };
+        /** @description The fields 'chain' and 'players_on_wall' exist only for wars with the result 'in_progress'. */
+        FactionTerritoryWarFaction: {
+            id: components["schemas"]["FactionId"];
+            name: string;
+            /** Format: int32 */
+            score: number;
+            /** Format: int32 */
+            chain?: number;
+            players_on_wall?: components["schemas"]["FactionTerritoryWarFactionWallPlayers"][];
+        };
+        FactionTerritoryWarFinishedFaction: {
+            id: components["schemas"]["FactionId"];
+            name: string;
+            /** Format: int32 */
+            score: number;
+            is_aggressor: boolean;
+        };
+        FactionSearchLeader: {
+            id: components["schemas"]["UserId"];
+            name: string;
+        };
+        FactionSearch: {
+            id: components["schemas"]["FactionId"];
+            name: string;
+            /** Format: int32 */
+            respect: number;
+            /** Format: int32 */
+            members: number;
+            leader: components["schemas"]["FactionSearchLeader"];
+            co_leader: components["schemas"]["FactionSearchLeader"] | null;
+            image: string | null;
+            tag_image: string | null;
+            tag: string | null;
+            is_destroyed: boolean;
+            is_recruiting: boolean;
+        };
+        FactionSearchResponse: {
+            search: components["schemas"]["FactionSearch"][];
+            _metadata: components["schemas"]["RequestMetadataWithLinks"];
+        };
+        FactionTerritoryWarFinished: {
+            id: components["schemas"]["TerritoryWarId"];
+            territory: components["schemas"]["FactionTerritoryEnum"];
+            /** Format: int64 */
+            start: number;
+            /** Format: int64 */
+            end: number;
+            /** Format: int32 */
+            target: number;
+            result: components["schemas"]["FactionTerritoryWarResultEnum"];
+            factions: components["schemas"]["FactionTerritoryWarFinishedFaction"][];
+        };
+        FactionTerritoryWarOngoingFaction: {
+            id: components["schemas"]["FactionId"];
+            name: string;
+            /** Format: int32 */
+            score: number;
+            is_aggressor: boolean;
+            /** Format: int32 */
+            chain: number;
+            playerIds: components["schemas"]["UserId"][];
+        };
+        FactionTerritoryWarOngoing: {
+            id: components["schemas"]["TerritoryWarId"];
+            territory: components["schemas"]["FactionTerritoryEnum"];
+            /** Format: int32 */
+            start: number;
+            /** Format: int32 */
+            end: number;
+            /** Format: int32 */
+            target: number;
+            factions: components["schemas"]["FactionTerritoryWarOngoingFaction"][];
+        };
+        FactionTerritoryWarsResponse: {
+            /** @description If the chosen category is 'ongoing' the response will be of 'FactionTerritoryWarOngoing' type, otherwise, the type will be 'FactionTerritoryWarFinished'. */
+            territorywars: components["schemas"]["FactionTerritoryWarOngoing"][] | components["schemas"]["FactionTerritoryWarFinished"][];
+        };
+        FactionTerritoryWarsHistoryResponse: {
+            territorywars: components["schemas"]["FactionTerritoryWarFinished"][];
+        };
+        FactionTerritoryWarReportMembers: {
+            id: components["schemas"]["UserId"];
+            username: string;
+            /** Format: int32 */
+            level: number;
+            /** Format: int32 */
+            score: number;
+            /** Format: int32 */
+            joins: number;
+            /** Format: int32 */
+            clears: number;
+        };
+        FactionTerritoryWarReportFaction: {
+            id: components["schemas"]["FactionId"];
+            name: string;
+            /** Format: int32 */
+            score: number;
+            /** Format: int32 */
+            joins: number;
+            /** Format: int32 */
+            clears: number;
+            is_aggressor: boolean;
+            members: components["schemas"]["FactionTerritoryWarReportMembers"][];
+        };
+        FactionTerritoryWarReport: {
+            id: components["schemas"]["TerritoryWarId"];
+            territory: components["schemas"]["FactionTerritoryEnum"];
+            /** Format: int32 */
+            started_at: number;
+            /** Format: int32 */
+            ended_at: number;
+            /** @description Winning faction id. */
+            winner: components["schemas"]["FactionId"];
+            result: string;
+            factions: components["schemas"]["FactionTerritoryWarReportFaction"][];
+        };
+        FactionTerritoryWarReportResponse: {
+            territorywarreport: components["schemas"]["FactionTerritoryWarReport"][];
+        };
+        FactionTerritoryOwnership: {
+            id: string;
+            owned_by: components["schemas"]["FactionId"] | null;
+            acquired_at: number | null;
+        };
+        FactionTerritoriesOwnershipResponse: {
+            territoryOwnership: components["schemas"]["FactionTerritoryOwnership"][];
+        };
+        TornRacketReward: {
+            type: components["schemas"]["TornRacketType"];
+            /** Format: int32 */
+            quantity: number;
+            id: components["schemas"]["ItemId"] | null;
+        };
+        TornRacket: {
+            name: string;
+            /** Format: int32 */
+            level: number;
+            description: string;
+            reward: components["schemas"]["TornRacketReward"];
+            /** Format: int32 */
+            created_at: number;
+            /** Format: int32 */
+            changed_at: number;
+        };
+        FactionRacketsResponse: {
+            rackets: components["schemas"]["TornRacket"][];
+        };
+        FactionTerritory: {
+            id: components["schemas"]["FactionTerritoryEnum"];
+            /** Format: int32 */
+            acquired_at: number;
+            /** Format: int32 */
+            sector: number;
+            /** Format: int32 */
+            size: number;
+            /** Format: int32 */
+            density: number;
+            /** Format: int32 */
+            slots: number;
+            /** Format: int32 */
+            respect: number;
+            coordinates: components["schemas"]["TornTerritoryCoordinates"];
+            racket: components["schemas"]["TornRacket"] | null;
+        };
+        FactionTerritoriesResponse: {
+            territory: components["schemas"]["FactionTerritory"][];
+        };
+        FactionPosition: {
+            name: string;
+            is_default: boolean;
+            abilities: components["schemas"]["FactionPositionAbilityEnum"][];
+        };
+        FactionPositionsResponse: {
+            positions: components["schemas"]["FactionPosition"][];
+        };
+        FactionUpgradeDetails: {
+            id: components["schemas"]["FactionBranchId"];
+            name: string;
+            ability: string;
+            /** Format: int32 */
+            level: number;
+            /** Format: int32 */
+            cost: number;
+            /** Format: int32 */
+            unlocked_at?: number;
+        };
+        FactionBranchDetails: {
+            name: string;
+            /** Format: int32 */
+            order: number;
+            /**
+             * Format: int32
+             * @description Respect cost multiplier.
+             */
+            multiplier: number;
+            upgrades: components["schemas"]["FactionUpgradeDetails"][];
+        };
+        FactionUpgrades: {
+            core: {
+                upgrades?: components["schemas"]["FactionUpgradeDetails"][];
+            };
+            peace: components["schemas"]["FactionBranchDetails"][];
+            war: components["schemas"]["FactionBranchDetails"][];
+        };
+        FactionUpgradesResponse: {
+            upgrades: components["schemas"]["FactionUpgrades"];
+            state: components["schemas"]["FactionBranchStateEnum"];
+        };
+        FactionStat: {
+            name: components["schemas"]["FactionStatEnum"];
+            /** Format: int64 */
+            value: number;
+        };
+        FactionStatsResponse: {
+            stats: components["schemas"]["FactionStat"][];
+        };
+        FactionContributor: {
+            id: components["schemas"]["UserId"];
+            username: string;
+            /** Format: int64 */
+            value: number;
+            in_faction: boolean;
+        };
+        FactionContributorsResponse: {
+            contributors: components["schemas"]["FactionContributor"][];
+        };
+        FactionHofStats: {
+            rank: components["schemas"]["HofValueString"];
+            respect: components["schemas"]["HofValue"];
+            chain: components["schemas"]["HofValue"];
+        };
+        FactionHofResponse: {
+            hof: components["schemas"]["FactionHofStats"];
+        };
+        /** @description Details about a faction member. */
+        FactionMember: {
+            id: components["schemas"]["UserId"];
+            name: string;
+            position: string;
+            /** Format: int32 */
+            level: number;
+            /** Format: int32 */
+            days_in_faction: number;
+            is_revivable: boolean;
+            /** @description Shows if the member is currently defending territory wall. */
+            is_on_wall: boolean;
+            /** @description Shows if the member is currently participating in an organized crime. Show false for members of other factions. */
+            is_in_oc: boolean;
+            /** @description Shows if the member is eligible for an early discharge from the hospital. */
+            has_early_discharge: boolean;
+            last_action: components["schemas"]["UserLastAction"];
+            status: components["schemas"]["UserStatus"];
+            revive_setting: components["schemas"]["ReviveSetting"];
+        };
+        /** @description Details about a user's last action. */
+        UserLastAction: {
+            status: string;
+            /** Format: int32 */
+            timestamp: number;
+            relative: string;
+        };
+        /** @description Details about a user's status. */
+        UserStatus: {
+            description: string;
+            details: string | null;
+            state: string;
+            until: number | null;
+        };
+        FactionMembersResponse: {
+            members: components["schemas"]["FactionMember"][];
+        };
+        FactionRank: {
+            /**
+             * Format: int32
+             * @description /**
+             */
+            level: number;
+            name: string;
+            /** Format: int32 */
+            division: number;
+            /** Format: int32 */
+            position: number;
+            /** Format: int32 */
+            wins: number;
+        };
+        FactionBasic: {
+            id: components["schemas"]["FactionId"];
+            name: string;
+            tag: string;
+            tag_image: string;
+            leader_id: components["schemas"]["UserId"];
+            co_leader_id: components["schemas"]["UserId"];
+            /** Format: int32 */
+            respect: number;
+            /** Format: int32 */
+            days_old: number;
+            /** Format: int32 */
+            capacity: number;
+            /** Format: int32 */
+            members: number;
+            /** @description Indicates if the faction is enlisted for ranked wars. Available only with faction AA permissions for your own faction. */
+            is_enlisted: boolean | null;
+            rank: components["schemas"]["FactionRank"];
+            /** Format: int32 */
+            best_chain: number;
+        };
+        FactionBasicResponse: {
+            basic: components["schemas"]["FactionBasic"];
+        };
+        FactionPact: {
+            faction_id: components["schemas"]["FactionId"];
+            faction_name: string;
+            /** @description The duration until when is the non-aggression pact valid. */
+            until: string;
+        };
+        FactionRankedWarParticipant: {
+            id: components["schemas"]["FactionId"];
+            name: string;
+            /** Format: int32 */
+            score: number;
+            /**
+             * Format: int32
+             * @description Faction's current chain.
+             */
+            chain: number;
+        };
+        FactionRankedWar: {
+            /** Format: int32 */
+            war_id: number;
+            /** Format: int32 */
+            start: number;
+            end: number | null;
+            /**
+             * Format: int32
+             * @description The score target of the war.
+             */
+            target: number;
+            winner: number | null;
+            /** @description The factions involved in the ranked war. */
+            factions: components["schemas"]["FactionRankedWarParticipant"][];
+        };
+        FactionRaidWarParticipant: {
+            id: components["schemas"]["FactionId"];
+            name: string;
+            /** Format: int32 */
+            score: number;
+            /**
+             * Format: int32
+             * @description Faction's current chain.
+             */
+            chain: number;
+            is_aggressor: boolean;
+        };
+        FactionRaidWar: {
+            /** Format: int32 */
+            war_id: number;
+            /** Format: int32 */
+            start: number;
+            end: number | null;
+            /** @description The factions involved in the raid war. */
+            factions: components["schemas"]["FactionRaidWarParticipant"][];
+        };
+        FactionTerritoryWarParticipant: {
+            id: components["schemas"]["FactionId"];
+            name: string;
+            /** Format: int32 */
+            score: number;
+            /**
+             * Format: int32
+             * @description Faction's current chain.
+             */
+            chain: number;
+            is_aggressor: boolean;
+            playerIds: components["schemas"]["UserId"][];
+        };
+        FactionTerritoryWar: {
+            /** Format: int32 */
+            war_id: number;
+            territory: string;
+            /** Format: int32 */
+            start: number;
+            end: number | null;
+            /**
+             * Format: int32
+             * @description The score target of the war.
+             */
+            target: number;
+            winner?: components["schemas"]["FactionId"] | null;
+            /** @description The factions involved in the territory war. */
+            factions: components["schemas"]["FactionTerritoryWarParticipant"][];
+        };
+        FactionWars: {
+            ranked: components["schemas"]["FactionRankedWar"] | null;
+            raids: components["schemas"]["FactionRaidWar"][];
+            territory: components["schemas"]["FactionTerritoryWar"][];
+        };
+        FactionWarsResponse: {
+            pacts: components["schemas"]["FactionPact"][];
+            wars: components["schemas"]["FactionWars"];
+        };
+        FactionNews: {
+            id: string;
+            text: string;
+            /** Format: int32 */
+            timestamp: number;
+        };
+        FactionNewsResponse: {
+            news: components["schemas"]["FactionNews"][];
+            _metadata: components["schemas"]["RequestMetadataWithLinks"];
+        };
+        FactionRaidsResponse: {
+            raids: components["schemas"]["FactionRaidWarfare"][];
+            _metadata: components["schemas"]["RequestMetadataWithLinks"];
+        };
+        FactionAttacksResponse: {
+            attacks: components["schemas"]["Attack"][];
+            _metadata: components["schemas"]["RequestMetadataWithLinks"];
+        };
+        FactionAttacksFullResponse: {
+            attacks: components["schemas"]["AttackSimplified"][];
+            _metadata: components["schemas"]["RequestMetadataWithLinks"];
+        };
+        FactionApplication: {
+            /**
+             * Format: int32
+             * @description application id
+             */
+            id: number;
+            user: {
+                id: components["schemas"]["UserId"];
+                name: string;
+                /** Format: int32 */
+                level: number;
+                stats: {
+                    /** Format: int64 */
+                    strength: number;
+                    /** Format: int64 */
+                    speed: number;
+                    /** Format: int64 */
+                    dexterity: number;
+                    /** Format: int64 */
+                    defense: number;
+                } | null;
+            };
+            message: string | null;
+            /** Format: int32 */
+            valid_until: number;
+            status: components["schemas"]["FactionApplicationStatusEnum"];
+        };
+        FactionApplicationsResponse: {
+            applications: components["schemas"]["FactionApplication"][];
+        };
+        FactionOngoingChain: {
+            id: components["schemas"]["ChainId"];
+            /** Format: int32 */
+            current: number;
+            /** Format: int32 */
+            max: number;
+            /**
+             * Format: int32
+             * @description Seconds until chain breaks.
+             */
+            timeout: number;
+            /** Format: float */
+            modifier: number;
+            /**
+             * Format: int32
+             * @description Timestamp until when chain is on cooldown.
+             */
+            cooldown: number;
+            /** Format: int32 */
+            start: number;
+            /** Format: int32 */
+            end: number;
+        };
+        FactionOngoingChainResponse: {
+            chain: components["schemas"]["FactionOngoingChain"];
+        };
+        FactionChain: {
+            id: components["schemas"]["ChainId"];
+            /** Format: int32 */
+            chain: number;
+            /** Format: float */
+            respect: number;
+            /** Format: int32 */
+            start: number;
+            /** Format: int32 */
+            end: number;
+        };
+        FactionChainWarfare: components["schemas"]["FactionChain"] & {
+            faction: {
+                id: components["schemas"]["FactionId"];
+                name: string;
+            };
+        };
+        FactionChainsResponse: {
+            chains: components["schemas"]["FactionChain"][];
+            _metadata: components["schemas"]["RequestMetadataWithLinks"];
+        };
+        FactionChainReportResponse: {
+            chainreport: components["schemas"]["FactionChainReport"];
+        };
+        FactionChainReport: {
+            id: components["schemas"]["ChainId"];
+            faction_id: components["schemas"]["FactionId"];
+            /** Format: int32 */
+            start: number;
+            /** Format: int32 */
+            end: number;
+            details: components["schemas"]["FactionChainReportDetails"];
+            bonuses: components["schemas"]["FactionChainReportBonus"][];
+            attackers: components["schemas"]["FactionChainReportAttacker"][];
+            non_attackers: components["schemas"]["UserId"][];
+        };
+        FactionChainReportDetails: {
+            /** Format: int32 */
+            chain: number;
+            /** Format: float */
+            respect: number;
+            /** Format: int32 */
+            members: number;
+            /** Format: int32 */
+            targets: number;
+            /** Format: int32 */
+            war: number;
+            /** Format: float */
+            best: number;
+            /** Format: int32 */
+            leave: number;
+            /** Format: int32 */
+            mug: number;
+            /** Format: int32 */
+            hospitalize: number;
+            /** Format: int32 */
+            assists: number;
+            /** Format: int32 */
+            retaliations: number;
+            /** Format: int32 */
+            overseas: number;
+            /** Format: int32 */
+            draws: number;
+            /** Format: int32 */
+            escapes: number;
+            /** Format: int32 */
+            losses: number;
+        };
+        FactionChainReportBonus: {
+            attacker_id: components["schemas"]["UserId"];
+            defender_id: components["schemas"]["UserId"];
+            /** Format: int32 */
+            chain: number;
+            /** Format: int32 */
+            respect: number;
+        };
+        FactionChainReportAttacker: {
+            id: components["schemas"]["UserId"];
+            respect: components["schemas"]["FactionChainReportAttackerRespect"];
+            attacks: components["schemas"]["FactionChainReportAttackerAttacks"];
+        };
+        FactionChainReportAttackerRespect: {
+            /** Format: float */
+            total: number;
+            /** Format: float */
+            average: number;
+            /** Format: float */
+            best: number;
+        };
+        FactionChainReportAttackerAttacks: {
+            /** Format: int32 */
+            total: number;
+            /** Format: int32 */
+            leave: number;
+            /** Format: int32 */
+            mug: number;
+            /** Format: int32 */
+            hospitalize: number;
+            /** Format: int32 */
+            assists: number;
+            /** Format: int32 */
+            retaliations: number;
+            /** Format: int32 */
+            overseas: number;
+            /** Format: int32 */
+            draws: number;
+            /** Format: int32 */
+            escapes?: number;
+            /** Format: int32 */
+            losses: number;
+            /** Format: int32 */
+            war: number;
+            /** Format: int32 */
+            bonuses: number;
+        };
+        FactionCrimeUserItemOutcome: {
+            owned_by: components["schemas"]["FactionCrimeUserItemOutcomeEnum"];
+            item_id: components["schemas"]["ItemId"];
+            item_uid: components["schemas"]["ItemUid"];
+            outcome: components["schemas"]["FactionCrimeItemOutcomeEnum"];
+        };
+        FactionCrimeUser: {
+            id: components["schemas"]["UserId"];
+            /** @description This field will be null for old crimes. */
+            outcome: components["schemas"]["FactionCrimeUserOutcome"] | null;
+            /** @description This field is only populated for crimes completed after 25/07/2025 and only if the outcome is 'Jailed' or 'Hospitalized'. */
+            outcome_duration?: number | null;
+            /** @description This field is only populated for crimes completed after 25/07/2025 and only if the item was used or lost. */
+            item_outcome: components["schemas"]["FactionCrimeUserItemOutcome"] | null;
+            /**
+             * Format: int32
+             * @description The timestamp at which the user joined the slot.
+             */
+            joined_at: number;
+            /**
+             * Format: float
+             * @description Current planning progress on the slot.
+             */
+            progress: number;
+        };
+        FactionCrimeRewardItem: {
+            id: components["schemas"]["ItemId"];
+            /** Format: int32 */
+            quantity: number;
+        };
+        FactionCrimeRewardPayout: {
+            type: components["schemas"]["FactionOrganizedCrimePayoutType"];
+            /**
+             * Format: int32
+             * @description Total percentage split between all participants.
+             */
+            percentage: number;
+            paid_by: components["schemas"]["UserId"];
+            /** Format: int32 */
+            paid_at: number;
+        };
+        FactionCrimeReward: {
+            /** Format: int32 */
+            money: number;
+            items: components["schemas"]["FactionCrimeRewardItem"][];
+            /** Format: int32 */
+            respect: number;
+            /** Format: int32 */
+            scope: number;
+            /** @description Details about the crime payouts. This field is null if the crime has not been paid via the automatic payouts system. */
+            payout: components["schemas"]["FactionCrimeRewardPayout"] | null;
+        };
+        FactionCrimeSlot: {
+            position: string;
+            position_id: components["schemas"]["TornOrganizedCrimePositionId"];
+            /** Format: int32 */
+            position_number: number;
+            /** @description Details of item required for the slot, if applicable. */
+            item_requirement: {
+                id: components["schemas"]["ItemId"];
+                /** @description Shows if the item is reusable or consumed during the crime. */
+                is_reusable: boolean;
+                /** @description Shows if user has the required item. */
+                is_available: boolean;
+            } | null;
+            /** @description Details about the user joined the slot, if any. */
+            user: components["schemas"]["FactionCrimeUser"] | null;
+            /**
+             * Format: int32
+             * @description Returns CPR for the player who joined the slot. If the slot is empty (availalbe), it shows your CPR for that slot. This value is 0 for expired crimes.
+             */
+            checkpoint_pass_rate: number;
+        };
+        FactionCrime: {
+            id: components["schemas"]["FactionCrimeId"];
+            previous_crime_id: components["schemas"]["FactionCrimeId"] | null;
+            name: components["schemas"]["OrganizedCrimeName"];
+            /** Format: int32 */
+            difficulty: number;
+            status: components["schemas"]["FactionCrimeStatusEnum"];
+            /**
+             * Format: int32
+             * @description The timestamp at which the crime was created.
+             */
+            created_at: number;
+            /** @description The timestamp at which the planning phase for the crime has begun. */
+            planning_at: number | null;
+            /** @description The timestamp at which the crime will be ready. */
+            ready_at: number | null;
+            /**
+             * Format: int32
+             * @description The timestamp at which the crime will expire.
+             */
+            expired_at: number;
+            /** @description The timestamp at which the crime was executed. <br> Note: this value is null for all crimes executed before January 15th, 2025. */
+            executed_at: number | null;
+            slots: components["schemas"]["FactionCrimeSlot"][];
+            /** @description Details about the crime rewards. Available only for crimes with 'Successful' status. */
+            rewards: components["schemas"]["FactionCrimeReward"] | null;
+        };
+        FactionCrimesResponse: {
+            crimes: components["schemas"]["FactionCrime"][];
+            _metadata: components["schemas"]["RequestMetadataWithLinks"];
+        };
+        FactionCrimeResponse: {
+            crime: components["schemas"]["FactionCrime"];
+        };
+        FactionBalance: {
+            faction: {
+                /** Format: int64 */
+                money: number;
+                /** Format: int64 */
+                points: number;
+                /** Format: int32 */
+                scope: number;
+            };
+            members: {
+                id: components["schemas"]["UserId"];
+                username: string;
+                /** Format: int64 */
+                money: number;
+                /** Format: int64 */
+                points: number;
+            }[];
+        };
+        FactionBalanceResponse: {
+            balance: components["schemas"]["FactionBalance"];
+        };
+        FactionSelectionName: ("applications" | "attacks" | "attacksfull" | "balance" | "basic" | "chain" | "chainreport" | "chains" | "contributors" | "crime" | "crimes" | "hof" | "lookup" | "members" | "news" | "positions" | "rackets" | "raidreport" | "raids" | "rankedwars" | "rankedwarreport" | "reports" | "revives" | "revivesfull" | "search" | "stats" | "territory" | "territoryownership" | "territorywarreport" | "territorywars" | "timestamp" | "upgrades" | "warfare" | "wars" | "armor" | "boosters" | "caches" | "cesium" | "crimeexp" | "drugs" | "medical" | "temporary" | "weapons") | string;
+        FactionLookupResponse: {
+            selections: components["schemas"]["FactionSelectionName"][];
+        };
+        FactionRankedWarDetails: {
+            id: components["schemas"]["RankedWarId"];
+            /**
+             * Format: int32
+             * @description Timestamp the war started at.
+             */
+            start: number;
+            /**
+             * Format: int32
+             * @description Timestamp the war ended at.
+             */
+            end: number;
+            /** Format: int32 */
+            target: number;
+            winner: components["schemas"]["FactionId"] | null;
+            factions: {
+                id: components["schemas"]["FactionId"];
+                name: string;
+                /** Format: int32 */
+                score: number;
+                /** Format: int32 */
+                chain: number;
+            }[];
+        };
+        FactionRankedWarResponse: {
+            rankedwars: components["schemas"]["FactionRankedWarDetails"][];
+            _metadata: components["schemas"]["RequestMetadataWithLinks"];
+        };
+        FactionWarfareResponse: {
+            warfare: components["schemas"]["FactionRankedWarDetails"][] | components["schemas"]["FactionTerritoryWarfare"][] | components["schemas"]["FactionChainWarfare"][] | components["schemas"]["FactionRaidWarfare"][] | components["schemas"]["FactionWarfareDirtyBomb"][];
+            _metadata: components["schemas"]["RequestMetadataWithLinks"];
+        };
+        FactionRankedWarReportResponse: {
+            rankedwarreport: {
+                id: components["schemas"]["RankedWarId"];
+                /**
+                 * Format: int32
+                 * @description Timestamp the war started at.
+                 */
+                start: number;
+                /**
+                 * Format: int32
+                 * @description Timestamp the war ended at.
+                 */
+                end: number;
+                winner: components["schemas"]["FactionId"];
+                forfeit: boolean;
+                factions: {
+                    id: components["schemas"]["FactionId"];
+                    name: string;
+                    /** Format: int32 */
+                    score: number;
+                    /** Format: int32 */
+                    attacks: number;
+                    rank: {
+                        before: string;
+                        after: string;
+                    };
+                    rewards: {
+                        /** Format: int32 */
+                        respect: number;
+                        /** Format: int32 */
+                        points: number;
+                        items: {
+                            id: components["schemas"]["ItemId"];
+                            name: string;
+                            /** Format: int32 */
+                            quantity: number;
+                        }[];
+                    };
+                    members: {
+                        id: components["schemas"]["UserId"];
+                        name: string;
+                        /** Format: int32 */
+                        level: number;
+                        /** Format: int32 */
+                        attacks: number;
+                        /** Format: float */
+                        score: number;
+                    }[];
+                }[];
+            };
+        };
+        ForumCategoriesResponse: {
+            categories: {
+                id: components["schemas"]["ForumId"];
+                title: string;
+                acronym: string;
+                /** Format: int32 */
+                threads: number;
+            }[];
+        };
+        ForumThreadAuthor: {
+            id: components["schemas"]["UserId"];
+            username: string;
+            /** Format: int32 */
+            karma: number;
+        };
+        ForumPollVote: {
+            answer: string;
+            /** Format: int32 */
+            votes: number;
+        };
+        ForumPoll: {
+            question: string;
+            /** Format: int32 */
+            answers_count: number;
+            answers: components["schemas"]["ForumPollVote"][];
+        };
+        ForumThreadBase: {
+            id: components["schemas"]["ForumThreadId"];
+            title: string;
+            forum_id: components["schemas"]["ForumId"];
+            /** Format: int32 */
+            posts: number;
+            /** Format: int32 */
+            rating: number;
+            /**
+             * Format: int32
+             * @description Total number of times players have opened this thread.
+             */
+            views: number;
+            author: components["schemas"]["ForumThreadAuthor"];
+            last_poster: components["schemas"]["ForumThreadAuthor"] | null;
+            /** Format: int32 */
+            first_post_time: number;
+            last_post_time: number | null;
+            has_poll: boolean;
+            is_locked: boolean;
+            is_sticky: boolean;
+        };
+        ForumThreadExtended: components["schemas"]["ForumThreadBase"] & {
+            content: string;
+            content_raw: string;
+            /** @description 'poll' is null when 'has_poll' is false. */
+            poll: components["schemas"]["ForumPoll"] | null;
+        };
+        ForumPost: {
+            id: components["schemas"]["ForumPostId"];
+            thread_id: components["schemas"]["ForumThreadId"];
+            author: components["schemas"]["ForumThreadAuthor"];
+            /** @description Indicates whether post was made using the old formatting engine which doesn't use HTML. */
+            is_legacy: boolean;
+            is_topic: boolean;
+            is_edited: boolean;
+            is_pinned: boolean;
+            /** Format: int32 */
+            created_time: number;
+            /** @description 'edited_by' is null when 'is_edited' is false. */
+            edited_by: components["schemas"]["UserId"] | null;
+            has_quote: boolean;
+            /** @description 'quoted_post_id' is null when 'has_quote' is false. */
+            quoted_post_id: number | null;
+            /** @description depending on the input 'cat' parameter, this will either return raw value (with HTML) or plain text. Legacy posts are returned as is, they can't be stripped of tags. */
+            content: string;
+            /** Format: int32 */
+            likes: number;
+            /** Format: int32 */
+            dislikes: number;
+        };
+        ForumThreadUserExtended: components["schemas"]["ForumThreadBase"] & {
+            /** @description Available only when requesting data for yourself (no id or your id) with at least 'Minimal' access type key. */
+            new_posts: number | null;
+        };
+        ForumSubscribedThreadPostsCount: {
+            /** Format: int32 */
+            new: number;
+            /** Format: int32 */
+            total: number;
+        };
+        ForumSubscribedThread: {
+            id: components["schemas"]["ForumThreadId"];
+            forum_id: components["schemas"]["ForumId"];
+            author: components["schemas"]["ForumThreadAuthor"];
+            title: string;
+            posts: components["schemas"]["ForumSubscribedThreadPostsCount"];
+        };
+        ForumFeed: {
+            thread_id: components["schemas"]["ForumThreadId"];
+            post_id: components["schemas"]["ForumPostId"];
+            user: components["schemas"]["ForumThreadAuthor"];
+            title: string;
+            text: string;
+            /** Format: int32 */
+            timestamp: number;
+            is_seen: boolean;
+            type: components["schemas"]["ForumFeedTypeEnum"];
+        };
+        ForumThreadsResponse: {
+            threads: components["schemas"]["ForumThreadBase"][];
+            _metadata: components["schemas"]["RequestMetadataWithLinks"];
+        };
+        ForumThreadResponse: {
+            thread: components["schemas"]["ForumThreadExtended"];
+        };
+        ForumPostsResponse: {
+            posts: components["schemas"]["ForumPost"][];
+            _metadata: components["schemas"]["RequestMetadataWithLinks"];
+        };
+        ForumSelectionName: ("categories" | "lookup" | "posts" | "thread" | "threads" | "timestamp") | string;
+        ForumLookupResponse: {
+            selections: components["schemas"]["ForumSelectionName"][];
+        };
+        KeyLogResponse: {
+            log: {
+                /** Format: int32 */
+                timestamp: number;
+                type: string;
+                selections: string;
+                id: number | string | null;
+                comment?: string | null;
+                ip: string;
+            }[];
+        };
+        KeyInfoAvailableLog: {
+            category_id: components["schemas"]["LogCategoryId"];
+            log_ids: components["schemas"]["LogId"][];
+        };
+        KeyInfoResponse: {
+            info: {
+                selections: {
+                    company: string[];
+                    faction: components["schemas"]["FactionSelectionName"][];
+                    market: components["schemas"]["MarketSelectionName"][];
+                    property: string[];
+                    torn: components["schemas"]["TornSelectionName"][];
+                    user: components["schemas"]["UserSelectionName"][];
+                    racing: components["schemas"]["RacingSelectionName"][];
+                    forum: components["schemas"]["ForumSelectionName"][];
+                    key: components["schemas"]["KeySelectionName"][];
+                };
+                user: {
+                    /** @description Null only if the user is not in a faction. */
+                    faction_id: components["schemas"]["FactionId"] | null;
+                    /** @description Null only if the user is not in a company. */
+                    company_id: components["schemas"]["CompanyId"] | null;
+                    id: components["schemas"]["UserId"];
+                };
+                access: {
+                    /** Format: int32 */
+                    level: number;
+                    type: components["schemas"]["ApiKeyAccessTypeEnum"];
+                    faction: boolean;
+                    /**
+                     * @deprecated
+                     * @description This field is replaced with 'user'.'faction_id' field and will be removed on 1st of September 2025. Populated only if 'faction' field is true.
+                     */
+                    faction_id?: components["schemas"]["FactionId"] | null;
+                    company: boolean;
+                    /**
+                     * @deprecated
+                     * @description This field is replaced with 'user'.'company_id' field and will be removed on 1st of September 2025. Populated only if 'company' field is true.
+                     */
+                    company_id?: components["schemas"]["CompanyId"] | null;
+                    log: {
+                        /** @description Shows if key has custom log permissions enabled. */
+                        custom_permissions: boolean;
+                        available: components["schemas"]["KeyInfoAvailableLog"][];
+                    };
+                };
+            };
+        };
+        KeySelectionName: ("info" | "log") | string;
+        BasicProperty: {
+            id: components["schemas"]["PropertyTypeId"];
+            name: string;
+        };
+        MarketRentalDetails: {
+            listings: {
+                /** Format: int32 */
+                happy: number;
+                /** Format: int64 */
+                cost: number;
+                /** Format: int64 */
+                cost_per_day: number;
+                /** Format: int32 */
+                rental_period: number;
+                /** Format: int64 */
+                market_price: number;
+                /** Format: int32 */
+                upkeep: number;
+                modifications: components["schemas"]["PropertyModificationEnum"][];
+            }[];
+            property: components["schemas"]["BasicProperty"];
+        };
+        MarketRentalsResponse: {
+            properties: components["schemas"]["MarketRentalDetails"];
+            _metadata: components["schemas"]["RequestMetadataWithLinks"];
+        };
+        MarketPropertyDetails: {
+            listings: {
+                /** Format: int32 */
+                happy: number;
+                /** Format: int64 */
+                cost: number;
+                /** Format: int64 */
+                market_price: number;
+                /** Format: int32 */
+                upkeep: number;
+                modifications: components["schemas"]["PropertyModificationEnum"][];
+            }[];
+            property: components["schemas"]["BasicProperty"];
+        };
+        MarketPropertiesResponse: {
+            properties: components["schemas"]["MarketPropertyDetails"];
+            _metadata: components["schemas"]["RequestMetadataWithLinks"];
+        };
+        BazaarWeekly: {
+            busiest: components["schemas"]["BazaarWeeklyCustomers"][];
+            most_popular: components["schemas"]["BazaarTotalFavorites"][];
+            trending: components["schemas"]["BazaarRecentFavorites"][];
+            top_grossing: components["schemas"]["BazaarWeeklyIncome"][];
+            bulk: components["schemas"]["BazaarBulkSales"][];
+            advanced_item: components["schemas"]["BazaarAdvancedItemSales"][];
+            bargain: components["schemas"]["BazaarBargainSales"][];
+            dollar_sale: components["schemas"]["BazaarDollarSales"][];
+        };
+        BazaarSpecialized: {
+            specialized: components["schemas"]["BazaarWeeklyCustomers"][];
+        };
+        BazaarResponse: {
+            /** @description If there's a specific item ID passed or a category chosen, the response will be of type 'BazaarSpecialized', otherwise it will be 'BazaarWeekly'. */
+            bazaar: components["schemas"]["BazaarWeekly"] | components["schemas"]["BazaarSpecialized"];
+        };
+        BazaarResponseSpecialized: {
+            bazaar: components["schemas"]["BazaarSpecialized"];
+        };
+        Bazaar: {
+            id: components["schemas"]["UserId"];
+            name: string;
+            is_open: boolean;
+        };
+        BazaarWeeklyCustomers: components["schemas"]["Bazaar"] & {
+            /** Format: int32 */
+            weekly_customers: number;
+        };
+        BazaarTotalFavorites: components["schemas"]["Bazaar"] & {
+            /** Format: int32 */
+            total_favorites: number;
+        };
+        BazaarRecentFavorites: components["schemas"]["Bazaar"] & {
+            /** Format: int32 */
+            recent_favorites: number;
+        };
+        BazaarWeeklyIncome: components["schemas"]["Bazaar"] & {
+            /** Format: int64 */
+            weekly_income: number;
+        };
+        BazaarBulkSales: components["schemas"]["Bazaar"] & {
+            /** Format: int32 */
+            bulk_sales: number;
+        };
+        BazaarAdvancedItemSales: components["schemas"]["Bazaar"] & {
+            /** Format: int32 */
+            advanced_item_sales: number;
+        };
+        BazaarBargainSales: components["schemas"]["Bazaar"] & {
+            /** Format: int32 */
+            bargain_sales: number;
+        };
+        BazaarDollarSales: components["schemas"]["Bazaar"] & {
+            /** Format: int32 */
+            dollar_sales: number;
+        };
+        ItemMarketListingItemBonus: {
+            /** Format: int32 */
+            id: number;
+            title: string;
+            description: string;
+            /** Format: int32 */
+            value: number;
+        };
+        ItemMarketListingItemStats: {
+            damage: number | null;
+            accuracy: number | null;
+            armor: number | null;
+            /** Format: float */
+            quality: number;
+        };
+        ItemMarketItem: {
+            id: components["schemas"]["ItemId"];
+            name: string;
+            type: string;
+            /** Format: int64 */
+            average_price: number;
+        };
+        ItemMarketListingStackable: {
+            /** Format: int64 */
+            price: number;
+            /** Format: int32 */
+            amount: number;
+        };
+        ItemMarketListingItemDetails: {
+            uid: components["schemas"]["ItemUid"];
+            stats: components["schemas"]["ItemMarketListingItemStats"];
+            bonuses: components["schemas"]["ItemMarketListingItemBonus"][];
+            rarity: ("yellow" | "orange" | "red") | null;
+        };
+        ItemMarketListingNonstackable: {
+            /** Format: int64 */
+            price: number;
+            /** Format: int32 */
+            amount: number;
+            item_details: components["schemas"]["ItemMarketListingItemDetails"];
+        };
+        ItemMarket: {
+            item: components["schemas"]["ItemMarketItem"];
+            listings: (components["schemas"]["ItemMarketListingNonstackable"] | components["schemas"]["ItemMarketListingStackable"])[];
+            /**
+             * Format: int32
+             * @description Timestamp when the data was globally cached at.
+             */
+            cache_timestamp: number;
+        };
+        MarketItemMarketResponse: {
+            itemmarket: components["schemas"]["ItemMarket"];
+            _metadata: components["schemas"]["RequestMetadataWithLinks"];
+        };
+        MarketSelectionName: ("bazaar" | "itemmarket" | "properties" | "rentals" | "lookup" | "timestamp" | "pointsmarket") | string;
+        MarketLookupResponse: {
+            selections: components["schemas"]["MarketSelectionName"][];
+        };
+        UserRacingRecordsResponse: {
+            racingrecords: {
+                track: {
+                    id: components["schemas"]["RaceTrackId"];
+                    name: string;
+                };
+                records: {
+                    car_id: components["schemas"]["ItemId"];
+                    car_name: string;
+                    /** Format: int32 */
+                    lap_time: number;
+                }[];
+            }[];
+        };
+        RacingCarsResponse: {
+            cars: components["schemas"]["RaceCar"][];
+        };
+        RaceCar: {
+            car_item_id: components["schemas"]["ItemId"];
+            car_item_name: string;
+            /** Format: int32 */
+            top_speed: number;
+            /** Format: int32 */
+            acceleration: number;
+            /** Format: int32 */
+            braking: number;
+            /** Format: int32 */
+            dirt: number;
+            /** Format: int32 */
+            handling: number;
+            /** Format: int32 */
+            safety: number;
+            /** Format: int32 */
+            tarmac: number;
+            class: components["schemas"]["RaceClassEnum"];
+        };
+        RacingTracksResponse: {
+            tracks: components["schemas"]["RaceTrack"][];
+        };
+        RaceTrack: {
+            id: components["schemas"]["RaceTrackId"];
+            title: string;
+            description: string;
+        };
+        RacingCarUpgradesResponse: {
+            carupgrades: components["schemas"]["RaceCarUpgrade"][];
+        };
+        RaceCarUpgrade: {
+            id: components["schemas"]["RaceCarUpgradeId"];
+            class_required: components["schemas"]["RaceClassEnum"];
+            name: string;
+            description: string;
+            category: components["schemas"]["RaceCarUpgradeCategory"];
+            subcategory: components["schemas"]["RaceCarUpgradeSubCategory"];
+            effects: {
+                /** Format: int32 */
+                top_speed: number;
+                /** Format: int32 */
+                acceleration: number;
+                /** Format: int32 */
+                braking: number;
+                /** Format: int32 */
+                handling: number;
+                /** Format: int32 */
+                safety: number;
+                /** Format: int32 */
+                dirt: number;
+                /** Format: int32 */
+                tarmac: number;
+            };
+            cost: {
+                /** Format: int32 */
+                points: number;
+                /** Format: int32 */
+                cash: number;
+            };
+        };
+        RacingRacesResponse: {
+            races: components["schemas"]["Race"][];
+            _metadata: components["schemas"]["RequestMetadataWithLinks"];
+        };
+        Race: {
+            id: components["schemas"]["RaceId"];
+            title: string;
+            track_id: components["schemas"]["RaceTrackId"];
+            creator_id: components["schemas"]["UserId"];
+            status: components["schemas"]["RaceStatusEnum"];
+            /** Format: int32 */
+            laps: number;
+            participants: {
+                /** Format: int32 */
+                minimum: number;
+                /** Format: int32 */
+                maximum: number;
+                /** Format: int32 */
+                current: number;
+            };
+            schedule: {
+                /** Format: int32 */
+                join_from: number;
+                /** Format: int32 */
+                join_until: number;
+                /** Format: int32 */
+                start: number;
+                end: number | null;
+            };
+            requirements: {
+                car_class: components["schemas"]["RaceClassEnum"] | null;
+                driver_class: components["schemas"]["RaceClassEnum"] | null;
+                car_item_id: components["schemas"]["ItemId"] | null;
+                requires_stock_car: boolean;
+                requires_password: boolean;
+                /** Format: int32 */
+                join_fee: number;
+            };
+            is_official: boolean;
+        };
+        RacingTrackRecordsResponse: {
+            records: components["schemas"]["RaceRecord"][];
+        };
+        RaceRecord: {
+            driver_id: components["schemas"]["UserId"];
+            driver_name: string;
+            car_item_id: components["schemas"]["ItemId"];
+            /** Format: float */
+            lap_time: number;
+            car_item_name: string;
+        };
+        RacerDetails: {
+            driver_id: components["schemas"]["UserId"];
+            position: number | null;
+            car_id: components["schemas"]["RaceCarId"];
+            car_item_id: components["schemas"]["ItemId"];
+            car_item_name: string;
+            car_class: components["schemas"]["RaceClassEnum"];
+            has_crashed: boolean | null;
+            best_lap_time: number | null;
+            race_time: number | null;
+            time_ended: number | null;
+        };
+        RacingRaceDetails: components["schemas"]["Race"] & {
+            results: components["schemas"]["RacerDetails"][];
+            is_official: boolean;
+        };
+        RacingRaceDetailsResponse: {
+            race: components["schemas"]["RacingRaceDetails"];
+        };
+        RacingSelectionName: ("cars" | "carupgrades" | "lookup" | "race" | "races" | "records" | "timestamp" | "tracks") | string;
+        RacingLookupResponse: {
+            selections: components["schemas"]["RacingSelectionName"][];
+        };
+        PropertySelectionName: ("property" | "lookup" | "timestamp") | string;
+        PropertyLookupResponse: {
+            selections: components["schemas"]["PropertySelectionName"][];
+        };
+        TornOrganizedCrimeResponse: {
+            organizedcrimes: components["schemas"]["TornOrganizedCrime"][];
+        };
+        TornOrganizedCrime: {
+            name: components["schemas"]["OrganizedCrimeName"];
+            description: string;
+            /** Format: int32 */
+            difficulty: number;
+            spawn: components["schemas"]["TornOrganizedCrimeSpawn"];
+            scope: components["schemas"]["TornOrganizedCrimeScope"];
+            prerequisite: components["schemas"]["OrganizedCrimeName"] | null;
+            slots: components["schemas"]["TornOrganizedCrimeSlot"][];
+        };
+        TornOrganizedCrimeSpawn: {
+            /** Format: int32 */
+            level: number;
+            name: string;
+        };
+        TornOrganizedCrimeScope: {
+            /** Format: int32 */
+            cost: number;
+            /** Format: int32 */
+            return: number;
+        };
+        TornOrganizedCrimeSlot: {
+            id: components["schemas"]["TornOrganizedCrimePositionId"];
+            name: string;
+            required_item: components["schemas"]["TornOrganizedCrimeRequiredItem"] | null;
+        };
+        TornOrganizedCrimeRequiredItem: {
+            id: components["schemas"]["ItemId"];
+            name: string;
+            is_used: boolean;
+        };
+        TornProperties: {
+            properties?: {
+                id: components["schemas"]["PropertyTypeId"];
+                name: string;
+                /** Format: int32 */
+                cost: number;
+                /** Format: int32 */
+                happy: number;
+                /** Format: int32 */
+                upkeep: number;
+                modifications: components["schemas"]["PropertyModificationEnum"][];
+                staff: components["schemas"]["PropertyStaffEnum"][];
+            }[];
+        };
+        TornEducationRewards: {
+            working_stats: {
+                manual_labor: number | null;
+                intelligence: number | null;
+                endurance: number | null;
+            };
+            effect: string | null;
+            honor: string | null;
+        };
+        TornEducationPrerequisites: {
+            /** Format: int32 */
+            cost: number;
+            courses: number[];
+        };
+        TornEducationCourses: {
+            id: components["schemas"]["EducationId"];
+            code: string;
+            name: string;
+            description: string;
+            /** Format: int32 */
+            duration: number;
+            rewards: components["schemas"]["TornEducationRewards"];
+            prerequisites: components["schemas"]["TornEducationPrerequisites"];
+        };
+        TornEducation: {
+            /** Format: int32 */
+            id: number;
+            name: string;
+            courses: components["schemas"]["TornEducationCourses"][];
+        };
+        TornEducationResponse: {
+            education: components["schemas"]["TornEducation"][];
+        };
+        TornTerritoryCoordinates: {
+            /** Format: float */
+            x: number;
+            /** Format: float */
+            y: number;
+        };
+        TornTerritory: {
+            id: components["schemas"]["FactionTerritoryEnum"];
+            /** Format: int32 */
+            sector: number;
+            /** Format: int32 */
+            size: number;
+            /** Format: int32 */
+            density: number;
+            /** Format: int32 */
+            slots: number;
+            /** Format: int32 */
+            respect: number;
+            coordinates: components["schemas"]["TornTerritoryCoordinates"];
+            neighbors: components["schemas"]["FactionTerritoryEnum"][];
+        };
+        TornTerritoriesResponse: {
+            territory: components["schemas"]["TornTerritory"][];
+            _metadata: components["schemas"]["RequestMetadataWithLinks"];
+        };
+        TornTerritoriesNoLinksResponse: {
+            territory: components["schemas"]["TornTerritory"][];
+        };
+        TornSubcrimesResponse: {
+            subcrimes: components["schemas"]["TornSubcrime"][];
+        };
+        TornSubcrime: {
+            /** Format: int32 */
+            id: number;
+            name: string;
+            /** Format: int32 */
+            nerve_cost: number;
+        };
+        TornCrime: {
+            id: components["schemas"]["TornCrimeId"];
+            name: string;
+            /** Format: int32 */
+            category_id: number;
+            category_name?: string;
+            /** Format: int32 */
+            enhancer_id: number;
+            enhancer_name: string;
+            /** Format: int32 */
+            unique_outcomes_count: number;
+            unique_outcomes_ids: number[];
+            notes: string[];
+        };
+        TornCrimesResponse: {
+            crimes: components["schemas"]["TornCrime"][];
+        };
+        TornCalendarActivity: {
+            title: string;
+            description: string;
+            /** Format: int32 */
+            start: number;
+            /** Format: int32 */
+            end: number;
+        };
+        TornCalendarResponse: {
+            calendar: {
+                competitions: components["schemas"]["TornCalendarActivity"][];
+                events: components["schemas"]["TornCalendarActivity"][];
+            };
+        };
+        TornHofBasic: {
+            id: components["schemas"]["UserId"];
+            username: string;
+            faction_id: components["schemas"]["FactionId"];
+            /** Format: int32 */
+            level: number;
+            /** Format: int32 */
+            last_action: number;
+            rank_name: string;
+            /** Format: int32 */
+            rank_number: number;
+            /** Format: int32 */
+            position: number;
+            /** Format: int32 */
+            signed_up: number;
+            /** Format: int32 */
+            age_in_days: number;
+            /** @description Value representing the chosen category. Traveltime is shown in seconds. If the chosen category is 'rank', the value is of type string. If the chosen category is 'racingskill', the value is of type float. Otherwise it is an integer. */
+            value: number | string;
+            rank: string;
+        };
+        TornHofWithOffenses: components["schemas"]["TornHofBasic"] & {
+            /** Format: int32 */
+            criminal_offenses: number;
+        };
+        TornHof: components["schemas"]["TornHofBasic"] | components["schemas"]["TornHofWithOffenses"];
+        TornHofResponse: {
+            hof: components["schemas"]["TornHof"][];
+            _metadata: components["schemas"]["RequestMetadataWithLinks"];
+        };
+        FactionHofValues: {
+            /** @description Maximum chain achieved by the faction. Null if chosen category is 'rank' or 'respect'. */
+            chain: number | null;
+            /** @description The duration of the chain. Null if chosen category is 'rank' or 'respect'. */
+            chain_duration: number | null;
+            /** @description Null if chosen category is 'chain'. */
+            respect: number | null;
+        };
+        TornFactionHof: {
+            id: components["schemas"]["FactionId"];
+            name: string;
+            /** Format: int32 */
+            members: number;
+            /** Format: int32 */
+            position: number;
+            /** @description The full rank title & division of the faction. */
+            rank: string;
+            values: components["schemas"]["FactionHofValues"];
+        };
+        TornFactionHofResponse: {
+            factionhof: components["schemas"]["TornFactionHof"][];
+            _metadata: components["schemas"]["RequestMetadataWithLinks"];
+        };
+        TornLog: {
+            id: components["schemas"]["LogId"];
+            title: string;
+        };
+        TornLogCategory: {
+            id: components["schemas"]["LogCategoryId"];
+            title: string;
+        };
+        TornLogTypesResponse: {
+            logtypes: components["schemas"]["TornLog"][];
+        };
+        TornLogCategoriesResponse: {
+            logcategories: components["schemas"]["TornLogCategory"][];
+        };
+        Bounty: {
+            target_id: components["schemas"]["UserId"];
+            target_name: string;
+            /** Format: int32 */
+            target_level: number;
+            lister_id: components["schemas"]["UserId"] | null;
+            /** @description If the bounty is anonymous this field is null. */
+            lister_name: string | null;
+            /** Format: int64 */
+            reward: number;
+            reason: string | null;
+            /** Format: int32 */
+            quantity: number;
+            is_anonymous: boolean;
+            /** Format: int32 */
+            valid_until: number;
+        };
+        AttackLogSummary: {
+            id: components["schemas"]["UserId"] | null;
+            name: string | null;
+            /** Format: int32 */
+            hits: number;
+            /** Format: int32 */
+            misses: number;
+            /** Format: int32 */
+            damage: number;
+        };
+        AttackLog: {
+            text: string;
+            /** Format: int32 */
+            timestamp: number;
+            action: components["schemas"]["AttackActionEnum"];
+            icon: string;
+            attacker: {
+                id: components["schemas"]["UserId"];
+                name: string;
+                item: {
+                    id?: components["schemas"]["ItemId"];
+                    name?: string;
+                } | null;
+            } | null;
+            defender: {
+                id: components["schemas"]["UserId"];
+                name: string;
+            } | null;
+            /** @description This field only exists if the attacker is stealthed and they used a temporary item. */
+            attacker_item?: {
+                id: components["schemas"]["ItemId"];
+                name: string;
+            };
+        };
+        AttackLogResponse: {
+            attacklog: {
+                log: components["schemas"]["AttackLog"][];
+                summary: components["schemas"]["AttackLogSummary"][];
+            };
+            _metadata: components["schemas"]["RequestMetadataWithLinks"];
+        };
+        TornBountiesResponse: {
+            bounties: components["schemas"]["Bounty"][];
+            _metadata: components["schemas"]["RequestMetadataWithLinks"];
+        };
+        TornItemAmmo: {
+            id: components["schemas"]["AmmoId"];
+            name: string;
+            /** Format: int64 */
+            price: number;
+            /** @description Types of ammo */
+            types: components["schemas"]["TornItemAmmoTypeEnum"][];
+        };
+        TornItemAmmoResponse: {
+            itemammo: components["schemas"]["TornItemAmmo"][];
+        };
+        TornItemMods: {
+            id: components["schemas"]["ItemModId"];
+            name: string;
+            description: string;
+            /** @description Whether the upgrade fits on dual weapons. */
+            dual_fit: boolean;
+            /** @description The weapon types this upgrade can be attached to. */
+            weapons: components["schemas"]["TornItemWeaponTypeEnum"][];
+        };
+        TornItemModsResponse: {
+            itemmods: components["schemas"]["TornItemMods"][];
+        };
+        TornItemBaseStats: {
+            /** Format: int32 */
+            damage: number;
+            /** Format: int32 */
+            accuracy: number;
+            /** Format: int32 */
+            armor: number;
+        };
+        TornItemWeaponDetails: {
+            /** Format: float */
+            stealth_level: number;
+            base_stats: components["schemas"]["TornItemBaseStats"];
+            category: components["schemas"]["TornItemWeaponCategoryEnum"];
+            ammo: {
+                id: components["schemas"]["AmmoId"];
+                name: string;
+                /** Format: int32 */
+                magazine_rounds: number;
+                rate_of_fire: {
+                    /** Format: int32 */
+                    minimum: number;
+                    /** Format: int32 */
+                    maximum: number;
+                };
+            } | null;
+            mods: components["schemas"]["ItemModId"][];
+        };
+        TornItemArmorCoverage: {
+            name: components["schemas"]["TornItemArmorCoveragePartEnum"];
+            /** Format: float */
+            value: number;
+        };
+        TornItemArmorDetails: {
+            coverage: components["schemas"]["TornItemArmorCoverage"][];
+            base_stats: components["schemas"]["TornItemBaseStats"];
+        };
+        TornItem: {
+            id: components["schemas"]["ItemId"];
+            name: string;
+            description: string;
+            effect: string | null;
+            requirement: string | null;
+            image: string;
+            type: components["schemas"]["TornItemTypeEnum"];
+            sub_type: components["schemas"]["TornItemWeaponTypeEnum"] | null;
+            is_masked: boolean;
+            is_tradable: boolean;
+            is_found_in_city: boolean;
+            value: {
+                vendor: {
+                    country: string;
+                    name: string;
+                } | null;
+                buy_price: number | null;
+                sell_price: number | null;
+                /** Format: int64 */
+                market_price: number;
+            };
+            /** Format: int64 */
+            circulation: number;
+            /** @description If the item 'type' is 'Armor' then TornItemArmorDetails is returned.<br>If the item 'type' is 'Weapon' then TornItemWeaponDetails is returned.<br>Otherwise, null is returned. */
+            details: components["schemas"]["TornItemWeaponDetails"] | components["schemas"]["TornItemArmorDetails"] | null;
+        };
+        TornItemsResponse: {
+            items: components["schemas"]["TornItem"][];
+        };
+        TornFactionTreeBranch: {
+            id: components["schemas"]["FactionBranchId"];
+            name: string;
+            upgrades: {
+                name: string;
+                /** Format: int32 */
+                level: number;
+                ability: string;
+                /** Format: int32 */
+                cost: number;
+                challenge: {
+                    description: string;
+                    /** Format: int64 */
+                    amount_required: number;
+                    stat: components["schemas"]["FactionStatEnum"];
+                } | null;
+            }[];
+        };
+        TornFactionTree: {
+            name: string;
+            branches: components["schemas"]["TornFactionTreeBranch"][];
+        };
+        TornFactionTreeResponse: {
+            factionTree: components["schemas"]["TornFactionTree"][];
+        };
+        TornSelectionName: ("attacklog" | "bounties" | "calendar" | "crimes" | "education" | "factionhof" | "factiontree" | "hof" | "itemammo" | "itemmods" | "items" | "logcategories" | "logtypes" | "lookup" | "organizedcrimes" | "properties" | "subcrimes" | "territory" | "timestamp" | "bank" | "cards" | "cityshops" | "companies" | "competition" | "gyms" | "honors" | "itemdetails" | "itemstats" | "medals" | "organisedcrimes" | "pawnshop" | "pokertables" | "rockpaperscissors" | "searchforcash" | "shoplifting" | "stats" | "stocks") | string;
+        TornLookupResponse: {
+            selections: components["schemas"]["TornSelectionName"][];
+        };
     };
     responses: never;
-    parameters: never;
+    parameters: {
+        /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+        ApiKeyPublic: string;
+        /** @description API key (Minimal).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+        ApiKeyMinimal: string;
+        /** @description API key (Limited).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+        ApiKeyLimited: string;
+        /** @description API key (Full).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+        ApiKeyFull: string;
+        /** @description Timestamp to bypass cache */
+        ApiTimestamp: string;
+        /** @description A filtering query parameter allowing a comma-separated list of filters. <br>
+         *      * Each filter can be one of the following:
+         *      * Fixed options: 'destroyed', 'notDestroyed', 'recruiting', 'notRecruiting'
+         *      * Dynamic options: `fieldName`+`condition`+`number`, where:
+         *      * * `fieldName` is one of: `id`, `respect`, `members`
+         *      * * `condition` is one of: `Equal`, `NotEqual`, `Less`, `LessOrEqual`, `GreaterOrEqual`, `Greater`
+         *      * * `number`: any integer value
+         *      * Examples: `filters=destroyed`, `filters=notDestroyed,recruiting`, `filters=respectLessOrEqual20000,idGreater100,notRecruiting` */
+        ApiFactionSearchFilter: (("destroyed" | "notDestroyed" | "recruiting" | "notRecruiting") | string)[];
+        /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+        ApiComment: string;
+        /** @description Name  to search for. */
+        ApiName: string;
+        ApiLimit20: number;
+        ApiLimit100Default20: number;
+        ApiLimit1000Default20: number;
+        ApiLimit50: number;
+        ApiLimit50Default20: number;
+        ApiLimit100: number;
+        ApiLimit250Default20: number;
+        ApiLimit500Default20: number;
+        ApiLimit1000: number;
+        ApiLimit: number;
+        ApiTarget: number;
+        /** @description Sorted by the greatest timestamps */
+        ApiSort: "DESC" | "ASC";
+        /** @description Sorted by the greatest timestamps */
+        ApiSortDesc: "DESC" | "ASC";
+        /** @description Sort rows from newest to oldest<br>Default ordering is ascending */
+        ApiSortAsc: "DESC" | "ASC";
+        /** @description Timestamp that sets the upper limit for the data returned. Data returned will be up to and including this time */
+        ApiTo: number;
+        /** @description Timestamp that sets the lower limit for the data returned. Data returned will be after this time */
+        ApiFrom: number;
+        ApiOffset: number;
+        ApiOffsetNoDefault: number;
+        /** @description Determines if fields include HTML or not ('Hospitalized by <a href=...>user</a>' vs 'Hospitalized by user'). */
+        ApiStripTagsTrue: "true" | "false";
+        /** @description Determines if fields include HTML or not ('Hospitalized by <a href=...>user</a>' vs 'Hospitalized by user'). */
+        ApiStripTagsFalse: "true" | "false";
+        /** @description Determines if fields include HTML or not ('Hospitalized by <a href=...>user</a>' vs 'Hospitalized by user'). */
+        ApiStripTags: "true" | "false";
+    };
     requestBodies: never;
     headers: never;
     pathItems: never;
 }
 export type $defs = Record<string, never>;
-export type operations = Record<string, never>;
+export interface operations {
+    "3acc98a3016974b786cb01e04e1ced04": {
+        parameters: {
+            query?: {
+                /** @description It's possible to use this query parameter to only get incoming or outgoing attacks. If not specified, this selection will return both incoming and outgoing attacks. */
+                filters?: "incoming" | "outgoing";
+                limit?: components["parameters"]["ApiLimit100"];
+                /** @description Sorted by the greatest timestamps */
+                sort?: components["parameters"]["ApiSort"];
+                /** @description Timestamp that sets the upper limit for the data returned. Data returned will be up to and including this time */
+                to?: components["parameters"]["ApiTo"];
+                /** @description Timestamp that sets the lower limit for the data returned. Data returned will be after this time */
+                from?: components["parameters"]["ApiFrom"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Limited).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyLimited"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FactionAttacksResponse"];
+                };
+            };
+        };
+    };
+    e995691fd9845c8b4a91f065ac9c8420: {
+        parameters: {
+            query?: {
+                /** @description It's possible to use this query parameter to only get incoming or outgoing attacks. If not specified, this selection will return both incoming and outgoing attacks. */
+                filters?: "incoming" | "outgoing";
+                limit?: components["parameters"]["ApiLimit1000"];
+                /** @description Sorted by the greatest timestamps */
+                sort?: components["parameters"]["ApiSort"];
+                /** @description Timestamp that sets the upper limit for the data returned. Data returned will be up to and including this time */
+                to?: components["parameters"]["ApiTo"];
+                /** @description Timestamp that sets the lower limit for the data returned. Data returned will be after this time */
+                from?: components["parameters"]["ApiFrom"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Limited).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyLimited"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FactionAttacksFullResponse"];
+                };
+            };
+        };
+    };
+    c85fd102a25aaec3aa98611d0da6c219: {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UserBountiesResponse"];
+                };
+            };
+        };
+    };
+    eb5eca5c6b978ee23ef74035c14ff4cc: {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path: {
+                /** @description User id */
+                id: components["schemas"]["UserId"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UserBountiesResponse"];
+                };
+            };
+        };
+    };
+    "4cc4cc6fa3764f9732db9589e91d7739": {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Minimal).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyMinimal"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UserCalendarResponse"];
+                };
+            };
+        };
+    };
+    "37f1e394f9d6e3f6fd436fae3e9b9ac4": {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Minimal).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyMinimal"];
+            };
+            header?: never;
+            path: {
+                /** @description Crime id */
+                crimeId: components["schemas"]["TornCrimeId"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UserCrimesResponse"];
+                };
+            };
+        };
+    };
+    fddc6adc5139d8a1e0a151d80816dba7: {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UserEducationResponse"];
+                };
+            };
+        };
+    };
+    dc3deee7629610931240be337c47a8ee: {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Minimal).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyMinimal"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UserEnlistedCarsResponse"];
+                };
+            };
+        };
+    };
+    b7ebbeea51dc2ef56c3ed5fd9d94e680: {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Limited).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyLimited"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UserFactionBalanceResponse"];
+                };
+            };
+        };
+    };
+    "17f99b99fac9601887dd1d001b95bb08": {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Minimal).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyMinimal"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UserForumFeedResponse"];
+                };
+            };
+        };
+    };
+    "2ceb7f08dc5f06a01d1fbe50425414c1": {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Minimal).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyMinimal"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UserForumFriendsResponse"];
+                };
+            };
+        };
+    };
+    cc3a21ed98c1a80ffeeda4e33c75b9a0: {
+        parameters: {
+            query?: {
+                /** @description Determines if fields include HTML or not ('Hospitalized by <a href=...>user</a>' vs 'Hospitalized by user'). */
+                striptags?: components["parameters"]["ApiStripTagsTrue"];
+                limit?: components["parameters"]["ApiLimit20"];
+                /** @description Sorted by the greatest timestamps */
+                sort?: components["parameters"]["ApiSort"];
+                /** @description Timestamp that sets the lower limit for the data returned. Data returned will be after this time */
+                from?: components["parameters"]["ApiFrom"];
+                /** @description Timestamp that sets the upper limit for the data returned. Data returned will be up to and including this time */
+                to?: components["parameters"]["ApiTo"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UserForumPostsResponse"];
+                };
+            };
+        };
+    };
+    "423ceffcad89f9ee7abfb85bed32b692": {
+        parameters: {
+            query?: {
+                /** @description Determines if fields include HTML or not ('Hospitalized by <a href=...>user</a>' vs 'Hospitalized by user'). */
+                striptags?: components["parameters"]["ApiStripTagsTrue"];
+                limit?: components["parameters"]["ApiLimit20"];
+                /** @description Sorted by the greatest timestamps */
+                sort?: components["parameters"]["ApiSort"];
+                /** @description Timestamp that sets the lower limit for the data returned. Data returned will be after this time */
+                from?: components["parameters"]["ApiFrom"];
+                /** @description Timestamp that sets the upper limit for the data returned. Data returned will be up to and including this time */
+                to?: components["parameters"]["ApiTo"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path: {
+                /** @description User id */
+                id: components["schemas"]["UserId"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UserForumPostsResponse"];
+                };
+            };
+        };
+    };
+    "92c7e86065c3d18b000e825aa6688eed": {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Minimal).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyMinimal"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UserForumSubscribedThreadsResponse"];
+                };
+            };
+        };
+    };
+    "807adc6a64d86e07d629a15dde8c6105": {
+        parameters: {
+            query?: {
+                limit?: components["parameters"]["ApiLimit100Default20"];
+                /** @description Sorted by the greatest timestamps */
+                sort?: components["parameters"]["ApiSort"];
+                /** @description Timestamp that sets the lower limit for the data returned. Data returned will be after this time */
+                from?: components["parameters"]["ApiFrom"];
+                /** @description Timestamp that sets the upper limit for the data returned. Data returned will be up to and including this time */
+                to?: components["parameters"]["ApiTo"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UserForumThreadsResponse"];
+                };
+            };
+        };
+    };
+    "481c6645dae298b54f0630ef7de81dba": {
+        parameters: {
+            query?: {
+                limit?: components["parameters"]["ApiLimit100Default20"];
+                /** @description Sorted by the greatest timestamps */
+                sort?: components["parameters"]["ApiSort"];
+                /** @description Timestamp that sets the lower limit for the data returned. Data returned will be after this time */
+                from?: components["parameters"]["ApiFrom"];
+                /** @description Timestamp that sets the upper limit for the data returned. Data returned will be up to and including this time */
+                to?: components["parameters"]["ApiTo"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path: {
+                /** @description User id */
+                id: components["schemas"]["UserId"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UserForumThreadsResponse"];
+                };
+            };
+        };
+    };
+    "959a3a302d736b416ec1edd4def8fe91": {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UserHofResponse"];
+                };
+            };
+        };
+    };
+    f86d41c9434e42d22f9ff46ecc4e5b88: {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path: {
+                /** @description User id */
+                id: components["schemas"]["UserId"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UserHofResponse"];
+                };
+            };
+        };
+    };
+    "8fcbe4dcf8a3a28e31e2eaab877feea1": {
+        parameters: {
+            query?: {
+                offset?: components["parameters"]["ApiOffset"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Limited).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyLimited"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UserItemMarketResponse"];
+                };
+            };
+        };
+    };
+    facf1ddeef80a440229941f49aec6ccc: {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Minimal).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyMinimal"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UserJobRanksResponse"];
+                };
+            };
+        };
+    };
+    e93ba44fcc7ad2eb3063dec7469ee2f6: {
+        parameters: {
+            query: {
+                /** @description Select list type */
+                cat: components["schemas"]["UserListEnum"];
+                limit?: components["parameters"]["ApiLimit50"];
+                offset?: components["parameters"]["ApiOffsetNoDefault"];
+                /** @description Sort rows from newest to oldest<br>Default ordering is ascending */
+                sort?: components["parameters"]["ApiSortAsc"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Limited).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyLimited"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UserListResponse"];
+                };
+            };
+        };
+    };
+    f354f40bc5d6cbadf57fdecb453c976f: {
+        parameters: {
+            query?: {
+                /** @description Log ids, comma separated, e.g. 105,4900,4905 */
+                log?: components["schemas"]["LogId"][];
+                /** @description Log category id */
+                cat?: components["schemas"]["LogCategoryId"];
+                limit?: components["parameters"]["ApiLimit100Default20"];
+                /** @description Timestamp that sets the upper limit for the data returned. Data returned will be up to and including this time */
+                to?: components["parameters"]["ApiTo"];
+                /** @description Timestamp that sets the lower limit for the data returned. Data returned will be after this time */
+                from?: components["parameters"]["ApiFrom"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Full).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyFull"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UserLogsResponse"];
+                };
+            };
+        };
+    };
+    "3c6f8acbfcb398592e3f3b65ab91a40f": {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Minimal).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyMinimal"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UserOrganizedCrimeResponse"];
+                };
+            };
+        };
+    };
+    "388e8008ae1c2645819af76d71ef92a5": {
+        parameters: {
+            query?: {
+                /** @description Stats category. Required unless requesting specific stats via 'stat' query parameter */
+                cat?: components["schemas"]["PersonalStatsCategoryEnum"];
+                /** @description Stat names (10 maximum). Used to fetch historical stat values */
+                stat?: components["schemas"]["PersonalStatsStatName"][];
+                /** @description Returns stats until this timestamp (converted to nearest date). */
+                timestamp?: number;
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UserPersonalStatsResponse"];
+                };
+            };
+        };
+    };
+    "6ac851069df2c33e53cc69eecae44f1e": {
+        parameters: {
+            query?: {
+                cat?: components["schemas"]["PersonalStatsCategoryEnum"];
+                /** @description Stat names (10 maximum). Used to fetch historical stat values */
+                stat?: components["schemas"]["PersonalStatsStatName"][];
+                /** @description Returns stats until this timestamp (converted to nearest date). */
+                timestamp?: number;
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path: {
+                /** @description User id */
+                id: components["schemas"]["UserId"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UserPersonalStatsResponse"];
+                };
+            };
+        };
+    };
+    "574a416ca46717830f03a2f685955b87": {
+        parameters: {
+            query?: {
+                offset?: components["parameters"]["ApiOffset"];
+                limit?: components["parameters"]["ApiLimit100Default20"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UserPropertiesResponse"];
+                };
+            };
+        };
+    };
+    "601f7b38ac25e1ac47b33fb64120198b": {
+        parameters: {
+            query?: {
+                offset?: components["parameters"]["ApiOffset"];
+                limit?: components["parameters"]["ApiLimit100Default20"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path: {
+                /** @description User id */
+                id: components["schemas"]["UserId"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UserPropertiesResponse"];
+                };
+            };
+        };
+    };
+    "0452cb8fd031b80d3b7e9fcb7b0bdf09": {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UserPropertyResponse"];
+                };
+            };
+        };
+    };
+    f36ce18449194dd9d2b62bccd4bb8343: {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path: {
+                /** @description User id */
+                id: components["schemas"]["UserId"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UserPropertyResponse"];
+                };
+            };
+        };
+    };
+    ba6e495bf0c6b2e87db337c1a09f4852: {
+        parameters: {
+            query?: {
+                limit?: components["parameters"]["ApiLimit100Default20"];
+                /** @description Sorted by the greatest timestamps */
+                sort?: components["parameters"]["ApiSort"];
+                /** @description Timestamp that sets the lower limit for the data returned. Data returned will be after this time */
+                from?: components["parameters"]["ApiFrom"];
+                /** @description Timestamp that sets the upper limit for the data returned. Data returned will be up to and including this time */
+                to?: components["parameters"]["ApiTo"];
+                /** @description Category of races returned */
+                cat?: components["schemas"]["RacingRaceTypeEnum"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Minimal).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyMinimal"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UserRacesResponse"];
+                };
+            };
+        };
+    };
+    e1b2c1039ea41f7607b9c94660fc72cb: {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Minimal).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyMinimal"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UserRacingRecordsResponse"];
+                };
+            };
+        };
+    };
+    "6ba15a813fe1cc014564e9dba892e022": {
+        parameters: {
+            query?: {
+                /** @description Used to filter reports with a specific type. */
+                cat?: components["schemas"]["ReportTypeEnum"];
+                /** @description Get reports for a specific player by passing their player ID. */
+                target?: components["schemas"]["UserId"];
+                limit?: components["parameters"]["ApiLimit100Default20"];
+                offset?: components["parameters"]["ApiOffset"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Limited).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyLimited"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ReportsResponse"];
+                };
+            };
+        };
+    };
+    "3c847eb1325040798f37a7492108e094": {
+        parameters: {
+            query?: {
+                /** @description It's possible to use this query parameter to only get incoming or outgoing revives. If not specified, this selection will return both incoming and outgoing revives. */
+                filters?: "incoming" | "outgoing";
+                limit?: components["parameters"]["ApiLimit100Default20"];
+                /** @description Sorted by the greatest timestamps */
+                sort?: components["parameters"]["ApiSort"];
+                /** @description Timestamp that sets the upper limit for the data returned. Data returned will be up to and including this time */
+                to?: components["parameters"]["ApiTo"];
+                /** @description Timestamp that sets the lower limit for the data returned. Data returned will be after this time */
+                from?: components["parameters"]["ApiFrom"];
+                /** @description Determines if fields include HTML or not ('Hospitalized by <a href=...>user</a>' vs 'Hospitalized by user'). */
+                striptags?: components["parameters"]["ApiStripTagsTrue"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Limited).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyLimited"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RevivesResponse"];
+                };
+            };
+        };
+    };
+    "8820cd889afde899353037ca5a0f9a07": {
+        parameters: {
+            query?: {
+                /** @description It's possible to use this query parameter to only get incoming or outgoing revives. If not specified, this selection will return both incoming and outgoing revives. */
+                filters?: "incoming" | "outgoing";
+                limit?: components["parameters"]["ApiLimit1000Default20"];
+                /** @description Sorted by the greatest timestamps */
+                sort?: components["parameters"]["ApiSort"];
+                /** @description Timestamp that sets the upper limit for the data returned. Data returned will be up to and including this time */
+                to?: components["parameters"]["ApiTo"];
+                /** @description Timestamp that sets the lower limit for the data returned. Data returned will be after this time */
+                from?: components["parameters"]["ApiFrom"];
+                /** @description Determines if fields include HTML or not ('Hospitalized by <a href=...>user</a>' vs 'Hospitalized by user'). */
+                striptags?: components["parameters"]["ApiStripTagsTrue"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Limited).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyLimited"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RevivesFullResponse"];
+                };
+            };
+        };
+    };
+    c0a6c91697cd1683c39b3c0649a18ec8: {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UserLookupResponse"];
+                };
+            };
+        };
+    };
+    a72308321da0c4a2c31c60218acc7a85: {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TimestampResponse"];
+                };
+            };
+        };
+    };
+    ce480599312126b8a5d77ced3ab8caa8: {
+        parameters: {
+            query?: {
+                /** @description Selection names */
+                selections?: components["schemas"]["UserSelectionName"][];
+                /** @description selection id */
+                id?: components["schemas"]["UserId"] | components["schemas"]["TornCrimeId"] | string;
+                limit?: components["parameters"]["ApiLimit"];
+                /** @description Timestamp that sets the lower limit for the data returned. Data returned will be after this time */
+                from?: components["parameters"]["ApiFrom"];
+                /** @description Timestamp that sets the upper limit for the data returned. Data returned will be up to and including this time */
+                to?: components["parameters"]["ApiTo"];
+                /** @description Sorted by the greatest timestamps */
+                sort?: components["parameters"]["ApiSort"];
+                /** @description Selection category. Can belong to one of the specified types. */
+                cat?: components["schemas"]["ReportTypeEnum"] | components["schemas"]["UserListEnum"] | components["schemas"]["PersonalStatsCategoryEnum"] | components["schemas"]["RacingRaceTypeEnum"];
+                /** @description Selection stat */
+                stat?: components["schemas"]["PersonalStatsStatName"][];
+                /** @description Determines if fields include HTML or not ('Hospitalized by <a href=...>user</a>' vs 'Hospitalized by user'). */
+                striptags?: components["parameters"]["ApiStripTags"];
+                offset?: components["parameters"]["ApiOffsetNoDefault"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UserCrimesResponse"] | components["schemas"]["UserRacesResponse"] | components["schemas"]["UserEnlistedCarsResponse"] | components["schemas"]["UserForumPostsResponse"] | components["schemas"]["UserForumThreadsResponse"] | components["schemas"]["UserForumSubscribedThreadsResponse"] | components["schemas"]["UserForumFeedResponse"] | components["schemas"]["UserForumFriendsResponse"] | components["schemas"]["UserHofResponse"] | components["schemas"]["UserCalendarResponse"] | components["schemas"]["UserRacingRecordsResponse"] | components["schemas"]["UserEducationResponse"] | components["schemas"]["UserBountiesResponse"] | components["schemas"]["UserJobRanksResponse"] | components["schemas"]["UserPropertiesResponse"] | components["schemas"]["UserFactionBalanceResponse"] | components["schemas"]["RevivesResponse"] | components["schemas"]["RevivesFullResponse"] | components["schemas"]["UserItemMarketResponse"] | components["schemas"]["UserListResponse"] | components["schemas"]["UserPersonalStatsResponse"] | components["schemas"]["UserOrganizedCrimeResponse"] | components["schemas"]["FactionAttacksResponse"] | components["schemas"]["FactionAttacksFullResponse"] | components["schemas"]["UserLookupResponse"] | components["schemas"]["TimestampResponse"];
+                };
+            };
+        };
+    };
+    "9f7dccb023d81a8da7f5f6a359658a64": {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Minimal).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyMinimal"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FactionApplicationsResponse"];
+                };
+            };
+        };
+    };
+    cb5b38ba64c389e706526df8bc8af9b6: {
+        parameters: {
+            query?: {
+                /** @description It's possible to use this query parameter to only get incoming or outgoing attacks. If not specified, this selection will return both incoming and outgoing attacks. */
+                filters?: "incoming" | "outgoing";
+                limit?: components["parameters"]["ApiLimit100"];
+                /** @description Sorted by the greatest timestamps */
+                sort?: components["parameters"]["ApiSortDesc"];
+                /** @description Timestamp that sets the upper limit for the data returned. Data returned will be up to and including this time */
+                to?: components["parameters"]["ApiTo"];
+                /** @description Timestamp that sets the lower limit for the data returned. Data returned will be after this time */
+                from?: components["parameters"]["ApiFrom"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Limited).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyLimited"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FactionAttacksResponse"];
+                };
+            };
+        };
+    };
+    "8551280aaaf9819aa94be5c469a523de": {
+        parameters: {
+            query?: {
+                /** @description It's possible to use this query parameter to only get incoming or outgoing attacks. If not specified, this selection will return both incoming and outgoing attacks. */
+                filters?: "incoming" | "outgoing";
+                limit?: components["parameters"]["ApiLimit1000"];
+                /** @description Sorted by the greatest timestamps */
+                sort?: components["parameters"]["ApiSortDesc"];
+                /** @description Timestamp that sets the upper limit for the data returned. Data returned will be up to and including this time */
+                to?: components["parameters"]["ApiTo"];
+                /** @description Timestamp that sets the lower limit for the data returned. Data returned will be after this time */
+                from?: components["parameters"]["ApiFrom"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Limited).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyLimited"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FactionAttacksFullResponse"];
+                };
+            };
+        };
+    };
+    "3ca2c0319f960b728ffece8e322cf40f": {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Limited).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyLimited"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FactionBalanceResponse"];
+                };
+            };
+        };
+    };
+    fb363bf0e1d54296bd4d5dd554ad9825: {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FactionBasicResponse"];
+                };
+            };
+        };
+    };
+    a09da2d5f951a49d974dbec3149b3a24: {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path: {
+                /** @description Faction id */
+                id: components["schemas"]["FactionId"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FactionBasicResponse"];
+                };
+            };
+        };
+    };
+    aee5679a81c6a7bcd3862c0aafd6b558: {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FactionOngoingChainResponse"];
+                };
+            };
+        };
+    };
+    ec8f82e15a321adbb20e615024d9dff6: {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path: {
+                /** @description Faction id */
+                id: components["schemas"]["FactionId"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FactionOngoingChainResponse"];
+                };
+            };
+        };
+    };
+    dfc0adb55af4aeeeebc2d82309c71eea: {
+        parameters: {
+            query?: {
+                limit?: components["parameters"]["ApiLimit100"];
+                /** @description Sorted by the greatest timestamps */
+                sort?: components["parameters"]["ApiSortDesc"];
+                /** @description Timestamp that sets the upper limit for the data returned. Data returned will be up to and including this time */
+                to?: components["parameters"]["ApiTo"];
+                /** @description Timestamp that sets the lower limit for the data returned. Data returned will be after this time */
+                from?: components["parameters"]["ApiFrom"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FactionChainsResponse"];
+                };
+            };
+        };
+    };
+    dd88ca1ffafed80457916da5298a3422: {
+        parameters: {
+            query?: {
+                limit?: components["parameters"]["ApiLimit100"];
+                /** @description Sorted by the greatest timestamps */
+                sort?: components["parameters"]["ApiSortDesc"];
+                /** @description Timestamp that sets the upper limit for the data returned. Data returned will be up to and including this time */
+                to?: components["parameters"]["ApiTo"];
+                /** @description Timestamp that sets the lower limit for the data returned. Data returned will be after this time */
+                from?: components["parameters"]["ApiFrom"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path: {
+                /** @description Faction id */
+                id: components["schemas"]["FactionId"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FactionChainsResponse"];
+                };
+            };
+        };
+    };
+    "614a2f2bdd7fb6df778b7657c75d1113": {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FactionChainReportResponse"];
+                };
+            };
+        };
+    };
+    "21a251c2ec9f6c93b89fb715196bb8be": {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path: {
+                /** @description Chain id */
+                chainId: components["schemas"]["ChainId"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FactionChainReportResponse"];
+                };
+            };
+        };
+    };
+    "40eb7627818eb777fdc713ed78209c6b": {
+        parameters: {
+            query: {
+                /** @description Get contributors for this field. */
+                stat: components["schemas"]["FactionStatEnum"];
+                /** @description By default, this selection will return only current faction's member contributions, and the option 'all' will return all contributors. */
+                cat?: "all" | "current";
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FactionContributorsResponse"];
+                };
+            };
+        };
+    };
+    "72e5db8a773908fedff4bb002f3f4406": {
+        parameters: {
+            query?: {
+                /** @description Category of organized crimes returned. Category 'available' includes both 'recruiting' & 'planning', and category 'completed' includes both 'successful' & 'failure'<br>Default category is 'all'. */
+                cat?: "all" | "recruiting" | "planning" | "failure" | "successful" | "expired" | "available" | "completed";
+                /** @description It's possible to set this parameter to specify a field used for the sort, from & to query parameters. If not specified, the field will default to the category sorting as described above. */
+                filters?: "created_at" | "executed_at" | "ready_at" | "expired_at";
+                offset?: components["parameters"]["ApiOffset"];
+                /** @description Timestamp that sets the lower limit for the data returned. Data returned will be after this time */
+                from?: components["parameters"]["ApiFrom"];
+                /** @description Timestamp that sets the upper limit for the data returned. Data returned will be up to and including this time */
+                to?: components["parameters"]["ApiTo"];
+                /** @description Sorted by the greatest timestamps */
+                sort?: components["parameters"]["ApiSortDesc"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Minimal).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyMinimal"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FactionCrimesResponse"];
+                };
+            };
+        };
+    };
+    b4867db9b02fa7dcd31b2073f2a936ce: {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Minimal).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyMinimal"];
+            };
+            header?: never;
+            path: {
+                /** @description Crime id */
+                crimeId: components["schemas"]["FactionCrimeId"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FactionCrimeResponse"];
+                };
+            };
+        };
+    };
+    e104b0b606664d06d9638111702301f3: {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FactionHofResponse"];
+                };
+            };
+        };
+    };
+    a775ca7831f4cad88c308be28f50e597: {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path: {
+                /** @description Faction id */
+                id: components["schemas"]["FactionId"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FactionHofResponse"];
+                };
+            };
+        };
+    };
+    "03d304564e4f84e3f258e5b8059bcc22": {
+        parameters: {
+            query?: {
+                /** @description Determines if fields include HTML or not ('Hospitalized by <a href=...>user</a>' vs 'Hospitalized by user'). */
+                striptags?: components["parameters"]["ApiStripTagsTrue"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FactionMembersResponse"];
+                };
+            };
+        };
+    };
+    "99a899c0094645475fd6254b423fea43": {
+        parameters: {
+            query?: {
+                /** @description Determines if fields include HTML or not ('Hospitalized by <a href=...>user</a>' vs 'Hospitalized by user'). */
+                striptags?: components["parameters"]["ApiStripTagsTrue"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path: {
+                /** @description Faction id */
+                id: components["schemas"]["FactionId"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FactionMembersResponse"];
+                };
+            };
+        };
+    };
+    "1da64889366de71140f2c15ad14b67b1": {
+        parameters: {
+            query: {
+                /** @description Determines if fields include HTML or not ('Hospitalized by <a href=...>user</a>' vs 'Hospitalized by user'). */
+                striptags?: components["parameters"]["ApiStripTagsFalse"];
+                limit?: components["parameters"]["ApiLimit100"];
+                /** @description Sorted by the greatest timestamps */
+                sort?: components["parameters"]["ApiSortDesc"];
+                /** @description Timestamp that sets the upper limit for the data returned. Data returned will be up to and including this time */
+                to?: components["parameters"]["ApiTo"];
+                /** @description Timestamp that sets the lower limit for the data returned. Data returned will be after this time */
+                from?: components["parameters"]["ApiFrom"];
+                /** @description News category type */
+                cat: components["schemas"]["FactionNewsCategory"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Minimal).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyMinimal"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FactionNewsResponse"];
+                };
+            };
+        };
+    };
+    "77dae3b930e2e2f9f7608567db0b94f4": {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Minimal).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyMinimal"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FactionPositionsResponse"];
+                };
+            };
+        };
+    };
+    f750d219e54329ae300c4db384dd5dcd: {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FactionRacketsResponse"];
+                };
+            };
+        };
+    };
+    "9a48477c16e86235efce00a11d56510f": {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path: {
+                /** @description Raid war id */
+                raidWarId: components["schemas"]["RaidWarId"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FactionRaidWarReportResponse"];
+                };
+            };
+        };
+    };
+    "6a2b0604d0ebe31933f93facfa69f171": {
+        parameters: {
+            query?: {
+                /** @description Timestamp that sets the lower limit for the data returned. Data returned will be after this time */
+                from?: components["parameters"]["ApiFrom"];
+                /** @description Timestamp that sets the upper limit for the data returned. Data returned will be up to and including this time */
+                to?: components["parameters"]["ApiTo"];
+                /** @description Sorted by the greatest timestamps */
+                sort?: components["parameters"]["ApiSortDesc"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FactionRaidsResponse"];
+                };
+            };
+        };
+    };
+    "67622543dbbc4857f1ea575be5af7fcd": {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path: {
+                /** @description Faction id */
+                id: components["schemas"]["FactionId"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FactionRaidsResponse"];
+                };
+            };
+        };
+    };
+    "4f5d624a86e2d389a7a738b6b3ce8c9e": {
+        parameters: {
+            query?: {
+                /**
+                 * @deprecated
+                 * @description This parameter is deprecated. The ranked wars list can now instead be fetched via 'faction' -> 'warfare' endpoint. This functionality will be removed on 1st of September 2025.
+                 */
+                cat?: components["schemas"]["FactionRankedWarsCategoryEnum"];
+                /** @description Timestamp that sets the lower limit for the data returned. Data returned will be after this time */
+                from?: components["parameters"]["ApiFrom"];
+                /** @description Timestamp that sets the upper limit for the data returned. Data returned will be up to and including this time */
+                to?: components["parameters"]["ApiTo"];
+                /** @description Sorted by the greatest timestamps */
+                sort?: components["parameters"]["ApiSortDesc"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FactionRankedWarResponse"];
+                };
+            };
+        };
+    };
+    "5b6646714e5ae1cc397bdec877f55691": {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path: {
+                /** @description Faction id */
+                id: components["schemas"]["FactionId"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FactionRankedWarResponse"];
+                };
+            };
+        };
+    };
+    db49842d88e193777dc695e54769113e: {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path: {
+                /** @description Ranked war id */
+                rankedWarId: components["schemas"]["RankedWarId"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FactionRankedWarReportResponse"];
+                };
+            };
+        };
+    };
+    e8bd37f10cc5e0e8d6694bb306f3a1e4: {
+        parameters: {
+            query?: {
+                /** @description Used to filter reports with a specific type. */
+                cat?: components["schemas"]["ReportTypeEnum"];
+                /** @description Get reports for a specific player by passing their player ID. */
+                target?: components["schemas"]["UserId"];
+                limit?: components["parameters"]["ApiLimit100Default20"];
+                offset?: components["parameters"]["ApiOffset"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Limited).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyLimited"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ReportsResponse"];
+                };
+            };
+        };
+    };
+    "486fcda26ed1aa6aba8ec7091080723b": {
+        parameters: {
+            query?: {
+                /** @description It's possible to use this query parameter to only get incoming or outgoing revives. If not specified, this selection will return both incoming and outgoing revives. */
+                filters?: "incoming" | "outgoing";
+                limit?: components["parameters"]["ApiLimit100"];
+                /** @description Sorted by the greatest timestamps */
+                sort?: components["parameters"]["ApiSortDesc"];
+                /** @description Timestamp that sets the upper limit for the data returned. Data returned will be up to and including this time */
+                to?: components["parameters"]["ApiTo"];
+                /** @description Timestamp that sets the lower limit for the data returned. Data returned will be after this time */
+                from?: components["parameters"]["ApiFrom"];
+                /** @description Determines if fields include HTML or not ('Hospitalized by <a href=...>user</a>' vs 'Hospitalized by user'). */
+                striptags?: components["parameters"]["ApiStripTagsTrue"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Limited).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyLimited"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RevivesResponse"];
+                };
+            };
+        };
+    };
+    f17a4064779e8de5200238816c233c02: {
+        parameters: {
+            query?: {
+                /** @description It's possible to use this query parameter to only get incoming or outgoing revives. If not specified, this selection will return both incoming and outgoing revives. */
+                filters?: "incoming" | "outgoing";
+                limit?: components["parameters"]["ApiLimit1000"];
+                /** @description Sorted by the greatest timestamps */
+                sort?: components["parameters"]["ApiSortDesc"];
+                /** @description Timestamp that sets the upper limit for the data returned. Data returned will be up to and including this time */
+                to?: components["parameters"]["ApiTo"];
+                /** @description Timestamp that sets the lower limit for the data returned. Data returned will be after this time */
+                from?: components["parameters"]["ApiFrom"];
+                /** @description Determines if fields include HTML or not ('Hospitalized by <a href=...>user</a>' vs 'Hospitalized by user'). */
+                striptags?: components["parameters"]["ApiStripTagsTrue"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Limited).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyLimited"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RevivesFullResponse"];
+                };
+            };
+        };
+    };
+    "01c192f9b41ce29372df54667bea2b43": {
+        parameters: {
+            query?: {
+                /** @description Name  to search for. */
+                name?: components["parameters"]["ApiName"];
+                /** @description A filtering query parameter allowing a comma-separated list of filters. <br>
+                 *      * Each filter can be one of the following:
+                 *      * Fixed options: 'destroyed', 'notDestroyed', 'recruiting', 'notRecruiting'
+                 *      * Dynamic options: `fieldName`+`condition`+`number`, where:
+                 *      * * `fieldName` is one of: `id`, `respect`, `members`
+                 *      * * `condition` is one of: `Equal`, `NotEqual`, `Less`, `LessOrEqual`, `GreaterOrEqual`, `Greater`
+                 *      * * `number`: any integer value
+                 *      * Examples: `filters=destroyed`, `filters=notDestroyed,recruiting`, `filters=respectLessOrEqual20000,idGreater100,notRecruiting` */
+                filters?: components["parameters"]["ApiFactionSearchFilter"];
+                limit?: components["parameters"]["ApiLimit50Default20"];
+                offset?: components["parameters"]["ApiOffset"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FactionSearchResponse"];
+                };
+            };
+        };
+    };
+    "806d9dc7e5fcf9e1ee9c3cdf7f035392": {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Minimal).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyMinimal"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FactionStatsResponse"];
+                };
+            };
+        };
+    };
+    fa6b3fbb14e5f3a71279b058bd751754: {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FactionTerritoriesResponse"];
+                };
+            };
+        };
+    };
+    "4dce518364dad91fb3503e0382adfadf": {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path: {
+                /** @description Faction id */
+                id: components["schemas"]["FactionId"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FactionTerritoriesResponse"];
+                };
+            };
+        };
+    };
+    bf56fb8aba4d6810e9b96402e25b931d: {
+        parameters: {
+            query?: {
+                offset?: components["parameters"]["ApiOffset"];
+                limit?: components["parameters"]["ApiLimit500Default20"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FactionTerritoriesOwnershipResponse"];
+                };
+            };
+        };
+    };
+    "0258963246159d1e3e54547c32aac7c8": {
+        parameters: {
+            query?: {
+                /**
+                 * @deprecated
+                 * @description This parameter is deprecated. The territory wars list can now instead be fetched via 'faction' -> 'warfare' endpoint. This functionality will be removed on 1st of September 2025.
+                 */
+                cat?: components["schemas"]["FactionTerritoryWarsCategoryEnum"];
+                /** @description Timestamp that sets the lower limit for the data returned. Data returned will be after this time */
+                from?: components["parameters"]["ApiFrom"];
+                /** @description Timestamp that sets the upper limit for the data returned. Data returned will be up to and including this time */
+                to?: components["parameters"]["ApiTo"];
+                /** @description Sorted by the greatest timestamps */
+                sort?: components["parameters"]["ApiSortDesc"];
+                limit?: components["parameters"]["ApiLimit100"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FactionTerritoryWarsResponse"];
+                };
+            };
+        };
+    };
+    "76ce672d50a66fc0a832f9088e5436af": {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path: {
+                /** @description Faction id */
+                id: components["schemas"]["FactionId"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FactionTerritoryWarsHistoryResponse"];
+                };
+            };
+        };
+    };
+    "4e8aeafde7b5fc9918d166cda150fa91": {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path: {
+                /** @description Territory war id */
+                territoryWarId: components["schemas"]["TerritoryWarId"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FactionTerritoryWarReportResponse"];
+                };
+            };
+        };
+    };
+    "959f415abf48cb753414cec179b1b039": {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Minimal).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyMinimal"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FactionUpgradesResponse"];
+                };
+            };
+        };
+    };
+    ae7f06db4618d3e7927fd700cfa58f16: {
+        parameters: {
+            query: {
+                cat: components["schemas"]["FactionWarfareTypeEnum"];
+                limit?: components["parameters"]["ApiLimit100"];
+                /** @description Sorted by the greatest timestamps */
+                sort?: components["parameters"]["ApiSort"];
+                /** @description Timestamp that sets the lower limit for the data returned. Data returned will be after this time */
+                from?: components["parameters"]["ApiFrom"];
+                /** @description Timestamp that sets the upper limit for the data returned. Data returned will be up to and including this time */
+                to?: components["parameters"]["ApiTo"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FactionWarfareResponse"];
+                };
+            };
+        };
+    };
+    b31cce9916e77431c08822844a0dbf2b: {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FactionWarsResponse"];
+                };
+            };
+        };
+    };
+    c370823454d5ea28fc0df9a5b6a24c54: {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path: {
+                /** @description Faction id */
+                id: components["schemas"]["FactionId"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FactionWarsResponse"];
+                };
+            };
+        };
+    };
+    "065bcbaa654fc44ce7b8ea574b84f7b9": {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FactionLookupResponse"];
+                };
+            };
+        };
+    };
+    "627df4d7d8b91c62dacb66ff373aab5c": {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TimestampResponse"];
+                };
+            };
+        };
+    };
+    dd89e28b1f1ed88853b09ecc982e4e66: {
+        parameters: {
+            query?: {
+                /** @description Selection names */
+                selections?: components["schemas"]["FactionSelectionName"][];
+                /** @description selection id */
+                id?: components["schemas"]["FactionId"] | components["schemas"]["FactionCrimeId"] | components["schemas"]["ChainId"] | components["schemas"]["RankedWarId"] | components["schemas"]["TerritoryWarId"] | components["schemas"]["RaidWarId"];
+                limit?: components["parameters"]["ApiLimit"];
+                /** @description Timestamp that sets the lower limit for the data returned. Data returned will be after this time */
+                from?: components["parameters"]["ApiFrom"];
+                /** @description Timestamp that sets the upper limit for the data returned. Data returned will be up to and including this time */
+                to?: components["parameters"]["ApiTo"];
+                /** @description Selection category */
+                cat?: ("all" | "current") | ("all" | "recruiting" | "planning" | "failure" | "successful" | "expired" | "available" | "completed") | components["schemas"]["FactionNewsCategory"] | components["schemas"]["FactionRankedWarsCategoryEnum"] | components["schemas"]["ReportTypeEnum"] | components["schemas"]["FactionWarfareTypeEnum"] | components["schemas"]["FactionTerritoryWarsCategoryEnum"];
+                /** @description Stat category */
+                stat?: components["schemas"]["FactionStatEnum"];
+                filters?: "created_at" | "executed_at" | "ready_at" | "expired_at";
+                /** @description Determines if fields include HTML or not ('Hospitalized by <a href=...>user</a>' vs 'Hospitalized by user'). */
+                striptags?: components["parameters"]["ApiStripTags"];
+                /** @description Sorted by the greatest timestamps */
+                sort?: components["parameters"]["ApiSort"];
+                offset?: components["parameters"]["ApiOffsetNoDefault"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FactionHofResponse"] | components["schemas"]["FactionMembersResponse"] | components["schemas"]["FactionBasicResponse"] | components["schemas"]["FactionWarsResponse"] | components["schemas"]["FactionNewsResponse"] | components["schemas"]["RevivesResponse"] | components["schemas"]["FactionTerritoryWarsHistoryResponse"] | components["schemas"]["FactionAttacksResponse"] | components["schemas"]["FactionBalanceResponse"] | components["schemas"]["FactionRaidWarReportResponse"] | components["schemas"]["FactionTerritoriesOwnershipResponse"] | components["schemas"]["FactionPositionsResponse"] | components["schemas"]["RevivesFullResponse"] | components["schemas"]["FactionAttacksFullResponse"] | components["schemas"]["FactionApplicationsResponse"] | components["schemas"]["FactionOngoingChainResponse"] | components["schemas"]["FactionChainsResponse"] | components["schemas"]["FactionChainReportResponse"] | components["schemas"]["FactionCrimesResponse"] | components["schemas"]["FactionCrimeResponse"] | components["schemas"]["FactionRaidsResponse"] | components["schemas"]["FactionWarfareResponse"] | components["schemas"]["FactionRankedWarReportResponse"] | components["schemas"]["FactionTerritoryWarReportResponse"] | components["schemas"]["FactionTerritoriesResponse"] | components["schemas"]["FactionUpgradesResponse"] | components["schemas"]["FactionStatsResponse"] | components["schemas"]["FactionTerritoryWarsResponse"] | components["schemas"]["FactionContributorsResponse"] | components["schemas"]["FactionRacketsResponse"] | components["schemas"]["FactionRankedWarResponse"] | components["schemas"]["FactionLookupResponse"] | components["schemas"]["TimestampResponse"];
+                };
+            };
+        };
+    };
+    "79b21191b87da275f3b87a7a1a233d04": {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ForumCategoriesResponse"];
+                };
+            };
+        };
+    };
+    "9c5eeb1aebb102b7c62fab11974c359a": {
+        parameters: {
+            query?: {
+                offset?: components["parameters"]["ApiOffsetNoDefault"];
+                /** @description Determines if fields include HTML or not ('Hospitalized by <a href=...>user</a>' vs 'Hospitalized by user'). */
+                striptags?: components["parameters"]["ApiStripTagsTrue"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path: {
+                /** @description Thread id */
+                threadId: components["schemas"]["ForumThreadId"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ForumPostsResponse"];
+                };
+            };
+        };
+    };
+    a4618a3901c01413c14b75e984495a9b: {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path: {
+                /** @description Thread id */
+                threadId: components["schemas"]["ForumThreadId"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ForumThreadResponse"];
+                };
+            };
+        };
+    };
+    d2d64a69cedfdce19a50eff117e2c166: {
+        parameters: {
+            query?: {
+                limit?: components["parameters"]["ApiLimit100"];
+                /** @description Sorted by the greatest timestamps */
+                sort?: components["parameters"]["ApiSort"];
+                /** @description Timestamp that sets the lower limit for the data returned. Data returned will be after this time */
+                from?: components["parameters"]["ApiFrom"];
+                /** @description Timestamp that sets the upper limit for the data returned. Data returned will be up to and including this time */
+                to?: components["parameters"]["ApiTo"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ForumThreadsResponse"];
+                };
+            };
+        };
+    };
+    "715cb3a4df0a9bf8094a53dc3259b633": {
+        parameters: {
+            query?: {
+                limit?: components["parameters"]["ApiLimit100"];
+                /** @description Sorted by the greatest timestamps */
+                sort?: components["parameters"]["ApiSort"];
+                /** @description Timestamp that sets the lower limit for the data returned. Data returned will be after this time */
+                from?: components["parameters"]["ApiFrom"];
+                /** @description Timestamp that sets the upper limit for the data returned. Data returned will be up to and including this time */
+                to?: components["parameters"]["ApiTo"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path: {
+                /** @description Category id or a list of category ids (comma separated) */
+                categoryIds: components["schemas"]["ForumId"][];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ForumThreadsResponse"];
+                };
+            };
+        };
+    };
+    f0805d0b7ad26c62ddd2fa8d0d332ba4: {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ForumLookupResponse"];
+                };
+            };
+        };
+    };
+    ec72c2a8cd96c88e4d228221bf6bf42f: {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TimestampResponse"];
+                };
+            };
+        };
+    };
+    "21915cf0228ce3677261cdce27fb39e2": {
+        parameters: {
+            query?: {
+                /** @description Selection names */
+                selections?: components["schemas"]["ForumSelectionName"][];
+                /** @description selection id */
+                id?: components["schemas"]["ForumThreadId"] | components["schemas"]["ForumId"][];
+                /** @description Determines if fields include HTML or not ('Hospitalized by <a href=...>user</a>' vs 'Hospitalized by user'). */
+                striptags?: components["parameters"]["ApiStripTags"];
+                limit?: components["parameters"]["ApiLimit"];
+                /** @description Sorted by the greatest timestamps */
+                sort?: components["parameters"]["ApiSort"];
+                /** @description Timestamp that sets the lower limit for the data returned. Data returned will be after this time */
+                from?: components["parameters"]["ApiFrom"];
+                /** @description Timestamp that sets the upper limit for the data returned. Data returned will be up to and including this time */
+                to?: components["parameters"]["ApiTo"];
+                offset?: components["parameters"]["ApiOffsetNoDefault"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ForumCategoriesResponse"] | components["schemas"]["ForumThreadsResponse"] | components["schemas"]["ForumThreadResponse"] | components["schemas"]["ForumPostsResponse"] | components["schemas"]["ForumLookupResponse"] | components["schemas"]["TimestampResponse"];
+                };
+            };
+        };
+    };
+    "0d6dae59c9b3419c18d2a4ca0da757e6": {
+        parameters: {
+            query?: {
+                limit?: components["parameters"]["ApiLimit100"];
+                offset?: components["parameters"]["ApiOffsetNoDefault"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["KeyLogResponse"];
+                };
+            };
+        };
+    };
+    e6d387f16971004628eeca2d6473f825: {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["KeyInfoResponse"];
+                };
+            };
+        };
+    };
+    c6ccbb0a05ebf3b307c82a4c89275e52: {
+        parameters: {
+            query?: {
+                /** @description Selection names */
+                selections?: components["schemas"]["KeySelectionName"][];
+                limit?: components["parameters"]["ApiLimit100"];
+                offset?: components["parameters"]["ApiOffsetNoDefault"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["KeyInfoResponse"] | components["schemas"]["KeyLogResponse"];
+                };
+            };
+        };
+    };
+    "422876deda064e2f3a2cc3c4bf6d73a9": {
+        parameters: {
+            query?: {
+                /** @description Category of specialized bazaars returned */
+                cat?: components["schemas"]["MarketSpecializedBazaarCategoryEnum"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["BazaarResponse"];
+                };
+            };
+        };
+    };
+    "8254489388603bf1b21740e6f71bef06": {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path: {
+                /** @description Item id */
+                id: components["schemas"]["ItemId"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["BazaarResponseSpecialized"];
+                };
+            };
+        };
+    };
+    f535a33bf405e7bd60918e536f827e5c: {
+        parameters: {
+            query?: {
+                /** @description Used to filter weapons with a specific bonus. */
+                bonus?: components["schemas"]["WeaponBonusEnum"];
+                offset?: components["parameters"]["ApiOffset"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path: {
+                /** @description Item id */
+                id: components["schemas"]["ItemId"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MarketItemMarketResponse"];
+                };
+            };
+        };
+    };
+    "17e406574ff1eb686891c0fb0e15343a": {
+        parameters: {
+            query?: {
+                offset?: components["parameters"]["ApiOffset"];
+                limit?: components["parameters"]["ApiLimit100Default20"];
+                /** @description Sorted by the greatest timestamps */
+                sort?: components["parameters"]["ApiSort"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path: {
+                /** @description Property type id */
+                propertyTypeId: components["schemas"]["PropertyTypeId"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MarketPropertiesResponse"];
+                };
+            };
+        };
+    };
+    "38cd1a2c47e266a703a13e0dd401f4a9": {
+        parameters: {
+            query?: {
+                offset?: components["parameters"]["ApiOffset"];
+                limit?: components["parameters"]["ApiLimit100Default20"];
+                /** @description Sorted by the greatest timestamps */
+                sort?: components["parameters"]["ApiSort"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path: {
+                /** @description Property type id */
+                propertyTypeId: components["schemas"]["PropertyTypeId"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MarketRentalsResponse"];
+                };
+            };
+        };
+    };
+    "22a00095ad734485b6dacdc12c1f62ff": {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MarketLookupResponse"];
+                };
+            };
+        };
+    };
+    ad0c908328835d9672d157fe84eac884: {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TimestampResponse"];
+                };
+            };
+        };
+    };
+    "8e78be3fa3d353f59f8654fcc1c2199c": {
+        parameters: {
+            query?: {
+                /** @description Selection names */
+                selections?: components["schemas"]["MarketSelectionName"][];
+                /** @description selection id */
+                id?: components["schemas"]["ItemId"] | components["schemas"]["PropertyTypeId"];
+                /** @description Category of specialized bazaars returned */
+                cat?: components["schemas"]["MarketSpecializedBazaarCategoryEnum"];
+                /** @description Used to filter weapons with a specific bonus */
+                bonus?: components["schemas"]["WeaponBonusEnum"];
+                /** @description Direction to sort rows in */
+                sort?: "DESC" | "ASC";
+                offset?: components["parameters"]["ApiOffsetNoDefault"];
+                limit?: components["parameters"]["ApiLimit100Default20"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["BazaarResponse"] | components["schemas"]["BazaarResponseSpecialized"] | components["schemas"]["MarketItemMarketResponse"] | components["schemas"]["MarketRentalsResponse"] | components["schemas"]["MarketPropertiesResponse"] | components["schemas"]["MarketLookupResponse"] | components["schemas"]["TimestampResponse"];
+                };
+            };
+        };
+    };
+    ab5b44b00bf70d7a8587a3c2c9deeb17: {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RacingCarsResponse"];
+                };
+            };
+        };
+    };
+    c9e76cf48aa3c4bac4c8b33f1c0c9a17: {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RacingCarUpgradesResponse"];
+                };
+            };
+        };
+    };
+    "4be921a67d32b5e82c68835ef56175d0": {
+        parameters: {
+            query?: {
+                limit?: components["parameters"]["ApiLimit100"];
+                /** @description Sorted by the greatest timestamps */
+                sort?: components["parameters"]["ApiSortDesc"];
+                /** @description Timestamp that sets the upper limit for the data returned. Data returned will be up to and including this time */
+                to?: components["parameters"]["ApiTo"];
+                /** @description Timestamp that sets the lower limit for the data returned. Data returned will be after this time */
+                from?: components["parameters"]["ApiFrom"];
+                /** @description Category of races returned */
+                cat?: components["schemas"]["RacingRaceTypeEnum"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RacingRacesResponse"];
+                };
+            };
+        };
+    };
+    "76925256951bb63fd28534c8c479b27b": {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path: {
+                /** @description Race id */
+                raceId: components["schemas"]["RaceId"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RacingRaceDetailsResponse"];
+                };
+            };
+        };
+    };
+    "5fbc62db3b9380b155d7e33100620da7": {
+        parameters: {
+            query: {
+                /** @description Car class */
+                cat: components["schemas"]["RaceClassEnum"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path: {
+                /** @description Track id */
+                trackId: components["schemas"]["RaceTrackId"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RacingTrackRecordsResponse"];
+                };
+            };
+        };
+    };
+    "6e4507cc442d6f099d0170b78a35bf8d": {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RacingTracksResponse"];
+                };
+            };
+        };
+    };
+    "8bd16be9aa517fedf717c9a79ff47e2c": {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RacingLookupResponse"];
+                };
+            };
+        };
+    };
+    eb1ae216aa2949a8db0702df474d174c: {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TimestampResponse"];
+                };
+            };
+        };
+    };
+    "39b8ce36e3fffc9e2aa1d0aed9ebccda": {
+        parameters: {
+            query?: {
+                /** @description Selection names */
+                selections?: components["schemas"]["RacingSelectionName"][];
+                /** @description selection id */
+                id?: components["schemas"]["RaceId"] | components["schemas"]["RaceTrackId"];
+                limit?: components["parameters"]["ApiLimit"];
+                /** @description Sorted by the greatest timestamps */
+                sort?: components["parameters"]["ApiSort"];
+                /** @description Timestamp that sets the upper limit for the data returned. Data returned will be up to and including this time */
+                to?: components["parameters"]["ApiTo"];
+                /** @description Timestamp that sets the lower limit for the data returned. Data returned will be after this time */
+                from?: components["parameters"]["ApiFrom"];
+                /** @description Selection category */
+                cat?: components["schemas"]["RacingRaceTypeEnum"] | components["schemas"]["RaceClassEnum"];
+                offset?: components["parameters"]["ApiOffsetNoDefault"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RacingRacesResponse"] | components["schemas"]["RacingTrackRecordsResponse"] | components["schemas"]["RacingRaceDetailsResponse"] | components["schemas"]["RacingCarsResponse"] | components["schemas"]["RacingTracksResponse"] | components["schemas"]["RacingCarUpgradesResponse"] | components["schemas"]["RacingLookupResponse"] | components["schemas"]["TimestampResponse"];
+                };
+            };
+        };
+    };
+    "87bd73ddaf3749bce7cbf5aa28e921e2": {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path: {
+                /** @description Property id */
+                id: components["schemas"]["PropertyId"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PropertyPropertyResponse"];
+                };
+            };
+        };
+    };
+    "87fe6e3a7ec186e108922fed781c8d6d": {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PropertyLookupResponse"];
+                };
+            };
+        };
+    };
+    "423c130a5cdf6bc801c42537c07fddec": {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TimestampResponse"];
+                };
+            };
+        };
+    };
+    "2a45b6d9d77224d9a1e13d0b698f6c4b": {
+        parameters: {
+            query: {
+                /** @description Selection names */
+                selections?: components["schemas"]["PropertySelectionName"][];
+                /** @description Property id */
+                id: components["schemas"]["PropertyId"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UserPropertyResponse"] | components["schemas"]["PropertyLookupResponse"] | components["schemas"]["TimestampResponse"];
+                };
+            };
+        };
+    };
+    "61c2d0bc6980cf8d730fe48eb81f417b": {
+        parameters: {
+            query: {
+                /** @description Code of the attack log. E.g. d51ad4fe6be884b309b142e2d1d4f807 */
+                log: components["schemas"]["AttackCode"];
+                offset?: components["parameters"]["ApiOffset"];
+                /** @description Sorted by the greatest timestamps */
+                sort?: components["parameters"]["ApiSort"];
+                /** @description Determines if fields include HTML or not ('Hospitalized by <a href=...>user</a>' vs 'Hospitalized by user'). */
+                striptags?: components["parameters"]["ApiStripTagsTrue"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AttackLogResponse"];
+                };
+            };
+        };
+    };
+    "279e811630fa497fb2cae268c70992e2": {
+        parameters: {
+            query?: {
+                limit?: components["parameters"]["ApiLimit100"];
+                offset?: components["parameters"]["ApiOffset"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TornBountiesResponse"];
+                };
+            };
+        };
+    };
+    e95c96ef528248341647a5704630320e: {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Success */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TornCalendarResponse"];
+                };
+            };
+        };
+    };
+    b73ff4e5a9dd28905060da24ca76efde: {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TornCrimesResponse"];
+                };
+            };
+        };
+    };
+    "992f8b71435ca78ba96f1e5298c25152": {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TornEducationResponse"];
+                };
+            };
+        };
+    };
+    "2a67e4b84813ee97a398be48e544abf5": {
+        parameters: {
+            query: {
+                limit?: components["parameters"]["ApiLimit100"];
+                offset?: components["parameters"]["ApiOffset"];
+                /** @description Leaderboards category */
+                cat: components["schemas"]["TornFactionHofCategory"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TornFactionHofResponse"];
+                };
+            };
+        };
+    };
+    f45431b364546bb20b0ca909e9ac686e: {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TornFactionTreeResponse"];
+                };
+            };
+        };
+    };
+    "911d56b49218cef2102be3de73f82f01": {
+        parameters: {
+            query: {
+                limit?: components["parameters"]["ApiLimit100"];
+                offset?: components["parameters"]["ApiOffset"];
+                /** @description Leaderboards category */
+                cat: components["schemas"]["TornHofCategory"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TornHofResponse"];
+                };
+            };
+        };
+    };
+    "2e799e84fcfa9b722f856e859df909f8": {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TornItemAmmoResponse"];
+                };
+            };
+        };
+    };
+    "80ad6ebd50b6c075427c04d2f54d7af5": {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TornItemModsResponse"];
+                };
+            };
+        };
+    };
+    "0f4c4c07e1dfacbda689b2a0d62ccda4": {
+        parameters: {
+            query?: {
+                /** @description Item category type */
+                cat?: components["schemas"]["TornItemCategory"];
+                /** @description Sort rows from newest to oldest<br>Default ordering is ascending */
+                sort?: components["parameters"]["ApiSortAsc"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TornItemsResponse"];
+                };
+            };
+        };
+    };
+    a4fedadcac3aada40131288e4e3d6c2d: {
+        parameters: {
+            query?: {
+                /** @description Sort rows from newest to oldest<br>Default ordering is ascending */
+                sort?: components["parameters"]["ApiSortAsc"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path: {
+                /** @description Item id or a list of item ids (comma separated) */
+                ids: components["schemas"]["ItemId"][];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TornItemsResponse"];
+                };
+            };
+        };
+    };
+    "2f68d7e04d218e26005be3eeca6de583": {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TornLogCategoriesResponse"];
+                };
+            };
+        };
+    };
+    d4cb87bc2502a517c49525b910a6dd82: {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TornLogTypesResponse"];
+                };
+            };
+        };
+    };
+    "7be904fbcb98a7bb724f0c5b02a37a25": {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path: {
+                /** @description Log category id */
+                logCategoryId: components["schemas"]["LogCategoryId"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TornLogTypesResponse"];
+                };
+            };
+        };
+    };
+    b64b8cf22cd9e9c8916bc01439f6b069: {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TornOrganizedCrimeResponse"];
+                };
+            };
+        };
+    };
+    c44f572f4672071280a28e6f8217c3b6: {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TornProperties"];
+                };
+            };
+        };
+    };
+    ad45b0f57a1109977f605581fc294bda: {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path: {
+                /** @description Crime id */
+                crimeId: components["schemas"]["TornCrimeId"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TornSubcrimesResponse"];
+                };
+            };
+        };
+    };
+    "37f1828422f3080da21f9eb4aa576686": {
+        parameters: {
+            query?: {
+                /** @description Specific territory id or a list of territory ids (comma separated) */
+                ids?: components["schemas"]["FactionTerritoryEnum"][];
+                offset?: components["parameters"]["ApiOffset"];
+                limit?: components["parameters"]["ApiLimit250Default20"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TornTerritoriesResponse"];
+                };
+            };
+        };
+    };
+    "2baae03f953cd57fd5303dd1d04efae0": {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TornLookupResponse"];
+                };
+            };
+        };
+    };
+    "6f8cffcdae9fe97110b8d46c3991f109": {
+        parameters: {
+            query?: {
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TimestampResponse"];
+                };
+            };
+        };
+    };
+    "1846c4cf1e6878553e36571dc9cac29f": {
+        parameters: {
+            query?: {
+                /** @description Selection names */
+                selections?: components["schemas"]["TornSelectionName"][];
+                /** @description selection id */
+                id?: components["schemas"]["LogCategoryId"] | components["schemas"]["TornCrimeId"] | components["schemas"]["ItemId"][] | components["schemas"]["FactionTerritoryEnum"][];
+                /** @description Determines if fields include HTML or not ('Hospitalized by <a href=...>user</a>' vs 'Hospitalized by user'). */
+                striptags?: components["parameters"]["ApiStripTags"];
+                limit?: components["parameters"]["ApiLimit"];
+                /** @description Timestamp that sets the upper limit for the data returned. Data returned will be up to and including this time */
+                to?: components["parameters"]["ApiTo"];
+                /** @description Timestamp that sets the lower limit for the data returned. Data returned will be after this time */
+                from?: components["parameters"]["ApiFrom"];
+                /** @description Sorted by the greatest timestamps */
+                sort?: components["parameters"]["ApiSort"];
+                /** @description Selection category */
+                cat?: components["schemas"]["TornFactionHofCategory"] | components["schemas"]["TornHofCategory"] | components["schemas"]["TornItemCategory"];
+                offset?: components["parameters"]["ApiOffsetNoDefault"];
+                /** @description Timestamp to bypass cache */
+                timestamp?: components["parameters"]["ApiTimestamp"];
+                /** @description Comment for your tool/service/bot/website to be visible in the logs. */
+                comment?: components["parameters"]["ApiComment"];
+                /** @description API key (Public).<br>It's not required to use this parameter when passing the API key via the Authorization header. */
+                key?: components["parameters"]["ApiKeyPublic"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful operation */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TornSubcrimesResponse"] | components["schemas"]["TornCrimesResponse"] | components["schemas"]["TornCalendarResponse"] | components["schemas"]["TornHofResponse"] | components["schemas"]["TornFactionHofResponse"] | components["schemas"]["TornLogTypesResponse"] | components["schemas"]["TornItemsResponse"] | components["schemas"]["TornLogCategoriesResponse"] | components["schemas"]["TornEducationResponse"] | components["schemas"]["TornBountiesResponse"] | components["schemas"]["TornItemAmmoResponse"] | components["schemas"]["TornProperties"] | components["schemas"]["TornFactionTreeResponse"] | components["schemas"]["AttackLogResponse"] | components["schemas"]["TornTerritoriesResponse"] | components["schemas"]["TornTerritoriesNoLinksResponse"] | components["schemas"]["TornItemModsResponse"] | components["schemas"]["TornLookupResponse"] | components["schemas"]["TimestampResponse"];
+                };
+            };
+        };
+    };
+}
