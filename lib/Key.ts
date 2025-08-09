@@ -15,8 +15,8 @@ export class ApiKey extends TornAPIBase {
      * 
      * @returns The requested information about the key.
      */
-    async key(selection: KeySelectionName, limit?: number, offset?: number): Promise<Errorable<KeyInfoResponse | KeyLogResponse>> {
-        return this.apiQueryV2({ route: 'key', selection: selection, limit: limit, offset: offset });
+    async key(selection: KeySelectionName[], limit?: number, offset?: number): Promise<Errorable<KeyInfoResponse | KeyLogResponse>> {
+        return this.apiQueryV2({ route: 'key', selection: selection.join(','), limit: limit, offset: offset });
     }
 
     /**

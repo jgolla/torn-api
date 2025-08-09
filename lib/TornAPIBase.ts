@@ -52,9 +52,13 @@ export abstract class TornAPIBase {
                 if (params.jsonOverride) {
                     jsonSelection = response.data[params.jsonOverride];
                 } else if (params.selection) {
-                    jsonSelection = response.data[params.selection];
+                    if(params.selection.includes(',')) {
+                       jsonSelection = response.data;
+                    }else {
+                        jsonSelection = response.data[params.selection];
+                    }
                 }
-
+                
                 if (jsonSelection) {
                     return jsonSelection;
                 } else {
