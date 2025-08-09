@@ -4,7 +4,7 @@ import sinon from 'sinon';
 
 import { TornAPI } from '../lib';
 import { TestHelper } from './utils/TestUtils';
-import { Race, RaceCar, RaceCarUpgrade, RaceRecord, RaceTrack, RacingLookupResponse } from '../lib/Interfaces';
+import { Race, RaceCar, RaceCarUpgrade, RaceRecord, RaceTrack, RacingSelectionName } from '../lib/Interfaces';
 
 describe('Racing API', () => {
     let torn: TornAPI;
@@ -100,7 +100,7 @@ describe('Racing API', () => {
         const initialReturn = await torn.racing.lookup();
         expect(TornAPI.isError(initialReturn)).to.be.false;
 
-        const castedReturn = initialReturn as RacingLookupResponse; // Adjust type as needed
+        const castedReturn = initialReturn as RacingSelectionName[];
 
         // spot check one
         expect(castedReturn.length).to.equal(8);
